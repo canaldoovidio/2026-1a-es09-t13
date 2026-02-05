@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visões de Arquitetura de Sistemas Distribuídos | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 30</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13</span>
+                </div>
+                <h1 class="cover-title">Visões de Arquitetura de Sistemas Distribuídos</h1>
+                <h2 class="cover-subtitle">Sob o ponto de vista de TDD<br>(RM-ODP e Cenários de Arquitetura as Code)
+                </h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Fevereiro de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <svg viewBox="0 0 100 40" class="logo-svg">
+                                <circle cx="10" cy="10" r="3" fill="#ff4545" />
+                                <circle cx="20" cy="8" r="3" fill="#ff4545" />
+                                <circle cx="15" cy="18" r="3" fill="#ff4545" />
+                                <circle cx="25" cy="15" r="3" fill="#ff4545" />
+                                <circle cx="8" cy="20" r="3" fill="#ff4545" />
+                                <text x="35" y="22" font-family="Manrope" font-weight="700" font-size="16"
+                                    fill="#2e2640">inteli</text>
+                            </svg>
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <div class="objective-text">
+                        <h3>Revisar e Aplicar</h3>
+                        <p>O conceito das visões de arquitetura de sistema, direcionado pelo Negócio</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <div class="objective-text">
+                        <h3>Aplicar Fluxos Críticos</h3>
+                        <p>Como elemento de arquitetura não funcional associados a regras de negócio, volumetria,
+                            segurança, integração e custos</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <div class="objective-text">
+                        <h3>Exercitar na Prática</h3>
+                        <p>Como elementos arquiteturais se conectam do negócio para requisitos, e com a solução de
+                            engenharia até a implementação</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: AGENDA -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Agenda da Aula</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">15 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Abertura e Conexão</h3>
+                            <p>Quiz de aquecimento sobre autoestudos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">20 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Revisão Conceitual</h3>
+                            <p>RM-ODP e as 5 visões de arquitetura</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">20 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Business Drivers</h3>
+                            <p>Fluxos críticos e mapeamento em grupos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">25 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Arquitetura as Code</h3>
+                            <p>Cenários de arquitetura como testes</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">15 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Integração e Síntese</h3>
+                            <p>Mapa mental colaborativo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Encerramento</h3>
+                            <p>Resumo e próximos passos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: QUIZ AQUECIMENTO -->
+        <section class="slide slide-activity" data-slide="4">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE INTERATIVA</span>
+                <h2 class="slide-title">Quiz de Aquecimento</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-q1">
+                    <h3 class="question-text">Quantas visões o RM-ODP (ISO/IEC 10746) define para sistemas distribuídos?
+                    </h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">3 visões</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">4 visões</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">5 visões</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">6 visões</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-q1"></div>
+                </div>
+            </div>
+            <div class="quiz-progress">
+                <span>Pergunta 1 de 3</span>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: QUIZ PERGUNTA 2 -->
+        <section class="slide slide-activity" data-slide="5">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE INTERATIVA</span>
+                <h2 class="slide-title">Quiz de Aquecimento</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-q2">
+                    <h3 class="question-text">Qual visão do RM-ODP foca no propósito, escopo e políticas do sistema?
+                    </h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Enterprise Viewpoint</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Information Viewpoint</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Computational Viewpoint</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Technology Viewpoint</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-q2"></div>
+                </div>
+            </div>
+            <div class="quiz-progress">
+                <span>Pergunta 2 de 3</span>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: QUIZ PERGUNTA 3 -->
+        <section class="slide slide-activity" data-slide="6">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE INTERATIVA</span>
+                <h2 class="slide-title">Quiz de Aquecimento</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-q3">
+                    <h3 class="question-text">O que são Business Drivers em arquitetura de software?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Linguagens de programação utilizadas</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Objetivos e restrições de negócio que direcionam decisões
+                                arquiteturais</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Ferramentas de desenvolvimento</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Padrões de design de código</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-q3"></div>
+                </div>
+            </div>
+            <div class="quiz-progress">
+                <span>Pergunta 3 de 3</span>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: CONTEXTO ASIS -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <h2 class="slide-title">Contexto: O Desafio da ASIS</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">business</span>
+                        </div>
+                        <h3>ASIS by Sankhya</h3>
+                        <p>Primeira Tax Tech da América Latina, atuando em um mercado com <strong>4.500
+                                TaxTechs</strong>. A complexidade tributária brasileira exige robustez extrema.</p>
+                    </div>
+                    <div class="context-card highlight">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">api</span>
+                        </div>
+                        <h3>Arquitetura API First</h3>
+                        <p>A API é o principal contrato e ponto de acesso à lógica de negócios. Garantir cobertura de
+                            testes automatizada é <strong>crucial</strong>.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box">
+                        <h3>O Problema</h3>
+                        <p>Não é apenas a <strong>quantidade</strong> de código testado, mas sim a <strong>qualidade e
+                                relevância</strong> dessa cobertura.</p>
+                        <div class="challenge-question">
+                            <span class="material-icons-outlined">help_outline</span>
+                            <span>Por que precisamos de visões arquiteturais?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: RM-ODP OVERVIEW -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">REVISÃO CONCEITUAL</span>
+                <h2 class="slide-title">RM-ODP: As 5 Visões de Arquitetura</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="rm-odp-diagram">
+                    <div class="diagram-center">
+                        <div class="system-core">
+                            <span>Sistema &amp;</span>
+                            <span>Ambiente</span>
+                        </div>
+                    </div>
+                    <div class="viewpoint-card vp-enterprise" onclick="showViewpointDetail('enterprise')">
+                        <div class="vp-icon">
+                            <span class="material-icons-outlined">corporate_fare</span>
+                        </div>
+                        <h4>Enterprise</h4>
+                        <p>Propósito e Políticas</p>
+                    </div>
+                    <div class="viewpoint-card vp-information" onclick="showViewpointDetail('information')">
+                        <div class="vp-icon">
+                            <span class="material-icons-outlined">dataset</span>
+                        </div>
+                        <h4>Information</h4>
+                        <p>Semântica dos Dados</p>
+                    </div>
+                    <div class="viewpoint-card vp-computational" onclick="showViewpointDetail('computational')">
+                        <div class="vp-icon">
+                            <span class="material-icons-outlined">memory</span>
+                        </div>
+                        <h4>Computational</h4>
+                        <p>Decomposição Funcional</p>
+                    </div>
+                    <div class="viewpoint-card vp-engineering" onclick="showViewpointDetail('engineering')">
+                        <div class="vp-icon">
+                            <span class="material-icons-outlined">engineering</span>
+                        </div>
+                        <h4>Engineering</h4>
+                        <p>Mecanismos de Distribuição</p>
+                    </div>
+                    <div class="viewpoint-card vp-technology" onclick="showViewpointDetail('technology')">
+                        <div class="vp-icon">
+                            <span class="material-icons-outlined">dns</span>
+                        </div>
+                        <h4>Technology</h4>
+                        <p>Escolha Tecnológica</p>
+                    </div>
+                </div>
+                <p class="diagram-hint">Clique em cada visão para ver detalhes</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: ENTERPRISE VIEWPOINT -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="viewpoint-tag enterprise">ENTERPRISE VIEWPOINT</span>
+                <h2 class="slide-title">Visão de Negócio</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body viewpoint-detail">
+                <div class="vp-main">
+                    <div class="vp-description">
+                        <h3>Foco</h3>
+                        <p>Propósito, escopo e políticas do sistema. Descreve os <strong>requisitos de negócio</strong>
+                            e como atendê-los.</p>
+                        <h3>Perguntas-chave</h3>
+                        <ul>
+                            <li>Por que o sistema existe?</li>
+                            <li>Quais são os objetivos de negócio?</li>
+                            <li>Quem são os stakeholders?</li>
+                            <li>Quais políticas governam o sistema?</li>
+                        </ul>
+                    </div>
+                    <div class="vp-example">
+                        <h3>Exemplo ASIS</h3>
+                        <div class="example-box">
+                            <p><strong>Objetivo:</strong> Construir um sistema digital resiliente com qualidade como
+                                ativo de software</p>
+                            <p><strong>Stakeholders:</strong> Clientes (empresas), Fisco, Equipe de desenvolvimento</p>
+                            <p><strong>Política:</strong> Compliance tributário 100%, disponibilidade 99.9%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: INFORMATION VIEWPOINT -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <span class="viewpoint-tag information">INFORMATION VIEWPOINT</span>
+                <h2 class="slide-title">Visão de Informação</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body viewpoint-detail">
+                <div class="vp-main">
+                    <div class="vp-description">
+                        <h3>Foco</h3>
+                        <p>Semântica da informação e processamento de dados. Descreve a <strong>informação
+                                gerenciada</strong> pelo sistema.</p>
+                        <h3>Perguntas-chave</h3>
+                        <ul>
+                            <li>Quais dados o sistema manipula?</li>
+                            <li>Qual a estrutura e tipos dos dados?</li>
+                            <li>Como os dados se relacionam?</li>
+                            <li>Quais são as regras de integridade?</li>
+                        </ul>
+                    </div>
+                    <div class="vp-example">
+                        <h3>Exemplo ASIS</h3>
+                        <div class="example-box">
+                            <p><strong>Dados:</strong> Notas fiscais, cálculos tributários, cadastros de empresas</p>
+                            <p><strong>Estrutura:</strong> Schemas XML/JSON conforme padrões SPED</p>
+                            <p><strong>Integridade:</strong> Validação de CNPJ, consistência de valores</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: COMPUTATIONAL VIEWPOINT -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="viewpoint-tag computational">COMPUTATIONAL VIEWPOINT</span>
+                <h2 class="slide-title">Visão Computacional</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body viewpoint-detail">
+                <div class="vp-main">
+                    <div class="vp-description">
+                        <h3>Foco</h3>
+                        <p>Decomposição funcional do sistema em objetos que interagem via interfaces. Descreve a
+                            <strong>funcionalidade</strong> fornecida.
+                        </p>
+                        <h3>Perguntas-chave</h3>
+                        <ul>
+                            <li>Quais são os componentes funcionais?</li>
+                            <li>Como os componentes interagem?</li>
+                            <li>Quais são as interfaces (APIs)?</li>
+                            <li>Quais operações cada componente oferece?</li>
+                        </ul>
+                    </div>
+                    <div class="vp-example">
+                        <h3>Exemplo ASIS</h3>
+                        <div class="example-box">
+                            <p><strong>Componentes:</strong> Serviço de Cálculo, Serviço de Validação, Gateway de
+                                Integração</p>
+                            <p><strong>Interfaces:</strong> REST APIs documentadas (OpenAPI)</p>
+                            <p><strong>Operações:</strong> calcularImposto(), validarNota(), enviarSPED()</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: ENGINEERING VIEWPOINT -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <span class="viewpoint-tag engineering">ENGINEERING VIEWPOINT</span>
+                <h2 class="slide-title">Visão de Engenharia</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body viewpoint-detail">
+                <div class="vp-main">
+                    <div class="vp-description">
+                        <h3>Foco</h3>
+                        <p>Mecanismos e funções para suportar interações distribuídas. Descreve a <strong>distribuição
+                                do processamento</strong>.</p>
+                        <h3>Perguntas-chave</h3>
+                        <ul>
+                            <li>Como os componentes são distribuídos?</li>
+                            <li>Quais mecanismos de comunicação?</li>
+                            <li>Como garantir transparência de distribuição?</li>
+                            <li>Qual a estratégia de escalabilidade?</li>
+                        </ul>
+                    </div>
+                    <div class="vp-example">
+                        <h3>Exemplo ASIS</h3>
+                        <div class="example-box">
+                            <p><strong>Distribuição:</strong> Microserviços em containers Kubernetes</p>
+                            <p><strong>Comunicação:</strong> REST síncrono + Filas assíncronas</p>
+                            <p><strong>Escalabilidade:</strong> Auto-scaling horizontal por demanda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: TECHNOLOGY VIEWPOINT -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="viewpoint-tag technology">TECHNOLOGY VIEWPOINT</span>
+                <h2 class="slide-title">Visão Tecnológica</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body viewpoint-detail">
+                <div class="vp-main">
+                    <div class="vp-description">
+                        <h3>Foco</h3>
+                        <p>Escolha de tecnologias para implementar o sistema. Descreve as <strong>tecnologias
+                                escolhidas</strong> para processamento e apresentação.</p>
+                        <h3>Perguntas-chave</h3>
+                        <ul>
+                            <li>Quais linguagens e frameworks?</li>
+                            <li>Quais bancos de dados?</li>
+                            <li>Qual infraestrutura de cloud?</li>
+                            <li>Quais ferramentas de DevOps?</li>
+                        </ul>
+                    </div>
+                    <div class="vp-example">
+                        <h3>Exemplo ASIS</h3>
+                        <div class="example-box">
+                            <p><strong>Backend:</strong> Java/Spring Boot, Node.js</p>
+                            <p><strong>Dados:</strong> PostgreSQL, Redis, Elasticsearch</p>
+                            <p><strong>Infra:</strong> AWS/Azure, Docker, Kubernetes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: ISO 25010 -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <h2 class="slide-title">ISO/IEC 25010: Qualidade de Software</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="quality-grid">
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <h4>Functional Suitability</h4>
+                        <p>Completude, correção e adequação funcional</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">speed</span>
+                        <h4>Performance Efficiency</h4>
+                        <p>Tempo, recursos e capacidade</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">sync_alt</span>
+                        <h4>Compatibility</h4>
+                        <p>Coexistência e interoperabilidade</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">touch_app</span>
+                        <h4>Interaction Capability</h4>
+                        <p>Usabilidade e acessibilidade</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">verified</span>
+                        <h4>Reliability</h4>
+                        <p>Maturidade, disponibilidade, tolerância</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">security</span>
+                        <h4>Security</h4>
+                        <p>Confidencialidade, integridade, autenticidade</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">build</span>
+                        <h4>Maintainability</h4>
+                        <p>Modularidade, testabilidade, modificabilidade</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">tune</span>
+                        <h4>Flexibility</h4>
+                        <p>Adaptabilidade e escalabilidade</p>
+                    </div>
+                    <div class="quality-card">
+                        <span class="material-icons-outlined">health_and_safety</span>
+                        <h4>Safety</h4>
+                        <p>Operação segura e identificação de riscos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: BUSINESS DRIVERS -->
+        <section class="slide slide-section" data-slide="15">
+            <div class="section-content">
+                <span class="section-number">PARTE 3</span>
+                <h2 class="section-title">Business Drivers como Arquitetura</h2>
+                <p class="section-description">Conectando objetivos de negócio com decisões técnicas</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: O QUE SÃO BUSINESS DRIVERS -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <h2 class="slide-title">O que são Business Drivers?</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="definition-box">
+                    <span class="definition-icon material-icons-outlined">lightbulb</span>
+                    <div class="definition-content">
+                        <h3>Definição</h3>
+                        <p><strong>Business Drivers</strong> são os objetivos estratégicos, restrições e necessidades de
+                            negócio que direcionam as decisões arquiteturais de um sistema.</p>
+                    </div>
+                </div>
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">trending_up</span>
+                        <div>
+                            <h4>Crescimento</h4>
+                            <p>Suportar 10x mais usuários em 2 anos</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">gavel</span>
+                        <div>
+                            <h4>Compliance</h4>
+                            <p>Atender regulamentações LGPD e SPED</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">attach_money</span>
+                        <div>
+                            <h4>Custo</h4>
+                            <p>Reduzir custos de infraestrutura em 30%</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">schedule</span>
+                        <div>
+                            <h4>Time-to-Market</h4>
+                            <p>Lançar novas features em 2 semanas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: FLUXOS CRÍTICOS -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <h2 class="slide-title">Fluxos Críticos de Negócio</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition">
+                    <p>Um <strong>fluxo crítico</strong> é uma sequência de operações que representa uma jornada
+                        essencial do usuário ou processo de negócio, com impacto direto na receita, compliance ou
+                        experiência do cliente.</p>
+                </div>
+                <div class="flow-elements">
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">analytics</span>
+                        </div>
+                        <h4>Volumetria</h4>
+                        <p>Quantidade de transações esperadas por período</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">lock</span>
+                        </div>
+                        <h4>Segurança</h4>
+                        <p>Requisitos de autenticação e autorização</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">hub</span>
+                        </div>
+                        <h4>Integração</h4>
+                        <p>Dependências de sistemas externos</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">payments</span>
+                        </div>
+                        <h4>Custos</h4>
+                        <p>Recursos computacionais necessários</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">block</span>
+                        </div>
+                        <h4>Restrições</h4>
+                        <p>Limitações técnicas e regulatórias</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: ATIVIDADE MAPEAMENTO -->
+        <section class="slide slide-activity" data-slide="18">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE EM GRUPO</span>
+                <h2 class="slide-title">Mapeamento de Fluxos Críticos</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body activity-instructions">
+                <div class="timer-container">
+                    <div class="timer" id="timer1">
+                        <span class="timer-value">10:00</span>
+                        <span class="timer-label">minutos</span>
+                    </div>
+                    <button class="timer-btn" onclick="startTimer('timer1', 600)">Iniciar Timer</button>
+                </div>
+                <div class="activity-steps">
+                    <h3>Instruções</h3>
+                    <ol>
+                        <li>Identifiquem <strong>3 fluxos críticos</strong> para a ASIS TaxTech</li>
+                        <li>Para cada fluxo, definam:
+                            <ul>
+                                <li>Volumetria esperada</li>
+                                <li>Requisitos de segurança</li>
+                                <li>Integrações necessárias</li>
+                                <li>Restrições de negócio</li>
+                            </ul>
+                        </li>
+                        <li>Preparem para compartilhar com a turma</li>
+                    </ol>
+                </div>
+                <div class="activity-hint">
+                    <span class="material-icons-outlined">tips_and_updates</span>
+                    <p>Pensem nos fluxos mais importantes para uma empresa de tecnologia tributária!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: COMPARTILHAMENTO -->
+        <section class="slide slide-activity" data-slide="19">
+            <div class="slide-header">
+                <span class="activity-tag">DISCUSSÃO</span>
+                <h2 class="slide-title">Compartilhamento dos Grupos</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="sharing-grid">
+                    <div class="sharing-card">
+                        <h3>Grupo 1</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Espaço para anotações..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 2</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Espaço para anotações..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 3</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Espaço para anotações..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 4</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Espaço para anotações..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 5</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Espaço para anotações..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 6</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Espaço para anotações..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: ARQUITETURA AS CODE SECTION -->
+        <section class="slide slide-section" data-slide="20">
+            <div class="section-content">
+                <span class="section-number">PARTE 4</span>
+                <h2 class="section-title">Arquitetura as Code</h2>
+                <p class="section-description">Transformando especificações em código executável</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: DO DOCUMENTO AO CÓDIGO -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <h2 class="slide-title">Do Documento ao Código</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="evolution-comparison">
+                    <div class="evolution-old">
+                        <h3>Qualidade "Romântica"</h3>
+                        <span class="evolution-icon bad">✗</span>
+                        <ul>
+                            <li>Baseada em heróis (Ad Hoc)</li>
+                            <li>Discursos passivos</li>
+                            <li>Documentos estáticos</li>
+                            <li>Depende da sorte</li>
+                        </ul>
+                    </div>
+                    <div class="evolution-arrow">
+                        <span class="material-icons-outlined">arrow_forward</span>
+                    </div>
+                    <div class="evolution-new">
+                        <h3>Quality Assurance</h3>
+                        <span class="evolution-icon good">✓</span>
+                        <ul>
+                            <li>Ações e procedimentos</li>
+                            <li>Aferição contínua</li>
+                            <li>Código como documento</li>
+                            <li>Garantia por design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="key-message">
+                    <p><strong>Especificação como código, teste como documento.</strong></p>
+                    <p>Código como ativo de software.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 22: CENÁRIOS DE ARQUITETURA -->
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <h2 class="slide-title">Cenários de Arquitetura</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="scenario-definition">
+                    <h3>O que são Cenários de Arquitetura?</h3>
+                    <p>São descrições de situações específicas que o sistema deve suportar, expressas como
+                        <strong>testes automatizados</strong> que validam atributos de qualidade.
+                    </p>
+                </div>
+                <div class="scenario-structure">
+                    <div class="scenario-part">
+                        <h4>Estímulo</h4>
+                        <p>O que dispara o cenário?</p>
+                        <span class="example">Ex: 1000 requisições simultâneas</span>
+                    </div>
+                    <div class="scenario-arrow">→</div>
+                    <div class="scenario-part">
+                        <h4>Ambiente</h4>
+                        <p>Em qual contexto?</p>
+                        <span class="example">Ex: Horário de pico, sistema em produção</span>
+                    </div>
+                    <div class="scenario-arrow">→</div>
+                    <div class="scenario-part">
+                        <h4>Resposta</h4>
+                        <p>O que deve acontecer?</p>
+                        <span class="example">Ex: Latência < 200ms, 0 erros</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 23: EXEMPLO PERFORMANCE -->
+        <section class="slide slide-content slide-code" data-slide="23">
+            <div class="slide-header">
+                <h2 class="slide-title">Exemplo: Cenário de Performance</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / pytest</span>
+                        <span class="code-file">test_performance.py</span>
+                    </div>
+                    <pre class="code-block"><code><span class="keyword">import</span> pytest
+<span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser, task, between
+
+<span class="decorator">@pytest.mark.performance</span>
+<span class="keyword">class</span> <span class="class-name">TestCalculoTributario</span>:
+    <span class="string">"""
+    Cenário: Cálculo tributário sob carga
+    Business Driver: Suportar 10.000 req/min
+    """</span>
+    
+    <span class="keyword">def</span> <span class="function">test_latencia_calculo</span>(self, api_client):
+        <span class="comment"># Estímulo: 1000 requisições simultâneas</span>
+        response = api_client.post(<span class="string">"/api/v1/calculo"</span>, 
+            json={<span class="string">"cnpj"</span>: <span class="string">"12345678000199"</span>})
+        
+        <span class="comment"># Resposta esperada: latência < 200ms</span>
+        <span class="keyword">assert</span> response.elapsed.total_seconds() < <span class="number">0.2</span>
+        <span class="keyword">assert</span> response.status_code == <span class="number">200</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">link</span>
+                    <p><strong>Conexão:</strong> Este teste valida o Business Driver de volumetria (10.000 req/min)
+                        através da visão de Engineering.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: EXEMPLO SEGURANÇA -->
+        <section class="slide slide-content slide-code" data-slide="24">
+            <div class="slide-header">
+                <h2 class="slide-title">Exemplo: Cenário de Segurança</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / pytest</span>
+                        <span class="code-file">test_security.py</span>
+                    </div>
+                    <pre class="code-block"><code><span class="decorator">@pytest.mark.security</span>
+<span class="keyword">class</span> <span class="class-name">TestAutenticacaoAPI</span>:
+    <span class="string">"""
+    Cenário: Proteção de endpoints sensíveis
+    Business Driver: Compliance LGPD
+    """</span>
+    
+    <span class="keyword">def</span> <span class="function">test_acesso_sem_token</span>(self, api_client):
+        <span class="comment"># Estímulo: Requisição sem autenticação</span>
+        response = api_client.get(<span class="string">"/api/v1/dados-fiscais"</span>)
+        
+        <span class="comment"># Resposta: Acesso negado (401)</span>
+        <span class="keyword">assert</span> response.status_code == <span class="number">401</span>
+    
+    <span class="keyword">def</span> <span class="function">test_token_expirado</span>(self, api_client, expired_token):
+        <span class="comment"># Estímulo: Token JWT expirado</span>
+        headers = {<span class="string">"Authorization"</span>: f<span class="string">"Bearer {expired_token}"</span>}
+        response = api_client.get(<span class="string">"/api/v1/dados-fiscais"</span>, 
+            headers=headers)
+        
+        <span class="keyword">assert</span> response.status_code == <span class="number">401</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: ATIVIDADE CENÁRIOS -->
+        <section class="slide slide-activity" data-slide="25">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE PRÁTICA</span>
+                <h2 class="slide-title">Escrevendo Cenários de Arquitetura</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="timer-container">
+                    <div class="timer" id="timer2">
+                        <span class="timer-value">15:00</span>
+                        <span class="timer-label">minutos</span>
+                    </div>
+                    <button class="timer-btn" onclick="startTimer('timer2', 900)">Iniciar Timer</button>
+                </div>
+                <div class="scenario-template">
+                    <h3>Template de Cenário</h3>
+                    <div class="template-form">
+                        <div class="form-row">
+                            <label>Fluxo Crítico:</label>
+                            <input type="text" class="scenario-input" placeholder="[Nome do fluxo identificado]">
+                        </div>
+                        <div class="form-row">
+                            <label>Business Driver:</label>
+                            <input type="text" class="scenario-input" placeholder="[Qual objetivo de negócio?]">
+                        </div>
+                        <div class="form-row">
+                            <label>Estímulo:</label>
+                            <input type="text" class="scenario-input" placeholder="[O que dispara o cenário?]">
+                        </div>
+                        <div class="form-row">
+                            <label>Ambiente:</label>
+                            <input type="text" class="scenario-input" placeholder="[Em qual contexto?]">
+                        </div>
+                        <div class="form-row">
+                            <label>Resposta Esperada:</label>
+                            <input type="text" class="scenario-input" placeholder="[O que deve acontecer?]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: INTEGRAÇÃO SECTION -->
+        <section class="slide slide-section" data-slide="26">
+            <div class="section-content">
+                <span class="section-number">PARTE 5</span>
+                <h2 class="section-title">Integração e Síntese</h2>
+                <p class="section-description">Conectando todas as peças do quebra-cabeça</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 27: CICLO COMPLETO -->
+        <section class="slide slide-content" data-slide="27">
+            <div class="slide-header">
+                <h2 class="slide-title">O Ciclo Completo</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="cycle-diagram">
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">business_center</span>
+                        </div>
+                        <h4>Business Drivers</h4>
+                        <p>Objetivos e restrições</p>
+                    </div>
+                    <div class="cycle-arrow">→</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">visibility</span>
+                        </div>
+                        <h4>5 Visões RM-ODP</h4>
+                        <p>Perspectivas do sistema</p>
+                    </div>
+                    <div class="cycle-arrow">→</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">checklist</span>
+                        </div>
+                        <h4>Requisitos</h4>
+                        <p>Funcionais e não funcionais</p>
+                    </div>
+                    <div class="cycle-arrow">→</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">science</span>
+                        </div>
+                        <h4>Cenários</h4>
+                        <p>Testes de arquitetura</p>
+                    </div>
+                    <div class="cycle-arrow">→</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">code</span>
+                        </div>
+                        <h4>Código</h4>
+                        <p>Implementação e testes</p>
+                    </div>
+                </div>
+                <div class="cycle-feedback">
+                    <span class="material-icons-outlined">sync</span>
+                    <p>Feedback contínuo: Resultados dos testes informam ajustes na arquitetura</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 28: BLUE VS RED TEAM -->
+        <section class="slide slide-content" data-slide="28">
+            <div class="slide-header">
+                <h2 class="slide-title">Aplicação no Projeto: Blue vs Red Team</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body teams-comparison">
+                <div class="team-card blue-team">
+                    <div class="team-header">
+                        <span class="material-icons-outlined">shield</span>
+                        <h3>BLUE TEAM</h3>
+                        <span class="team-subtitle">Grupo de Aferição de Qualidade</span>
+                    </div>
+                    <div class="team-content">
+                        <p class="mindset">"Construir e Garantir"</p>
+                        <ul>
+                            <li><strong>Foco:</strong> QoS (Qualidade de Serviço)</li>
+                            <li><strong>Responsabilidade:</strong> Construção e Disponibilidade</li>
+                            <li><strong>Entregas:</strong> Rastreabilidade, Mapas, Dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vs-divider">VS</div>
+                <div class="team-card red-team">
+                    <div class="team-header">
+                        <span class="material-icons-outlined">bug_report</span>
+                        <h3>RED TEAM</h3>
+                        <span class="team-subtitle">Foco Hacker/Adversarial</span>
+                    </div>
+                    <div class="team-content">
+                        <p class="mindset">"Testar e Explorar Falhas"</p>
+                        <ul>
+                            <li><strong>Foco:</strong> Vulnerabilidade QoS</li>
+                            <li><strong>Responsabilidade:</strong> Quebrar disponibilidade</li>
+                            <li><strong>Entregas:</strong> Testes de Estresse, Ataques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 29: RESUMO -->
+        <section class="slide slide-content" data-slide="29">
+            <div class="slide-header">
+                <h2 class="slide-title">Resumo da Aula</h2>
+                <div class="inteli-mini-logo">inteli</div>
+            </div>
+            <div class="slide-body">
+                <div class="summary-checklist">
+                    <div class="checklist-item">
+                        <span class="check-icon">✓</span>
+                        <div class="check-content">
+                            <h4>RM-ODP e as 5 Visões</h4>
+                            <p>Enterprise, Information, Computational, Engineering, Technology</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">✓</span>
+                        <div class="check-content">
+                            <h4>Business Drivers</h4>
+                            <p>Objetivos de negócio que direcionam decisões arquiteturais</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">✓</span>
+                        <div class="check-content">
+                            <h4>Fluxos Críticos</h4>
+                            <p>Volumetria, segurança, integração, custos e restrições</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">✓</span>
+                        <div class="check-content">
+                            <h4>Arquitetura as Code</h4>
+                            <p>Cenários de arquitetura como testes automatizados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 30: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="30">
+            <div class="closing-content">
+                <div class="closing-quote">
+                    <span class="quote-mark">"</span>
+                    <p>Especificação como código, teste como documento.<br><strong>Código como ativo de
+                            software.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Próximos Passos</h3>
+                        <ul>
+                            <li>Aplicar as visões no projeto ASIS</li>
+                            <li>Documentar Business Drivers do seu grupo</li>
+                            <li>Iniciar escrita de cenários de teste</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <svg viewBox="0 0 120 50" class="logo-svg">
+                                <circle cx="12" cy="12" r="4" fill="#ff4545" />
+                                <circle cx="24" cy="10" r="4" fill="#ff4545" />
+                                <circle cx="18" cy="22" r="4" fill="#ff4545" />
+                                <circle cx="30" cy="18" r="4" fill="#ff4545" />
+                                <circle cx="10" cy="24" r="4" fill="#ff4545" />
+                                <text x="45" y="26" font-family="Manrope" font-weight="700" font-size="20"
+                                    fill="#2e2640">inteli</text>
+                            </svg>
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Viewpoint Detail Modal -->
+    <div class="modal" id="viewpointModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

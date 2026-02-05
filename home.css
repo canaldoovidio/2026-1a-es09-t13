@@ -1,0 +1,206 @@
+/* ========================================
+   COURSE HOME STYLES
+   ======================================== */
+:root {
+    --inteli-purple: #2e2640;
+    --inteli-coral: #ff4545;
+    --inteli-lilac: #90a5e5;
+    --inteli-green: #89cea5;
+    --inteli-dark-green: #066d73;
+    --inteli-gray-dark: #b2b6bf;
+    --inteli-gray-medium: #caced6;
+    --inteli-gray-light: #e6eaeb;
+    --inteli-white: #ffffff;
+    --font-primary: 'Manrope', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--inteli-gray-light);
+    font-family: var(--font-primary);
+    color: var(--inteli-purple);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.course-header {
+    background-color: var(--inteli-white);
+    padding: 40px 0;
+    box-shadow: 0 4px 20px rgba(46, 38, 64, 0.05);
+    margin-bottom: 40px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title h1 {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--inteli-purple);
+}
+
+.header-title h2 {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 500;
+    color: var(--inteli-gray-dark);
+}
+
+.header-info {
+    text-align: right;
+}
+
+.instructor-badge {
+    background-color: var(--inteli-purple);
+    color: var(--inteli-white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.class-badge {
+    background-color: var(--inteli-coral);
+    color: var(--inteli-white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Timeline/Grid */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+.lesson-card {
+    background-color: var(--inteli-white);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(46, 38, 64, 0.1);
+    border-color: var(--inteli-lilac);
+}
+
+.lesson-header {
+    background-color: var(--inteli-purple);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.week-tag {
+    background-color: var(--inteli-coral);
+    color: var(--inteli-white);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.date-tag {
+    color: var(--inteli-gray-medium);
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.lesson-body {
+    padding: 25px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--inteli-purple);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.lesson-type {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--inteli-dark-green);
+    background-color: rgba(6, 109, 115, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.lesson-footer {
+    padding: 20px;
+    border-top: 1px solid var(--inteli-gray-light);
+    margin-top: auto;
+}
+
+.lesson-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background-color: var(--inteli-purple);
+    color: var(--inteli-white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.lesson-btn:hover {
+    background-color: var(--inteli-coral);
+}
+
+.lesson-btn.disabled {
+    background-color: var(--inteli-gray-medium);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .header-info {
+        text-align: center;
+    }
+}
