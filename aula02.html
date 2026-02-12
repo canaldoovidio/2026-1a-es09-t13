@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Drivers como Código | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 49</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             PARTE 1: ABERTURA
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 02</span>
+                </div>
+                <h1 class="cover-title">Business Drivers<br>como Código</h1>
+                <h2 class="cover-subtitle">Estudo de Caso: Especificação de regras de negócio<br>como código de software
+                </h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Fevereiro de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: CONEXÃO COM AULA ANTERIOR -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Conexão com a Aula Anterior</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon">
+                            <span class="material-icons-outlined">visibility</span>
+                        </div>
+                        <h4>Aula 01</h4>
+                        <p>5 Visões RM-ODP e Cenários de Arquitetura</p>
+                    </div>
+                    <div class="recap-arrow">
+                        <span class="material-icons-outlined">arrow_forward</span>
+                    </div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon">
+                            <span class="material-icons-outlined">code</span>
+                        </div>
+                        <h4>Aula 02 (Hoje)</h4>
+                        <p>Business Drivers como Código de Software</p>
+                    </div>
+                    <div class="recap-arrow">
+                        <span class="material-icons-outlined">arrow_forward</span>
+                    </div>
+                    <div class="recap-card">
+                        <div class="recap-icon">
+                            <span class="material-icons-outlined">assignment</span>
+                        </div>
+                        <h4>Próxima</h4>
+                        <p>Atividade Ponderada 1: Business Drivers do Projeto</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 30px;">
+                    <p><strong>Evolução:</strong> Da teoria das visões arquiteturais para a prática de codificar regras de negócio como testes automatizados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <div class="objective-text">
+                        <h3>Compreender</h3>
+                        <p>O conceito de Business Drivers expressos como código executável e testável</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <div class="objective-text">
+                        <h3>Analisar Casos Reais</h3>
+                        <p>Como empresas como Netflix, Nubank e iFood codificam requisitos de negócio em testes automatizados</p>
+                    </div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <div class="objective-text">
+                        <h3>Aplicar no Projeto</h3>
+                        <p>Documentar regras de negócio da ASIS em código e aferir a qualidade dos requisitos ao executar estes códigos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: AGENDA -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <h2 class="slide-title">Agenda da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">15 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Abertura e Quiz</h3>
+                            <p>Conexão com aula anterior e aquecimento</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">20 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Fundamentos</h3>
+                            <p>Especificação como código: conceito e framework</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">20 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Casos Reais</h3>
+                            <p>Netflix, Nubank e iFood: lições do mercado</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">25 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Prática</h3>
+                            <p>JMeter, pytest e exemplos aplicados ao projeto</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">15 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Quiz e Atividade</h3>
+                            <p>Validação de aprendizado e orientação da ponderada</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10 min</div>
+                        <div class="timeline-content">
+                            <div class="timeline-marker"></div>
+                            <h3>Encerramento</h3>
+                            <p>Resumo e guideline para atividade ponderada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: QUIZ AQUECIMENTO Q1 -->
+        <section class="slide slide-activity" data-slide="5">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE AQUECIMENTO</span>
+                <h2 class="slide-title">Revisão da Aula 01</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-q1">
+                    <h3 class="question-text">Qual é a principal diferença entre a abordagem "Qualidade Romântica" e "Quality Assurance"?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">A primeira usa mais ferramentas</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">A segunda depende de heróis individuais</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">QA usa código e aferição contínua; a outra depende de documentos estáticos e sorte</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 1)">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Não há diferença prática</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-q1"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 1 de 3</span></div>
+        </section>
+
+        <!-- SLIDE 6: QUIZ AQUECIMENTO Q2 -->
+        <section class="slide slide-activity" data-slide="6">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE AQUECIMENTO</span>
+                <h2 class="slide-title">Revisão da Aula 01</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-q2">
+                    <h3 class="question-text">Em um cenário de arquitetura, qual é a sequência correta?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Código &rarr; Resposta &rarr; Estímulo</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Estímulo &rarr; Ambiente &rarr; Resposta Esperada</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Requisito &rarr; Deploy &rarr; Teste</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 2)">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Ambiente &rarr; Código &rarr; Estímulo</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-q2"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 2 de 3</span></div>
+        </section>
+
+        <!-- SLIDE 7: QUIZ AQUECIMENTO Q3 -->
+        <section class="slide slide-activity" data-slide="7">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE AQUECIMENTO</span>
+                <h2 class="slide-title">Revisão da Aula 01</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-q3">
+                    <h3 class="question-text">No contexto da ASIS TaxTech, o que significa "API First"?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">A empresa só usa APIs externas</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">A API é o principal contrato e ponto de acesso à lógica de negócios</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">As APIs são construídas depois do front-end</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 3)">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Apenas APIs REST são permitidas</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-q3"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 3 de 3</span></div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: FUNDAMENTOS
+             ============================================= -->
+
+        <!-- SLIDE 8: SEÇÃO DIVISÓRIA -->
+        <section class="slide slide-section" data-slide="8">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Especificação como Código</h2>
+                <p class="section-description">Transformando regras de negócio em código executável</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: O QUE É -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <h2 class="slide-title">O que é "Business Driver como Código"?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="definition-box">
+                    <span class="definition-icon material-icons-outlined">lightbulb</span>
+                    <div class="definition-content">
+                        <h3>Definição</h3>
+                        <p>É a prática de <strong>expressar requisitos e regras de negócio</strong> na forma de código executável (testes automatizados) que pode ser rodado continuamente para <strong>aferir se o sistema atende</strong> ao que o negócio espera.</p>
+                    </div>
+                </div>
+                <div class="evolution-comparison" style="margin-top: 20px;">
+                    <div class="evolution-old">
+                        <h3>Documento Estático</h3>
+                        <span class="evolution-icon bad">&cross;</span>
+                        <ul>
+                            <li>"O sistema deve responder em até 200ms"</li>
+                            <li>Escrito uma vez, esquecido depois</li>
+                            <li>Ninguém valida se funciona</li>
+                        </ul>
+                    </div>
+                    <div class="evolution-arrow">
+                        <span class="material-icons-outlined">arrow_forward</span>
+                    </div>
+                    <div class="evolution-new">
+                        <h3>Código Executável</h3>
+                        <span class="evolution-icon good">&check;</span>
+                        <ul>
+                            <li><code>assert response_time &lt; 0.2</code></li>
+                            <li>Roda a cada build (CI/CD)</li>
+                            <li>Falha = alerta imediato</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: POR QUE -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <h2 class="slide-title">Por que Codificar Regras de Negócio?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">verified</span>
+                        <div>
+                            <h4>Rastreabilidade</h4>
+                            <p>Cada requisito tem um teste associado. Se o teste passa, o requisito é atendido.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">autorenew</span>
+                        <div>
+                            <h4>Aferição Contínua</h4>
+                            <p>O código roda em todo CI/CD. Regressões são detectadas imediatamente.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">description</span>
+                        <div>
+                            <h4>Documentação Viva</h4>
+                            <p>O teste É a documentação. Sempre atualizado, sempre verdadeiro.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">groups</span>
+                        <div>
+                            <h4>Comunicação entre Times</h4>
+                            <p>Negócio e engenharia falam a mesma língua: código que expressa regras.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-connection" style="margin-top: 20px;">
+                    <span class="material-icons-outlined">format_quote</span>
+                    <p><strong>Pressman (Cap. 16):</strong> "Requisitos de qualidade devem ser especificados de forma mensurável e testável, não como declarações vagas."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: FRAMEWORK -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <h2 class="slide-title">O Caminho: Driver &rarr; Requisito &rarr; Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="cycle-diagram">
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">business_center</span>
+                        </div>
+                        <h4>Business Driver</h4>
+                        <p>"Suportar 10.000 pedidos/minuto"</p>
+                    </div>
+                    <div class="cycle-arrow">&rarr;</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">checklist</span>
+                        </div>
+                        <h4>Requisito</h4>
+                        <p>RNF: Tempo resposta &lt; 200ms sob carga</p>
+                    </div>
+                    <div class="cycle-arrow">&rarr;</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">science</span>
+                        </div>
+                        <h4>Cenário de Teste</h4>
+                        <p>Estímulo &rarr; Ambiente &rarr; Resposta</p>
+                    </div>
+                    <div class="cycle-arrow">&rarr;</div>
+                    <div class="cycle-step">
+                        <div class="cycle-icon">
+                            <span class="material-icons-outlined">code</span>
+                        </div>
+                        <h4>Código</h4>
+                        <p><code>assert latency &lt; 200</code></p>
+                    </div>
+                </div>
+                <div class="cycle-feedback">
+                    <span class="material-icons-outlined">sync</span>
+                    <p><strong>Feedback contínuo:</strong> Se o teste falha, o Business Driver não está sendo atendido. O código é o juiz imparcial.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: TIPOS DE TESTES (VISÃO GERAL) -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <h2 class="slide-title">Tipos de Testes que Codificam Business Drivers</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-elements">
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">speed</span>
+                        </div>
+                        <h4>Performance</h4>
+                        <p>JMeter, Gatling, Locust</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">security</span>
+                        </div>
+                        <h4>Segurança</h4>
+                        <p>OWASP ZAP, Burp Suite</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">rule</span>
+                        </div>
+                        <h4>Regras de Negócio</h4>
+                        <p>pytest, JUnit, BDD</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">sync_problem</span>
+                        </div>
+                        <h4>Resiliência</h4>
+                        <p>Chaos Monkey, LitmusChaos</p>
+                    </div>
+                    <div class="flow-element">
+                        <div class="flow-icon">
+                            <span class="material-icons-outlined">hub</span>
+                        </div>
+                        <h4>Integração</h4>
+                        <p>Contract Tests, Pact</p>
+                    </div>
+                </div>
+                <div class="activity-hint" style="margin-top: 25px;">
+                    <span class="material-icons-outlined">tips_and_updates</span>
+                    <p>Cada tipo de teste valida um aspecto diferente do Business Driver. O importante é que <strong>todo driver tenha pelo menos um teste associado</strong>. Vamos explorar cada um.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12b: TESTE DE PERFORMANCE -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background:var(--inteli-coral);">TIPO DE TESTE</span>
+                <h2 class="slide-title">Teste de Performance</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="context-icon"><span class="material-icons-outlined">speed</span></div>
+                        <h3>O que valida?</h3>
+                        <p>Tempo de resposta, throughput e estabilidade <strong>sob carga</strong>. Garante que o sistema atende os requisitos de performance mesmo com milhares de usuários simultâneos.</p>
+                    </div>
+                    <div class="context-card">
+                        <div class="context-icon"><span class="material-icons-outlined">build</span></div>
+                        <h3>Ferramentas</h3>
+                        <p><strong>JMeter</strong> (Java, mais popular), <strong>Gatling</strong> (Scala, código como teste), <strong>Locust</strong> (Python, distribuído), <strong>k6</strong> (JavaScript moderno).</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="border-left: 4px solid var(--inteli-coral);">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle; color:var(--inteli-coral);">warning</span> Caso: Black Friday 2023</h3>
+                        <p><strong>Problema:</strong> E-commerce brasileiro com pico de 50k acessos/min. Sem testes de carga, o gateway de pagamento travou &mdash; <strong>R$ 2,3M em vendas perdidas</strong> em 47 minutos.</p>
+                        <p style="margin-top:10px;"><strong>Impacto:</strong> Além da receita direta, perda de confiança do consumidor. Taxa de abandono subiu para 78%.</p>
+                        <p style="margin-top:10px;"><strong>Correção:</strong> Testes de carga semanais com JMeter simulando 3x o pico esperado. Auto-scaling configurado com base nos resultados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12c: TESTE DE SEGURANÇA -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background:#2196f3;">TIPO DE TESTE</span>
+                <h2 class="slide-title">Teste de Segurança</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="border-left: 4px solid #2196f3;">
+                        <div class="context-icon"><span class="material-icons-outlined">security</span></div>
+                        <h3>O que valida?</h3>
+                        <p>Vulnerabilidades como SQL Injection, XSS, autenticação fraca e exposição de dados. Garante que o sistema resiste a <strong>ataques conhecidos</strong> (OWASP Top 10).</p>
+                    </div>
+                    <div class="context-card">
+                        <div class="context-icon"><span class="material-icons-outlined">build</span></div>
+                        <h3>Ferramentas</h3>
+                        <p><strong>OWASP ZAP</strong> (scanner gratuito), <strong>Burp Suite</strong> (pen testing), <strong>SonarQube</strong> (SAST), <strong>Snyk</strong> (dependências vulneráveis).</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="border-left: 4px solid #2196f3;">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle; color:#2196f3;">warning</span> Caso: Vazamento de Dados LGPD</h3>
+                        <p><strong>Problema:</strong> Fintech expôs API sem autenticação adequada. CPFs e dados bancários de 500k clientes vazaram. Multa ANPD de <strong>R$ 50M</strong> + dano reputacional.</p>
+                        <p style="margin-top:10px;"><strong>Impacto:</strong> Além da multa, 23% dos clientes cancelaram contas. Custo total estimado em R$ 180M.</p>
+                        <p style="margin-top:10px;"><strong>Correção:</strong> OWASP ZAP integrado ao CI/CD. Toda PR passa por scan automático antes do merge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12d: TESTE DE REGRAS DE NEGÓCIO -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background:var(--inteli-green); color:#2e2640;">TIPO DE TESTE</span>
+                <h2 class="slide-title">Teste de Regras de Negócio</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="context-icon"><span class="material-icons-outlined">rule</span></div>
+                        <h3>O que valida?</h3>
+                        <p>Que as <strong>regras de negócio do domínio</strong> estão implementadas corretamente. Cálculos tributários, limites de crédito, regras de pricing, compliance regulatório.</p>
+                    </div>
+                    <div class="context-card">
+                        <div class="context-icon"><span class="material-icons-outlined">build</span></div>
+                        <h3>Ferramentas</h3>
+                        <p><strong>pytest</strong> (Python), <strong>JUnit</strong> (Java), <strong>BDD/Gherkin</strong> (linguagem natural), <strong>Cucumber</strong> (multi-linguagem).</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="border-left: 4px solid var(--inteli-green);">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle; color:var(--inteli-green);">warning</span> Caso: TaxTech e Alíquotas</h3>
+                        <p><strong>Problema:</strong> Sistema tributário aplicou alíquota de ICMS errada (12% ao invés de 18% para SP) em 45k NFes. Diferença total de <strong>R$ 8,7M</strong> em crédito tributário incorreto.</p>
+                        <p style="margin-top:10px;"><strong>Impacto:</strong> Retificação manual de cada NFe. Risco de autuação fiscal. Credibilidade da TaxTech destruída.</p>
+                        <p style="margin-top:10px;"><strong>Correção:</strong> Cada alíquota por UF virou um <code style="background:rgba(137,206,165,0.2); padding:2px 6px; border-radius:3px;">@pytest.mark.business_rule</code> executado antes de todo deploy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12e: TESTE DE RESILIÊNCIA -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background:var(--inteli-purple);">TIPO DE TESTE</span>
+                <h2 class="slide-title">Teste de Resiliência</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="border-left: 4px solid var(--inteli-purple);">
+                        <div class="context-icon"><span class="material-icons-outlined">sync_problem</span></div>
+                        <h3>O que valida?</h3>
+                        <p>Que o sistema <strong>se recupera de falhas</strong>: queda de serviço, latência alta, perda de conexão com banco, falha de rede. A pergunta: "o que acontece quando X falha?".</p>
+                    </div>
+                    <div class="context-card">
+                        <div class="context-icon"><span class="material-icons-outlined">build</span></div>
+                        <h3>Ferramentas</h3>
+                        <p><strong>Chaos Monkey</strong> (Netflix), <strong>LitmusChaos</strong> (Kubernetes), <strong>Gremlin</strong> (plataforma), <strong>Toxiproxy</strong> (simulação de rede).</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="border-left: 4px solid var(--inteli-purple);">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle; color:var(--inteli-lilac);">warning</span> Caso: AWS us-east-1 (2021)</h3>
+                        <p><strong>Problema:</strong> Queda parcial da região us-east-1 da AWS. Empresas sem redundância multi-região ficaram <strong>offline por 7 horas</strong>. Slack, Twitch e Disney+ afetados.</p>
+                        <p style="margin-top:10px;"><strong>Impacto:</strong> Empresas com Chaos Engineering (como Netflix) mantiveram operação. As sem: prejuízo estimado em <strong>US$ 150M</strong> coletivo.</p>
+                        <p style="margin-top:10px;"><strong>Correção:</strong> Testes de resiliência periódicos: desligar dependências intencionalmente e verificar que o sistema degrada graciosamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12f: TESTE DE INTEGRAÇÃO / CONTRATO -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background:#e67e22;">TIPO DE TESTE</span>
+                <h2 class="slide-title">Teste de Integração / Contrato</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="border-left: 4px solid #e67e22;">
+                        <div class="context-icon"><span class="material-icons-outlined">hub</span></div>
+                        <h3>O que valida?</h3>
+                        <p>Que <strong>serviços se comunicam corretamente</strong>. Em arquiteturas de microserviços, cada serviço "promete" um contrato (formato de request/response) e o teste garante que ninguém quebrou.</p>
+                    </div>
+                    <div class="context-card">
+                        <div class="context-icon"><span class="material-icons-outlined">build</span></div>
+                        <h3>Ferramentas</h3>
+                        <p><strong>Pact</strong> (CDC - Consumer Driven Contracts), <strong>Spring Cloud Contract</strong>, <strong>WireMock</strong> (mocks de API), <strong>Postman/Newman</strong> (API testing).</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="border-left: 4px solid #e67e22;">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle; color:#e67e22;">warning</span> Caso: Microserviços em Produção</h3>
+                        <p><strong>Problema:</strong> Time A alterou formato de resposta da API de endereços (campo "zipcode" virou "zip_code"). Time B não sabia. <strong>50k pedidos falharam</strong> em checkout por 3 horas.</p>
+                        <p style="margin-top:10px;"><strong>Impacto:</strong> Cada time testava isoladamente &mdash; tudo "verde". Mas a integração real falhava silenciosamente.</p>
+                        <p style="margin-top:10px;"><strong>Correção:</strong> Contract tests com Pact: o consumidor define o que espera, o provider valida se atende. Quebra de contrato bloqueia deploy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 3: CASOS REAIS
+             ============================================= -->
+
+        <!-- SLIDE 13: SEÇÃO DIVISÓRIA -->
+        <section class="slide slide-section" data-slide="18">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">Casos Reais</h2>
+                <p class="section-description">Como grandes empresas codificam seus Business Drivers</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: CASO NETFLIX -->
+        <section class="slide slide-content" data-slide="19">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background: #e50914;">CASO REAL</span>
+                <h2 class="slide-title">Netflix &mdash; Chaos Engineering</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">movie</span>
+                        </div>
+                        <h3>O Business Driver</h3>
+                        <p><strong>"99,99% de disponibilidade"</strong> para 230+ milhões de assinantes em 190 países.</p>
+                    </div>
+                    <div class="context-card highlight">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">bug_report</span>
+                        </div>
+                        <h3>A Solução: Chaos Monkey</h3>
+                        <p>Em vez de esperar falhas, a Netflix <strong>derruba servidores em produção propositalmente</strong> para validar que o sistema se recupera.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="display:flex; flex-direction:column; gap:14px; padding:24px;">
+                        <h3 style="font-size:clamp(16px,1.8vw,26px); margin-bottom:4px;">Driver &rarr; Código</h3>
+                        <div style="display:grid; grid-template-columns:auto 1fr; gap:8px 12px; align-items:baseline;">
+                            <span style="font-weight:700; color:var(--inteli-coral); font-size:clamp(12px,1.2vw,18px);">Driver:</span>
+                            <span style="font-size:clamp(13px,1.2vw,18px);">Sistema resiliente a falhas</span>
+                            <span style="font-weight:700; color:var(--inteli-coral); font-size:clamp(12px,1.2vw,18px);">Teste:</span>
+                            <span style="font-size:clamp(13px,1.2vw,18px);">Chaos Monkey mata instâncias aleatórias</span>
+                            <span style="font-weight:700; color:var(--inteli-coral); font-size:clamp(12px,1.2vw,18px);">Aferição:</span>
+                            <span style="font-size:clamp(13px,1.2vw,18px);">O streaming continua sem impacto</span>
+                            <span style="font-weight:700; color:var(--inteli-coral); font-size:clamp(12px,1.2vw,18px);">ROI:</span>
+                            <span style="font-size:clamp(13px,1.2vw,18px);">245% em 3 anos</span>
+                        </div>
+                        <div class="challenge-question" style="margin-top:auto;">
+                            <span class="material-icons-outlined">school</span>
+                            <span>"Se você não quebra de propósito, quebra por acidente."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14b: SLA - O QUE SIGNIFICA 99,99%? -->
+        <section class="slide slide-content" data-slide="20">
+            <div class="slide-header">
+                <h2 class="slide-title">SLA: O que Significa "99,99%"?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="padding:18px; border-left:4px solid var(--inteli-coral);">
+                        <h3 style="color:var(--inteli-coral);"><span class="material-icons-outlined" style="vertical-align:middle;">schedule</span> Um mês = 720 horas</h3>
+                        <div style="margin-top:12px;">
+                            <table style="width:100%; border-collapse:collapse; font-size:clamp(12px,1.1vw,17px);">
+                                <tr style="background:var(--inteli-purple); color:#fff;">
+                                    <th style="padding:8px 10px; text-align:left; border-radius:6px 0 0 0;">SLA</th>
+                                    <th style="padding:8px 10px; text-align:center;">Downtime/mês</th>
+                                    <th style="padding:8px 10px; text-align:center; border-radius:0 6px 0 0;">Downtime/ano</th>
+                                </tr>
+                                <tr style="background:#f7f3ff;">
+                                    <td style="padding:7px 10px; font-weight:700;">99%</td>
+                                    <td style="padding:7px 10px; text-align:center;">7h 12min</td>
+                                    <td style="padding:7px 10px; text-align:center;">3,65 dias</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:7px 10px; font-weight:700;">99,9%</td>
+                                    <td style="padding:7px 10px; text-align:center;">43 min</td>
+                                    <td style="padding:7px 10px; text-align:center;">8,76 horas</td>
+                                </tr>
+                                <tr style="background:#f7f3ff;">
+                                    <td style="padding:7px 10px; font-weight:700; color:var(--inteli-coral);">99,99%</td>
+                                    <td style="padding:7px 10px; text-align:center; color:var(--inteli-coral); font-weight:600;">4,3 min</td>
+                                    <td style="padding:7px 10px; text-align:center;">52,6 min</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:7px 10px; font-weight:700;">99,999%</td>
+                                    <td style="padding:7px 10px; text-align:center;">26 seg</td>
+                                    <td style="padding:7px 10px; text-align:center;">5,26 min</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p style="margin-top:10px; font-size:clamp(11px,1vw,15px); color:#555b66;"><strong>Fórmula:</strong> Downtime = (1 &minus; SLA) &times; 720h</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="padding:18px;">
+                        <h3 style="color:var(--inteli-lilac);"><span class="material-icons-outlined" style="vertical-align:middle;">cloud</span> Deploy e SLA</h3>
+                        <p style="font-size:clamp(12px,1.1vw,17px); margin-top:8px;">Cada deploy é um risco de downtime. Se seu SLA é 99,99%, você tem <strong>apenas 4,3 minutos</strong> de tolerância por mês. Isso exige:</p>
+                        <div style="margin-top:8px; font-size:clamp(12px,1.1vw,16px);">
+                            <p style="margin-bottom:6px;">&bull; <strong>Blue-Green / Canary Deploy</strong> &mdash; zero downtime</p>
+                            <p style="margin-bottom:6px;">&bull; <strong>Feature Flags</strong> &mdash; rollback instantâneo</p>
+                            <p style="margin-bottom:6px;">&bull; <strong>Health Checks</strong> &mdash; detecção automática</p>
+                        </div>
+                    </div>
+                    <div class="activity-hint" style="margin-top:12px;">
+                        <span class="material-icons-outlined">school</span>
+                        <p style="font-size:clamp(11px,1.1vw,16px);">Este é um tema do <strong>Módulo M10 (DevOps)</strong>. Aqui, o foco é: o SLA é um Business Driver que precisa de testes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14c: COMPOSIÇÃO DE SLA EM CLOUD -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <h2 class="slide-title">Composição de SLA na Cloud</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <p style="text-align:center; font-size:clamp(13px,1.3vw,19px); color:#555b66; margin-bottom:16px;">Quando sua aplicação depende de múltiplos serviços, o SLA é <strong>multiplicativo</strong>, não aditivo.</p>
+                <div class="jmeter-flow" style="margin-bottom:18px;">
+                    <div class="jmeter-step" style="background:var(--inteli-purple); color:#fff; min-width:150px;">
+                        <span class="material-icons-outlined" style="font-size:24px;">dns</span>
+                        <strong>VM (Compute)</strong>
+                        <span style="font-size:clamp(14px,1.4vw,22px); font-weight:800; color:var(--inteli-green);">99,95%</span>
+                    </div>
+                    <span style="font-size:clamp(18px,2vw,28px); font-weight:800; color:var(--inteli-coral);">&times;</span>
+                    <div class="jmeter-step" style="background:var(--inteli-purple); color:#fff; min-width:150px;">
+                        <span class="material-icons-outlined" style="font-size:24px;">storage</span>
+                        <strong>Banco de Dados</strong>
+                        <span style="font-size:clamp(14px,1.4vw,22px); font-weight:800; color:var(--inteli-green);">99,99%</span>
+                    </div>
+                    <span style="font-size:clamp(18px,2vw,28px); font-weight:800; color:var(--inteli-coral);">&times;</span>
+                    <div class="jmeter-step" style="background:var(--inteli-purple); color:#fff; min-width:150px;">
+                        <span class="material-icons-outlined" style="font-size:24px;">save</span>
+                        <strong>Disco (Storage)</strong>
+                        <span style="font-size:clamp(14px,1.4vw,22px); font-weight:800; color:var(--inteli-green);">99,99%</span>
+                    </div>
+                    <span style="font-size:clamp(18px,2vw,28px); font-weight:800; color:var(--inteli-coral);">=</span>
+                    <div class="jmeter-step" style="background:var(--inteli-coral); color:#fff; min-width:150px;">
+                        <span class="material-icons-outlined" style="font-size:24px;">calculate</span>
+                        <strong>SLA Total</strong>
+                        <span style="font-size:clamp(14px,1.4vw,22px); font-weight:800;">99,93%</span>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                    <div class="context-card" style="padding:16px; border-left:4px solid var(--inteli-coral);">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle;">calculate</span> O Cálculo</h3>
+                        <p style="font-family:var(--font-mono); font-size:clamp(12px,1.2vw,18px); margin-top:8px; background:rgba(46,38,64,0.06); padding:10px; border-radius:6px;">
+                            SLA<sub>total</sub> = SLA<sub>1</sub> &times; SLA<sub>2</sub> &times; SLA<sub>3</sub><br>
+                            = 0,9995 &times; 0,9999 &times; 0,9999<br>
+                            = <strong>0,9993 = 99,93%</strong>
+                        </p>
+                        <p style="font-size:clamp(11px,1vw,15px); color:#555b66; margin-top:8px;">Cada serviço adicionado <strong>reduz</strong> o SLA. Com 10 serviços de 99,99%, seu SLA cai para 99,9%.</p>
+                    </div>
+                    <div class="challenge-box" style="padding:16px;">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle;">lightbulb</span> Reflexão para o Projeto</h3>
+                        <p style="font-size:clamp(12px,1.1vw,17px); margin-top:8px;">A ASIS TaxTech depende de: API Gateway, serviço de cálculo, banco de dados e cache Redis. Cada componente tem seu SLA.</p>
+                        <p style="font-size:clamp(12px,1.1vw,17px); margin-top:8px;"><strong>Pergunta:</strong> Qual o SLA composto da sua arquitetura? Onde está o elo mais fraco?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: CASO NUBANK -->
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background: #820ad1;">CASO REAL</span>
+                <h2 class="slide-title">Nubank &mdash; Regras Financeiras como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">account_balance</span>
+                        </div>
+                        <h3>O Business Driver</h3>
+                        <p><strong>"Zero erro em transações financeiras"</strong> para 90+ milhões de clientes. Como fintech, a confiança do cliente depende da exatidão.</p>
+                    </div>
+                    <div class="context-card highlight">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">science</span>
+                        </div>
+                        <h3>A Solução: Contract Testing</h3>
+                        <p>200+ microserviços em Clojure com testes de contrato (CDC). Eliminaram E2E e adotaram <strong>testes de integração como "cavalos de batalha"</strong>.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box">
+                        <h3>Driver &rarr; Código</h3>
+                        <p><strong>Driver:</strong> Compliance financeiro 100%<br>
+                        <strong>Teste:</strong> Contract tests entre microserviços<br>
+                        <strong>Aferição:</strong> Cada serviço valida inputs/outputs via contratos<br>
+                        <strong>Impacto:</strong> Mataram a suite E2E que levaria "tempo infinito" para rodar</p>
+                        <div class="challenge-question">
+                            <span class="material-icons-outlined">school</span>
+                            <span>Lição: Testes inteligentes > testes exaustivos. Qualidade da cobertura importa mais que quantidade.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15b: NUBANK CAIXINHA CDI - PROBLEMA DE ARREDONDAMENTO -->
+        <section class="slide slide-content" data-slide="23">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background: #820ad1;">CASO REAL</span>
+                <h2 class="slide-title">Nubank &mdash; Caixinha CDI e Arredondamento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="padding:16px; border-left:4px solid #820ad1;">
+                        <h3 style="color:#820ad1;"><span class="material-icons-outlined" style="vertical-align:middle;">savings</span> O Problema</h3>
+                        <p style="font-size:clamp(12px,1.2vw,17px); margin-top:8px;">A "Caixinha" do Nubank remunera CDI diário. Para um depósito de <strong>R$ 10,00</strong> a CDI de 13,25% a.a.:</p>
+                        <div style="background:rgba(130,10,209,0.08); border-radius:8px; padding:12px; margin-top:10px; font-family:var(--font-mono); font-size:clamp(11px,1.1vw,15px);">
+                            rendimento_diario = 10,00 &times; (1,1325<sup>1/252</sup> &minus; 1)<br>
+                            = 10,00 &times; 0,000494...<br>
+                            = <strong>R$ 0,00494...</strong>
+                        </div>
+                        <p style="font-size:clamp(11px,1.1vw,16px); margin-top:10px; color:#555b66;">O resultado tem <strong>5+ casas decimais</strong>. Reais só têm 2 casas. O que fazer com o restante?</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box" style="padding:16px;">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle; color:var(--inteli-coral);">help_outline</span> Arredondar ou Truncar?</h3>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+                            <div style="background:rgba(137,206,165,0.15); border-radius:8px; padding:10px; text-align:center;">
+                                <div style="font-size:clamp(10px,1vw,14px); font-weight:700; color:var(--inteli-green);">ARREDONDAR</div>
+                                <div style="font-size:clamp(18px,2vw,28px); font-weight:800;">R$ 0,01</div>
+                                <div style="font-size:clamp(10px,0.9vw,13px); color:#555b66;">Banco paga a mais</div>
+                            </div>
+                            <div style="background:rgba(255,69,69,0.1); border-radius:8px; padding:10px; text-align:center;">
+                                <div style="font-size:clamp(10px,1vw,14px); font-weight:700; color:var(--inteli-coral);">TRUNCAR</div>
+                                <div style="font-size:clamp(18px,2vw,28px); font-weight:800;">R$ 0,00</div>
+                                <div style="font-size:clamp(10px,0.9vw,13px); color:#555b66;">Cliente perde</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px; font-size:clamp(11px,1.1vw,16px);">
+                            <p><strong>Escala:</strong> 90M clientes &times; R$ 0,005 de diferença/dia:</p>
+                            <p style="text-align:center; font-size:clamp(16px,1.8vw,26px); font-weight:800; color:var(--inteli-coral); margin:6px 0;"><strong>R$ 450.000/dia</strong> &asymp; R$ 13,5M/mês</p>
+                            <p style="font-size:clamp(10px,1vw,14px); color:#555b66;">Arredondar a favor do cliente: banco perde R$&thinsp;13,5M/mês. Truncar: clientes perdem &mdash; e regulador pode atuar.</p>
+                        </div>
+                    </div>
+                    <div class="activity-hint" style="margin-top:10px;">
+                        <span class="material-icons-outlined">lightbulb</span>
+                        <p style="font-size:clamp(10px,1vw,15px);"><strong>Business Driver:</strong> A regra de arredondamento precisa de teste automatizado. Uma mudança acidental no código pode custar milhões por dia no balanço.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: CASO IFOOD -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="viewpoint-tag" style="background: #ea1d2c;">CASO REAL</span>
+                <h2 class="slide-title">iFood &mdash; Performance sob Carga</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">delivery_dining</span>
+                        </div>
+                        <h3>O Business Driver</h3>
+                        <p><strong>"Suportar picos de milhões de pedidos"</strong>. 56M de usuários ativos, 350k restaurantes, em 1.530 cidades.</p>
+                    </div>
+                    <div class="context-card highlight">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">warning</span>
+                        </div>
+                        <h3>O Gatilho: Dia dos Namorados 2020</h3>
+                        <p>Durante o lockdown, a plataforma <strong>caiu durante o pico de pedidos</strong>. Após a queda, implementaram fallbacks, circuit breakers e <strong>testes de carga semanais</strong>.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box">
+                        <h3>Driver &rarr; Código</h3>
+                        <p><strong>Driver:</strong> Disponibilidade em datas críticas<br>
+                        <strong>Teste:</strong> Load tests semanais com Gatling simulando comportamento real<br>
+                        <strong>Aferição:</strong> Testes simulam Black Friday antes de acontecer<br>
+                        <strong>Evolução:</strong> De testes manuais para Chaos Engineering com LitmusChaos</p>
+                        <div class="challenge-question">
+                            <span class="material-icons-outlined">school</span>
+                            <span>Lição: Uma queda real acelerou a adoção. Melhor prevenir com testes do que remediar com desculpas.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: LIÇÕES DOS CASOS -->
+        <section class="slide slide-content" data-slide="25">
+            <div class="slide-header">
+                <h2 class="slide-title">Padrões dos Casos Reais</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="summary-checklist">
+                    <div class="checklist-item">
+                        <span class="check-icon">1</span>
+                        <div class="check-content">
+                            <h4>Todo Business Driver tem um teste</h4>
+                            <p>Não existe driver "atendido" sem evidência de código. Se não tem teste, não está garantido.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">2</span>
+                        <div class="check-content">
+                            <h4>Testes rodam continuamente</h4>
+                            <p>CI/CD executa a cada commit. Qualidade não é um evento, é um processo contínuo.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">3</span>
+                        <div class="check-content">
+                            <h4>Falhas reais aceleram a adoção</h4>
+                            <p>Netflix, iFood e Nubank aprenderam com incidentes. Melhor aprender com testes do que com clientes irritados.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">4</span>
+                        <div class="check-content">
+                            <h4>Qualidade da cobertura > Quantidade</h4>
+                            <p>Nubank matou sua suite E2E inteira. O que importa é testar o que é <strong>crítico para o negócio</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 4: NA PRÁTICA
+             ============================================= -->
+
+        <!-- SLIDE 18: SEÇÃO DIVISÓRIA -->
+        <section class="slide slide-section" data-slide="26">
+            <div class="section-content">
+                <span class="section-number">PARTE 3</span>
+                <h2 class="section-title">Na Prática</h2>
+                <p class="section-description">Ferramentas e exemplos de código para codificar Business Drivers</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: JMETER INTRO -->
+        <section class="slide slide-content" data-slide="27">
+            <div class="slide-header">
+                <h2 class="slide-title">Apache JMeter: Teste de Performance</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">speed</span>
+                        </div>
+                        <h3>O que é?</h3>
+                        <p>Ferramenta open-source para <strong>teste de carga e performance</strong>. Simula múltiplos usuários simultâneos acessando a aplicação.</p>
+                    </div>
+                    <div class="context-card">
+                        <div class="context-icon">
+                            <span class="material-icons-outlined">settings</span>
+                        </div>
+                        <h3>Como funciona?</h3>
+                        <p>Cria <strong>Thread Groups</strong> (usuários virtuais) que executam <strong>HTTP Requests</strong> e valida as respostas com <strong>Assertions</strong>.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="challenge-box">
+                        <h3>Exemplo: PetStore</h3>
+                        <p><strong>Cenário:</strong> 100 usuários simultâneos navegando e comprando no e-commerce PetStore</p>
+                        <p><strong>Business Driver:</strong> "A loja deve suportar 100 transações por minuto com latência &lt; 500ms"</p>
+                        <p><strong>Aferição:</strong> JMeter gera relatório com tempo de resposta, throughput e taxa de erro</p>
+                        <div class="challenge-question">
+                            <span class="material-icons-outlined">link</span>
+                            <span>Tutorial: blog.octoperf.com/jmeter-tutorial-for-beginners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: EXEMPLO JMETER COMO CÓDIGO -->
+        <section class="slide slide-content slide-code" data-slide="28">
+            <div class="slide-header">
+                <h2 class="slide-title">JMeter: Configuração como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">JMeter / Test Plan (XML simplificado)</span>
+                        <span class="code-file">petstore_load_test.jmx</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="comment">&lt;!-- Business Driver: Suportar 100 usuários simultâneos --&gt;</span>
+<span class="keyword">&lt;ThreadGroup</span> <span class="string">num_threads="100"</span> <span class="string">ramp_up="30"</span><span class="keyword">&gt;</span>
+  <span class="comment">&lt;!-- Cenário: Navegação e compra no PetStore --&gt;</span>
+  <span class="keyword">&lt;HTTPSampler</span> <span class="string">path="/api/v1/products"</span> <span class="string">method="GET"</span><span class="keyword">/&gt;</span>
+  <span class="keyword">&lt;HTTPSampler</span> <span class="string">path="/api/v1/cart/add"</span> <span class="string">method="POST"</span><span class="keyword">/&gt;</span>
+  <span class="comment">&lt;!-- Aferição: Response time &lt; 500ms --&gt;</span>
+  <span class="keyword">&lt;DurationAssertion&gt;</span>
+    <span class="keyword">&lt;duration&gt;</span><span class="number">500</span><span class="keyword">&lt;/duration&gt;</span>
+  <span class="keyword">&lt;/DurationAssertion&gt;</span>
+<span class="keyword">&lt;/ThreadGroup&gt;</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">link</span>
+                    <p><strong>Conexão:</strong> O ThreadGroup = estímulo (100 usuários). O DurationAssertion = resposta esperada (&lt;500ms). O JMeter executa e afere automaticamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: JMETER ARCHITECTURE FLOW -->
+        <section class="slide slide-content" data-slide="29">
+            <div class="slide-header">
+                <h2 class="slide-title">JMeter: Arquitetura de Teste</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <p style="text-align:center; font-size:clamp(13px,1.3vw,18px); color:#555b66; margin-bottom:18px;">Fluxo de execução de um plano de teste no JMeter</p>
+                <div class="jmeter-flow">
+                    <div class="jmeter-step" style="background:var(--inteli-purple); color:#fff;">
+                        <span class="material-icons-outlined" style="font-size:28px;">description</span>
+                        <strong>Test Plan</strong>
+                        <span style="font-size:clamp(10px,1vw,13px); opacity:0.85;">Configuração geral</span>
+                    </div>
+                    <span class="material-icons-outlined" style="color:var(--inteli-coral); font-size:28px;">arrow_forward</span>
+                    <div class="jmeter-step" style="background:var(--inteli-coral); color:#fff;">
+                        <span class="material-icons-outlined" style="font-size:28px;">group</span>
+                        <strong>Thread Group</strong>
+                        <span style="font-size:clamp(10px,1vw,13px); opacity:0.85;">100 usuários / 30s ramp-up</span>
+                    </div>
+                    <span class="material-icons-outlined" style="color:var(--inteli-coral); font-size:28px;">arrow_forward</span>
+                    <div class="jmeter-step" style="background:var(--inteli-lilac); color:#2e2640;">
+                        <span class="material-icons-outlined" style="font-size:28px;">send</span>
+                        <strong>Samplers</strong>
+                        <span style="font-size:clamp(10px,1vw,13px); opacity:0.85;">HTTP GET /products</span>
+                    </div>
+                    <span class="material-icons-outlined" style="color:var(--inteli-coral); font-size:28px;">arrow_forward</span>
+                    <div class="jmeter-step" style="background:var(--inteli-green); color:#2e2640;">
+                        <span class="material-icons-outlined" style="font-size:28px;">verified</span>
+                        <strong>Assertions</strong>
+                        <span style="font-size:clamp(10px,1vw,13px); opacity:0.85;">Response &lt; 500ms</span>
+                    </div>
+                    <span class="material-icons-outlined" style="color:var(--inteli-coral); font-size:28px;">arrow_forward</span>
+                    <div class="jmeter-step" style="background:#f5f0ff; color:var(--inteli-purple); border:2px solid var(--inteli-purple);">
+                        <span class="material-icons-outlined" style="font-size:28px;">assessment</span>
+                        <strong>Listeners</strong>
+                        <span style="font-size:clamp(10px,1vw,13px);">Relatórios e gráficos</span>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;">
+                    <div class="context-card" style="padding:14px;">
+                        <h3 style="font-size:clamp(14px,1.3vw,18px);">Modos de execução</h3>
+                        <p style="font-size:clamp(12px,1.1vw,16px);"><strong>GUI Mode:</strong> para criar e debugar test plans<br>
+                        <strong>CLI Mode:</strong> para execução real de carga (não consome UI)</p>
+                    </div>
+                    <div class="context-card" style="padding:14px;">
+                        <h3 style="font-size:clamp(14px,1.3vw,18px);">Protocolos suportados</h3>
+                        <p style="font-size:clamp(12px,1.1vw,16px);"><strong>HTTP/HTTPS</strong>, SOAP, REST, FTP, JDBC, LDAP, JMS, TCP e mais. Para o ASIS, usaremos <strong>HTTP/REST</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 22: JMETER KEY COMPONENTS -->
+        <section class="slide slide-content" data-slide="30">
+            <div class="slide-header">
+                <h2 class="slide-title">Componentes-Chave do JMeter</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid">
+                    <div class="concept-card">
+                        <div class="concept-icon" style="background:var(--inteli-coral);">
+                            <span class="material-icons-outlined">group</span>
+                        </div>
+                        <h4>Thread Group</h4>
+                        <p>Define o número de <strong>usuários virtuais</strong>, tempo de ramp-up e quantidade de iterações. É o ponto de partida de todo teste.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon" style="background:var(--inteli-purple);">
+                            <span class="material-icons-outlined">send</span>
+                        </div>
+                        <h4>Samplers</h4>
+                        <p>Requisições enviadas ao servidor: <strong>HTTP Request</strong>, JDBC Request, etc. Simulam ações reais dos usuários.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon" style="background:var(--inteli-green);">
+                            <span class="material-icons-outlined">verified</span>
+                        </div>
+                        <h4>Assertions</h4>
+                        <p><strong>Response Assertion:</strong> status 200<br><strong>Duration Assertion:</strong> &lt; 500ms<br><strong>JSON Assertion:</strong> valida payload</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon" style="background:var(--inteli-lilac);">
+                            <span class="material-icons-outlined">assessment</span>
+                        </div>
+                        <h4>Listeners</h4>
+                        <p>Coletam e exibem resultados: <strong>Summary Report</strong>, Aggregate Graph, View Results Tree.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon" style="background:#e67e22;">
+                            <span class="material-icons-outlined">tune</span>
+                        </div>
+                        <h4>Config Elements</h4>
+                        <p>Configurações reutilizáveis: <strong>HTTP Header Manager</strong>, CSV Data Set, User Variables.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon" style="background:#555b66;">
+                            <span class="material-icons-outlined">schedule</span>
+                        </div>
+                        <h4>Timers</h4>
+                        <p>Simulam <strong>tempo de espera</strong> entre requisições (think time). Tornam o teste mais realista.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 23: JMETER PETSTORE WALKTHROUGH -->
+        <section class="slide slide-content" data-slide="31">
+            <div class="slide-header">
+                <h2 class="slide-title">JMeter na Prática: PetStore</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body two-columns">
+                <div class="column">
+                    <div class="context-card" style="padding:16px;">
+                        <h3 style="color:var(--inteli-coral);">
+                            <span class="material-icons-outlined" style="vertical-align:middle;">play_circle</span>
+                            Passo a Passo
+                        </h3>
+                        <div style="margin-top:10px;">
+                            <p style="margin-bottom:8px;"><strong>1.</strong> Criar <strong>Test Plan</strong> &rarr; "PetStore Load Test"</p>
+                            <p style="margin-bottom:8px;"><strong>2.</strong> Adicionar <strong>Thread Group</strong> &rarr; 100 threads, 30s ramp-up, 5 loops</p>
+                            <p style="margin-bottom:8px;"><strong>3.</strong> Adicionar <strong>HTTP Request Defaults</strong> &rarr; host: petstore.swagger.io</p>
+                            <p style="margin-bottom:8px;"><strong>4.</strong> Adicionar <strong>HTTP Samplers</strong>:<br>
+                                &nbsp;&nbsp;GET /v2/pet/findByStatus?status=available<br>
+                                &nbsp;&nbsp;POST /v2/store/order</p>
+                            <p style="margin-bottom:8px;"><strong>5.</strong> Adicionar <strong>Duration Assertion</strong> &rarr; 500ms</p>
+                            <p><strong>6.</strong> Adicionar <strong>Summary Report</strong> listener</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="context-card" style="padding:16px; background:var(--inteli-purple); color:#fff;">
+                        <h3 style="color:var(--inteli-green);">
+                            <span class="material-icons-outlined" style="vertical-align:middle;">assessment</span>
+                            Métricas do Relatório
+                        </h3>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;">
+                            <div style="text-align:center; padding:10px; background:rgba(255,255,255,0.1); border-radius:8px;">
+                                <div style="font-size:clamp(20px,2.5vw,32px); font-weight:800; color:var(--inteli-green);">235ms</div>
+                                <div style="font-size:clamp(9px,0.9vw,12px); opacity:0.8;">Avg Response Time</div>
+                            </div>
+                            <div style="text-align:center; padding:10px; background:rgba(255,255,255,0.1); border-radius:8px;">
+                                <div style="font-size:clamp(20px,2.5vw,32px); font-weight:800; color:var(--inteli-green);">152/s</div>
+                                <div style="font-size:clamp(9px,0.9vw,12px); opacity:0.8;">Throughput</div>
+                            </div>
+                            <div style="text-align:center; padding:10px; background:rgba(255,255,255,0.1); border-radius:8px;">
+                                <div style="font-size:clamp(20px,2.5vw,32px); font-weight:800; color:var(--inteli-green);">0.5%</div>
+                                <div style="font-size:clamp(9px,0.9vw,12px); opacity:0.8;">Error Rate</div>
+                            </div>
+                            <div style="text-align:center; padding:10px; background:rgba(255,255,255,0.1); border-radius:8px;">
+                                <div style="font-size:clamp(20px,2.5vw,32px); font-weight:800; color:var(--inteli-coral);">890ms</div>
+                                <div style="font-size:clamp(9px,0.9vw,12px); opacity:0.8;">90th Percentile</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-box" style="margin-top:12px; padding:14px;">
+                        <h3><span class="material-icons-outlined" style="vertical-align:middle;">lightbulb</span> Dica</h3>
+                        <p>Execute via CLI para testes reais:<br>
+                        <code style="background:rgba(46,38,64,0.1); padding:3px 8px; border-radius:4px; font-size:clamp(10px,1vw,14px);">jmeter -n -t petstore.jmx -l results.csv -e -o report/</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: EXEMPLO PYTEST (Two columns) -->
+        <section class="slide slide-content slide-code" data-slide="32">
+            <div class="slide-header">
+                <h2 class="slide-title">pytest: Regra de Negócio como Teste</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Teste 1: ICMS SP</span>
+                            <span class="code-file">test_business_rules.py</span>
+                        </div>
+                        <pre class="code-block"><code><span class="decorator">@pytest.mark.business_rule</span>
+<span class="keyword">def</span> <span class="function">test_icms_sp</span>(api_client):
+  <span class="comment"># REGRA: ICMS SP = 18%</span>
+  payload = {
+    <span class="string">"uf"</span>: <span class="string">"SP"</span>,
+    <span class="string">"valor"</span>: <span class="number">1000.00</span>
+  }
+  r = api_client.post(
+    <span class="string">"/api/v1/calculo/icms"</span>,
+    json=payload)
+
+  <span class="keyword">assert</span> r.status_code == <span class="number">200</span>
+  <span class="keyword">assert</span> r.json()[<span class="string">"icms"</span>] == <span class="number">180.00</span></code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Teste 2: Rejeição</span>
+                            <span class="code-file">test_business_rules.py</span>
+                        </div>
+                        <pre class="code-block"><code><span class="decorator">@pytest.mark.business_rule</span>
+<span class="keyword">def</span> <span class="function">test_uf_invalida</span>(api_client):
+  <span class="comment"># REGRA: UF inválida = erro</span>
+  payload = {
+    <span class="string">"uf"</span>: <span class="string">"XX"</span>,
+    <span class="string">"valor"</span>: <span class="number">1000.00</span>
+  }
+  r = api_client.post(
+    <span class="string">"/api/v1/calculo/icms"</span>,
+    json=payload)
+
+  <span class="keyword">assert</span> r.status_code == <span class="number">400</span>
+  <span class="keyword">assert</span> <span class="string">"inválida"</span> <span class="keyword">in</span> r.text</code></pre>
+                    </div>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">link</span>
+                    <p><strong>Conexão com ASIS:</strong> Cada regra tributária vira um teste. Se o teste passa, a regra está atendida. Se falha, o deploy é bloqueado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: EXEMPLO BDD -->
+        <section class="slide slide-content slide-code" data-slide="33">
+            <div class="slide-header">
+                <h2 class="slide-title">BDD: Negócio + Código = Gherkin</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <p style="font-size:clamp(11px,1.1vw,16px); color:#6b7280; margin-bottom:10px; text-align:center;"><span class="keyword" style="color:#7c3aed; font-weight:600;">Feature:</span> <span class="class-name" style="color:#047857; font-weight:600;">Cálculo tributário por estado</span> &mdash; <span style="font-style:italic;">Business Driver: Compliance tributário 100% | Stakeholder: ASIS TaxTech / Fisco</span></p>
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Cenário 1: Happy Path</span>
+                            <span class="code-file">calculo_tributario.feature</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">Scenario:</span> <span class="string">Calcular ICMS para SP</span>
+  <span class="decorator">Given</span> nota fiscal de R$ 1.000,00
+  <span class="decorator">And</span>   destino é <span class="string">"SP"</span>
+  <span class="decorator">When</span>  o sistema calcula o ICMS
+  <span class="decorator">Then</span>  ICMS deve ser R$ 180,00
+  <span class="decorator">And</span>   alíquota deve ser <span class="number">18%</span></code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Cenário 2: Erro</span>
+                            <span class="code-file">calculo_tributario.feature</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">Scenario:</span> <span class="string">Rejeitar UF inválida</span>
+  <span class="decorator">Given</span> nota fiscal de R$ 1.000,00
+  <span class="decorator">And</span>   destino é <span class="string">"XX"</span>
+  <span class="decorator">When</span>  o sistema calcula o ICMS
+  <span class="decorator">Then</span>  retornar erro <span class="number">400</span>
+  <span class="decorator">And</span>   mensagem contém <span class="string">"UF inválida"</span></code></pre>
+                    </div>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">link</span>
+                    <p><strong>Vantagem do BDD:</strong> O próprio stakeholder (Fisco, gestor) pode ler e validar o cenário. Linguagem natural que vira código automaticamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 5: CONEXÃO COM PROJETO ASIS
+             ============================================= -->
+
+        <!-- SLIDE 26: SEÇÃO DIVISÓRIA -->
+        <section class="slide slide-section" data-slide="34">
+            <div class="section-content">
+                <span class="section-number">PARTE 4</span>
+                <h2 class="section-title">Conexão com o Projeto ASIS</h2>
+                <p class="section-description">Aplicando Business Drivers como Código no seu projeto</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: BD DA ASIS COMO CÓDIGO -->
+        <section class="slide slide-content" data-slide="35">
+            <div class="slide-header">
+                <h2 class="slide-title">Business Drivers da ASIS &rarr; Testes</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="quality-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div class="quality-card" style="text-align: left; padding: 20px;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">gavel</span>
+                        <h4>Compliance Tributário 100%</h4>
+                        <p style="margin-top: 5px;"><strong>Teste:</strong> Validação de cálculos ICMS, PIS, COFINS para todas as UFs</p>
+                        <p><strong>Ferramenta:</strong> pytest + API REST</p>
+                    </div>
+                    <div class="quality-card" style="text-align: left; padding: 20px;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">speed</span>
+                        <h4>Performance API &lt; 200ms</h4>
+                        <p style="margin-top: 5px;"><strong>Teste:</strong> Load test com 1.000 req/min no endpoint de cálculo</p>
+                        <p><strong>Ferramenta:</strong> JMeter / Gatling</p>
+                    </div>
+                    <div class="quality-card" style="text-align: left; padding: 20px;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">verified_user</span>
+                        <h4>Disponibilidade 99,9%</h4>
+                        <p style="margin-top: 5px;"><strong>Teste:</strong> Chaos test derrubando instâncias e verificando recuperação</p>
+                        <p><strong>Ferramenta:</strong> Circuit breaker tests</p>
+                    </div>
+                    <div class="quality-card" style="text-align: left; padding: 20px;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">lock</span>
+                        <h4>Segurança LGPD</h4>
+                        <p style="margin-top: 5px;"><strong>Teste:</strong> Endpoints sensíveis rejeitam acesso sem autenticação</p>
+                        <p><strong>Ferramenta:</strong> Security tests + OWASP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: ATIVIDADE EM GRUPO -->
+        <section class="slide slide-activity" data-slide="36">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE EM GRUPO</span>
+                <h2 class="slide-title">Mapeie um Business Driver como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body activity-instructions">
+                <div class="timer-container">
+                    <div class="timer" id="timer1">
+                        <span class="timer-value">15:00</span>
+                        <span class="timer-label">minutos</span>
+                    </div>
+                    <button class="timer-btn" onclick="startTimer('timer1', 900)">Iniciar Timer</button>
+                </div>
+                <div class="activity-steps">
+                    <h3>Instruções</h3>
+                    <ol>
+                        <li>Escolham <strong>1 Business Driver da ASIS</strong> do TAPI do projeto</li>
+                        <li>Definam o <strong>requisito testável</strong> derivado desse driver</li>
+                        <li>Escrevam o <strong>cenário de teste</strong> (Estímulo &rarr; Ambiente &rarr; Resposta)</li>
+                        <li>Escolham a <strong>ferramenta</strong> adequada (JMeter, pytest, BDD)</li>
+                        <li>Esbocem o <strong>pseudocódigo do teste</strong></li>
+                    </ol>
+                </div>
+                <div class="activity-hint">
+                    <span class="material-icons-outlined">tips_and_updates</span>
+                    <p>Use o template da Aula 01 (Estímulo &rarr; Ambiente &rarr; Resposta) como base para o cenário!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: COMPARTILHAMENTO -->
+        <section class="slide slide-activity" data-slide="37">
+            <div class="slide-header">
+                <span class="activity-tag">DISCUSSÃO</span>
+                <h2 class="slide-title">Compartilhamento dos Grupos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="sharing-grid">
+                    <div class="sharing-card">
+                        <h3>Grupo 1</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Driver → Requisito → Teste..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 2</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Driver → Requisito → Teste..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 3</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Driver → Requisito → Teste..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 4</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Driver → Requisito → Teste..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 5</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Driver → Requisito → Teste..."></textarea>
+                        </div>
+                    </div>
+                    <div class="sharing-card">
+                        <h3>Grupo 6</h3>
+                        <div class="sharing-content">
+                            <textarea class="sharing-textarea" placeholder="Driver → Requisito → Teste..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 6: QUIZ DE VALIDAÇÃO
+             ============================================= -->
+
+        <!-- SLIDE 27: SEÇÃO DIVISÓRIA -->
+        <section class="slide slide-section" data-slide="38">
+            <div class="section-content">
+                <span class="section-number">VALIDAÇÃO</span>
+                <h2 class="section-title">Quiz de Validação</h2>
+                <p class="section-description">Vamos verificar o aprendizado de hoje</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 28: QUIZ V1 -->
+        <section class="slide slide-activity" data-slide="39">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE VALIDAÇÃO</span>
+                <h2 class="slide-title">Teste seu Conhecimento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-v1">
+                    <h3 class="question-text">Qual é a principal vantagem de expressar um Business Driver como código?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v1')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Reduz o custo de desenvolvimento</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 'v1')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Permite aferição contínua e automatizada do atendimento ao requisito</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v1')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Elimina a necessidade de documentação</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v1')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Substitui os testes manuais por completo</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-v1"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 1 de 5</span></div>
+        </section>
+
+        <!-- SLIDE 29: QUIZ V2 -->
+        <section class="slide slide-activity" data-slide="40">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE VALIDAÇÃO</span>
+                <h2 class="slide-title">Teste seu Conhecimento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-v2">
+                    <h3 class="question-text">O que o Chaos Monkey da Netflix faz em produção?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v2')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Monitora logs de erro</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v2')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Otimiza queries do banco de dados</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 'v2')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Derruba servidores propositalmente para testar resiliência</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v2')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Faz deploy automático de novas versões</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-v2"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 2 de 5</span></div>
+        </section>
+
+        <!-- SLIDE 30: QUIZ V3 -->
+        <section class="slide slide-activity" data-slide="41">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE VALIDAÇÃO</span>
+                <h2 class="slide-title">Teste seu Conhecimento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-v3">
+                    <h3 class="question-text">Por que o Nubank eliminou sua suite de testes End-to-End?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v3')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Porque testes E2E não encontravam bugs</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 'v3')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Porque demoravam demais e perdiam confiança; adotaram Contract Testing</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v3')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Porque migraram para testes manuais</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v3')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Porque a legislação brasileira proíbe E2E</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-v3"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 3 de 5</span></div>
+        </section>
+
+        <!-- SLIDE 31: QUIZ V4 -->
+        <section class="slide slide-activity" data-slide="42">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE VALIDAÇÃO</span>
+                <h2 class="slide-title">Teste seu Conhecimento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-v4">
+                    <h3 class="question-text">No JMeter, o que o componente "DurationAssertion" valida?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v4')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">O conteúdo da resposta HTTP</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v4')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">O número de erros do servidor</span>
+                        </button>
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 'v4')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Se o tempo de resposta está dentro do limite máximo</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v4')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">A quantidade de threads ativas</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-v4"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 4 de 5</span></div>
+        </section>
+
+        <!-- SLIDE 32: QUIZ V5 -->
+        <section class="slide slide-activity" data-slide="43">
+            <div class="slide-header">
+                <span class="activity-tag">QUIZ DE VALIDAÇÃO</span>
+                <h2 class="slide-title">Teste seu Conhecimento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body quiz-container">
+                <div class="quiz-question active" id="quiz-v5">
+                    <h3 class="question-text">No contexto do projeto ASIS, qual é o caminho correto para codificar um Business Driver?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="true" onclick="checkAnswer(this, 'v5')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Business Driver &rarr; Requisito Testável &rarr; Cenário &rarr; Código de Teste</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v5')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Código &rarr; Teste &rarr; Deploy &rarr; Documentação</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v5')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Deploy &rarr; Monitoramento &rarr; Alerta &rarr; Fix</span>
+                        </button>
+                        <button class="quiz-option" data-correct="false" onclick="checkAnswer(this, 'v5')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Documentação &rarr; Reunião &rarr; Aprovação &rarr; Implementação</span>
+                        </button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-v5"></div>
+                </div>
+            </div>
+            <div class="quiz-progress"><span>Pergunta 5 de 5</span></div>
+        </section>
+
+        <!-- =============================================
+             PARTE 7: ATIVIDADE PONDERADA
+             ============================================= -->
+
+        <!-- SLIDE 33: SEÇÃO DIVISÓRIA -->
+        <section class="slide slide-section" data-slide="44">
+            <div class="section-content">
+                <span class="section-number">ATIVIDADE PONDERADA</span>
+                <h2 class="section-title">Atividade Ponderada 1</h2>
+                <p class="section-description">Business Drivers do Projeto como Código</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 34: AVISO PONDERADA -->
+        <section class="slide slide-content" data-slide="45">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE AVALIATIVA</span>
+                <h2 class="slide-title">Atividade Ponderada 1</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Objetivo:</strong> Documentar as regras de negócio do projeto ASIS em código e aferir a qualidade dos requisitos ao executar estes códigos.</p>
+                </div>
+                <div class="drivers-examples" style="margin-top: 20px;">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">description</span>
+                        <div>
+                            <h4>Entrega 1: Documentação</h4>
+                            <p>Documentar a regra de negócio em código (pytest, JMeter ou BDD)</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">play_circle</span>
+                        <div>
+                            <h4>Entrega 2: Execução</h4>
+                            <p>Aferir a qualidade dos requisitos ao executar os códigos de teste</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">folder</span>
+                        <div>
+                            <h4>Base: Material do Autoestudo</h4>
+                            <p>Consolidar o que foi iniciado na Instrução anterior (2h autoestudo)</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">calendar_today</span>
+                        <div>
+                            <h4>Prazo: Semana 04</h4>
+                            <p>Entrega na data da Aula 03 (23/02/2026)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 35: GUIDELINE -->
+        <section class="slide slide-content" data-slide="46">
+            <div class="slide-header">
+                <h2 class="slide-title">Guideline: Passo a Passo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="summary-checklist">
+                    <div class="checklist-item">
+                        <span class="check-icon" style="background: var(--inteli-coral); color: white;">1</span>
+                        <div class="check-content">
+                            <h4>Identifique os Business Drivers do TAPI</h4>
+                            <p>Leia o documento TAPI ASIS e extraia pelo menos <strong>3 Business Drivers</strong> (ex: compliance tributário, performance da API, disponibilidade).</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon" style="background: var(--inteli-coral); color: white;">2</span>
+                        <div class="check-content">
+                            <h4>Derive Requisitos Testáveis</h4>
+                            <p>Para cada driver, escreva um <strong>requisito mensurável</strong> (ex: "API de cálculo retorna em &lt; 200ms sob 100 req/s").</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon" style="background: var(--inteli-coral); color: white;">3</span>
+                        <div class="check-content">
+                            <h4>Escreva os Cenários de Teste</h4>
+                            <p>Use o framework <strong>Estímulo &rarr; Ambiente &rarr; Resposta</strong>. Recomendamos BDD (Gherkin) ou pytest.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon" style="background: var(--inteli-coral); color: white;">4</span>
+                        <div class="check-content">
+                            <h4>Implemente e Execute</h4>
+                            <p>Codifique os testes (5 a 10 endpoints críticos). Execute localmente e gere <strong>relatório de resultados</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon" style="background: var(--inteli-coral); color: white;">5</span>
+                        <div class="check-content">
+                            <h4>Documente e Entregue</h4>
+                            <p>Repositório Git com código fonte, relatório HTML de execução e README explicando os Business Drivers mapeados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 36: MATERIAIS DE REFERÊNCIA -->
+        <section class="slide slide-content" data-slide="47">
+            <div class="slide-header">
+                <h2 class="slide-title">Materiais de Referência</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="quality-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="quality-card" style="text-align: left; padding: 20px; align-items: flex-start;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">menu_book</span>
+                        <h4>Pressman (Cap. 16, Pág. 390-393)</h4>
+                        <p style="margin-top: 5px;">Conceitos de qualidade de software e especificação de requisitos testáveis.</p>
+                        <p style="font-size: clamp(9px, 0.9vw, 12px); color: var(--inteli-lilac); margin-top: 8px;">Minha Biblioteca: 9786558040118</p>
+                    </div>
+                    <div class="quality-card" style="text-align: left; padding: 20px; align-items: flex-start;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">build</span>
+                        <h4>JMeter Tutorial (OctoPerf)</h4>
+                        <p style="margin-top: 5px;">Tutorial completo para iniciantes em teste de carga com Apache JMeter.</p>
+                        <p style="font-size: clamp(9px, 0.9vw, 12px); color: var(--inteli-lilac); margin-top: 8px;">blog.octoperf.com/jmeter-tutorial-for-beginners</p>
+                    </div>
+                    <div class="quality-card" style="text-align: left; padding: 20px; align-items: flex-start;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">folder_shared</span>
+                        <h4>Material do Autoestudo</h4>
+                        <p style="margin-top: 5px;">Business Drivers as Code &mdash; Prof. Reginaldo Arakaki.</p>
+                        <p style="font-size: clamp(9px, 0.9vw, 12px); color: var(--inteli-lilac); margin-top: 8px;">Google Drive: Material de Estudo de Caso 2</p>
+                    </div>
+                    <div class="quality-card" style="text-align: left; padding: 20px; align-items: flex-start;">
+                        <span class="material-icons-outlined" style="margin-bottom: 10px;">store</span>
+                        <h4>PetStore E-commerce</h4>
+                        <p style="margin-top: 5px;">Exemplo prático de aplicação e-commerce para exercícios com JMeter.</p>
+                        <p style="font-size: clamp(9px, 0.9vw, 12px); color: var(--inteli-lilac); margin-top: 8px;">Exercício prático de teste de carga</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 8: ENCERRAMENTO
+             ============================================= -->
+
+        <!-- SLIDE 37: RESUMO -->
+        <section class="slide slide-content" data-slide="48">
+            <div class="slide-header">
+                <h2 class="slide-title">Resumo da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="summary-checklist">
+                    <div class="checklist-item">
+                        <span class="check-icon">&check;</span>
+                        <div class="check-content">
+                            <h4>Especificação como Código</h4>
+                            <p>Regras de negócio expressas como testes automatizados que rodam continuamente</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">&check;</span>
+                        <div class="check-content">
+                            <h4>Casos Reais</h4>
+                            <p>Netflix (Chaos Engineering), Nubank (Contract Testing), iFood (Load Testing semanal)</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">&check;</span>
+                        <div class="check-content">
+                            <h4>Ferramentas Práticas</h4>
+                            <p>JMeter para performance, pytest para regras de negócio, BDD/Gherkin para comunicação</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="check-icon">&check;</span>
+                        <div class="check-content">
+                            <h4>Conexão com Projeto ASIS</h4>
+                            <p>Business Drivers de compliance, performance e segurança mapeados para testes executáveis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 38: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="49">
+            <div class="closing-content">
+                <div class="closing-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>Se o Business Driver não tem teste,<br><strong>ele não está garantido.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Próximos Passos</h3>
+                        <ul>
+                            <li>Completar o autoestudo de Business Drivers as Code</li>
+                            <li>Iniciar a Atividade Ponderada 1 (entrega: 23/02)</li>
+                            <li>Mapear os drivers do TAPI ASIS para código</li>
+                            <li>Exercitar JMeter com o PetStore</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Viewpoint Detail Modal -->
+    <div class="modal" id="viewpointModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

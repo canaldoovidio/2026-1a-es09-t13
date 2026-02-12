@@ -1061,7 +1061,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 30px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .timer-container {
@@ -1069,6 +1069,10 @@ body {
     border-radius: 12px;
     padding: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .timer {
@@ -1205,67 +1209,81 @@ body {
     justify-content: center;
 }
 
+/* ---- LIGHT CODE THEME ---- */
 .code-example {
-    background: #1e1e1e;
+    background: #f8f6f2;
     border-radius: 12px;
     overflow: hidden;
     max-width: 100%;
+    border: 1px solid #e2ddd5;
+    box-shadow: 0 2px 12px rgba(46, 38, 64, 0.06);
 }
 
 .code-header {
     display: flex;
     justify-content: space-between;
-    padding: 12px 20px;
-    background: #2d2d2d;
+    align-items: center;
+    padding: 10px 20px;
+    background: #eee9e2;
+    border-bottom: 1px solid #ddd7cf;
 }
 
 .code-lang {
     color: var(--inteli-coral);
-    font-size: clamp(10px, 1vw, 14px);
-    font-weight: 600;
+    font-size: clamp(11px, 1.1vw, 15px);
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .code-file {
-    color: #888;
+    color: #8a8078;
     font-size: clamp(10px, 1vw, 14px);
     font-family: var(--font-mono);
 }
 
 .code-block {
-    padding: 20px;
+    padding: 22px 24px;
     overflow-x: auto;
     font-family: var(--font-mono);
-    font-size: clamp(10px, 1vw, 14px);
-    line-height: 1.6;
-    color: #d4d4d4;
+    font-size: clamp(12px, 1.2vw, 17px);
+    line-height: 1.7;
+    color: #2e2640;
+    background: #f8f6f2;
+    border-left: 3px solid var(--inteli-coral);
 }
 
 .code-block .keyword {
-    color: #569cd6;
+    color: #7c3aed;
+    font-weight: 600;
 }
 
 .code-block .string {
-    color: #ce9178;
+    color: #c2410c;
 }
 
 .code-block .comment {
-    color: #6a9955;
+    color: #6b7280;
+    font-style: italic;
 }
 
 .code-block .decorator {
-    color: #dcdcaa;
+    color: #0369a1;
+    font-weight: 600;
 }
 
 .code-block .class-name {
-    color: #4ec9b0;
+    color: #047857;
+    font-weight: 600;
 }
 
 .code-block .function {
-    color: #dcdcaa;
+    color: #b45309;
+    font-weight: 600;
 }
 
 .code-block .number {
-    color: #b5cea8;
+    color: #dc2626;
+    font-weight: 600;
 }
 
 .code-connection {
@@ -1937,19 +1955,7 @@ body {
 }
 
 /* Print Styles */
-@media print {
-
-    .nav-controls,
-    .progress-container {
-        display: none;
-    }
-
-    .slide {
-        page-break-after: always;
-        box-shadow: none;
-        border-radius: 0;
-    }
-}
+/* Print styles consolidated below in V2 section */
 
 /* ========================================
    EDITABLE INPUTS
@@ -1991,4 +1997,656 @@ body {
     outline: none;
     border-color: var(--inteli-green);
     box-shadow: 0 0 0 3px rgba(137, 206, 165, 0.2);
+}
+
+/* ========================================
+   RECAP FLOW (Aula 02+)
+   ======================================== */
+.recap-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.recap-card {
+    background: var(--inteli-gray-light);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 280px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.recap-card.active-recap {
+    background: var(--inteli-purple);
+    color: var(--inteli-white);
+    border-color: var(--inteli-coral);
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(46, 38, 64, 0.2);
+}
+
+.recap-card.active-recap h4,
+.recap-card.active-recap p {
+    color: var(--inteli-white);
+}
+
+.recap-card.active-recap .recap-icon {
+    background: var(--inteli-coral);
+}
+
+.recap-card.active-recap .recap-icon .material-icons-outlined {
+    color: var(--inteli-white);
+}
+
+.recap-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--inteli-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.recap-icon .material-icons-outlined {
+    font-size: 28px;
+    color: var(--inteli-coral);
+}
+
+.recap-card h4 {
+    font-size: clamp(12px, 1.3vw, 18px);
+    font-weight: 700;
+    color: var(--inteli-purple);
+    margin-bottom: 8px;
+}
+
+.recap-card p {
+    font-size: clamp(10px, 1vw, 14px);
+    color: var(--inteli-gray-dark);
+    line-height: 1.4;
+}
+
+.recap-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recap-arrow .material-icons-outlined {
+    font-size: 32px;
+    color: var(--inteli-coral);
+}
+
+/* ========================================
+   INLINE CODE IN SLIDES
+   ======================================== */
+.slide-body code {
+    background: rgba(46, 38, 64, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--inteli-purple);
+}
+
+.evolution-new code {
+    background: rgba(40, 167, 69, 0.1);
+    color: #155724;
+}
+
+/* Override code inside code-block */
+.code-block code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* ========================================
+   V2 ENHANCEMENTS - Font sizes, contrast,
+   navigation, print, logo
+   ======================================== */
+
+/* --- NAV CONTROLS: auto-hide, avoid overlap --- */
+.nav-controls {
+    bottom: 16px;
+    padding: 8px 18px;
+    gap: 14px;
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+}
+.nav-controls:hover,
+.nav-controls:focus-within {
+    opacity: 1;
+}
+.nav-btn {
+    width: 36px;
+    height: 36px;
+}
+/* Give slides bottom breathing room for nav */
+.slide-content,
+.slide-activity {
+    padding-bottom: 60px !important;
+}
+
+/* --- PRINT BUTTON in nav --- */
+.print-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--inteli-gray-light);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    color: var(--inteli-purple);
+}
+.print-btn:hover {
+    background: var(--inteli-coral);
+    color: var(--inteli-white);
+}
+
+/* --- IMPROVED PRINT STYLES --- */
+/* ---- PRINT: Landscape, one slide per page ---- */
+@page {
+    size: landscape;
+    margin: 0;
+}
+
+@media print {
+    /* Preserve colors and backgrounds */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    /* Reset document flow */
+    html, body {
+        overflow: visible !important;
+        height: auto !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+
+    /* Hide UI controls */
+    .nav-controls,
+    .progress-container,
+    .print-btn,
+    .modal {
+        display: none !important;
+    }
+
+    /* Container: vertical stack */
+    .slides-container {
+        display: block !important;
+        padding: 0 !important;
+        height: auto !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    /* Each slide = one landscape page */
+    .slide {
+        display: flex !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        /* Fill the landscape page */
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        aspect-ratio: auto !important;
+
+        /* Page break control */
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-after: page;
+        break-inside: avoid;
+
+        /* Clean print appearance */
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+
+        /* Content doesn't overflow */
+        overflow: hidden !important;
+    }
+
+    /* Show all slides (override display:none) */
+    .slide,
+    .slide.active {
+        animation: none !important;
+    }
+
+    /* Slide body fills available space */
+    .slide-body {
+        overflow: hidden !important;
+    }
+
+    /* Section dividers: ensure bg covers full page */
+    .slide-section {
+        background-size: cover !important;
+    }
+
+    /* Cover/closing: full page backgrounds */
+    .slide-cover,
+    .slide-closing {
+        background-size: cover !important;
+    }
+
+    /* Code blocks: avoid page breaks inside */
+    .code-example {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Timer: hide interactive elements */
+    .timer-btn {
+        display: none !important;
+    }
+
+    /* Textareas: show borders for writing */
+    .sharing-textarea {
+        border: 1px solid #ccc !important;
+    }
+
+    /* Links: don't expand URLs */
+    a[href]::after {
+        content: none !important;
+    }
+
+    /* Grid layouts: ensure they don't break across pages */
+    .two-columns,
+    .code-two-col,
+    .concepts-grid,
+    .quality-grid,
+    .flow-elements {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* --- LOGO IMAGE in header --- */
+.inteli-mini-logo {
+    display: flex;
+    align-items: center;
+}
+.inteli-mini-logo img {
+    height: clamp(28px, 3.5vw, 48px);
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- FONT SIZE OVERRIDES (target: 24-32px body) --- */
+
+/* Slide titles → ~36-48px */
+.slide-title {
+    font-size: clamp(26px, 3.2vw, 48px) !important;
+}
+
+/* Section divider titles → ~40-56px */
+.section-title {
+    font-size: clamp(32px, 4.2vw, 60px) !important;
+}
+
+/* Cover title */
+.cover-title {
+    font-size: clamp(28px, 4.5vw, 64px) !important;
+}
+.cover-subtitle {
+    font-size: clamp(16px, 2vw, 28px) !important;
+}
+
+/* Body text, paragraphs → ~18-24px */
+.context-card p,
+.challenge-box p,
+.vp-description p,
+.definition-content p,
+.flow-definition p,
+.scenario-definition p,
+.key-message p,
+.code-connection p,
+.activity-hint p,
+.cycle-feedback p {
+    font-size: clamp(14px, 1.4vw, 22px) !important;
+}
+
+/* Card headings → ~20-28px */
+.context-card h3,
+.challenge-box h3,
+.objective-text h3,
+.activity-steps h3,
+.scenario-template h3,
+.vp-description h3,
+.vp-example h3 {
+    font-size: clamp(18px, 1.8vw, 28px) !important;
+}
+
+/* Card subheadings h4 → ~16-22px */
+.quality-card h4,
+.flow-element h4,
+.driver-item h4,
+.cycle-step h4,
+.viewpoint-card h4,
+.check-content h4,
+.recap-card h4 {
+    font-size: clamp(14px, 1.4vw, 22px) !important;
+}
+
+/* Card descriptions → ~14-18px */
+.quality-card p,
+.flow-element p,
+.cycle-step p,
+.viewpoint-card p,
+.recap-card p {
+    font-size: clamp(12px, 1.1vw, 18px) !important;
+}
+
+/* Driver item text → ~16-20px */
+.driver-item p,
+.check-content p {
+    font-size: clamp(13px, 1.3vw, 20px) !important;
+}
+
+/* Objective text → ~16-22px */
+.objective-text p {
+    font-size: clamp(14px, 1.4vw, 22px) !important;
+}
+
+/* Timeline → ~16-22px */
+.timeline-content h3 {
+    font-size: clamp(14px, 1.5vw, 22px) !important;
+}
+.timeline-content p {
+    font-size: clamp(12px, 1.2vw, 18px) !important;
+}
+.timeline-time {
+    font-size: clamp(14px, 1.4vw, 20px) !important;
+}
+
+/* Quiz → ~20-28px */
+.question-text {
+    font-size: clamp(18px, 2.2vw, 32px) !important;
+}
+.option-text {
+    font-size: clamp(14px, 1.4vw, 22px) !important;
+}
+
+/* Tags → ~12-16px */
+.section-tag,
+.activity-tag,
+.viewpoint-tag {
+    font-size: clamp(11px, 1.1vw, 16px) !important;
+}
+.section-number {
+    font-size: clamp(14px, 1.4vw, 20px) !important;
+}
+.section-description {
+    font-size: clamp(16px, 1.6vw, 24px) !important;
+}
+
+/* Module/class tags */
+.module-tag, .class-tag {
+    font-size: clamp(12px, 1.3vw, 18px) !important;
+}
+
+/* Code blocks → light theme, generous size for readability */
+.code-block {
+    font-size: clamp(13px, 1.3vw, 18px) !important;
+    line-height: 1.7 !important;
+    color: #2e2640 !important;
+}
+
+/* Activity steps */
+.activity-steps li {
+    font-size: clamp(14px, 1.4vw, 22px) !important;
+}
+.activity-steps ul li {
+    font-size: clamp(13px, 1.2vw, 20px) !important;
+}
+
+/* Evolution comparison */
+.evolution-old li,
+.evolution-new li {
+    font-size: clamp(13px, 1.3vw, 20px) !important;
+}
+.evolution-old h3,
+.evolution-new h3 {
+    font-size: clamp(16px, 1.6vw, 24px) !important;
+}
+
+/* Closing slide */
+.closing-quote p {
+    font-size: clamp(22px, 2.8vw, 42px) !important;
+}
+.next-steps li {
+    font-size: clamp(14px, 1.3vw, 20px) !important;
+}
+.next-steps h3 {
+    font-size: clamp(16px, 1.6vw, 24px) !important;
+}
+
+/* Sharing textarea */
+.sharing-textarea {
+    font-size: clamp(13px, 1.2vw, 18px) !important;
+}
+
+/* Team cards */
+.team-header h3 {
+    font-size: clamp(18px, 2vw, 28px) !important;
+}
+.team-content .mindset {
+    font-size: clamp(16px, 1.6vw, 24px) !important;
+}
+.team-content li {
+    font-size: clamp(13px, 1.3vw, 20px) !important;
+}
+
+/* Instructor info / footer */
+.instructor-info {
+    font-size: clamp(12px, 1.3vw, 18px) !important;
+}
+
+/* --- CONTRAST FIXES --- */
+
+/* Section divider: use purple background for better contrast */
+.slide-section {
+    background: var(--inteli-purple) !important;
+}
+.slide-section::before {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+.section-title {
+    color: var(--inteli-white) !important;
+}
+.section-number {
+    color: var(--inteli-coral) !important;
+}
+.section-description {
+    color: var(--inteli-lilac) !important;
+}
+
+/* Light code theme: syntax highlighting colors (high contrast on cream bg) */
+.code-block .keyword { color: #7c3aed !important; font-weight: 600 !important; }
+.code-block .string { color: #c2410c !important; }
+.code-block .comment { color: #6b7280 !important; font-style: italic !important; }
+.code-block .decorator { color: #0369a1 !important; font-weight: 600 !important; }
+.code-block .class-name { color: #047857 !important; font-weight: 600 !important; }
+.code-block .function { color: #b45309 !important; font-weight: 600 !important; }
+.code-block .number { color: #dc2626 !important; font-weight: 600 !important; }
+.code-connection {
+    background: rgba(46,38,64,0.06) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    margin-top: 12px !important;
+}
+.code-connection p {
+    font-size: clamp(12px, 1.2vw, 17px) !important;
+    color: #444 !important;
+}
+
+/* Gray-dark text was too light. Make it darker for readability */
+.context-card p,
+.objective-text p,
+.timeline-content p,
+.driver-item p,
+.check-content p,
+.recap-card p,
+.viewpoint-card p,
+.flow-element p,
+.cycle-step p,
+.quality-card p {
+    color: #555b66 !important;
+}
+
+/* Highlight card text stays dark */
+.context-card.highlight p {
+    color: var(--inteli-purple) !important;
+}
+
+/* --- COMPACT CODE BLOCK (for slides with limited vertical space) --- */
+.code-compact {
+    padding: 14px 20px !important;
+    line-height: 1.5 !important;
+    font-size: clamp(12px, 1.15vw, 16px) !important;
+}
+
+/* --- TWO-COLUMN CODE LAYOUT --- */
+.code-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.code-two-col .code-example {
+    margin: 0;
+}
+
+/* --- JMETER SCREENSHOT PLACEHOLDER --- */
+.tool-screenshot {
+    background: var(--inteli-gray-light);
+    border-radius: 12px;
+    border: 2px dashed var(--inteli-gray-medium);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+.tool-screenshot img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+}
+.tool-screenshot .material-icons-outlined {
+    font-size: 48px;
+    color: var(--inteli-gray-medium);
+    margin-bottom: 10px;
+}
+.tool-screenshot p {
+    font-size: clamp(12px, 1.2vw, 18px) !important;
+    color: var(--inteli-gray-dark);
+}
+
+/* --- SMALL GRID for JMeter concepts --- */
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.concept-card {
+    background: var(--inteli-gray-light);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border-left: 4px solid var(--inteli-coral);
+}
+.concept-card h4 {
+    font-size: clamp(14px, 1.4vw, 22px);
+    font-weight: 700;
+    color: var(--inteli-purple);
+    margin-bottom: 8px;
+}
+.concept-card p {
+    font-size: clamp(12px, 1.1vw, 18px);
+    color: #555b66;
+    line-height: 1.5;
+}
+
+/* --- JMETER FLOW --- */
+.jmeter-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.jmeter-step {
+    background: var(--inteli-purple);
+    color: var(--inteli-white);
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 140px;
+}
+.jmeter-step h4 {
+    font-size: clamp(13px, 1.3vw, 20px) !important;
+    color: var(--inteli-coral) !important;
+    margin-bottom: 4px;
+}
+.jmeter-step p {
+    font-size: clamp(11px, 1.1vw, 16px) !important;
+    color: var(--inteli-white) !important;
+}
+.jmeter-arrow {
+    font-size: 28px;
+    color: var(--inteli-coral);
+    font-weight: 700;
+}
+
+/* Concept icon circle */
+.concept-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+    color: #fff;
+}
+.concept-icon .material-icons-outlined {
+    font-size: 22px;
+}
+
+/* Jmeter step flex layout */
+.jmeter-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.jmeter-step strong {
+    font-size: clamp(12px, 1.2vw, 17px);
 }

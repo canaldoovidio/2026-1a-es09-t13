@@ -8,7 +8,7 @@
 // GLOBAL VARIABLES
 // ========================================
 let currentSlide = 1;
-const totalSlides = 30;
+let totalSlides = 30; // Will be auto-detected on init
 let timerIntervals = {};
 
 // ========================================
@@ -21,9 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializePresentation() {
+    // Auto-detect total slides
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        totalSlides = slides.length;
+    }
     showSlide(1);
     updateSlideCounter();
     updateNavigationButtons();
+    addPrintButton();
+}
+
+function addPrintButton() {
+    const nav = document.querySelector('.nav-controls');
+    if (!nav || nav.querySelector('.print-btn')) return;
+    const btn = document.createElement('button');
+    btn.className = 'print-btn';
+    btn.title = 'Imprimir / Exportar PDF';
+    btn.innerHTML = '<span class="material-icons-outlined" style="font-size:18px;">print</span>';
+    btn.onclick = function() { printPresentation(); };
+    nav.appendChild(btn);
 }
 
 // ========================================
@@ -144,7 +161,11 @@ function toggleFullscreen() {
 function checkAnswer(button, questionNumber) {
     const options = button.parentElement.querySelectorAll('.quiz-option');
     const isCorrect = button.dataset.correct === 'true';
-    const feedbackElement = document.getElementById(`feedback-q${questionNumber}`);
+    // Support both numeric (q1,q2) and string (v1,v2) IDs
+    let feedbackElement = document.getElementById(`feedback-q${questionNumber}`);
+    if (!feedbackElement) {
+        feedbackElement = document.getElementById(`feedback-${questionNumber}`);
+    }
     
     // Disable all options
     options.forEach(option => {
