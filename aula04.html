@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BD como Código + Suporte aos Grupos | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 36</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             ABERTURA (Slides 1-5)
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 04</span>
+                </div>
+                <h1 class="cover-title">Business Drivers como Código<br>e Suporte aos Grupos</h1>
+                <h2 class="cover-subtitle">Estudo de caso: mapeando dúvidas, organizando testes<br>e preparando RF/RNF como código executável</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Fevereiro de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: CONEXÃO -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Onde Estamos na Jornada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4>Aula 01</h4>
+                        <p>Visões RM-ODP</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 02</h4>
+                        <p>BD como Código</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">build</span></div>
+                        <h4>Aula 03</h4>
+                        <p>Ponderada 1: Lab</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon"><span class="material-icons-outlined">support_agent</span></div>
+                        <h4>Aula 04 (Hoje)</h4>
+                        <p>Estudo de Caso + Suporte</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Foco de hoje:</strong> Mapear dúvidas do projeto, consolidar o uso de Mocks para testar regras de negócio, e preparar vocês para o artefato de RF/RNF como código.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Mapear Dúvidas</h3>
+                    <p>Identificar e organizar as dúvidas do grupo que, uma vez esclarecidas, podem acelerar o projeto ASIS</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Organizar Código como Teste</h3>
+                    <p>Entender a estrutura de testes automatizados e o papel dos Mocks na isolação de dependências</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Aplicar BD como Regras de Negócio</h3>
+                    <p>Transformar Business Drivers em regras testáveis, preparando o artefato de RF e RNF como código</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: O ARTEFATO QUE VOCÊS VÃO PRODUZIR -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <span class="activity-tag">ARTEFATO DA SPRINT</span>
+                <h2 class="slide-title">Documento de Requisitos como Ativo de Software</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">Parte 1 — Mapa (5.0 pts)</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Elaborar o mapa de <strong>2 RF</strong> e <strong>3 RNF</strong> (ou mais) que serão implementados como código capaz de evidenciar que esses requisitos são controlados.
+                        </p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green);">Parte 2 — Código (5.0 pts)</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Implementar em código a <strong>estrutura de aferição</strong> dos requisitos funcionais e não funcionais. Testes completos com cenários de sucesso e exceção.
+                        </p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Palavra-chave:</strong> Aferição. O código não implementa a funcionalidade — ele <em>verifica</em> se a funcionalidade atende ao requisito. É a diferença entre <em>construir</em> e <em>inspecionar</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: EXEMPLOS RF/RNF DO ENUNCIADO -->
+        <section class="slide slide-content" data-slide="5">
+            <div class="slide-header">
+                <span class="section-tag">ARTEFATO</span>
+                <h2 class="slide-title">Exemplos de RF e RNF — O que Se Espera</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item" style="border-left: 3px solid var(--inteli-lilac); padding-left: 12px;">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>RF1 — Enviar nota fiscal para a SEFAZ</h4>
+                            <p>Teste verifica: payload correto, campos obrigatórios preenchidos, resposta de autorização recebida</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="border-left: 3px solid var(--inteli-lilac); padding-left: 12px;">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>RF2 — Consultar status de uma nota fiscal</h4>
+                            <p>Teste verifica: retorno correto por número, tratamento de nota inexistente, status atualizado</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="border-left: 3px solid var(--inteli-coral); padding-left: 12px;">
+                        <span class="material-icons-outlined">shield</span>
+                        <div>
+                            <h4>RNF1 — Não Repúdio / Auditabilidade</h4>
+                            <p>Teste verifica: toda transação gera log rastreável, alerta é disparado para valores fora da sazonalidade</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="border-left: 3px solid var(--inteli-coral); padding-left: 12px;">
+                        <span class="material-icons-outlined">speed</span>
+                        <div>
+                            <h4>RNF2 — Disponibilidade</h4>
+                            <p>Teste provoca falha no serviço principal e verifica se mecanismos de detecção e atuação funcionam (failover)</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="border-left: 3px solid var(--inteli-coral); padding-left: 12px;">
+                        <span class="material-icons-outlined">group</span>
+                        <div>
+                            <h4>RNF3 — Performance / Acesso Simultâneo</h4>
+                            <p>Teste provoca pico de acessos simultâneos e verifica: tempo de resposta &lt;200ms, sem erros, sem dados corrompidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 1: PRESSMAN & V&V (Slides 6-11)
+             ============================================= -->
+
+        <!-- SLIDE 6: DIVISOR -->
+        <section class="slide slide-section" data-slide="6">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Verificação &amp; Validação</h2>
+                <p class="section-description">Pressman, Cap. 22 — Estratégias de Teste de Software</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: V&V PRESSMAN -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">PRESSMAN</span>
+                <h2 class="slide-title">Verificação vs. Validação</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(18px, 1.8vw, 26px);">Verificação</h4>
+                        <p style="font-size: clamp(16px, 1.6vw, 22px); margin-top: 10px; font-style: italic; color: var(--inteli-purple);">"Estamos construindo o produto corretamente?"</p>
+                        <p style="margin-top: 12px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Garante que o software implementa corretamente uma função específica. Foco no <strong>processo</strong> — o código faz o que a especificação diz?
+                        </p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px); color: #666;"><strong>Exemplos:</strong> Unit tests, code review, análise estática, linting</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(18px, 1.8vw, 26px);">Validação</h4>
+                        <p style="font-size: clamp(16px, 1.6vw, 22px); margin-top: 10px; font-style: italic; color: var(--inteli-purple);">"Estamos construindo o produto certo?"</p>
+                        <p style="margin-top: 12px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Garante que o software é rastreável aos requisitos do cliente. Foco no <strong>produto</strong> — o sistema entrega valor de negócio?
+                        </p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px); color: #666;"><strong>Exemplos:</strong> Testes de aceitação, BDD/Gherkin, validação com stakeholder</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Referência:</strong> Pressman, "Engenharia de Software: Uma Abordagem Profissional", Cap. 22. Disponível na Biblioteca Virtual Integrada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: ESPIRAL DE TESTES PRESSMAN -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">PRESSMAN</span>
+                <h2 class="slide-title">A Espiral de Testes</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 20px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">memory</span></div>
+                        <h4>Unit Test</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Testa uma função ou método isolado. Usa mocks para dependências.</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">hub</span></div>
+                        <h4>Integration Test</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Testa a interface entre módulos. Verifica que componentes se conectam.</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">fact_check</span></div>
+                        <h4>Validation Test</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Verifica conformidade com requisitos. BDD + testes de aceitação.</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">cloud_done</span></div>
+                        <h4>System Test</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Testa o sistema integrado: performance, segurança, recuperação.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Para o artefato:</strong> RF são testados principalmente nos níveis de Unit e Validation (o sistema faz o que deveria?). RNF são testados nos níveis de Integration e System (o sistema se comporta como deveria?).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: ONDE RF E RNF SE ENCAIXAM -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="section-tag">CONCEITOS</span>
+                <h2 class="slide-title">RF vs RNF — Onde Cada Um É Testado</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac);">Requisitos Funcionais (RF)</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            <strong>O que</strong> o sistema faz.<br>
+                            "Enviar nota fiscal", "Consultar status", "Calcular imposto"
+                        </p>
+                        <p style="margin-top: 10px; font-size: clamp(12px, 1.2vw, 15px);">
+                            <strong>Teste:</strong> Dado um input X, o output é Y?<br>
+                            <strong>Nível:</strong> Unit test + Validation test<br>
+                            <strong>Técnica:</strong> pytest + BDD/Gherkin + Mocks
+                        </p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">Requisitos Não Funcionais (RNF)</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            <strong>Como</strong> o sistema se comporta.<br>
+                            "Responde em &lt;200ms", "Suporta 100 req/s", "Logs rastreáveis"
+                        </p>
+                        <p style="margin-top: 10px; font-size: clamp(12px, 1.2vw, 15px);">
+                            <strong>Teste:</strong> Sob condição X, a qualidade Y é atendida?<br>
+                            <strong>Nível:</strong> Integration + System test<br>
+                            <strong>Técnica:</strong> JMeter, Chaos test, Security scan
+                        </p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>ISO/IEC 25010:</strong> Functional Suitability (RF) + Performance Efficiency, Reliability, Security, Maintainability (RNF). Ambos são atributos de qualidade — ambos podem ser aferidos por código.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: COMO ORGANIZAR O CÓDIGO DE TESTE -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <span class="section-tag">ESTRATÉGIA</span>
+                <h2 class="slide-title">Estrutura de um Teste Automatizado</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Padrão AAA — Arrange, Act, Assert</span>
+                        <span class="code-file">O esqueleto de todo bom teste</span>
+                    </div>
+                    <pre class="code-block"><code><span class="keyword">def</span> <span class="function">test_enviar_nota_fiscal_com_sucesso</span>(client, mock_sefaz):
+    <span class="comment"># ARRANGE — Preparar o cenário</span>
+    nota = criar_nota_valida()
+    mock_sefaz.return_value = {<span class="string">"status"</span>: <span class="string">"autorizada"</span>}
+
+    <span class="comment"># ACT — Executar a ação</span>
+    response = client.post(<span class="string">"/api/notas"</span>, json=nota)
+
+    <span class="comment"># ASSERT — Verificar o resultado</span>
+    <span class="keyword">assert</span> response.status_code == <span class="number">201</span>
+    <span class="keyword">assert</span> response.json()[<span class="string">"status"</span>] == <span class="string">"autorizada"</span>
+    mock_sefaz.assert_called_once()  <span class="comment"># Verificar que chamou a SEFAZ</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>AAA:</strong> Todo teste segue esse padrão — monte o cenário (Arrange), execute a ação (Act), verifique o resultado (Assert). Mocks entram no Arrange para simular dependências externas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: MASSA DE TESTES -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="section-tag">ESTRATÉGIA</span>
+                <h2 class="slide-title">Massa de Testes e Comentários de Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">dataset</span></div>
+                        <h4>Massa de Testes</h4>
+                        <p>Dados realistas e representativos que simulam cenários reais. Notas fiscais válidas, CNPJs formatados, valores limítrofes, cenários de erro.</p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.1vw, 14px); color: #666;"><strong>Dica:</strong> Use fixtures do pytest para criar dados reutilizáveis entre testes.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">comment</span></div>
+                        <h4>Comentários como Estratégia</h4>
+                        <p>Cada teste deve ter docstring explicando: qual requisito está sendo testado, qual o cenário, e qual o critério de aceite.</p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.1vw, 14px); color: #666;"><strong>Dica:</strong> A docstring do teste é a documentação viva do requisito.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">rule</span></div>
+                        <h4>Cenários de Borda</h4>
+                        <p>Testar não apenas o "caminho feliz" mas também: inputs vazios, valores extremos, formatos inválidos, timeouts, falhas parciais.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">account_tree</span></div>
+                        <h4>Organização</h4>
+                        <p>Agrupar testes por requisito (test_rf01_*, test_rnf02_*). Cada arquivo = um requisito. Cada classe = um cenário.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: MOCKS (Slides 12-19)
+             ============================================= -->
+
+        <!-- SLIDE 12: DIVISOR -->
+        <section class="slide slide-section" data-slide="12">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">Mocks — Simulando o Mundo Real</h2>
+                <p class="section-description">Como testar regras de negócio sem depender de serviços externos</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: POR QUE MOCKS -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="section-tag">MOCKS</span>
+                <h2 class="slide-title">Por que Precisamos de Mocks?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">O Problema</h3>
+                        <div class="driver-item" style="margin-bottom: 10px;">
+                            <span class="material-icons-outlined">cloud_off</span>
+                            <div>
+                                <h4>SEFAZ indisponível</h4>
+                                <p>Não dá pra testar envio de NF se o serviço está fora do ar</p>
+                            </div>
+                        </div>
+                        <div class="driver-item" style="margin-bottom: 10px;">
+                            <span class="material-icons-outlined">payments</span>
+                            <div>
+                                <h4>APIs cobram por uso</h4>
+                                <p>Cada chamada de teste tem custo real</p>
+                            </div>
+                        </div>
+                        <div class="driver-item" style="margin-bottom: 10px;">
+                            <span class="material-icons-outlined">timer_off</span>
+                            <div>
+                                <h4>Testes ficam lentos</h4>
+                                <p>Rede + latência = suite de 2h em vez de 2s</p>
+                            </div>
+                        </div>
+                        <div class="driver-item">
+                            <span class="material-icons-outlined">casino</span>
+                            <div>
+                                <h4>Resultados inconsistentes</h4>
+                                <p>Dados mudam, serviço cai, rede falha = testes flaky</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--inteli-dark-green); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">A Solução: Mock</h3>
+                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-green);">
+                            <p style="font-size: clamp(14px, 1.4vw, 18px); line-height: 1.8;">
+                                Um <strong>Mock</strong> é um objeto falso que substitui uma dependência real durante o teste.<br><br>
+                                Ele simula o comportamento esperado — retorna respostas configuradas, sem fazer chamadas reais.<br><br>
+                                <strong>Mock where it's used, not where it comes from.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: ANATOMIA DE UM MOCK -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="section-tag">MOCKS</span>
+                <h2 class="slide-title">Anatomia de um Mock em pytest</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / pytest-mock</span>
+                        <span class="code-file">Exemplo: Mockando a API da SEFAZ</span>
+                    </div>
+                    <pre class="code-block"><code><span class="keyword">from</span> unittest.mock <span class="keyword">import</span> MagicMock, patch
+
+<span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar_nota"</span>)
+<span class="keyword">def</span> <span class="function">test_rf01_enviar_nota</span>(mock_sefaz):
+    <span class="string">"""RF01: O sistema deve enviar NF para a SEFAZ."""</span>
+
+    <span class="comment"># Configurar o que o mock deve retornar</span>
+    mock_sefaz.return_value = {
+        <span class="string">"protocolo"</span>: <span class="string">"135240001234567"</span>,
+        <span class="string">"status"</span>: <span class="string">"autorizada"</span>,
+        <span class="string">"data_autorizacao"</span>: <span class="string">"2026-02-24T10:30:00"</span>
+    }
+
+    <span class="comment"># Executar a função que depende da SEFAZ</span>
+    resultado = processar_nota(nota_valida)
+
+    <span class="comment"># Verificar comportamento</span>
+    <span class="keyword">assert</span> resultado.status == <span class="string">"autorizada"</span>
+    mock_sefaz.<span class="function">assert_called_once_with</span>(nota_valida)</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">info</span>
+                    <p><strong>@patch:</strong> Substitui a função real pelo mock durante o teste. Quando o teste termina, tudo volta ao normal. O mock registra quantas vezes foi chamado e com quais argumentos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: MOCK PARA RNF -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="section-tag">MOCKS</span>
+                <h2 class="slide-title">Mock para Testar RNF — Disponibilidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / pytest-mock</span>
+                        <span class="code-file">RNF2: Testar mecanismo de failover</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar_nota"</span>)
+<span class="keyword">def</span> <span class="function">test_rnf02_failover_quando_sefaz_cai</span>(mock_sefaz):
+    <span class="string">"""RNF2: Quando SEFAZ falha, sistema deve entrar em contingência."""</span>
+
+    <span class="comment"># Simular FALHA da SEFAZ (ConnectionError)</span>
+    mock_sefaz.side_effect = ConnectionError(<span class="string">"SEFAZ indisponível"</span>)
+
+    resultado = processar_nota(nota_valida)
+
+    <span class="comment"># Verificar que sistema entrou em contingência</span>
+    <span class="keyword">assert</span> resultado.status == <span class="string">"contingência"</span>
+    <span class="keyword">assert</span> resultado.mensagem == <span class="string">"Nota será enviada quando SEFAZ retornar"</span>
+
+<span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar_nota"</span>)
+<span class="keyword">def</span> <span class="function">test_rnf02_retry_apos_falha_temporaria</span>(mock_sefaz):
+    <span class="string">"""RNF2: Sistema deve fazer retry após falha temporária."""</span>
+
+    <span class="comment"># Primeira chamada falha, segunda sucede</span>
+    mock_sefaz.side_effect = [
+        ConnectionError(<span class="string">"timeout"</span>),
+        {<span class="string">"status"</span>: <span class="string">"autorizada"</span>, <span class="string">"protocolo"</span>: <span class="string">"123"</span>}
+    ]
+
+    resultado = processar_nota_com_retry(nota_valida)
+    <span class="keyword">assert</span> resultado.status == <span class="string">"autorizada"</span>
+    <span class="keyword">assert</span> mock_sefaz.call_count == <span class="number">2</span>  <span class="comment"># Tentou 2 vezes</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: TIPOS DE MOCK -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="section-tag">MOCKS</span>
+                <h2 class="slide-title">Tipos de Objetos Simulados</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4>Mock</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px;">Objeto que simula comportamento E verifica como foi chamado. Ideal para testar interações.</p>
+                        <p style="font-size: clamp(11px, 1vw, 13px); margin-top: 6px; color: #666;"><code>mock.assert_called_once()</code></p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4>Stub</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px;">Retorna valores pré-configurados. Não verifica chamadas — só fornece dados para o teste funcionar.</p>
+                        <p style="font-size: clamp(11px, 1vw, 13px); margin-top: 6px; color: #666;"><code>stub.return_value = {...}</code></p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4>Fake</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px;">Implementação simplificada que funciona (ex: banco SQLite em memória em vez de PostgreSQL real).</p>
+                        <p style="font-size: clamp(11px, 1vw, 13px); margin-top: 6px; color: #666;"><code>SQLite in-memory</code></p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>No artefato:</strong> Usem Mocks para simular integrações externas (SEFAZ, bancos, APIs de parceiros). Usem Fakes para o banco de dados (SQLite em memória). O objetivo é testar a <em>lógica de negócio</em>, não a infraestrutura.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: QUANDO USAR MOCK VS TESTE REAL -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="section-tag">MOCKS</span>
+                <h2 class="slide-title">Mock vs. Teste Real — Quando Usar Cada Um</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4>Use Mock Quando...</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p>• Dependência externa (SEFAZ, banco, email)</p>
+                            <p>• Teste precisa ser rápido e determinístico</p>
+                            <p>• Quer simular cenários de erro</p>
+                            <p>• API tem custo por chamada</p>
+                            <p>• Quer testar LÓGICA, não infraestrutura</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4>Use Teste Real Quando...</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p>• Quer validar a integração funciona de fato</p>
+                            <p>• Teste de contrato (o formato da API mudou?)</p>
+                            <p>• Teste de performance (precisa do ambiente real)</p>
+                            <p>• Smoke test em ambiente de staging</p>
+                            <p>• Quer testar INFRAESTRUTURA, não lógica</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Para o artefato:</strong> Mecanismos arquiteturais devem ser implementados. Integrações externas podem ser <strong>emuladas e configuráveis</strong> com processos corretos e de exceção, porém com <strong>rastreabilidade</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: RECURSOS RECOMENDADOS -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">RECURSOS</span>
+                <h2 class="slide-title">Para Aprofundar — Leituras e Vídeos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <div>
+                            <h4>Pressman — Engenharia de Software, Cap. 22</h4>
+                            <p>Estratégias de teste, V&amp;V, espiral de testes. Disponível na Biblioteca Virtual: <code>integrada.minhabiblioteca.com.br</code></p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">play_circle</span>
+                        <div>
+                            <h4>PyCon US — Python Unit Testing with Pytest and Mock</h4>
+                            <p>Tutorial de 2h13 sobre pytest-mock: fixtures, patching, side_effect. Disponível no YouTube.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">article</span>
+                        <div>
+                            <h4>Pytest with Eric — How To Mock In Pytest</h4>
+                            <p>Guia prático com exemplos de mock de APIs, AWS e classes. pytest-with-eric.com/mocking/pytest-mocking</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">science</span>
+                        <div>
+                            <h4>BDD com Gherkin — Especificação Executável</h4>
+                            <p>BDD transforma requisitos em cenários executáveis (Given-When-Then). Artigo: blog.onedaytesting.com.br/gherkin</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">laptop_chromebook</span>
+                        <div>
+                            <h4>DataCamp — pytest-mock Tutorial Beginner</h4>
+                            <p>Tutorial passo-a-passo para iniciantes: datacamp.com/tutorial/pytest-mock</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: BDD COMO PONTE RF → CÓDIGO -->
+        <section class="slide slide-content" data-slide="19">
+            <div class="slide-header">
+                <span class="section-tag">BDD</span>
+                <h2 class="slide-title">BDD — Do Requisito ao Teste</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin (Negócio)</span>
+                            <span class="code-file">features/rf01_enviar_nota.feature</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">Feature:</span> <span class="class-name">Envio de Nota Fiscal</span>
+  <span class="decorator">@rf01</span>
+  <span class="keyword">Scenario:</span> Envio bem-sucedido
+    <span class="keyword">Given</span> uma nota fiscal válida
+    <span class="keyword">And</span> a SEFAZ está disponível
+    <span class="keyword">When</span> o sistema envia a nota
+    <span class="keyword">Then</span> recebe protocolo de autorização
+    <span class="keyword">And</span> status muda para "autorizada"
+
+  <span class="decorator">@rf01</span> <span class="decorator">@exceção</span>
+  <span class="keyword">Scenario:</span> SEFAZ indisponível
+    <span class="keyword">Given</span> uma nota fiscal válida
+    <span class="keyword">And</span> a SEFAZ está fora do ar
+    <span class="keyword">When</span> o sistema tenta enviar
+    <span class="keyword">Then</span> entra em contingência
+    <span class="keyword">And</span> agenda reenvio automático</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">pytest (Código)</span>
+                            <span class="code-file">tests/test_rf01.py</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@patch</span>(<span class="string">"app.sefaz.enviar"</span>)
+<span class="keyword">def</span> <span class="function">test_envio_sucesso</span>(mock):
+    mock.return_value = {
+        <span class="string">"protocolo"</span>: <span class="string">"135"</span>,
+        <span class="string">"status"</span>: <span class="string">"autorizada"</span>
+    }
+    r = enviar_nota(nota_valida)
+    <span class="keyword">assert</span> r.status == <span class="string">"autorizada"</span>
+
+<span class="decorator">@patch</span>(<span class="string">"app.sefaz.enviar"</span>)
+<span class="keyword">def</span> <span class="function">test_contingencia</span>(mock):
+    mock.side_effect = ConnectionError()
+    r = enviar_nota(nota_valida)
+    <span class="keyword">assert</span> r.status == <span class="string">"contingência"</span>
+    <span class="keyword">assert</span> r.retry_agendado == <span class="keyword">True</span></code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Documentação viva:</strong> O Gherkin é legível pelo negócio. O pytest é executável pela máquina. Juntos, formam o artefato de "Requisitos como Ativo de Software".</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 3: ESTUDO DE CASO ASIS (Slides 20-27)
+             ============================================= -->
+
+        <!-- SLIDE 20: DIVISOR -->
+        <section class="slide slide-section" data-slide="20">
+            <div class="section-content">
+                <span class="section-number">PARTE 3</span>
+                <h2 class="section-title">Estudo de Caso — ASIS TaxTech</h2>
+                <p class="section-description">Aplicando RF e RNF como código no contexto do projeto parceiro</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: MAPA DE RF DO ASIS -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">Possíveis RF para o Projeto ASIS</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-lilac); color: var(--inteli-white);">
+                    <p style="font-size: clamp(14px, 1.4vw, 18px);"><strong>Pergunta-guia:</strong> Quais são as ações que a API ASIS deve executar corretamente? O que os endpoints precisam fazer?</p>
+                </div>
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="concept-card">
+                        <h4 style="color: var(--inteli-lilac);">RF — Exemplos (pensem nos seus!)</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 8px;">
+                            <p>• Cadastrar novo produto fiscal com NCM válido</p>
+                            <p>• Calcular impostos de uma nota fiscal</p>
+                            <p>• Consultar status de autorização da SEFAZ</p>
+                            <p>• Gerar relatório de notas por período</p>
+                            <p>• Cancelar nota fiscal dentro do prazo legal</p>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h4 style="color: var(--inteli-coral);">Como Testar com Mock</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 8px;">
+                            <p>• <strong>Mock da SEFAZ:</strong> Simular resposta de autorização</p>
+                            <p>• <strong>Mock do cálculo:</strong> Validar regras tributárias</p>
+                            <p>• <strong>Fixture de dados:</strong> Notas com diferentes status</p>
+                            <p>• <strong>Cenários de exceção:</strong> CNPJ inválido, timeout</p>
+                            <p>• <strong>Assertions:</strong> Campos corretos no response</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 22: MAPA DE RNF DO ASIS -->
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">Possíveis RNF para o Projeto ASIS</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.4vw, 18px);"><strong>Pergunta-guia:</strong> Quais qualidades o sistema precisa ter? Como ele deve se comportar sob condições adversas?</p>
+                </div>
+                <div class="drivers-examples" style="margin-top: 15px;">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">speed</span>
+                        <div>
+                            <h4>RNF — Performance</h4>
+                            <p>API responde em &lt;200ms para consultas paginadas. Teste: JMeter com 50 threads, verificar p95 &lt; 200ms.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">health_and_safety</span>
+                        <div>
+                            <h4>RNF — Disponibilidade</h4>
+                            <p>Se a SEFAZ cair, sistema entra em contingência. Teste: Mock com side_effect=ConnectionError, verificar fallback.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">shield</span>
+                        <div>
+                            <h4>RNF — Segurança</h4>
+                            <p>SQL injection é bloqueado, JWT é obrigatório. Teste: enviar payloads maliciosos, verificar 422/401.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">track_changes</span>
+                        <div>
+                            <h4>RNF — Rastreabilidade</h4>
+                            <p>Toda operação tem correlation ID e log estruturado. Teste: verificar headers e formato do log.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 23: EXEMPLO COMPLETO RF -->
+        <section class="slide slide-content" data-slide="23">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">Exemplo Completo — RF como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">pytest + Mock</span>
+                        <span class="code-file">tests/test_rf01_cadastro_produto.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">class</span> <span class="class-name">TestRF01CadastroProduto</span>:
+    <span class="string">"""RF01: O sistema deve cadastrar produto com NCM válido."""</span>
+
+    <span class="keyword">def</span> <span class="function">test_cadastro_produto_valido</span>(self, client):
+        <span class="string">"""Cenário: Produto com todos os campos válidos."""</span>
+        produto = {
+            <span class="string">"codigo"</span>: <span class="string">"PROD-0001"</span>, <span class="string">"descricao"</span>: <span class="string">"Widget Fiscal"</span>,
+            <span class="string">"ncm"</span>: <span class="string">"84713012"</span>, <span class="string">"preco_unitario"</span>: <span class="number">99.90</span>
+        }
+        response = client.post(<span class="string">"/v2/produtos"</span>, json=produto)
+        <span class="keyword">assert</span> response.status_code == <span class="number">201</span>
+        <span class="keyword">assert</span> response.json()[<span class="string">"codigo"</span>] == <span class="string">"PROD-0001"</span>
+
+    <span class="keyword">def</span> <span class="function">test_rejeitar_ncm_invalido</span>(self, client):
+        <span class="string">"""Cenário de exceção: NCM com formato errado."""</span>
+        produto = {<span class="string">"codigo"</span>: <span class="string">"X"</span>, <span class="string">"descricao"</span>: <span class="string">"T"</span>,
+                   <span class="string">"ncm"</span>: <span class="string">"ABC"</span>, <span class="string">"preco_unitario"</span>: <span class="number">10</span>}
+        response = client.post(<span class="string">"/v2/produtos"</span>, json=produto)
+        <span class="keyword">assert</span> response.status_code == <span class="number">422</span>  <span class="comment"># NCM deve ter 8 dígitos</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Dica:</strong> A docstring explica o requisito. O test name segue o padrão <code>test_rf01_*</code>. Cada teste tem cenário de sucesso E de exceção.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: EXEMPLO COMPLETO RNF -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">Exemplo Completo — RNF como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">pytest + Mock</span>
+                        <span class="code-file">tests/test_rnf01_auditabilidade.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">class</span> <span class="class-name">TestRNF01Auditabilidade</span>:
+    <span class="string">"""RNF01: Toda transação deve gerar log rastreável."""</span>
+
+    <span class="keyword">def</span> <span class="function">test_transacao_gera_correlation_id</span>(self, client, seed_notas):
+        <span class="string">"""Cenário: Cada operação tem ID único para rastreabilidade."""</span>
+        r = client.get(<span class="string">f"/v2/notas/{seed_notas[0].id}"</span>)
+        <span class="keyword">assert</span> <span class="string">"x-correlation-id"</span> <span class="keyword">in</span> r.headers
+        <span class="keyword">assert</span> <span class="string">"x-response-time"</span> <span class="keyword">in</span> r.headers
+
+    <span class="keyword">def</span> <span class="function">test_alerta_valor_fora_sazonalidade</span>(self, client, mock_alertas):
+        <span class="string">"""Cenário: Valor acima da média dispara alerta."""</span>
+        nota_alta = criar_nota(valor=<span class="number">999999.99</span>)  <span class="comment"># Fora do padrão</span>
+        response = client.post(<span class="string">"/api/notas"</span>, json=nota_alta)
+        mock_alertas.assert_called_once()  <span class="comment"># Alerta disparado!</span>
+        alerta = mock_alertas.call_args[<span class="number">0</span>][<span class="number">0</span>]
+        <span class="keyword">assert</span> <span class="string">"sazonalidade"</span> <span class="keyword">in</span> alerta.tipo</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Dica:</strong> O mock_alertas verifica que o mecanismo de alerta FOI chamado e com os parâmetros corretos — sem precisar de um sistema de alertas real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: TÁTICAS ARQUITETURAIS -->
+        <section class="slide slide-content" data-slide="25">
+            <div class="slide-header">
+                <span class="section-tag">ARQUITETURA</span>
+                <h2 class="slide-title">Táticas Arquiteturais — Codificando BD</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">replay</span></div>
+                        <h4>Retry Pattern</h4>
+                        <p>Retentar automaticamente operações que falharam por problemas temporários. Testável com mock que falha N vezes e depois sucede.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">alt_route</span></div>
+                        <h4>Circuit Breaker</h4>
+                        <p>Interromper chamadas a um serviço que está falhando repetidamente. Testável com mock que monitora contagem de falhas.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">backup</span></div>
+                        <h4>Fallback / Contingência</h4>
+                        <p>Caminho alternativo quando o principal falha. Testável com mock que simula falha → verificar que fallback é acionado.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">cached</span></div>
+                        <h4>Cache Strategy</h4>
+                        <p>Evitar chamadas repetidas ao mesmo recurso. Testável: primeira chamada vai ao serviço (mock), segunda retorna do cache.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>No artefato:</strong> Cada tática é um mecanismo arquitetural. Cada mecanismo pode ser testado com mocks simulando cenários de falha e sucesso. É isso que o enunciado pede.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: ESCALA DE AVALIAÇÃO -->
+        <section class="slide slide-content" data-slide="26">
+            <div class="slide-header">
+                <span class="activity-tag">AVALIAÇÃO</span>
+                <h2 class="slide-title">Rubrica de Avaliação</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green);">Supera (9.1 - 10)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px; line-height: 1.7;">
+                            Todos os itens completos. RF e RNF bem explicados, corretos e coerentes. Código organizado com cenários de sucesso e exceção. Docstrings e massa de testes completas.
+                        </p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac);">Bom (7.1 - 9.0)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px; line-height: 1.7;">
+                            Parte da entrega não atende ao padrão excelente. Há espaço significativo para aprimoramentos na cobertura ou documentação.
+                        </p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">Regular (4.1 - 7.0)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px; line-height: 1.7;">
+                            Falhas significativas que explicitam lacunas no conhecimento. RF/RNF mal definidos ou testes incompletos.
+                        </p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid #999;">
+                        <h4 style="color: #999;">Insuficiente (0.0 - 4.0)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px; line-height: 1.7;">
+                            Não entregou, entrega incorreta ou incompatível. Erros conceituais graves. Plágio detectado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 27: CHECKLIST DO ARTEFATO -->
+        <section class="slide slide-content" data-slide="27">
+            <div class="slide-header">
+                <span class="section-tag">CHECKLIST</span>
+                <h2 class="slide-title">Checklist — O que Entregar</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">checklist</span>
+                        <div>
+                            <h4>Mapa com 2+ RF e 3+ RNF</h4>
+                            <p>Cada requisito com: descrição, cenário de teste, critério de aceite, impacto no negócio ASIS</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">code</span>
+                        <div>
+                            <h4>Código executável para cada requisito</h4>
+                            <p>Testes pytest completos com cenários de sucesso E exceção. Mocks para dependências externas.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">comment</span>
+                        <div>
+                            <h4>Docstrings e comentários explicativos</h4>
+                            <p>Cada teste documenta: qual requisito afere, qual cenário testa, qual o critério de aceite</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">terminal</span>
+                        <div>
+                            <h4>Execução local funcionando</h4>
+                            <p>pytest roda sem erros. Relatório mostra todos os testes passando. Screenshot da execução.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">track_changes</span>
+                        <div>
+                            <h4>Rastreabilidade na execução</h4>
+                            <p>Mecanismos emulados com rastreabilidade para verificação. Logs mostram o caminho da execução.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ATIVIDADE EM GRUPO (Slides 28-35)
+             ============================================= -->
+
+        <!-- SLIDE 28: DIVISOR -->
+        <section class="slide slide-section" data-slide="28">
+            <div class="section-content">
+                <span class="section-number">SUPORTE AOS GRUPOS</span>
+                <h2 class="section-title">Mapa de Dúvidas + Workshop</h2>
+                <p class="section-description">Identificar bloqueios, esclarecer dúvidas e começar a produzir</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 29: MAPA DE DÚVIDAS -->
+        <section class="slide slide-content" data-slide="29">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE EM GRUPO</span>
+                <h2 class="slide-title">Mapa de Dúvidas — 10 minutos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-instructions">
+                    <div class="timer-container">
+                        <div class="timer-display" id="timer-duvidas">10:00</div>
+                        <button class="timer-btn" onclick="toggleTimer('duvidas', 10)">
+                            <span class="material-icons-outlined">play_arrow</span>
+                            Iniciar Timer
+                        </button>
+                    </div>
+                    <div class="activity-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h4>Listar Dúvidas do Grupo</h4>
+                                <p>Cada membro anota suas 3 maiores dúvidas sobre o artefato</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h4>Categorizar</h4>
+                                <p>Conceitual (o que é RF/RNF?), Técnica (como usar mock?), Projeto (qual endpoint testar?)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h4>Priorizar</h4>
+                                <p>Quais dúvidas, se esclarecidas AGORA, mais aceleram o projeto?</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div>
+                                <h4>Compartilhar</h4>
+                                <p>Top 3 dúvidas do grupo para discussão com a turma</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 30: WORKSHOP RF -->
+        <section class="slide slide-content" data-slide="30">
+            <div class="slide-header">
+                <span class="activity-tag">WORKSHOP</span>
+                <h2 class="slide-title">Workshop: Mapeando seus RF</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-lilac); color: var(--inteli-white);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Exercício:</strong> Escolha 2 requisitos funcionais do projeto ASIS e preencha o template abaixo para cada um.</p>
+                </div>
+                <div class="code-example" style="margin-top: 20px;">
+                    <div class="code-header">
+                        <span class="code-lang">Template — Mapa de RF</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">RF[número]</span>: <span class="string">[Descrição clara do que o sistema deve fazer]</span>
+
+<span class="comment"># Cenário de Sucesso (Caminho Feliz)</span>
+<span class="keyword">Given</span>  <span class="string">[pré-condição]</span>
+<span class="keyword">When</span>   <span class="string">[ação do usuário/sistema]</span>
+<span class="keyword">Then</span>   <span class="string">[resultado esperado]</span>
+
+<span class="comment"># Cenário de Exceção</span>
+<span class="keyword">Given</span>  <span class="string">[pré-condição com dados inválidos ou falha]</span>
+<span class="keyword">When</span>   <span class="string">[mesma ação]</span>
+<span class="keyword">Then</span>   <span class="string">[tratamento de erro esperado]</span>
+
+<span class="comment"># Mock necessário:</span> <span class="string">[qual dependência precisa ser simulada?]</span>
+<span class="comment"># Massa de teste:</span> <span class="string">[quais dados são necessários?]</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 31: WORKSHOP RNF -->
+        <section class="slide slide-content" data-slide="31">
+            <div class="slide-header">
+                <span class="activity-tag">WORKSHOP</span>
+                <h2 class="slide-title">Workshop: Mapeando seus RNF</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Exercício:</strong> Escolha 3 requisitos não funcionais e preencha o template. Pense em COMO provocar a condição e COMO verificar a qualidade.</p>
+                </div>
+                <div class="code-example" style="margin-top: 20px;">
+                    <div class="code-header">
+                        <span class="code-lang">Template — Mapa de RNF</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">RNF[número]</span>: <span class="string">[Qual qualidade está sendo testada?]</span>
+<span class="keyword">ISO 25010</span>: <span class="string">[Categoria: Performance, Reliability, Security...]</span>
+
+<span class="comment"># O que provocar:</span>
+<span class="string">[Qual condição adversa simular? Ex: pico de carga, falha de serviço, ataque]</span>
+
+<span class="comment"># O que verificar:</span>
+<span class="string">[Qual métrica ou comportamento medir? Ex: tempo &lt;200ms, fallback ativado]</span>
+
+<span class="comment"># Mock / ferramenta:</span>
+<span class="string">[mock com side_effect? JMeter? pytest com ThreadPool?]</span>
+
+<span class="comment"># Critério de aceite:</span>
+<span class="string">[Valor quantificável. Ex: "SLA 99.9% = máx 43min/mês de downtime"]</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 32: TIMER DE TRABALHO -->
+        <section class="slide slide-content" data-slide="32">
+            <div class="slide-header">
+                <span class="activity-tag">WORKSHOP</span>
+                <h2 class="slide-title">Tempo de Trabalho em Grupo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-instructions">
+                    <div class="timer-container">
+                        <div class="timer-display" id="timer-workshop">30:00</div>
+                        <button class="timer-btn" onclick="toggleTimer('workshop', 30)">
+                            <span class="material-icons-outlined">play_arrow</span>
+                            Iniciar Timer
+                        </button>
+                    </div>
+                    <div class="activity-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h4>Mapear (10 min)</h4>
+                                <p>Preencher os templates de RF e RNF para o projeto ASIS</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h4>Codificar (15 min)</h4>
+                                <p>Começar a escrever pelo menos 1 teste com mock para um RF</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h4>Validar (5 min)</h4>
+                                <p>Rodar o teste, verificar se passa. Revisar docstrings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 33: COMPARTILHAMENTO GRUPOS -->
+        <section class="slide slide-content" data-slide="33">
+            <div class="slide-header">
+                <span class="activity-tag">COMPARTILHAMENTO</span>
+                <h2 class="slide-title">Apresentação dos Grupos — 15 min</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Cada grupo apresenta (3 min):</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>1. Quais RF e RNF escolheram?</p>
+                            <p>2. Qual a estratégia de mock?</p>
+                            <p>3. Qual teste escreveram?</p>
+                            <p>4. Qual a maior dúvida restante?</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Feedback do instrutor:</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>• O requisito está bem definido?</p>
+                            <p>• O teste é executável e determinístico?</p>
+                            <p>• Os cenários de exceção estão cobertos?</p>
+                            <p>• O mock está no lugar certo?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ENCERRAMENTO (Slides 34-36)
+             ============================================= -->
+
+        <!-- SLIDE 34: SÍNTESE -->
+        <section class="slide slide-content" data-slide="34">
+            <div class="slide-header">
+                <span class="section-tag">SÍNTESE</span>
+                <h2 class="slide-title">Resumo da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px;">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(13px, 1.3vw, 16px);">Pressman V&amp;V</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Verificação = processo<br>Validação = produto<br>Espiral de testes</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px; border-color: var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(13px, 1.3vw, 16px);">Mocks</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Isolar dependências<br>Simular falhas<br>Testes determinísticos</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px; border-color: var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(13px, 1.3vw, 16px);">RF + RNF</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Mapa de requisitos<br>Cenários sucesso/erro<br>Código executável</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px;">
+                        <h4 style="color: var(--inteli-purple); font-size: clamp(13px, 1.3vw, 16px);">Artefato</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">2 RF + 3 RNF<br>Testes com mocks<br>Documentação viva</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Lembrem-se:</strong> O artefato não é sobre quantidade de linhas de código — é sobre demonstrar que os requisitos estão sendo <em>controlados</em> e <em>aferidos</em> de forma automatizada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 35: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="35">
+            <div class="slide-header">
+                <span class="section-tag">PRÓXIMOS PASSOS</span>
+                <h2 class="slide-title">O que Vem Depois</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">assignment_turned_in</span></div>
+                        <h4>Entrega do Artefato</h4>
+                        <p>Mapa de 2 RF + 3 RNF + código executável com mocks. Prazo na página do curso.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">school</span></div>
+                        <h4>Aula 05: RF e RNF como Código</h4>
+                        <p>Aprofundamento teórico em requisitos funcionais e não funcionais como código de aferição de qualidade.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">menu_book</span></div>
+                        <h4>Autoestudo</h4>
+                        <p>Pressman Cap. 22 (Biblioteca Virtual) + pytest-mock tutorials (links nos slides anteriores).</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">groups</span></div>
+                        <h4>Aula 06: Prática BDD + Integração</h4>
+                        <p>Exercitar solução técnica com BDD e engenharia de integração aplicada ao projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 36: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="36">
+            <div class="closing-content">
+                <div class="closing-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>Requisitos que não são testáveis<br><strong>não são requisitos — são desejos.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>Mapear 2 RF e 3 RNF do projeto ASIS</li>
+                            <li>Usar mocks para simular dependências externas</li>
+                            <li>Cada teste = documentação viva de um requisito</li>
+                            <li>Cenários de sucesso E exceção são obrigatórios</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

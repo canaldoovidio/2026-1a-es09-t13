@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercitar Business Drivers | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 45</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             ABERTURA (Slides 1-5)
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 03</span>
+                </div>
+                <h1 class="cover-title">Exercitar Business Drivers<br>do Projeto</h1>
+                <h2 class="cover-subtitle">Atividade Ponderada 1: Aplicando Volumetria, Rastreabilidade,<br>Acesso Simultâneo e Segurança no projeto ASIS TaxTech</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Fevereiro de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: CONEXÃO COM AULAS ANTERIORES -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Jornada até Aqui</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon">
+                            <span class="material-icons-outlined">visibility</span>
+                        </div>
+                        <h4>Aula 01</h4>
+                        <p>5 Visões RM-ODP e Cenários de Arquitetura</p>
+                    </div>
+                    <div class="recap-arrow">
+                        <span class="material-icons-outlined">arrow_forward</span>
+                    </div>
+                    <div class="recap-card">
+                        <div class="recap-icon">
+                            <span class="material-icons-outlined">code</span>
+                        </div>
+                        <h4>Aula 02</h4>
+                        <p>Business Drivers como Código de Software</p>
+                    </div>
+                    <div class="recap-arrow">
+                        <span class="material-icons-outlined">arrow_forward</span>
+                    </div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon">
+                            <span class="material-icons-outlined">build</span>
+                        </div>
+                        <h4>Aula 03 (Hoje)</h4>
+                        <p>Exercitar Business Drivers no Projeto ASIS</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 30px;">
+                    <p><strong>Evolução:</strong> Teoria (Aula 01) → Estudo de Caso (Aula 02) → <strong>Prática no Projeto</strong> (Hoje). Hora de colocar a mão no código!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Aplicar Business Drivers</h3>
+                    <p>Exercitar os 4 drivers do projeto: Volumetria, Rastreabilidade, Acesso Simultâneo e Segurança</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Identificar Vulnerabilidades</h3>
+                    <p>Reconhecer bugs reais em código de API e entender seu impacto no negócio fiscal</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Codificar Correções</h3>
+                    <p>Escrever testes automatizados que validam cada driver e implementar as correções</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: CONTEXTO ASIS TAXTECH -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <span class="section-tag">PROJETO</span>
+                <h2 class="slide-title">ASIS TaxTech — Contexto do Projeto</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">business</span></div>
+                        <h4>A Empresa</h4>
+                        <p>Primeira Tax Tech da América Latina (by Sankhya). Gestão tributária com automação e tecnologia de ponta.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">api</span></div>
+                        <h4>Arquitetura API First</h4>
+                        <p>A API é o principal contrato e ponto de acesso à lógica de negócios. Cobertura de testes é crucial.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">verified</span></div>
+                        <h4>Objetivo do Módulo</h4>
+                        <p>Aumentar a qualidade de software com testes automatizados cobrindo 5-10 endpoints críticos.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">rocket_launch</span></div>
+                        <h4>Sprint 2</h4>
+                        <p>Entrega: Framework de automação configurado, suite de testes, relatórios de cobertura e execução.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: ATIVIDADE PONDERADA 1 — VISÃO GERAL -->
+        <section class="slide slide-content" data-slide="5">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE PONDERADA 1</span>
+                <h2 class="slide-title">O que Vocês Vão Fazer Hoje</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Missão:</strong> Clonar um repositório com uma API que contém bugs intencionais. Identificar as vulnerabilidades, executar os testes que as expõem, e compreender as correções.</p>
+                </div>
+                <div class="drivers-examples" style="margin-top: 20px;">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">speed</span>
+                        <div>
+                            <h4>1. Volumetria</h4>
+                            <p>API que retorna 50k registros sem paginação — timeout e memória</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">track_changes</span>
+                        <div>
+                            <h4>2. Rastreabilidade</h4>
+                            <p>Logs sem correlation ID — impossível debugar em produção</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">group</span>
+                        <div>
+                            <h4>3. Acesso Simultâneo</h4>
+                            <p>Race condition em update de estoque — lost update em produção</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">shield</span>
+                        <div>
+                            <h4>4. Segurança</h4>
+                            <p>SQL Injection via f-string — exposição total dos dados fiscais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 1: SETUP DO LAB (Slides 6-9)
+             ============================================= -->
+
+        <!-- SLIDE 6: DIVISOR SETUP -->
+        <section class="slide slide-section" data-slide="6">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Preparando o Ambiente</h2>
+                <p class="section-description">Docker + FastAPI + PostgreSQL — tudo rodando em 1 comando</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: ARQUITETURA DO LAB -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">SETUP</span>
+                <h2 class="slide-title">Arquitetura do Lab</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 30px; margin-top: 20px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 250px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">laptop_mac</span></div>
+                        <h4>Seu Computador</h4>
+                        <p>docker compose up</p>
+                    </div>
+                    <div class="jmeter-step" style="flex: 0; padding: 10px;">
+                        <span class="material-icons-outlined" style="font-size: 36px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 250px; border-color: var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">dns</span></div>
+                        <h4>FastAPI</h4>
+                        <p>localhost:8000<br>Endpoints v1 (bug) e v2 (fix)</p>
+                    </div>
+                    <div class="jmeter-step" style="flex: 0; padding: 10px;">
+                        <span class="material-icons-outlined" style="font-size: 36px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 250px; border-color: var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">storage</span></div>
+                        <h4>PostgreSQL</h4>
+                        <p>200 notas fiscais<br>10 produtos (seed)</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 30px;">
+                    <p><strong>Padrão v1 / v2:</strong> Cada endpoint existe em duas versões. A v1 contém o bug intencional. A v2 contém a correção. Os testes exercitam ambas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: COMO RODAR -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">SETUP</span>
+                <h2 class="slide-title">Como Rodar o Lab</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Terminal</span>
+                        <span class="code-file">Passo a passo</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="comment"># 1. Clonar o repositório</span>
+<span class="keyword">git clone</span> <span class="string">https://github.com/inteli-es09/asis-bd-lab.git</span>
+<span class="keyword">cd</span> asis-bd-lab
+
+<span class="comment"># 2. Subir a aplicação (FastAPI + PostgreSQL)</span>
+<span class="keyword">docker compose up</span> <span class="string">--build</span>
+
+<span class="comment"># 3. Verificar se está rodando</span>
+<span class="keyword">curl</span> <span class="string">http://localhost:8000/health</span>
+<span class="comment"># {"status": "ok", "service": "asis-taxtech-lab"}</span>
+
+<span class="comment"># 4. Acessar documentação interativa</span>
+<span class="comment"># Abrir no browser: http://localhost:8000/docs</span>
+
+<span class="comment"># 5. Rodar os testes (em outro terminal)</span>
+<span class="keyword">pip install</span> <span class="string">-r requirements.txt</span>
+<span class="keyword">pytest</span> tests/ <span class="string">-v</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: ESTRUTURA DO REPOSITÓRIO -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="section-tag">SETUP</span>
+                <h2 class="slide-title">Estrutura do Repositório</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Aplicação</span>
+                            <span class="code-file">app/</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">app/</span>
+├── <span class="function">main.py</span>        <span class="comment"># Endpoints v1 e v2</span>
+├── <span class="function">models.py</span>      <span class="comment"># Produto, NotaFiscal</span>
+├── <span class="function">schemas.py</span>     <span class="comment"># Validação Pydantic</span>
+└── <span class="function">database.py</span>    <span class="comment"># Conexão PostgreSQL</span>
+
+<span class="keyword">docker-compose.yml</span>
+├── <span class="class-name">api</span>   <span class="comment"># FastAPI :8000</span>
+└── <span class="class-name">db</span>    <span class="comment"># PostgreSQL :5432</span></code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Testes</span>
+                            <span class="code-file">tests/</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">tests/</span>
+├── <span class="function">conftest.py</span>
+│   <span class="comment"># Fixtures compartilhadas</span>
+├── <span class="string">test_01_volumetria.py</span>
+│   <span class="comment"># Paginação, N+1</span>
+├── <span class="string">test_02_rastreabilidade.py</span>
+│   <span class="comment"># Correlation ID, logs</span>
+├── <span class="string">test_03_concorrencia.py</span>
+│   <span class="comment"># Race condition, locking</span>
+└── <span class="string">test_04_seguranca.py</span>
+    <span class="comment"># SQL Injection, auth</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: DRIVER 1 — VOLUMETRIA (Slides 10-16)
+             ============================================= -->
+
+        <!-- SLIDE 10: DIVISOR VOLUMETRIA -->
+        <section class="slide slide-section" data-slide="10">
+            <div class="section-content">
+                <span class="section-number">DRIVER 1</span>
+                <h2 class="section-title">Volumetria</h2>
+                <p class="section-description">A API precisa suportar grandes volumes de dados sem degradar</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: O QUE É VOLUMETRIA -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="section-tag">VOLUMETRIA</span>
+                <h2 class="slide-title">O que é Volumetria como Business Driver?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">data_usage</span></div>
+                        <h4>Definição</h4>
+                        <p>Capacidade do sistema de operar eficientemente sob volumes crescentes de dados e requisições, sem degradação de performance.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">warning</span></div>
+                        <h4>Impacto no ASIS</h4>
+                        <p>O sistema fiscal processa milhares de notas por dia. Uma API sem paginação pode derrubar o serviço inteiro ao listar notas.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">checklist</span></div>
+                        <h4>O que Testar</h4>
+                        <p>Limites de paginação, tempo de resposta sob carga, consumo de memória, queries N+1.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">trending_up</span></div>
+                        <h4>Métrica de Sucesso</h4>
+                        <p>API responde em &lt;200ms para páginas de 20 registros, mesmo com 50k+ notas no banco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: O PROBLEMA — CASO REAL -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <span class="section-tag">VOLUMETRIA</span>
+                <h2 class="slide-title">O Problema: API sem Paginação</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="netflix-grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px;">Cenário de Produção</h3>
+                        <div class="driver-item" style="margin-bottom: 12px;">
+                            <span class="material-icons-outlined">inventory_2</span>
+                            <div>
+                                <h4>50.000 Notas Fiscais</h4>
+                                <p>Volume mensal de um cliente médio ASIS</p>
+                            </div>
+                        </div>
+                        <div class="driver-item" style="margin-bottom: 12px;">
+                            <span class="material-icons-outlined">people</span>
+                            <div>
+                                <h4>100 Operadores Simultâneos</h4>
+                                <p>Cada um fazendo GET /notas</p>
+                            </div>
+                        </div>
+                        <div class="driver-item">
+                            <span class="material-icons-outlined">dangerous</span>
+                            <div>
+                                <h4>Resultado: Timeout + OOM</h4>
+                                <p>Cada request carrega 50k registros na memória</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px;">Impacto Financeiro</h3>
+                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-coral);">
+                            <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 15px; font-size: clamp(13px, 1.3vw, 17px);">
+                                <strong>Downtime:</strong> <span>2h durante horário comercial</span>
+                                <strong>Notas bloqueadas:</strong> <span>~4.000 NFe sem emissão</span>
+                                <strong>Multas SEFAZ:</strong> <span>R$ 500 por nota atrasada</span>
+                                <strong>Prejuízo potencial:</strong> <span style="color: var(--inteli-coral); font-weight: 700;">R$ 2.000.000+</span>
+                            </div>
+                        </div>
+                        <div class="key-message" style="margin-top: 15px;">
+                            <p><strong>N+1 Query:</strong> Para cada nota, o ORM faz 1 query extra para carregar os itens. 50k notas = 50.001 queries!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: CÓDIGO ANTES -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="section-tag">VOLUMETRIA</span>
+                <h2 class="slide-title">Código ANTES — Sem Paginação (v1)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / FastAPI</span>
+                        <span class="code-file">app/main.py — endpoint v1</span>
+                    </div>
+                    <pre class="code-block"><code><span class="decorator">@app.get</span>(<span class="string">"/v1/notas"</span>)
+<span class="keyword">def</span> <span class="function">listar_notas_v1</span>(db: Session = Depends(get_db)):
+    <span class="comment">"""BUG: Retorna TODAS as notas sem paginação."""</span>
+
+    <span class="comment"># Carrega TUDO na memória — 50k registros!</span>
+    notas = db.query(NotaFiscal).<span class="function">all</span>()
+
+    <span class="comment"># Bug N+1: cada acesso a .itens dispara query extra</span>
+    <span class="keyword">for</span> nota <span class="keyword">in</span> notas:
+        _ = nota.itens  <span class="comment"># SELECT * FROM itens WHERE nota_id = ?</span>
+
+    <span class="keyword">return</span> notas  <span class="comment"># Serializa 50k objetos → timeout!</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">error</span>
+                    <p><strong>Problemas:</strong> Sem limit/offset → retorna tudo | Lazy loading → N+1 queries | Sem controle de tamanho de response</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: CÓDIGO DEPOIS -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="section-tag">VOLUMETRIA</span>
+                <h2 class="slide-title">Código DEPOIS — Com Paginação (v2)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / FastAPI</span>
+                        <span class="code-file">app/main.py — endpoint v2</span>
+                    </div>
+                    <pre class="code-block"><code><span class="decorator">@app.get</span>(<span class="string">"/v2/notas"</span>)
+<span class="keyword">def</span> <span class="function">listar_notas_v2</span>(
+    limit: <span class="class-name">int</span> = Query(default=<span class="number">20</span>, le=<span class="number">100</span>, ge=<span class="number">1</span>),
+    offset: <span class="class-name">int</span> = Query(default=<span class="number">0</span>, ge=<span class="number">0</span>),
+    db: Session = Depends(get_db),
+):
+    notas = (
+        db.query(NotaFiscal)
+        .options(<span class="function">joinedload</span>(NotaFiscal.itens))  <span class="comment"># Eager loading!</span>
+        .order_by(NotaFiscal.id)
+        .<span class="function">offset</span>(offset)     <span class="comment"># Pula registros anteriores</span>
+        .<span class="function">limit</span>(limit)       <span class="comment"># Máximo 100 por página</span>
+        .all()
+    )
+    <span class="keyword">return</span> notas</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">check_circle</span>
+                    <p><strong>Correções:</strong> Paginação limit/offset → máx. 100 registros | joinedload() → 1 query com JOIN (elimina N+1) | Validação via Query params</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: TESTE PYTEST -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="section-tag">VOLUMETRIA</span>
+                <h2 class="slide-title">Teste que Valida o Driver</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">pytest</span>
+                        <span class="code-file">tests/test_01_volumetria.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">class</span> <span class="class-name">TestVolumetriaFixV2</span>:
+
+    <span class="keyword">def</span> <span class="function">test_v2_paginacao_padrao_20</span>(self, client, seed_notas):
+        <span class="string">"""v2 deve retornar no máximo 20 registros por padrão."""</span>
+        response = client.get(<span class="string">"/v2/notas"</span>)
+        <span class="keyword">assert</span> response.status_code == <span class="number">200</span>
+        data = response.json()
+        <span class="keyword">assert</span> len(data) &lt;= <span class="number">20</span>
+
+    <span class="keyword">def</span> <span class="function">test_v2_limite_maximo_100</span>(self, client, seed_notas):
+        <span class="string">"""v2 deve rejeitar limit &gt; 100."""</span>
+        response = client.get(<span class="string">"/v2/notas?limit=500"</span>)
+        <span class="keyword">assert</span> response.status_code == <span class="number">422</span>  <span class="comment"># Validation Error</span>
+
+    <span class="keyword">def</span> <span class="function">test_v2_paginacao_sem_sobreposicao</span>(self, client, seed_notas):
+        <span class="string">"""Páginas diferentes não devem ter registros repetidos."""</span>
+        page1 = client.get(<span class="string">"/v2/notas?limit=10&amp;offset=0"</span>).json()
+        page2 = client.get(<span class="string">"/v2/notas?limit=10&amp;offset=10"</span>).json()
+        ids_1 = {n[<span class="string">"id"</span>] <span class="keyword">for</span> n <span class="keyword">in</span> page1}
+        ids_2 = {n[<span class="string">"id"</span>] <span class="keyword">for</span> n <span class="keyword">in</span> page2}
+        <span class="keyword">assert</span> ids_1.isdisjoint(ids_2)</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: JMETER -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="section-tag">VOLUMETRIA</span>
+                <h2 class="slide-title">JMeter — Comparação v1 vs v2</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">v1 — Sem Paginação</h4>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: clamp(12px, 1.2vw, 16px); margin-top: 10px;">
+                            <strong>Threads:</strong> <span>50 usuários</span>
+                            <strong>Avg Response:</strong> <span style="color: var(--inteli-coral);">4.200ms</span>
+                            <strong>Throughput:</strong> <span>12 req/s</span>
+                            <strong>Error Rate:</strong> <span style="color: var(--inteli-coral);">35% (timeouts)</span>
+                            <strong>Payload:</strong> <span>~8MB por response</span>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green);">v2 — Com Paginação</h4>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: clamp(12px, 1.2vw, 16px); margin-top: 10px;">
+                            <strong>Threads:</strong> <span>50 usuários</span>
+                            <strong>Avg Response:</strong> <span style="color: var(--inteli-dark-green);">45ms</span>
+                            <strong>Throughput:</strong> <span>850 req/s</span>
+                            <strong>Error Rate:</strong> <span style="color: var(--inteli-dark-green);">0%</span>
+                            <strong>Payload:</strong> <span>~12KB por response</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Resultado:</strong> Paginação reduziu o tempo de resposta em <strong>93x</strong> e eliminou todos os erros de timeout. Arquivo JMeter disponível em <code>jmeter/load_test.jmx</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 3: DRIVER 2 — RASTREABILIDADE (Slides 17-22)
+             ============================================= -->
+
+        <!-- SLIDE 17: DIVISOR RASTREABILIDADE -->
+        <section class="slide slide-section" data-slide="17">
+            <div class="section-content">
+                <span class="section-number">DRIVER 2</span>
+                <h2 class="section-title">Rastreabilidade</h2>
+                <p class="section-description">Cada operação precisa ser auditável — do request ao log</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: O QUE É RASTREABILIDADE -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">RASTREABILIDADE</span>
+                <h2 class="slide-title">O que é Rastreabilidade como Business Driver?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">manage_search</span></div>
+                        <h4>Definição</h4>
+                        <p>Capacidade de rastrear qualquer operação do sistema de ponta a ponta, correlacionando logs, métricas e traces a um request específico.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">gavel</span></div>
+                        <h4>Por que é Crítico em Tax</h4>
+                        <p>Auditorias fiscais exigem rastreabilidade completa. A SEFAZ pode pedir logs de qualquer operação dos últimos 5 anos.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">fingerprint</span></div>
+                        <h4>Correlation ID</h4>
+                        <p>UUID único por request que conecta todos os logs, métricas e erros a uma mesma operação do usuário.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
+                        <h4>Structured Logging</h4>
+                        <p>Logs em formato JSON com campos padronizados — facilita busca, filtro e dashboards em ferramentas como Elasticsearch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: O PROBLEMA -->
+        <section class="slide slide-content" data-slide="19">
+            <div class="slide-header">
+                <span class="section-tag">RASTREABILIDADE</span>
+                <h2 class="slide-title">O Problema: Log sem Contexto</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang" style="color: var(--inteli-coral);">Log v1 — Inútil</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="comment"># print() sem contexto</span>
+Buscando nota 42
+Buscando nota 108
+Erro: nota não encontrada
+Buscando nota 15
+Erro: nota não encontrada
+Buscando nota 42
+
+<span class="comment"># Qual request causou o erro?</span>
+<span class="comment"># Qual usuário? Qual IP?</span>
+<span class="comment"># Impossível saber!</span></code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang" style="color: var(--inteli-dark-green);">Log v2 — Rastreável</span>
+                        </div>
+                        <pre class="code-block code-compact"><code>{
+  <span class="string">"event"</span>: <span class="string">"buscar_nota"</span>,
+  <span class="string">"correlation_id"</span>: <span class="string">"a3f8-4b2e"</span>,
+  <span class="string">"nota_id"</span>: <span class="number">108</span>,
+  <span class="string">"timestamp"</span>: <span class="string">"2026-02-23T14:30:01"</span>
+}
+{
+  <span class="string">"event"</span>: <span class="string">"nota_nao_encontrada"</span>,
+  <span class="string">"correlation_id"</span>: <span class="string">"a3f8-4b2e"</span>,
+  <span class="string">"nota_id"</span>: <span class="number">108</span>
+}</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Diferença:</strong> Com o correlation ID <code>a3f8-4b2e</code>, podemos filtrar TODOS os logs daquele request específico, mesmo em um sistema com milhares de requests por segundo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: CÓDIGO ANTES VS DEPOIS -->
+        <section class="slide slide-content" data-slide="20">
+            <div class="slide-header">
+                <span class="section-tag">RASTREABILIDADE</span>
+                <h2 class="slide-title">Middleware de Correlation ID</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / FastAPI</span>
+                        <span class="code-file">app/main.py — middleware</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="decorator">@app.middleware</span>(<span class="string">"http"</span>)
+<span class="keyword">async def</span> <span class="function">correlation_id_middleware</span>(request, call_next):
+    <span class="comment"># Usa o ID do client ou gera um novo</span>
+    correlation_id = request.headers.get(
+        <span class="string">"X-Correlation-ID"</span>, str(uuid.uuid4())
+    )
+    request.state.correlation_id = correlation_id
+
+    logger.info(<span class="string">"request_started"</span>, extra={
+        <span class="string">"correlation_id"</span>: correlation_id,
+        <span class="string">"method"</span>: request.method,
+        <span class="string">"path"</span>: request.url.path,
+    })
+
+    response = <span class="keyword">await</span> call_next(request)
+    response.headers[<span class="string">"X-Correlation-ID"</span>] = correlation_id
+    <span class="keyword">return</span> response</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">check_circle</span>
+                    <p><strong>Padrão:</strong> Middleware intercepta TODOS os requests → injeta correlation ID → propaga no response header → disponível para todos os endpoints</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: TESTE DE RASTREABILIDADE -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <span class="section-tag">RASTREABILIDADE</span>
+                <h2 class="slide-title">Testes de Rastreabilidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">pytest</span>
+                        <span class="code-file">tests/test_02_rastreabilidade.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">def</span> <span class="function">test_v2_retorna_correlation_id_no_header</span>(self, client, seed_notas):
+    <span class="string">"""v2 deve retornar X-Correlation-ID em TODOS os responses."""</span>
+    response = client.get(<span class="string">f"/v2/notas/{seed_notas[0].id}"</span>)
+    <span class="keyword">assert</span> <span class="string">"x-correlation-id"</span> <span class="keyword">in</span> response.headers
+    uuid.UUID(response.headers[<span class="string">"x-correlation-id"</span>])  <span class="comment"># Valida UUID</span>
+
+<span class="keyword">def</span> <span class="function">test_v2_propaga_correlation_id_do_client</span>(self, client, seed_notas):
+    <span class="string">"""v2 deve usar o Correlation ID enviado pelo client."""</span>
+    meu_id = str(uuid.uuid4())
+    response = client.get(
+        <span class="string">f"/v2/notas/{seed_notas[0].id}"</span>,
+        headers={<span class="string">"X-Correlation-ID"</span>: meu_id}
+    )
+    <span class="keyword">assert</span> response.headers[<span class="string">"x-correlation-id"</span>] == meu_id
+
+<span class="keyword">def</span> <span class="function">test_v2_cada_request_tem_id_unico</span>(self, client, seed_notas):
+    <span class="string">"""Cada request sem header explícito gera ID único."""</span>
+    r1 = client.get(<span class="string">f"/v2/notas/{seed_notas[0].id}"</span>)
+    r2 = client.get(<span class="string">f"/v2/notas/{seed_notas[0].id}"</span>)
+    <span class="keyword">assert</span> r1.headers[<span class="string">"x-correlation-id"</span>] != r2.headers[<span class="string">"x-correlation-id"</span>]</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 22: LOG ESTRUTURADO VS TEXTO -->
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <span class="section-tag">RASTREABILIDADE</span>
+                <h2 class="slide-title">Por que Structured Logging Importa</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">print() / Log Texto</h4>
+                        <p style="font-family: var(--font-mono); font-size: clamp(11px, 1.1vw, 14px); margin-top: 8px; line-height: 1.6;">
+                            2026-02-23 14:30 - Buscando nota 42<br>
+                            2026-02-23 14:30 - Erro ao processar<br>
+                            2026-02-23 14:30 - Nota não encontrada
+                        </p>
+                        <p style="margin-top: 10px; color: var(--inteli-coral);">Não filtrável, não indexável, não rastreável.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green);">Structured (JSON)</h4>
+                        <p style="font-family: var(--font-mono); font-size: clamp(11px, 1.1vw, 14px); margin-top: 8px; line-height: 1.6;">
+                            {"event": "buscar_nota", "cid": "a3f8",<br>
+                            &nbsp;"nota_id": 42, "status": 404,<br>
+                            &nbsp;"duration_ms": 12}
+                        </p>
+                        <p style="margin-top: 10px; color: var(--inteli-dark-green);">Filtrável por qualquer campo. Indexável. Dashboards automáticos.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Ferramentas:</strong> Elasticsearch + Kibana, Datadog, Grafana Loki — todas dependem de logs estruturados para funcionar. O <code>print()</code> do Python é inimigo da observabilidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 4: DRIVER 3 — ACESSO SIMULTÂNEO (Slides 23-29)
+             ============================================= -->
+
+        <!-- SLIDE 23: DIVISOR -->
+        <section class="slide slide-section" data-slide="23">
+            <div class="section-content">
+                <span class="section-number">DRIVER 3</span>
+                <h2 class="section-title">Acesso Simultâneo</h2>
+                <p class="section-description">Quando dois usuários tocam no mesmo dado ao mesmo tempo</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: O QUE É ACESSO SIMULTÂNEO -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="section-tag">CONCORRÊNCIA</span>
+                <h2 class="slide-title">O que é Acesso Simultâneo como Business Driver?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">sync_problem</span></div>
+                        <h4>Race Condition</h4>
+                        <p>Dois processos leem o mesmo dado, fazem alterações, e salvam — o segundo sobrescreve o primeiro. Dados se perdem.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">receipt_long</span></div>
+                        <h4>Impacto em Tax</h4>
+                        <p>Dois operadores emitem nota para o mesmo produto simultaneamente. Estoque fica inconsistente. SEFAZ rejeita nota por divergência.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">lock</span></div>
+                        <h4>Lost Update</h4>
+                        <p>O update mais lento sobrescreve o mais rápido. Em bancos financeiros, isso pode significar perda monetária real.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">verified_user</span></div>
+                        <h4>Solução: Locking</h4>
+                        <p>Controle de concorrência via optimistic locking (versão) ou pessimistic locking (SELECT FOR UPDATE).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: O PROBLEMA — RACE CONDITION -->
+        <section class="slide slide-content" data-slide="25">
+            <div class="slide-header">
+                <span class="section-tag">CONCORRÊNCIA</span>
+                <h2 class="slide-title">O Problema: Lost Update</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">Sequência do Bug</h3>
+                        <div style="background: #f8f6f2; padding: 18px; border-radius: 12px; font-size: clamp(12px, 1.2vw, 16px); line-height: 1.8;">
+                            <p><strong style="color: var(--inteli-lilac);">T1:</strong> Request A lê estoque = <strong>100</strong></p>
+                            <p><strong style="color: var(--inteli-green);">T2:</strong> Request B lê estoque = <strong>100</strong></p>
+                            <p><strong style="color: var(--inteli-lilac);">T3:</strong> Request A escreve: 100 - 5 = <strong>95</strong></p>
+                            <p><strong style="color: var(--inteli-green);">T4:</strong> Request B escreve: 100 - 3 = <strong style="color: var(--inteli-coral);">97</strong></p>
+                            <p style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;">
+                                <strong>Esperado:</strong> 100 - 5 - 3 = <strong>92</strong><br>
+                                <strong style="color: var(--inteli-coral);">Obtido:</strong> <strong style="color: var(--inteli-coral);">97</strong> (perdeu o -5!)
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">No Mundo Real</h3>
+                        <div class="driver-item" style="margin-bottom: 12px;">
+                            <span class="material-icons-outlined">inventory</span>
+                            <div>
+                                <h4>Estoque Negativo</h4>
+                                <p>Vende mais do que tem — nota rejeitada pela SEFAZ</p>
+                            </div>
+                        </div>
+                        <div class="driver-item" style="margin-bottom: 12px;">
+                            <span class="material-icons-outlined">account_balance</span>
+                            <div>
+                                <h4>Duplicidade Fiscal</h4>
+                                <p>Duas notas emitidas para o mesmo item — irregularidade tributária</p>
+                            </div>
+                        </div>
+                        <div class="driver-item">
+                            <span class="material-icons-outlined">report</span>
+                            <div>
+                                <h4>Auditoria</h4>
+                                <p>Diferença entre estoque físico e sistema — multa certa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: DIAGRAMA DE SEQUÊNCIA -->
+        <section class="slide slide-content" data-slide="26">
+            <div class="slide-header">
+                <span class="section-tag">CONCORRÊNCIA</span>
+                <h2 class="slide-title">Optimistic Locking — Como Funciona</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); margin-bottom: 12px;">Sem Lock (v1)</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 2;">
+                            <p>1. SELECT estoque FROM produtos WHERE id=1</p>
+                            <p>2. <em>(processamento)</em></p>
+                            <p>3. UPDATE produtos SET estoque=95</p>
+                            <p style="color: var(--inteli-coral);">→ Não verifica se alguém alterou!</p>
+                        </div>
+                    </div>
+                    <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); margin-bottom: 12px;">Com Optimistic Lock (v2)</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 2;">
+                            <p>1. SELECT estoque, <strong>version</strong> FROM produtos</p>
+                            <p>2. <em>(processamento)</em></p>
+                            <p>3. UPDATE SET estoque=95, version=<strong>version+1</strong></p>
+                            <p>&nbsp;&nbsp;&nbsp;<strong>WHERE</strong> id=1 <strong>AND version=1</strong></p>
+                            <p style="color: var(--inteli-dark-green);">→ Se version mudou → 409 Conflict!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Vantagem:</strong> Optimistic locking não bloqueia leitura — só detecta conflito no momento da escrita. Ideal para APIs com muitas leituras e poucas escritas simultâneas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 27: CÓDIGO ANTES VS DEPOIS -->
+        <section class="slide slide-content" data-slide="27">
+            <div class="slide-header">
+                <span class="section-tag">CONCORRÊNCIA</span>
+                <h2 class="slide-title">Código v1 vs v2 — Update de Estoque</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang" style="color: var(--inteli-coral);">v1 — Sem Lock</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@app.put</span>(<span class="string">"/v1/produtos/{id}/estoque"</span>)
+<span class="keyword">def</span> <span class="function">atualizar_v1</span>(id, quantidade):
+    prod = db.query(Produto) \
+             .filter_by(id=id).first()
+
+    <span class="comment"># Lê estoque atual</span>
+    <span class="comment"># (outro request pode ler</span>
+    <span class="comment">#  o mesmo valor AGORA)</span>
+
+    prod.estoque += quantidade
+    db.commit()
+    <span class="comment"># Sobrescreve sem verificar!</span></code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang" style="color: var(--inteli-dark-green);">v2 — Optimistic Lock</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@app.put</span>(<span class="string">"/v2/produtos/{id}/estoque"</span>)
+<span class="keyword">def</span> <span class="function">atualizar_v2</span>(id, qtd, version):
+    result = db.execute(text(<span class="string">"""
+      UPDATE produtos
+      SET estoque = estoque + :qtd,
+          version = version + 1
+      WHERE id = :id
+        AND version = :version
+    """</span>))
+
+    <span class="keyword">if</span> result.rowcount == <span class="number">0</span>:
+        <span class="keyword">raise</span> HTTPException(<span class="number">409</span>)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 28: TESTE DE CONCORRÊNCIA -->
+        <section class="slide slide-content" data-slide="28">
+            <div class="slide-header">
+                <span class="section-tag">CONCORRÊNCIA</span>
+                <h2 class="slide-title">Teste de Conflito de Concorrência</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">pytest</span>
+                        <span class="code-file">tests/test_03_concorrencia.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">def</span> <span class="function">test_v2_conflito_com_version_errada</span>(self, client, seed_produtos):
+    <span class="string">"""Update com version desatualizada → 409 Conflict."""</span>
+    produto = seed_produtos[<span class="number">0</span>]
+
+    <span class="comment"># Primeiro update: sucesso (version 1 → 2)</span>
+    r1 = client.put(
+        <span class="string">f"/v2/produtos/{produto.id}/estoque"</span>
+        <span class="string">f"?quantidade=5&amp;version={produto.version}"</span>
+    )
+    <span class="keyword">assert</span> r1.status_code == <span class="number">200</span>
+
+    <span class="comment"># Segundo update com version ANTIGA: deve falhar!</span>
+    r2 = client.put(
+        <span class="string">f"/v2/produtos/{produto.id}/estoque"</span>
+        <span class="string">f"?quantidade=10&amp;version={produto.version}"</span>  <span class="comment"># version=1, mas DB já é 2</span>
+    )
+    <span class="keyword">assert</span> r2.status_code == <span class="number">409</span>  <span class="comment"># Conflict!</span>
+    <span class="keyword">assert</span> <span class="string">"concorrência"</span> <span class="keyword">in</span> r2.json()[<span class="string">"detail"</span>].lower()</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 29: PADRÕES DE LOCKING -->
+        <section class="slide slide-content" data-slide="29">
+            <div class="slide-header">
+                <span class="section-tag">CONCORRÊNCIA</span>
+                <h2 class="slide-title">Padrões de Controle de Concorrência</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4>Optimistic Locking</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px;"><strong>Como:</strong> Coluna <code>version</code> no registro</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Quando:</strong> Muitas leituras, poucas escritas conflitantes</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Pro:</strong> Sem bloqueio na leitura</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Con:</strong> Retry necessário em conflito</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4>Pessimistic Locking</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px;"><strong>Como:</strong> SELECT ... FOR UPDATE</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Quando:</strong> Escritas frequentes no mesmo registro</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Pro:</strong> Garante exclusividade</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Con:</strong> Bloqueia outras leituras</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4>Distributed Lock</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 8px;"><strong>Como:</strong> Redis / ZooKeeper</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Quando:</strong> Múltiplas instâncias da aplicação</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Pro:</strong> Funciona cross-instance</p>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); margin-top: 4px;"><strong>Con:</strong> Complexidade de infraestrutura</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>No ASIS:</strong> Optimistic locking é o mais adequado — operadores raramente editam o mesmo registro ao mesmo tempo, mas quando acontece, o sistema precisa detectar e informar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 5: DRIVER 4 — SEGURANÇA (Slides 30-36)
+             ============================================= -->
+
+        <!-- SLIDE 30: DIVISOR -->
+        <section class="slide slide-section" data-slide="30">
+            <div class="section-content">
+                <span class="section-number">DRIVER 4</span>
+                <h2 class="section-title">Segurança</h2>
+                <p class="section-description">Protegendo dados fiscais contra ataques e acessos não autorizados</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 31: O QUE É SEGURANÇA -->
+        <section class="slide slide-content" data-slide="31">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">Segurança como Business Driver</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">security</span></div>
+                        <h4>OWASP Top 10 — APIs</h4>
+                        <p>Lista das 10 vulnerabilidades mais críticas em APIs. SQL Injection é #3 (Injection). Autenticação quebrada é #2.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">policy</span></div>
+                        <h4>Impacto em Tax</h4>
+                        <p>Dados fiscais são confidenciais. Uma SQL Injection pode expor CNPJ, valores e dados de TODOS os clientes. LGPD + multa SEFAZ.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">verified_user</span></div>
+                        <h4>Defense in Depth</h4>
+                        <p>Múltiplas camadas: validação de input (Pydantic) + query parametrizada (ORM) + autenticação (JWT) + autorização (roles).</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">bug_report</span></div>
+                        <h4>Teste de Segurança</h4>
+                        <p>Testar o que NÃO deve funcionar: payloads maliciosos, tokens inválidos, inputs fora do formato, acesso sem autenticação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 32: O PROBLEMA — SQL INJECTION -->
+        <section class="slide slide-content" data-slide="32">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">O Problema: SQL Injection</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python / FastAPI</span>
+                        <span class="code-file">app/main.py — endpoint v1 (VULNERÁVEL)</span>
+                    </div>
+                    <pre class="code-block"><code><span class="decorator">@app.get</span>(<span class="string">"/v1/notas/busca"</span>)
+<span class="keyword">def</span> <span class="function">buscar_notas_v1</span>(cnpj: str = Query(<span class="keyword">None</span>)):
+
+    <span class="comment"># VULNERÁVEL: f-string na query SQL!</span>
+    query = <span class="string">f"SELECT * FROM notas_fiscais WHERE emitente_cnpj = '</span><span class="keyword">{cnpj}</span><span class="string">'"</span>
+    result = db.execute(text(query))
+
+    <span class="comment"># Se o atacante enviar: cnpj = ' OR '1'='1</span>
+    <span class="comment"># A query vira:</span>
+    <span class="comment"># SELECT * FROM notas_fiscais WHERE emitente_cnpj = '' OR '1'='1'</span>
+    <span class="comment"># → Retorna TODAS as notas do banco!</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">error</span>
+                    <p><strong>Gravidade Crítica:</strong> Um único parâmetro malicioso expõe TODOS os dados fiscais de TODOS os clientes. É a vulnerabilidade mais comum e mais perigosa em APIs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 33: CÓDIGO ANTES VS DEPOIS -->
+        <section class="slide slide-content" data-slide="33">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">Código v1 vs v2 — Busca de Notas</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang" style="color: var(--inteli-coral);">v1 — f-string (Vuln!)</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="comment"># Input do usuário direto na SQL</span>
+query = <span class="string">f"SELECT * FROM notas"</span>
+  <span class="string">f" WHERE cnpj = '</span><span class="keyword">{cnpj}</span><span class="string">'"</span>
+
+result = db.execute(text(query))
+
+<span class="comment"># Sem validação de formato</span>
+<span class="comment"># Sem escape de caracteres</span>
+<span class="comment"># cnpj pode ser QUALQUER string</span></code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang" style="color: var(--inteli-dark-green);">v2 — ORM + Validação</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="comment"># Validação via Query params</span>
+cnpj: str = Query(
+    <span class="keyword">None</span>,
+    min_length=<span class="number">14</span>, max_length=<span class="number">14</span>,
+    pattern=<span class="string">r"^\d{14}$"</span>  <span class="comment"># Só dígitos</span>
+)
+
+<span class="comment"># ORM: query parametrizada</span>
+notas = db.query(NotaFiscal) \
+    .filter(NotaFiscal.cnpj == cnpj) \
+    .all()</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>3 camadas de proteção:</strong> Validação de formato (regex 14 dígitos) + Pydantic schema + Query parametrizada via ORM (nunca concatena input na SQL)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 34: TESTE SQL INJECTION -->
+        <section class="slide slide-content" data-slide="34">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">Teste: SQL Injection Bloqueado</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">pytest</span>
+                        <span class="code-file">tests/test_04_seguranca.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">def</span> <span class="function">test_v2_sql_injection_bloqueado</span>(self, client, seed_notas):
+    <span class="string">"""v2 deve rejeitar payloads de SQL injection."""</span>
+    payload = <span class="string">"' OR '1'='1"</span>
+    response = client.get(<span class="string">f"/v2/notas/busca?cnpj={payload}"</span>)
+    <span class="keyword">assert</span> response.status_code == <span class="number">422</span>  <span class="comment"># Validação rejeita!</span>
+
+<span class="keyword">def</span> <span class="function">test_v2_valida_formato_cnpj</span>(self, client):
+    <span class="string">"""v2 aceita apenas 14 dígitos numéricos."""</span>
+    <span class="comment"># Válido</span>
+    <span class="keyword">assert</span> client.get(<span class="string">"/v2/notas/busca?cnpj=11222333000100"</span>).status_code == <span class="number">200</span>
+    <span class="comment"># Inválido — letras</span>
+    <span class="keyword">assert</span> client.get(<span class="string">"/v2/notas/busca?cnpj=abcdefghijklmn"</span>).status_code == <span class="number">422</span>
+    <span class="comment"># Inválido — curto</span>
+    <span class="keyword">assert</span> client.get(<span class="string">"/v2/notas/busca?cnpj=1122233"</span>).status_code == <span class="number">422</span>
+    <span class="comment"># Inválido — caracteres especiais</span>
+    <span class="keyword">assert</span> client.get(<span class="string">"/v2/notas/busca?cnpj=11.222.333/0001"</span>).status_code == <span class="number">422</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 35: AUTENTICAÇÃO JWT -->
+        <section class="slide slide-content" data-slide="35">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">Autenticação JWT</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Login → Token</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="comment"># POST /v2/auth/token</span>
+{
+  <span class="string">"username"</span>: <span class="string">"admin"</span>,
+  <span class="string">"password"</span>: <span class="string">"admin123"</span>
+}
+
+<span class="comment"># Response:</span>
+{
+  <span class="string">"access_token"</span>: <span class="string">"eyJhbGci..."</span>,
+  <span class="string">"token_type"</span>: <span class="string">"bearer"</span>
+}</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Usar Token</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="comment"># GET /v2/notas/protegido</span>
+<span class="comment"># Header:</span>
+Authorization: Bearer eyJhbGci...
+
+<span class="comment"># Sem token → 401</span>
+<span class="comment"># Token inválido → 401</span>
+<span class="comment"># Token válido → 200</span>
+{
+  <span class="string">"message"</span>: <span class="string">"Acesso autorizado"</span>,
+  <span class="string">"user"</span>: <span class="string">"admin"</span>
+}</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>JWT (JSON Web Token):</strong> Padrão da indústria para autenticação stateless. O token é assinado com chave secreta — qualquer adulteração é detectada. Expira em 1 hora.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 36: CHECKLIST OWASP -->
+        <section class="slide slide-content" data-slide="36">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">OWASP Top 5 para APIs</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">person_off</span>
+                        <div>
+                            <h4>1. Broken Object Level Authorization</h4>
+                            <p>Usuário A acessa dados do usuário B trocando o ID na URL. Solução: verificar ownership em cada endpoint.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">no_encryption</span>
+                        <div>
+                            <h4>2. Broken Authentication</h4>
+                            <p>Tokens sem expiração, senhas em plain text, sem rate limiting. Solução: JWT + bcrypt + throttling.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="border-left: 3px solid var(--inteli-coral); padding-left: 12px;">
+                        <span class="material-icons-outlined">code_off</span>
+                        <div>
+                            <h4>3. Injection (nosso foco!)</h4>
+                            <p>SQL, NoSQL, Command Injection via inputs não sanitizados. Solução: ORM + validação + query parametrizada.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">data_object</span>
+                        <div>
+                            <h4>4. Excessive Data Exposure</h4>
+                            <p>API retorna todos os campos do banco, incluindo sensíveis. Solução: response schemas explícitos (Pydantic).</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">speed</span>
+                        <div>
+                            <h4>5. Lack of Resources &amp; Rate Limiting</h4>
+                            <p>Sem limite de requests, atacante faz 1M requisições/min. Solução: rate limiting + paginação (nosso Driver 1!).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ATIVIDADE PRÁTICA (Slides 37-42)
+             ============================================= -->
+
+        <!-- SLIDE 37: DIVISOR -->
+        <section class="slide slide-section" data-slide="37">
+            <div class="section-content">
+                <span class="section-number">MÃO NA MASSA</span>
+                <h2 class="section-title">Atividade Prática</h2>
+                <p class="section-description">Hora de rodar o código, encontrar os bugs e entender as correções</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 38: ATIVIDADE COM TIMER -->
+        <section class="slide slide-content" data-slide="38">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE EM GRUPO</span>
+                <h2 class="slide-title">Exercício Prático — Mão na Massa</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-instructions">
+                    <div class="timer-container">
+                        <div class="timer-display" id="timer-activity">25:00</div>
+                        <button class="timer-btn" onclick="toggleTimer('activity', 25)">
+                            <span class="material-icons-outlined">play_arrow</span>
+                            Iniciar Timer
+                        </button>
+                    </div>
+                    <div class="activity-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h4>Clonar e Subir o Lab</h4>
+                                <p>git clone + docker compose up --build</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h4>Rodar os Testes (devem passar)</h4>
+                                <p>pytest tests/ -v — entender o que cada teste valida</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h4>Testar os Endpoints v1 no Swagger</h4>
+                                <p>Abrir /docs e exercitar os endpoints bugados</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div>
+                                <h4>Documentar os Achados</h4>
+                                <p>Para cada driver: qual o bug, qual o impacto, como o teste detecta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 39: PASSO A PASSO DETALHADO -->
+        <section class="slide slide-content" data-slide="39">
+            <div class="slide-header">
+                <span class="activity-tag">PASSO A PASSO</span>
+                <h2 class="slide-title">Roteiro do Exercício</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card">
+                        <h4 style="color: var(--inteli-coral);">Fase 1: Explorar (10 min)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">
+                            Acessar <code>http://localhost:8000/docs</code><br>
+                            Testar GET /v1/notas (sem paginação)<br>
+                            Testar GET /v2/notas?limit=5 (com)<br>
+                            Comparar tempo de resposta
+                        </p>
+                    </div>
+                    <div class="concept-card">
+                        <h4 style="color: var(--inteli-coral);">Fase 2: Atacar (5 min)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">
+                            SQL Injection: <code>/v1/notas/busca?cnpj=' OR '1'='1</code><br>
+                            Tentar o mesmo em v2<br>
+                            Acessar endpoint sem token<br>
+                            Enviar token inválido
+                        </p>
+                    </div>
+                    <div class="concept-card">
+                        <h4 style="color: var(--inteli-coral);">Fase 3: Testar (5 min)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">
+                            <code>pytest tests/test_01_volumetria.py -v</code><br>
+                            <code>pytest tests/test_04_seguranca.py -v</code><br>
+                            Ler a saída — quais passam, quais falham?<br>
+                            Entender as assertions
+                        </p>
+                    </div>
+                    <div class="concept-card">
+                        <h4 style="color: var(--inteli-coral);">Fase 4: Documentar (5 min)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">
+                            Para cada driver, anotar:<br>
+                            • Qual é o bug?<br>
+                            • Qual o impacto no negócio?<br>
+                            • Como o teste detecta?<br>
+                            • Qual a correção aplicada?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 40: DESAFIO -->
+        <section class="slide slide-content" data-slide="40">
+            <div class="slide-header">
+                <span class="activity-tag">DESAFIO</span>
+                <h2 class="slide-title">Desafio Extra — Escreva seu Próprio Teste</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Desafio:</strong> Escolha um dos 4 drivers e escreva um NOVO teste que ainda não existe no repositório. O teste deve expor uma variação do bug ou validar uma nova condição.</p>
+                </div>
+                <div class="code-example" style="margin-top: 20px;">
+                    <div class="code-header">
+                        <span class="code-lang">Exemplo de ideia</span>
+                        <span class="code-file">tests/test_01_volumetria.py</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">def</span> <span class="function">test_v2_paginacao_ultima_pagina</span>(self, client, seed_notas):
+    <span class="string">"""O que acontece se offset > total de registros?"""</span>
+    response = client.get(<span class="string">"/v2/notas?limit=20&amp;offset=9999"</span>)
+    <span class="keyword">assert</span> response.status_code == <span class="number">200</span>
+    data = response.json()
+    <span class="keyword">assert</span> len(data) == <span class="number">0</span>  <span class="comment"># Lista vazia, não erro!</span>
+
+<span class="keyword">def</span> <span class="function">test_v1_busca_com_aspas_no_cnpj</span>(self, client):
+    <span class="string">"""v1 aceita aspas no CNPJ — perigo de injection!"""</span>
+    response = client.get(<span class="string">"/v1/notas/busca?cnpj='; DROP TABLE --"</span>)
+    <span class="comment"># Se retorna 500, a query está sendo injetada!</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 41: COMPARTILHAMENTO -->
+        <section class="slide slide-content" data-slide="41">
+            <div class="slide-header">
+                <span class="activity-tag">COMPARTILHAMENTO</span>
+                <h2 class="slide-title">Resultados dos Grupos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="min-height: 180px;">
+                        <h4 style="color: var(--inteli-coral);">Grupo 1-2: Volumetria + Rastreabilidade</h4>
+                        <p style="margin-top: 10px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Qual foi o comportamento do endpoint v1?<br>
+                            Quantos registros retornaram sem limit?<br>
+                            O correlation ID apareceu no header v2?
+                        </p>
+                    </div>
+                    <div class="concept-card" style="min-height: 180px;">
+                        <h4 style="color: var(--inteli-coral);">Grupo 3-4: Concorrência + Segurança</h4>
+                        <p style="margin-top: 10px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Conseguiram provocar o lost update?<br>
+                            O SQL injection funcionou no v1?<br>
+                            O v2 retornou 422 com o payload malicioso?
+                        </p>
+                    </div>
+                    <div class="concept-card" style="min-height: 180px; grid-column: 1 / -1;">
+                        <h4 style="color: var(--inteli-coral);">Todos: Desafio Extra</h4>
+                        <p style="margin-top: 10px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
+                            Quais novos testes vocês escreveram? O que eles validam? Algum grupo encontrou um bug que não estava mapeado?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 42: CRITÉRIOS DE AVALIAÇÃO -->
+        <section class="slide slide-content" data-slide="42">
+            <div class="slide-header">
+                <span class="activity-tag">AVALIAÇÃO</span>
+                <h2 class="slide-title">Critérios da Atividade Ponderada 1</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">description</span>
+                        <div>
+                            <h4>Documentação dos Business Drivers (30%)</h4>
+                            <p>Mapear os 4 drivers para o contexto do projeto ASIS. Descrever impacto, cenário de falha e métrica de sucesso.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">code</span>
+                        <div>
+                            <h4>Testes Automatizados (40%)</h4>
+                            <p>Mínimo de 2 testes por driver (8 total). Testes devem ser executáveis e validar cenários realistas do projeto.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">analytics</span>
+                        <div>
+                            <h4>Relatório de Execução (20%)</h4>
+                            <p>Screenshot dos testes passando. Evidência de execução local (Docker ou direto). Análise dos resultados.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">star</span>
+                        <div>
+                            <h4>Criatividade e Profundidade (10%)</h4>
+                            <p>Testes além do básico. Cenários de borda. Sugestões de melhorias arquiteturais. Conexão com ISO 25010.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ENCERRAMENTO (Slides 43-45)
+             ============================================= -->
+
+        <!-- SLIDE 43: MAPA MENTAL -->
+        <section class="slide slide-content" data-slide="43">
+            <div class="slide-header">
+                <span class="section-tag">SÍNTESE</span>
+                <h2 class="slide-title">Mapa: Drivers → Testes → Qualidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 180px; max-width: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Business Drivers</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Volumetria<br>Rastreabilidade<br>Concorrência<br>Segurança</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 30px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 180px; max-width: 200px; border-color: var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac);">Testes como Código</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">pytest<br>JMeter<br>BDD/Gherkin<br>Security tests</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 30px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 180px; max-width: 200px; border-color: var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green);">Qualidade Aferível</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Cobertura<br>Relatórios<br>CI/CD<br>Confiança no deploy</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 30px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 180px; max-width: 200px; border-color: var(--inteli-purple);">
+                        <h4 style="color: var(--inteli-purple);">Projeto ASIS</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Sprint 2<br>5-10 endpoints<br>Framework pronto<br>Entrega com confiança</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Ciclo virtuoso:</strong> Drivers de negócio definem o que testar → Testes automatizados garantem a qualidade → Qualidade permite deploy contínuo → Negócio evolui com confiança.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 44: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="44">
+            <div class="slide-header">
+                <span class="section-tag">PRÓXIMOS PASSOS</span>
+                <h2 class="slide-title">O que Vem Depois</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">assignment_turned_in</span></div>
+                        <h4>Entrega Ponderada 1</h4>
+                        <p>Documentar os 4 drivers para o projeto ASIS + mínimo 8 testes automatizados. Prazo na página do curso.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">groups</span></div>
+                        <h4>Aula 04: Suporte aos Grupos</h4>
+                        <p>Estudo de caso aprofundado + suporte individual para cada grupo aplicar os drivers no projeto real.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Sprint 2: Framework</h4>
+                        <p>Montar o framework de automação de testes: estrutura de pastas, dados de teste, utilitários, relatório HTML.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">school</span></div>
+                        <h4>Aula 05: RF e RNF como Código</h4>
+                        <p>Expandir de Business Drivers para Requisitos Funcionais e Não Funcionais — próximo nível de maturidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 45: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="45">
+            <div class="closing-content">
+                <div class="closing-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>Se o Business Driver não tem teste,<br><strong>ele é apenas uma intenção, não uma garantia.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>Concluir a Atividade Ponderada 1 (4 drivers + 8 testes)</li>
+                            <li>Explorar o lab: rodar, quebrar, consertar, aprender</li>
+                            <li>Conectar cada driver ao contexto real do ASIS TaxTech</li>
+                            <li>Preparar o framework de testes para a Sprint 2</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
