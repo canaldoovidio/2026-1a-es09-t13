@@ -2650,3 +2650,19 @@ body {
 .jmeter-step strong {
     font-size: clamp(12px, 1.2vw, 17px);
 }
+/* Helper para conteúdo visível apenas na impressão */
+.print-only {
+    display: none !important;
+}
+
+@media print {
+    .print-only {
+        display: block !important;
+        margin-top: 20px;
+        padding: 15px;
+        background: #f8f6f2 !important;
+        border-left: 4px solid #ff4545 !important;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
