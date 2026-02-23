@@ -443,7 +443,7 @@
                                 <strong>Prejuízo:</strong> <span style="color: var(--inteli-coral); font-weight: 700;">Milhões de reais (e não é o prêmio do BBB!)</span>
                             </div>
                         </div>
-                        <div style="border-radius: 12px; overflow: hidden; height: 180px; margin-bottom: 15px;">
+                        <div style="border-radius: 12px; overflow: hidden; height: 120px; margin-bottom: 15px;">
                             <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=800&q=80" alt="Server Load" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="key-message">
@@ -577,7 +577,7 @@
                             <strong>Resultado:</strong> <span style="color: var(--inteli-coral);">Isolou igual o Paquetá na Supercopa 2026!</span>
                             <strong>Error Rate:</strong> <span style="color: var(--inteli-coral);">35% (timeouts)</span>
                         </div>
-                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 150px;">
+                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 110px;">
                             <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Stadium" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
@@ -588,7 +588,7 @@
                             <strong>Throughput:</strong> <span>850 req/s</span>
                             <strong>Status:</strong> <span style="color: var(--inteli-dark-green);">Título Garantido!</span>
                         </div>
-                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 150px;">
+                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 110px;">
                             <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80" alt="Soccer" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
@@ -879,9 +879,6 @@ Buscando nota 42
                                 <p>Vende mais do que tem — nota rejeitada pela SEFAZ</p>
                             </div>
                         </div>
-                        <div style="border-radius: 12px; overflow: hidden; height: 120px; margin-bottom: 12px;">
-                            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Football Match" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
                         <div class="driver-item" style="margin-bottom: 12px;">
                             <span class="material-icons-outlined">account_balance</span>
                             <div>
@@ -978,6 +975,17 @@ Buscando nota 42
 
     <span class="keyword">if</span> result.rowcount == <span class="number">0</span>:
         <span class="keyword">raise</span> HTTPException(<span class="number">409</span>)</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px; text-align: left; padding: 15px;">
+                    <p style="font-size: 14px; margin-bottom: 8px;"><strong>Por que usamos SQL ANSI no v2?</strong></p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 13px;">
+                        <div>
+                            <strong style="color: var(--inteli-lilac);">ORM (v1):</strong> Faz o cálculo na <strong>memória do Python</strong> (estoque += qtd). Se dois requests lerem ao mesmo tempo, ambos terão o mesmo valor base e um sobrescreverá o outro (Lost Update).
+                        </div>
+                        <div>
+                            <strong style="color: var(--inteli-green);">ANSI SQL (v2):</strong> O cálculo é <strong>atômico no Banco de Dados</strong>. A cláusula <code>WHERE version = :version</code> garante que o update só aconteça se ninguém mexeu no dado desde a nossa leitura.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1268,7 +1276,7 @@ Authorization: Bearer eyJhbGci...
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="drivers-examples">
+                <div class="drivers-examples" style="grid-template-columns: repeat(3, 1fr);">
                     <div class="driver-item">
                         <span class="material-icons-outlined">person_off</span>
                         <div>
@@ -1331,8 +1339,11 @@ Authorization: Bearer eyJhbGci...
             <div class="slide-body">
                 <div class="activity-instructions">
                     <div class="timer-container">
-                        <div class="timer-display" id="timer-activity">25:00</div>
-                        <button class="timer-btn" onclick="toggleTimer('activity', 25)">
+                        <div class="timer" id="timer-activity">
+                            <span class="timer-value">25:00</span>
+                            <span class="timer-label">Tempo restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-activity', 1500)">
                             <span class="material-icons-outlined">play_arrow</span>
                             Iniciar Timer
                         </button>
@@ -1460,8 +1471,8 @@ Authorization: Bearer eyJhbGci...
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <div class="concept-card" style="min-height: 180px;">
+                <div class="concepts-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div class="concept-card" style="min-height: auto;">
                         <h4 style="color: var(--inteli-coral);">Grupo 1-2: Volumetria + Rastreabilidade</h4>
                         <p style="margin-top: 10px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
                             Qual foi o comportamento do endpoint v1?<br>
@@ -1469,7 +1480,7 @@ Authorization: Bearer eyJhbGci...
                             O correlation ID apareceu no header v2?
                         </p>
                     </div>
-                    <div class="concept-card" style="min-height: 180px;">
+                    <div class="concept-card" style="min-height: auto;">
                         <h4 style="color: var(--inteli-coral);">Grupo 3-4: Concorrência + Segurança</h4>
                         <p style="margin-top: 10px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
                             Conseguiram provocar o lost update?<br>
@@ -1477,7 +1488,7 @@ Authorization: Bearer eyJhbGci...
                             O v2 retornou 422 com o payload malicioso?
                         </p>
                     </div>
-                    <div class="concept-card" style="min-height: 180px; grid-column: 1 / -1;">
+                    <div class="concept-card" style="min-height: auto;">
                         <h4 style="color: var(--inteli-coral);">Todos: Desafio Extra</h4>
                         <p style="margin-top: 10px; font-size: clamp(13px, 1.3vw, 17px); line-height: 1.7;">
                             Quais novos testes vocês escreveram? O que eles validam? Algum grupo encontrou um bug que não estava mapeado?
@@ -1540,8 +1551,8 @@ Authorization: Bearer eyJhbGci...
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="jmeter-flow" style="justify-content: center; gap: 15px; flex-wrap: wrap;">
-                    <div class="jmeter-step" style="flex: 1; min-width: 180px; max-width: 200px;">
+                <div class="jmeter-flow" style="justify-content: center; gap: 10px; flex-wrap: nowrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 200px;">
                         <h4 style="color: var(--inteli-coral);">Business Drivers</h4>
                         <p style="font-size: clamp(11px, 1.1vw, 14px);">Volumetria<br>Rastreabilidade<br>Concorrência<br>Segurança</p>
                     </div>
@@ -1639,7 +1650,7 @@ Authorization: Bearer eyJhbGci...
     </div>
 
     <!-- Modal Container -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">
                 <span class="material-icons-outlined">close</span>

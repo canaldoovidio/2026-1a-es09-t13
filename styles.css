@@ -2092,7 +2092,7 @@ body {
     border-radius: 4px;
     font-family: var(--font-mono);
     font-size: 0.9em;
-    color: var(--inteli-purple);
+    color: var(--inteli-coral);
 }
 
 .evolution-new code {
@@ -2133,7 +2133,26 @@ body {
 /* Give slides bottom breathing room for nav */
 .slide-content,
 .slide-activity {
-    padding-bottom: 60px !important;
+    padding-bottom: 40px !important;
+}
+
+/* Allow vertical scrolling in slide body if content is too tall */
+.slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--inteli-coral) transparent;
+}
+
+.slide-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-body::-webkit-scrollbar-thumb {
+    background-color: var(--inteli-coral);
+    border-radius: 10px;
 }
 
 /* --- PRINT BUTTON in nav --- */
@@ -2201,6 +2220,7 @@ body {
     /* Each slide = one landscape page */
     .slide {
         display: flex !important;
+        flex-direction: column !important;
         position: relative !important;
         top: auto !important;
         left: auto !important;
@@ -2212,6 +2232,7 @@ body {
         width: 100vw !important;
         height: 100vh !important;
         max-width: 100vw !important;
+        padding: 5% !important; /* Consistent padding for print */
         aspect-ratio: auto !important;
 
         /* Page break control */
@@ -2228,6 +2249,7 @@ body {
 
         /* Content doesn't overflow */
         overflow: hidden !important;
+        background-color: #fff !important;
     }
 
     /* Show all slides (override display:none) */
@@ -2238,7 +2260,33 @@ body {
 
     /* Slide body fills available space */
     .slide-body {
-        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    /* Code blocks: avoid page breaks inside and center */
+    .code-example {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin: 15px auto !important;
+        width: 95% !important;
+        max-width: 100% !important;
+    }
+
+    .code-two-col {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+        margin: 15px 0 !important;
+    }
+    
+    .code-two-col .code-example {
+        width: 100% !important;
+        margin: 0 !important;
     }
 
     /* Section dividers: ensure bg covers full page */
@@ -2250,12 +2298,6 @@ body {
     .slide-cover,
     .slide-closing {
         background-size: cover !important;
-    }
-
-    /* Code blocks: avoid page breaks inside */
-    .code-example {
-        break-inside: avoid;
-        page-break-inside: avoid;
     }
 
     /* Timer: hide interactive elements */
@@ -2275,7 +2317,6 @@ body {
 
     /* Grid layouts: ensure they don't break across pages */
     .two-columns,
-    .code-two-col,
     .concepts-grid,
     .quality-grid,
     .flow-elements {
@@ -2574,6 +2615,13 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
+
+/* --- NETFLIX-STYLE GRID FOR SCENARIOS --- */
+.netflix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
 .concept-card {
     background: var(--inteli-gray-light);
     border-radius: 12px;
@@ -2593,14 +2641,76 @@ body {
     line-height: 1.5;
 }
 
-/* --- JMETER FLOW --- */
-.jmeter-flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 20px 0;
+/* ========================================
+   CIRCUIT BREAKER ANIMATION
+   ======================================== */
+.cb-visual {
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    position: relative;
+    height: 180px;
+}
+
+.cb-arm {
+    transform-origin: 250px 100px;
+    animation: cb-arm-cycle 12s infinite;
+}
+
+.cb-text-closed { animation: cb-show-closed 12s infinite; font-weight: 800; font-family: var(--font-primary); text-transform: uppercase; }
+.cb-text-open { animation: cb-show-open 12s infinite; font-weight: 800; font-family: var(--font-primary); text-transform: uppercase; }
+.cb-text-half { animation: cb-show-half 12s infinite; font-weight: 800; font-family: var(--font-primary); text-transform: uppercase; }
+
+.cb-dot {
+    animation: cb-dot-flow 3s infinite linear;
+}
+
+.cb-dot-2 { animation-delay: 1s; }
+.cb-dot-3 { animation-delay: 2s; }
+
+@keyframes cb-arm-cycle {
+    0%, 30%, 95%, 100% { stroke: var(--inteli-green); transform: rotate(0deg); }
+    35%, 60% { stroke: var(--inteli-coral); transform: rotate(-45deg); }
+    65%, 90% { stroke: var(--inteli-lilac); transform: rotate(-20deg); }
+}
+
+@keyframes cb-show-closed {
+    0%, 30%, 95%, 100% { opacity: 1; fill: var(--inteli-green); }
+    31%, 94% { opacity: 0; }
+}
+
+@keyframes cb-show-open {
+    35%, 60% { opacity: 1; fill: var(--inteli-coral); }
+    0%, 34%, 61%, 100% { opacity: 0; }
+}
+
+@keyframes cb-show-half {
+    65%, 90% { opacity: 1; fill: var(--inteli-lilac); }
+    0%, 64%, 91%, 100% { opacity: 0; }
+}
+
+@keyframes cb-dot-flow {
+    0% { cx: 80; opacity: 0; }
+    10% { opacity: 1; }
+    40% { cx: 250; }
+    /* Dot behavior depends on switch state - simulated by timing */
+    /* This timing roughly matches the "Closed" state of the arm (0-30%) */
+    /* For simplicity, we make dots fade if they hit an open switch in the cycle */
+    50% { cx: 350; opacity: 1; }
+    90% { cx: 520; opacity: 1; }
+    100% { cx: 540; opacity: 0; }
+}
+
+/* Hide dots during "Open" state via container opacity or similar */
+.cb-dots-group {
+    animation: cb-dots-visibility 12s infinite;
+}
+
+@keyframes cb-dots-visibility {
+    0%, 30%, 65%, 100% { opacity: 1; }
+    35%, 60% { opacity: 0.2; } /* Open: fewer/no requests */
 }
 .jmeter-step {
     background: var(--inteli-purple);

@@ -515,12 +515,13 @@
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="code-example">
-                    <div class="code-header">
-                        <span class="code-lang">Python / pytest-mock</span>
-                        <span class="code-file">RNF2: Testar mecanismo de failover</span>
-                    </div>
-                    <pre class="code-block code-compact"><code><span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar_nota"</span>)
+                <div style="flex: 1; overflow-y: auto; padding-right: 5px; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Python / pytest-mock</span>
+                            <span class="code-file">RNF2: Testar mecanismo de failover</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar_nota"</span>)
 <span class="keyword">def</span> <span class="function">test_rnf02_failover_quando_sefaz_cai</span>(mock_sefaz):
     <span class="string">"""RNF2: Quando SEFAZ falha, sistema deve entrar em contingência."""</span>
 
@@ -546,12 +547,159 @@
     resultado = processar_nota_com_retry(nota_valida)
     <span class="keyword">assert</span> resultado.status == <span class="string">"autorizada"</span>
     <span class="keyword">assert</span> mock_sefaz.call_count == <span class="number">2</span>  <span class="comment"># Tentou 2 vezes</span></code></pre>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 16: TIPOS DE MOCK -->
+        <!-- SLIDE 16: SLA - O CONTRATO DE DISPONIBILIDADE -->
         <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="section-tag">DISPONIBILIDADE</span>
+                <h2 class="slide-title">SLA — O Contrato de Disponibilidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">verified</span></div>
+                        <h4>O que é SLA?</h4>
+                        <p>Service Level Agreement. É o compromisso contratual de disponibilidade (Uptime). Ex: 99.9% disponível.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">timer</span></div>
+                        <h4>A Regra dos "Noves"</h4>
+                        <p>• 99% = 3.65 dias/ano offline<br>• 99.9% = 8.77 horas/ano offline<br>• 99.99% = 52.6 minutos/ano offline</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Impacto ASIS:</strong> Durante o período de entrega de obrigações fiscais, um downtime de 1 hora pode significar milhões em multas para os clientes. <strong>Alta Disponibilidade é RNF Crítico!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: PADRÃO RETRY -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="section-tag">PATTERNS</span>
+                <h2 class="slide-title">Padrão Retry — "Tenta de novo, Paquetá!"</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="context-card highlight">
+                            <h3 style="color: var(--inteli-purple);">Estratégia de Resiliência</h3>
+                            <p>Falhas de rede são comuns. Em vez de desistir na primeira tentativa, o sistema tenta novamente após um curto intervalo.</p>
+                            <p style="margin-top: 10px;">• <strong>Exponential Backoff:</strong> Aumentar o tempo entre tentativas (1s, 2s, 4s...) para não sobrecarregar o serviço que está falhando.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-lang">Exemplo Real</span>
+                            </div>
+                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">for</span> i <span class="keyword">in</span> range(tentativas):
+    <span class="keyword">try</span>:
+        <span class="keyword">return</span> call_sefaz()
+    <span class="keyword">except</span>:
+        sleep(2 ** i) <span class="comment"># Backoff!</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: PADRÃO FALLBACK -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">PATTERNS</span>
+                <h2 class="slide-title">Padrão Fallback — O Plano B</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4>Graceful Degradation</h4>
+                        <p>Se o serviço principal falha, o sistema oferece uma alternativa simplificada em vez de um erro 500.</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>Caso Real: Netflix</h4>
+                        <p>Se o serviço de recomendações personalizadas cai, a Netflix mostra uma lista estática (Top 10 Geral). O usuário nem percebe a falha!</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Na ASIS:</strong> Se a SEFAZ está fora, o Fallback é salvar a nota em uma <strong>Fila de Contingência</strong> e avisar o usuário: "Nota recebida, será processada em instantes".</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: CIRCUIT BREAKER -->
+        <section class="slide slide-content" data-slide="19">
+            <div class="slide-header">
+                <span class="section-tag">PATTERNS</span>
+                <h2 class="slide-title">Circuit Breaker — O Disjuntor da Arquitetura</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <!-- SVG Animation Container -->
+                <div class="cb-visual" style="margin-bottom: 30px;">
+                    <svg viewBox="0 0 600 200" style="width: 100%; height: 100%;">
+                        <!-- Labels -->
+                        <text x="60" y="180" font-family="var(--font-primary)" font-size="12" fill="#999">Requisição (Client)</text>
+                        <text x="480" y="180" font-family="var(--font-primary)" font-size="12" fill="#999">Serviço (Target)</text>
+                        
+                        <!-- Status text -->
+                        <text x="300" y="40" text-anchor="middle" class="cb-text-closed">CLOSED (Fluxo Normal)</text>
+                        <text x="300" y="40" text-anchor="middle" class="cb-text-open">OPEN (Falha - Fluxo Cortado)</text>
+                        <text x="300" y="40" text-anchor="middle" class="cb-text-half">HALF-OPEN (Testando Retorno)</text>
+                        
+                        <!-- Nodes -->
+                        <circle cx="80" cy="100" r="15" fill="var(--inteli-purple)" />
+                        <circle cx="520" cy="100" r="15" fill="var(--inteli-purple)" />
+                        
+                        <!-- Static Lines -->
+                        <line x1="95" y1="100" x2="250" y2="100" stroke="#ddd" stroke-width="3" />
+                        <line x1="350" y1="100" x2="505" y2="100" stroke="#ddd" stroke-width="3" />
+                        
+                        <!-- Animated Arm (The Circuit Breaker) -->
+                        <g>
+                            <line x1="250" y1="100" x2="350" y2="100" class="cb-arm" stroke-width="6" stroke-linecap="round" />
+                            <circle cx="250" cy="100" r="4" fill="var(--inteli-purple)" />
+                            <circle cx="350" cy="100" r="4" fill="var(--inteli-purple)" />
+                        </g>
+
+                        <!-- Dots moving through -->
+                        <g class="cb-dots-group">
+                            <circle r="4" fill="var(--inteli-coral)" class="cb-dot cb-dot-1" />
+                            <circle r="4" fill="var(--inteli-coral)" class="cb-dot cb-dot-2" />
+                            <circle r="4" fill="var(--inteli-coral)" class="cb-dot cb-dot-3" />
+                        </g>
+                    </svg>
+                </div>
+
+                <div style="display: flex; justify-content: space-around; gap: 15px; margin-bottom: 20px;">
+                    <div class="jmeter-step" style="border: 2px solid var(--inteli-green); background: transparent; color: var(--inteli-purple); flex: 1; max-width: 150px;">
+                        <h4 style="color: var(--inteli-green) !important;">Closed</h4>
+                        <p style="color: #666 !important; font-size: 11px !important;">Fluxo normal.<br>Tudo ok.</p>
+                    </div>
+                    <div class="jmeter-step" style="border: 2px solid var(--inteli-coral); background: transparent; color: var(--inteli-purple); flex: 1; max-width: 150px;">
+                        <h4 style="color: var(--inteli-coral) !important;">Open</h4>
+                        <p style="color: #666 !important; font-size: 11px !important;">Serviço falhou N vezes.<br>Corta o fluxo (Fast Fail).</p>
+                    </div>
+                    <div class="jmeter-step" style="border: 2px solid var(--inteli-lilac); background: transparent; color: var(--inteli-purple); flex: 1; max-width: 150px;">
+                        <h4 style="color: var(--inteli-lilac) !important;">Half-Open</h4>
+                        <p style="color: #666 !important; font-size: 11px !important;">Testa se o serviço<br>já voltou ao normal.</p>
+                    </div>
+                </div>
+                <div class="key-message">
+                    <p>Evita falhas em cascata. Se o banco está lento, o Circuit Breaker corta as requisições para permitir que o sistema se recupere (e pare de "atacar" o banco).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: TIPOS DE MOCK -->
+        <section class="slide slide-content" data-slide="20">
             <div class="slide-header">
                 <span class="section-tag">MOCKS</span>
                 <h2 class="slide-title">Tipos de Objetos Simulados</h2>
@@ -581,8 +729,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 17: QUANDO USAR MOCK VS TESTE REAL -->
-        <section class="slide slide-content" data-slide="17">
+        <!-- SLIDE 21: QUANDO USAR MOCK VS TESTE REAL -->
+        <section class="slide slide-content" data-slide="21">
             <div class="slide-header">
                 <span class="section-tag">MOCKS</span>
                 <h2 class="slide-title">Mock vs. Teste Real — Quando Usar Cada Um</h2>
@@ -617,8 +765,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 18: RECURSOS RECOMENDADOS -->
-        <section class="slide slide-content" data-slide="18">
+        <!-- SLIDE 22: RECURSOS RECOMENDADOS -->
+        <section class="slide slide-content" data-slide="22">
             <div class="slide-header">
                 <span class="section-tag">RECURSOS</span>
                 <h2 class="slide-title">Para Aprofundar — Leituras e Vídeos</h2>
@@ -630,43 +778,36 @@
                         <span class="material-icons-outlined">menu_book</span>
                         <div>
                             <h4>Pressman — Engenharia de Software, Cap. 22</h4>
-                            <p>Estratégias de teste, V&amp;V, espiral de testes. Disponível na Biblioteca Virtual: <code>integrada.minhabiblioteca.com.br</code></p>
-                        </div>
-                    </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">play_circle</span>
-                        <div>
-                            <h4>PyCon US — Python Unit Testing with Pytest and Mock</h4>
-                            <p>Tutorial de 2h13 sobre pytest-mock: fixtures, patching, side_effect. Disponível no YouTube.</p>
+                            <p>Estratégias de teste, V&amp;V, espiral de testes. <a href="https://integrada.minhabiblioteca.com.br" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Acessar Biblioteca Virtual</a></p>
                         </div>
                     </div>
                     <div class="driver-item">
                         <span class="material-icons-outlined">article</span>
                         <div>
                             <h4>Pytest with Eric — How To Mock In Pytest</h4>
-                            <p>Guia prático com exemplos de mock de APIs, AWS e classes. pytest-with-eric.com/mocking/pytest-mocking</p>
+                            <p>Guia prático com exemplos de mock de APIs, AWS e classes. <a href="https://pytest-with-eric.com/mocking/pytest-mocking" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Ler Artigo</a></p>
                         </div>
                     </div>
                     <div class="driver-item">
                         <span class="material-icons-outlined">science</span>
                         <div>
                             <h4>BDD com Gherkin — Especificação Executável</h4>
-                            <p>BDD transforma requisitos em cenários executáveis (Given-When-Then). Artigo: blog.onedaytesting.com.br/gherkin</p>
+                            <p>BDD transforma requisitos em cenários executáveis (Given-When-Then). <a href="https://blog.onedaytesting.com.br/gherkin/" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Ler no Blog OneDayTesting</a></p>
                         </div>
                     </div>
                     <div class="driver-item">
                         <span class="material-icons-outlined">laptop_chromebook</span>
                         <div>
                             <h4>DataCamp — pytest-mock Tutorial Beginner</h4>
-                            <p>Tutorial passo-a-passo para iniciantes: datacamp.com/tutorial/pytest-mock</p>
+                            <p>Tutorial passo-a-passo para iniciantes: <a href="https://www.datacamp.com/tutorial/pytest-mock" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Ver Tutorial no DataCamp</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 19: BDD COMO PONTE RF → CÓDIGO -->
-        <section class="slide slide-content" data-slide="19">
+        <!-- SLIDE 23: BDD COMO PONTE RF → CÓDIGO -->
+        <section class="slide slide-content" data-slide="23">
             <div class="slide-header">
                 <span class="section-tag">BDD</span>
                 <h2 class="slide-title">BDD — Do Requisito ao Teste</h2>
@@ -728,8 +869,8 @@
              PARTE 3: ESTUDO DE CASO ASIS (Slides 20-27)
              ============================================= -->
 
-        <!-- SLIDE 20: DIVISOR -->
-        <section class="slide slide-section" data-slide="20">
+        <!-- SLIDE 24: DIVISOR -->
+        <section class="slide slide-section" data-slide="24">
             <div class="section-content">
                 <span class="section-number">PARTE 3</span>
                 <h2 class="section-title">Estudo de Caso — ASIS TaxTech</h2>
@@ -737,8 +878,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 21: MAPA DE RF DO ASIS -->
-        <section class="slide slide-content" data-slide="21">
+        <!-- SLIDE 25: MAPA DE RF DO ASIS -->
+        <section class="slide slide-content" data-slide="25">
             <div class="slide-header">
                 <span class="section-tag">ASIS</span>
                 <h2 class="slide-title">Possíveis RF para o Projeto ASIS</h2>
@@ -773,8 +914,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 22: MAPA DE RNF DO ASIS -->
-        <section class="slide slide-content" data-slide="22">
+        <!-- SLIDE 26: MAPA DE RNF DO ASIS -->
+        <section class="slide slide-content" data-slide="26">
             <div class="slide-header">
                 <span class="section-tag">ASIS</span>
                 <h2 class="slide-title">Possíveis RNF para o Projeto ASIS</h2>
@@ -817,8 +958,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 23: EXEMPLO COMPLETO RF -->
-        <section class="slide slide-content" data-slide="23">
+        <!-- SLIDE 27: EXEMPLO COMPLETO RF -->
+        <section class="slide slide-content" data-slide="27">
             <div class="slide-header">
                 <span class="section-tag">ASIS</span>
                 <h2 class="slide-title">Exemplo Completo — RF como Código</h2>
@@ -857,8 +998,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 24: EXEMPLO COMPLETO RNF -->
-        <section class="slide slide-content" data-slide="24">
+        <!-- SLIDE 28: EXEMPLO COMPLETO RNF -->
+        <section class="slide slide-content" data-slide="28">
             <div class="slide-header">
                 <span class="section-tag">ASIS</span>
                 <h2 class="slide-title">Exemplo Completo — RNF como Código</h2>
@@ -894,8 +1035,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 25: TÁTICAS ARQUITETURAIS -->
-        <section class="slide slide-content" data-slide="25">
+        <!-- SLIDE 29: TÁTICAS ARQUITETURAIS -->
+        <section class="slide slide-content" data-slide="29">
             <div class="slide-header">
                 <span class="section-tag">ARQUITETURA</span>
                 <h2 class="slide-title">Táticas Arquiteturais — Codificando BD</h2>
@@ -930,8 +1071,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 26: ESCALA DE AVALIAÇÃO -->
-        <section class="slide slide-content" data-slide="26">
+        <!-- SLIDE 30: ESCALA DE AVALIAÇÃO -->
+        <section class="slide slide-content" data-slide="30">
             <div class="slide-header">
                 <span class="activity-tag">AVALIAÇÃO</span>
                 <h2 class="slide-title">Rubrica de Avaliação</h2>
@@ -967,8 +1108,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 27: CHECKLIST DO ARTEFATO -->
-        <section class="slide slide-content" data-slide="27">
+        <!-- SLIDE 31: CHECKLIST DO ARTEFATO -->
+        <section class="slide slide-content" data-slide="31">
             <div class="slide-header">
                 <span class="section-tag">CHECKLIST</span>
                 <h2 class="slide-title">Checklist — O que Entregar</h2>
@@ -1019,8 +1160,8 @@
              ATIVIDADE EM GRUPO (Slides 28-35)
              ============================================= -->
 
-        <!-- SLIDE 28: DIVISOR -->
-        <section class="slide slide-section" data-slide="28">
+        <!-- SLIDE 32: DIVISOR -->
+        <section class="slide slide-section" data-slide="32">
             <div class="section-content">
                 <span class="section-number">SUPORTE AOS GRUPOS</span>
                 <h2 class="section-title">Mapa de Dúvidas + Workshop</h2>
@@ -1028,8 +1169,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 29: MAPA DE DÚVIDAS -->
-        <section class="slide slide-content" data-slide="29">
+        <!-- SLIDE 33: MAPA DE DÚVIDAS -->
+        <section class="slide slide-content" data-slide="33">
             <div class="slide-header">
                 <span class="activity-tag">ATIVIDADE EM GRUPO</span>
                 <h2 class="slide-title">Mapa de Dúvidas — 10 minutos</h2>
@@ -1038,8 +1179,11 @@
             <div class="slide-body">
                 <div class="activity-instructions">
                     <div class="timer-container">
-                        <div class="timer-display" id="timer-duvidas">10:00</div>
-                        <button class="timer-btn" onclick="toggleTimer('duvidas', 10)">
+                        <div class="timer" id="timer-duvidas">
+                            <span class="timer-value">10:00</span>
+                            <span class="timer-label">Tempo restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-duvidas', 600)">
                             <span class="material-icons-outlined">play_arrow</span>
                             Iniciar Timer
                         </button>
@@ -1078,8 +1222,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 30: WORKSHOP RF -->
-        <section class="slide slide-content" data-slide="30">
+        <!-- SLIDE 34: WORKSHOP RF -->
+        <section class="slide slide-content" data-slide="34">
             <div class="slide-header">
                 <span class="activity-tag">WORKSHOP</span>
                 <h2 class="slide-title">Workshop: Mapeando seus RF</h2>
@@ -1111,8 +1255,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 31: WORKSHOP RNF -->
-        <section class="slide slide-content" data-slide="31">
+        <!-- SLIDE 35: WORKSHOP RNF -->
+        <section class="slide slide-content" data-slide="35">
             <div class="slide-header">
                 <span class="activity-tag">WORKSHOP</span>
                 <h2 class="slide-title">Workshop: Mapeando seus RNF</h2>
@@ -1144,8 +1288,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 32: TIMER DE TRABALHO -->
-        <section class="slide slide-content" data-slide="32">
+        <!-- SLIDE 36: TIMER DE TRABALHO -->
+        <section class="slide slide-content" data-slide="36">
             <div class="slide-header">
                 <span class="activity-tag">WORKSHOP</span>
                 <h2 class="slide-title">Tempo de Trabalho em Grupo</h2>
@@ -1154,8 +1298,11 @@
             <div class="slide-body">
                 <div class="activity-instructions">
                     <div class="timer-container">
-                        <div class="timer-display" id="timer-workshop">30:00</div>
-                        <button class="timer-btn" onclick="toggleTimer('workshop', 30)">
+                        <div class="timer" id="timer-workshop">
+                            <span class="timer-value">30:00</span>
+                            <span class="timer-label">Tempo restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-workshop', 1800)">
                             <span class="material-icons-outlined">play_arrow</span>
                             Iniciar Timer
                         </button>
@@ -1187,8 +1334,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 33: COMPARTILHAMENTO GRUPOS -->
-        <section class="slide slide-content" data-slide="33">
+        <!-- SLIDE 37: COMPARTILHAMENTO GRUPOS -->
+        <section class="slide slide-content" data-slide="37">
             <div class="slide-header">
                 <span class="activity-tag">COMPARTILHAMENTO</span>
                 <h2 class="slide-title">Apresentação dos Grupos — 15 min</h2>
@@ -1222,8 +1369,8 @@
              ENCERRAMENTO (Slides 34-36)
              ============================================= -->
 
-        <!-- SLIDE 34: SÍNTESE -->
-        <section class="slide slide-content" data-slide="34">
+        <!-- SLIDE 38: SÍNTESE -->
+        <section class="slide slide-content" data-slide="38">
             <div class="slide-header">
                 <span class="section-tag">SÍNTESE</span>
                 <h2 class="slide-title">Resumo da Aula</h2>
@@ -1263,8 +1410,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 35: PRÓXIMOS PASSOS -->
-        <section class="slide slide-content" data-slide="35">
+        <!-- SLIDE 39: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="39">
             <div class="slide-header">
                 <span class="section-tag">PRÓXIMOS PASSOS</span>
                 <h2 class="slide-title">O que Vem Depois</h2>
@@ -1296,8 +1443,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 36: ENCERRAMENTO -->
-        <section class="slide slide-closing" data-slide="36">
+        <!-- SLIDE 40: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="40">
             <div class="closing-content">
                 <div class="closing-quote">
                     <span class="quote-mark">&ldquo;</span>
@@ -1329,7 +1476,7 @@
     </div>
 
     <!-- Modal Container -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">
                 <span class="material-icons-outlined">close</span>
