@@ -348,6 +348,24 @@ const viewpointDetails = {
             <h4>Aplicação no projeto ASIS:</h4>
             <p>Define o uso de Java/Spring Boot, PostgreSQL/Redis, AWS/Azure, Docker/Kubernetes, e ferramentas de CI/CD.</p>
         `
+    },
+    volumetria: {
+        title: 'Dicionário Técnico: Timeout & OOM',
+        color: '#ff4545',
+        content: `
+            <h3 style="color: #ff4545;">Entendendo o Crash</h3>
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #2e2640; margin-bottom: 10px;">• Timeout</h4>
+                <p>O cliente (browser ou gateway) desiste de esperar porque o servidor demorou demais para processar e serializar os dados. Em APIs REST, isso geralmente ocorre na etapa de serialização JSON de grandes listas.</p>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #2e2640; margin-bottom: 10px;">• OOM (Out of Memory)</h4>
+                <p>Ocorre quando o processo da API tenta alocar mais memória RAM do que o disponível no container ou servidor. Ao carregar 50k registros do banco para a memória da aplicação de uma vez, o "Garbage Collector" não consegue liberar espaço rápido o suficiente, causando o crash fatal do serviço.</p>
+            </div>
+            <div style="background: #f8f6f2; padding: 15px; border-radius: 8px; border-left: 4px solid #89cea5;">
+                <p><strong>Solução:</strong> Paginação (Limit/Offset) e Cursor-based Streaming.</p>
+            </div>
+        `
     }
 };
 

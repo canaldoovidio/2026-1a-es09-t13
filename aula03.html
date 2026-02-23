@@ -418,13 +418,12 @@
                                 <p>Cada request carrega 50k registros na memória. O servidor "pede pra sair".</p>
                             </div>
                         </div>
-                        <!-- BOX TÉCNICO: TIMEOUT E OOM -->
-                        <div style="background: var(--inteli-purple); color: var(--inteli-white); border-radius: 12px; padding: 15px; margin-top: 15px; font-size: clamp(10px, 1vw, 14px);">
-                            <h4 style="color: var(--inteli-green); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                                <span class="material-icons-outlined" style="font-size: 18px;">terminal</span> Dicionário Técnico
-                            </h4>
-                            <p style="margin-bottom: 8px;"><strong>• Timeout:</strong> O cliente (browser/gateway) desiste de esperar porque o servidor demorou demais para processar e serializar 50k objetos.</p>
-                            <p><strong>• OOM (Out of Memory):</strong> O processo da API tenta alocar mais memória RAM do que o disponível no container/servidor para segurar todos os registros simultaneamente, causando o crash fatal.</p>
+                        <!-- BOTÃO INTERATIVO PARA MODAL TÉCNICO -->
+                        <div style="margin-top: 15px; text-align: center;">
+                            <button onclick="showViewpointDetail('volumetria')" style="background: var(--inteli-purple); color: var(--inteli-white); border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 14px; transition: all 0.3s ease;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-green);">terminal</span>
+                                Ver Explicação Técnica
+                            </button>
                         </div>
                     </div>
                     <div>
