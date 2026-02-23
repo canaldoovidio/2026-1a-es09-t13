@@ -422,7 +422,7 @@
         <section class="slide slide-content" data-slide="13">
             <div class="slide-header">
                 <span class="section-tag">MOCKS</span>
-                <h2 class="slide-title">Por que Precisamos de Mocks?</h2>
+                <h2 class="slide-title">Mocks: O "Dummy" dos seus Testes</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
@@ -433,7 +433,7 @@
                             <span class="material-icons-outlined">cloud_off</span>
                             <div>
                                 <h4>SEFAZ indisponível</h4>
-                                <p>Não dá pra testar envio de NF se o serviço está fora do ar</p>
+                                <p>Não dá pra testar se o serviço real está fora do ar</p>
                             </div>
                         </div>
                         <div class="driver-item" style="margin-bottom: 10px;">
@@ -446,26 +446,21 @@
                         <div class="driver-item" style="margin-bottom: 10px;">
                             <span class="material-icons-outlined">timer_off</span>
                             <div>
-                                <h4>Testes ficam lentos</h4>
-                                <p>Rede + latência = suite de 2h em vez de 2s</p>
-                            </div>
-                        </div>
-                        <div class="driver-item">
-                            <span class="material-icons-outlined">casino</span>
-                            <div>
-                                <h4>Resultados inconsistentes</h4>
-                                <p>Dados mudam, serviço cai, rede falha = testes flaky</p>
+                                <h4>Testes lentos</h4>
+                                <p>Suite de 2h em vez de 2s</p>
                             </div>
                         </div>
                     </div>
                     <div>
                         <h3 style="color: var(--inteli-dark-green); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">A Solução: Mock</h3>
-                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-green);">
+                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-green); margin-bottom: 15px;">
                             <p style="font-size: clamp(14px, 1.4vw, 18px); line-height: 1.8;">
-                                Um <strong>Mock</strong> é um objeto falso que substitui uma dependência real durante o teste.<br><br>
-                                Ele simula o comportamento esperado — retorna respostas configuradas, sem fazer chamadas reais.<br><br>
-                                <strong>Mock where it's used, not where it comes from.</strong>
+                                Lembra da paixão da Chaiany pelo <strong>Dummy</strong> no BBB 26? <br><br>
+                                O Mock é tipo o Dummy: parece uma pessoa (ou serviço), responde como uma pessoa, mas é um boneco controlado por você para testar sua lógica sem depender de ninguém "real"!
                             </p>
+                        </div>
+                        <div style="border-radius: 12px; overflow: hidden; height: 180px;">
+                            <img src="https://images.unsplash.com/photo-1531072901881-d644216d4bf9?auto=format&fit=crop&w=800&q=80" alt="Mannequin" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -617,7 +612,7 @@
                     </div>
                 </div>
                 <div class="key-message" style="margin-top: 15px;">
-                    <p><strong>Para o artefato:</strong> Mecanismos arquiteturais devem ser implementados. Integrações externas podem ser <strong>emuladas e configuráveis</strong> com processos corretos e de exceção, porém com <strong>rastreabilidade</strong>.</p>
+                    <p><strong>Seja um Dummy nos Testes:</strong> Sem emoção, sem improviso. O Mock (seu Dummy) apenas segue o script que você deu pra ele no Arrange. É a garantia de um teste determinístico e frio!</p>
                 </div>
             </div>
         </section>

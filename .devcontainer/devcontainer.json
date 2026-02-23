@@ -1,0 +1,17 @@
+{
+    "name": "Inteli ES09 Classes",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ritwickdey.LiveServer",
+                "ms-python.python"
+            ]
+        }
+    },
+    "forwardPorts": [5500],
+    "postCreateCommand": "echo 'Pronto para rodar os slides! Use a extensão Live Server para abrir os arquivos .html'"
+}

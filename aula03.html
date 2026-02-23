@@ -233,31 +233,28 @@
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="jmeter-flow" style="justify-content: center; gap: 30px; margin-top: 20px;">
-                    <div class="jmeter-step" style="flex: 1; max-width: 250px;">
-                        <div class="concept-icon"><span class="material-icons-outlined">laptop_mac</span></div>
-                        <h4>Seu Computador</h4>
-                        <p>docker compose up</p>
-                    </div>
-                    <div class="jmeter-step" style="flex: 0; padding: 10px;">
-                        <span class="material-icons-outlined" style="font-size: 36px; color: var(--inteli-coral);">arrow_forward</span>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <code style="background: var(--inteli-gray-light); padding: 10px 20px; border-radius: 8px; font-weight: 700; color: var(--inteli-coral);">https://github.com/canaldoovidio/asis-bd-lab.git</code>
+                </div>
+                <div class="jmeter-flow" style="justify-content: center; gap: 30px; margin-top: 10px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 250px; border-color: var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">cloud</span></div>
+                        <h4>GitHub Codespaces</h4>
+                        <p>1-Click Setup<br>Ambiente pronto na nuvem</p>
                     </div>
                     <div class="jmeter-step" style="flex: 1; max-width: 250px; border-color: var(--inteli-coral);">
                         <div class="concept-icon"><span class="material-icons-outlined">dns</span></div>
-                        <h4>FastAPI</h4>
-                        <p>localhost:8000<br>Endpoints v1 (bug) e v2 (fix)</p>
-                    </div>
-                    <div class="jmeter-step" style="flex: 0; padding: 10px;">
-                        <span class="material-icons-outlined" style="font-size: 36px; color: var(--inteli-coral);">arrow_forward</span>
+                        <h4>FastAPI (Lab)</h4>
+                        <p>localhost:8000<br>Endpoints v1 e v2</p>
                     </div>
                     <div class="jmeter-step" style="flex: 1; max-width: 250px; border-color: var(--inteli-lilac);">
                         <div class="concept-icon"><span class="material-icons-outlined">storage</span></div>
                         <h4>PostgreSQL</h4>
-                        <p>200 notas fiscais<br>10 produtos (seed)</p>
+                        <p>Persistência de Dados<br>Seed automático</p>
                     </div>
                 </div>
-                <div class="key-message" style="margin-top: 30px;">
-                    <p><strong>Padrão v1 / v2:</strong> Cada endpoint existe em duas versões. A v1 contém o bug intencional. A v2 contém a correção. Os testes exercitam ambas.</p>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Dica de Carreira:</strong> No dia a dia, use o **Codespaces** para evitar o "na minha máquina funciona". É o VAR da infraestrutura: tudo padronizado!</p>
                 </div>
             </div>
         </section>
@@ -270,28 +267,30 @@
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="code-example">
-                    <div class="code-header">
-                        <span class="code-lang">Terminal</span>
-                        <span class="code-file">Passo a passo</span>
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Opção A: GitHub Codespaces</span>
+                        </div>
+                        <div style="padding: 20px; font-size: clamp(12px, 1.2vw, 16px); line-height: 1.6;">
+                            <p>1. Acesse o repo no GitHub</p>
+                            <p>2. Clique em <strong>Code</strong> > <strong>Codespaces</strong></p>
+                            <p>3. Aguarde o setup (Docker sobe sozinho!)</p>
+                            <p>4. No terminal: <code>pytest tests/ -v</code></p>
+                        </div>
                     </div>
-                    <pre class="code-block code-compact"><code><span class="comment"># 1. Clonar o repositório</span>
-<span class="keyword">git clone</span> <span class="string">https://github.com/inteli-es09/asis-bd-lab.git</span>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Opção B: Local (Docker)</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">git clone</span> <span class="string">https://github.com/canaldoovidio/asis-bd-lab.git</span>
 <span class="keyword">cd</span> asis-bd-lab
-
-<span class="comment"># 2. Subir a aplicação (FastAPI + PostgreSQL)</span>
 <span class="keyword">docker compose up</span> <span class="string">--build</span>
-
-<span class="comment"># 3. Verificar se está rodando</span>
-<span class="keyword">curl</span> <span class="string">http://localhost:8000/health</span>
-<span class="comment"># {"status": "ok", "service": "asis-taxtech-lab"}</span>
-
-<span class="comment"># 4. Acessar documentação interativa</span>
-<span class="comment"># Abrir no browser: http://localhost:8000/docs</span>
-
-<span class="comment"># 5. Rodar os testes (em outro terminal)</span>
-<span class="keyword">pip install</span> <span class="string">-r requirements.txt</span>
 <span class="keyword">pytest</span> tests/ <span class="string">-v</span></code></pre>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <p style="font-size: clamp(12px, 1.2vw, 16px);">Documentação interativa: <strong>http://localhost:8000/docs</strong></p>
                 </div>
             </div>
         </section>
@@ -408,29 +407,32 @@
                         <div class="driver-item" style="margin-bottom: 12px;">
                             <span class="material-icons-outlined">people</span>
                             <div>
-                                <h4>100 Operadores Simultâneos</h4>
-                                <p>Cada um fazendo GET /notas</p>
+                                <h4>Pico de Acesso (Tipo Paredão do BBB 26)</h4>
+                                <p>Imagina 100 operadores fazendo GET /notas ao mesmo tempo enquanto a Chaiany tá no Paredão!</p>
                             </div>
                         </div>
                         <div class="driver-item">
                             <span class="material-icons-outlined">dangerous</span>
                             <div>
                                 <h4>Resultado: Timeout + OOM</h4>
-                                <p>Cada request carrega 50k registros na memória</p>
+                                <p>Cada request carrega 50k registros na memória. O servidor "pede pra sair".</p>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px;">Impacto Financeiro</h3>
-                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-coral);">
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px;">Impacto Real</h3>
+                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-coral); margin-bottom: 15px;">
                             <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 15px; font-size: clamp(13px, 1.3vw, 17px);">
-                                <strong>Downtime:</strong> <span>2h durante horário comercial</span>
+                                <strong>Downtime:</strong> <span>O sistema trava mais que a prova do líder caótica da semana passada</span>
                                 <strong>Notas bloqueadas:</strong> <span>~4.000 NFe sem emissão</span>
                                 <strong>Multas SEFAZ:</strong> <span>R$ 500 por nota atrasada</span>
-                                <strong>Prejuízo potencial:</strong> <span style="color: var(--inteli-coral); font-weight: 700;">R$ 2.000.000+</span>
+                                <strong>Prejuízo:</strong> <span style="color: var(--inteli-coral); font-weight: 700;">Milhões de reais (e não é o prêmio do BBB!)</span>
                             </div>
                         </div>
-                        <div class="key-message" style="margin-top: 15px;">
+                        <div style="border-radius: 12px; overflow: hidden; height: 180px; margin-bottom: 15px;">
+                            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=800&q=80" alt="Server Load" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="key-message">
                             <p><strong>N+1 Query:</strong> Para cada nota, o ORM faz 1 query extra para carregar os itens. 50k notas = 50.001 queries!</p>
                         </div>
                     </div>
@@ -549,34 +551,33 @@
         <section class="slide slide-content" data-slide="16">
             <div class="slide-header">
                 <span class="section-tag">VOLUMETRIA</span>
-                <h2 class="slide-title">JMeter — Comparação v1 vs v2</h2>
+                <h2 class="slide-title">JMeter — Stress Test: A Pressão da Mané Garrincha</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
                 <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
                     <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
-                        <h4 style="color: var(--inteli-coral);">v1 — Sem Paginação</h4>
+                        <h4 style="color: var(--inteli-coral);">v1 — Falha sob Pressão</h4>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: clamp(12px, 1.2vw, 16px); margin-top: 10px;">
-                            <strong>Threads:</strong> <span>50 usuários</span>
-                            <strong>Avg Response:</strong> <span style="color: var(--inteli-coral);">4.200ms</span>
-                            <strong>Throughput:</strong> <span>12 req/s</span>
+                            <strong>Cenário:</strong> <span>70.000 torcedores (requests) simultâneos</span>
+                            <strong>Resultado:</strong> <span style="color: var(--inteli-coral);">Isolou igual o Paquetá na Supercopa 2026!</span>
                             <strong>Error Rate:</strong> <span style="color: var(--inteli-coral);">35% (timeouts)</span>
-                            <strong>Payload:</strong> <span>~8MB por response</span>
+                        </div>
+                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 150px;">
+                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Stadium" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                     <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
-                        <h4 style="color: var(--inteli-dark-green);">v2 — Com Paginação</h4>
+                        <h4 style="color: var(--inteli-dark-green);">v2 — Performance Campeã</h4>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: clamp(12px, 1.2vw, 16px); margin-top: 10px;">
-                            <strong>Threads:</strong> <span>50 usuários</span>
                             <strong>Avg Response:</strong> <span style="color: var(--inteli-dark-green);">45ms</span>
                             <strong>Throughput:</strong> <span>850 req/s</span>
-                            <strong>Error Rate:</strong> <span style="color: var(--inteli-dark-green);">0%</span>
-                            <strong>Payload:</strong> <span>~12KB por response</span>
+                            <strong>Status:</strong> <span style="color: var(--inteli-dark-green);">Título Garantido!</span>
+                        </div>
+                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 150px;">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80" alt="Soccer" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
-                </div>
-                <div class="key-message" style="margin-top: 20px;">
-                    <p><strong>Resultado:</strong> Paginação reduziu o tempo de resposta em <strong>93x</strong> e eliminou todos os erros de timeout. Arquivo JMeter disponível em <code>jmeter/load_test.jmx</code>.</p>
                 </div>
             </div>
         </section>
@@ -598,7 +599,7 @@
         <section class="slide slide-content" data-slide="18">
             <div class="slide-header">
                 <span class="section-tag">RASTREABILIDADE</span>
-                <h2 class="slide-title">O que é Rastreabilidade como Business Driver?</h2>
+                <h2 class="slide-title">Rastreabilidade: O "Bastão" do seu Request</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
@@ -606,12 +607,12 @@
                     <div class="concept-card">
                         <div class="concept-icon"><span class="material-icons-outlined">manage_search</span></div>
                         <h4>Definição</h4>
-                        <p>Capacidade de rastrear qualquer operação do sistema de ponta a ponta, correlacionando logs, métricas e traces a um request específico.</p>
+                        <p>Capacidade de rastrear qualquer operação do sistema de ponta a ponta. Se você perde o ID, você perde a trace.</p>
                     </div>
                     <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
                         <div class="concept-icon"><span class="material-icons-outlined">gavel</span></div>
-                        <h4>Por que é Crítico em Tax</h4>
-                        <p>Auditorias fiscais exigem rastreabilidade completa. A SEFAZ pode pedir logs de qualquer operação dos últimos 5 anos.</p>
+                        <h4>O "Bastão Perdido"</h4>
+                        <p>Lembra da Chaiany no BBB 26 esquecendo o bastão na prova? Sem o Correlation ID, seu request é o bastão: ninguém sabe onde foi parar!</p>
                     </div>
                     <div class="concept-card">
                         <div class="concept-icon"><span class="material-icons-outlined">fingerprint</span></div>
@@ -621,7 +622,10 @@
                     <div class="concept-card">
                         <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
                         <h4>Structured Logging</h4>
-                        <p>Logs em formato JSON com campos padronizados — facilita busca, filtro e dashboards em ferramentas como Elasticsearch.</p>
+                        <p>Logs em formato JSON com campos padronizados — facilita busca, filtro e dashboards como o VAR do Brasileirão.</p>
+                        <div style="margin-top: 15px; border-radius: 8px; overflow: hidden; height: 100px;">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80" alt="Football Stadium" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -834,21 +838,21 @@ Buscando nota 42
         <section class="slide slide-content" data-slide="25">
             <div class="slide-header">
                 <span class="section-tag">CONCORRÊNCIA</span>
-                <h2 class="slide-title">O Problema: Lost Update</h2>
+                <h2 class="slide-title">O Problema: Lost Update (A "Dividida")</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                     <div>
-                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">Sequência do Bug</h3>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">A "Dividida" do Request</h3>
                         <div style="background: #f8f6f2; padding: 18px; border-radius: 12px; font-size: clamp(12px, 1.2vw, 16px); line-height: 1.8;">
-                            <p><strong style="color: var(--inteli-lilac);">T1:</strong> Request A lê estoque = <strong>100</strong></p>
-                            <p><strong style="color: var(--inteli-green);">T2:</strong> Request B lê estoque = <strong>100</strong></p>
-                            <p><strong style="color: var(--inteli-lilac);">T3:</strong> Request A escreve: 100 - 5 = <strong>95</strong></p>
-                            <p><strong style="color: var(--inteli-green);">T4:</strong> Request B escreve: 100 - 3 = <strong style="color: var(--inteli-coral);">97</strong></p>
+                            <p><strong style="color: var(--inteli-lilac);">T1:</strong> Corinthians lê estoque = <strong>100</strong></p>
+                            <p><strong style="color: var(--inteli-green);">T2:</strong> Flamengo lê estoque = <strong>100</strong></p>
+                            <p><strong style="color: var(--inteli-lilac);">T3:</strong> Corinthians escreve: 100 - 5 = <strong>95</strong></p>
+                            <p><strong style="color: var(--inteli-green);">T4:</strong> Flamengo escreve: 100 - 3 = <strong style="color: var(--inteli-coral);">97</strong></p>
                             <p style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;">
-                                <strong>Esperado:</strong> 100 - 5 - 3 = <strong>92</strong><br>
-                                <strong style="color: var(--inteli-coral);">Obtido:</strong> <strong style="color: var(--inteli-coral);">97</strong> (perdeu o -5!)
+                                <strong>Esperado:</strong> 92 (igual ao placar moral da Supercopa 2026)<br>
+                                <strong style="color: var(--inteli-coral);">Obtido:</strong> <strong style="color: var(--inteli-coral);">97</strong> (perdeu o lance!)
                             </p>
                         </div>
                     </div>
@@ -861,18 +865,21 @@ Buscando nota 42
                                 <p>Vende mais do que tem — nota rejeitada pela SEFAZ</p>
                             </div>
                         </div>
+                        <div style="border-radius: 12px; overflow: hidden; height: 120px; margin-bottom: 12px;">
+                            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Football Match" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="driver-item" style="margin-bottom: 12px;">
                             <span class="material-icons-outlined">account_balance</span>
                             <div>
                                 <h4>Duplicidade Fiscal</h4>
-                                <p>Duas notas emitidas para o mesmo item — irregularidade tributária</p>
+                                <p>Duas notas emitidas para o mesmo item</p>
                             </div>
                         </div>
                         <div class="driver-item">
-                            <span class="material-icons-outlined">report</span>
+                            <span class="material-icons-outlined">sports_soccer</span>
                             <div>
-                                <h4>Auditoria</h4>
-                                <p>Diferença entre estoque físico e sistema — multa certa</p>
+                                <h4>VAR da Arquitetura</h4>
+                                <p>Precisamos de Locking para decidir quem chegou primeiro na bola!</p>
                             </div>
                         </div>
                     </div>
@@ -1547,7 +1554,7 @@ Authorization: Bearer eyJhbGci...
                     </div>
                 </div>
                 <div class="key-message" style="margin-top: 25px;">
-                    <p><strong>Ciclo virtuoso:</strong> Drivers de negócio definem o que testar → Testes automatizados garantem a qualidade → Qualidade permite deploy contínuo → Negócio evolui com confiança.</p>
+                    <p><strong>Não se encante pela "Grama Sintética":</strong> Assim como a Chaiany no BBB 26, não confunda o ambiente de teste com a realidade de produção. Drivers garantem que seu código aguenta o jogo real!</p>
                 </div>
             </div>
         </section>

@@ -115,6 +115,35 @@ Os alunos devem ter completado antes da aula:
 
 ---
 
+## Como Usar no GitHub Codespaces
+
+Este repositório está configurado para ser executado diretamente no **GitHub Codespaces**:
+
+1. Clique no botão **Code** no seu repositório GitHub.
+2. Selecione a aba **Codespaces** e clique em **Create codespace on main**.
+3. O ambiente será configurado automaticamente com todas as extensões necessárias.
+4. Para ver os slides, abra qualquer arquivo `.html` (ex: `aula03.html`) e use a extensão **Live Server** (ícone "Go Live" no canto inferior direito).
+
+## Laboratório de Business Drivers (Semana 03)
+
+O código fonte do laboratório prático está na pasta `asis-bd-lab`. Para criar o repositório separado no seu GitHub:
+
+1. Execute o script de preparação:
+   ```bash
+   ./create_repo.sh
+   ```
+2. Siga as instruções impressas no terminal para fazer o push para o seu GitHub em `canaldoovidio/asis-bd-lab`.
+
+---
+
+## Novidades desta Versão
+
+- **Personalização:** Slides das aulas 03 e 04 atualizados com contexto do **BBB 26** (Chaiany, Dummy), **Supercopa 2026** (Corinthians 2x0 Flamengo) e imagens reais.
+- **Codespaces:** Suporte nativo para desenvolvimento em nuvem tanto na raiz quanto no laboratório.
+- **Automação:** Script facilitador para criação de repositórios individuais para os alunos.
+
+---
+
 ## Arquivos da Apresentação
 
 ```
