@@ -2641,6 +2641,16 @@ body {
     line-height: 1.5;
 }
 
+/* --- JMETER FLOW --- */
+.jmeter-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
 /* ========================================
    CIRCUIT BREAKER ANIMATION
    ======================================== */
