@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF e RNF como Código — BDD, Gherkin e Táticas de Robustez | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 38</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             ABERTURA (Slides 1-4)
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 05</span>
+                </div>
+                <h1 class="cover-title">RF e RNF como Código<br>BDD, Gherkin e Táticas de Robustez</h1>
+                <h2 class="cover-subtitle">Como codificar a aferição de regras de negócio<br>e atributos de qualidade com especificações executáveis</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Março de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: CONEXÃO -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Onde Estamos na Jornada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4>Aula 01</h4>
+                        <p>Visões RM-ODP</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 02</h4>
+                        <p>BD como Código</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">build</span></div>
+                        <h4>Aula 03</h4>
+                        <p>Ponderada 1: Lab</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">support_agent</span></div>
+                        <h4>Aula 04</h4>
+                        <p>Mocks + Suporte</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Aula 05 (Hoje)</h4>
+                        <p>BDD + Táticas de Robustez</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Foco de hoje:</strong> Aprender BDD/Gherkin como ponte entre requisitos e código, e entender as táticas de robustez (Resistir, Detectar, Recuperar) aplicadas à aferição de qualidade do software.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Dominar BDD e Gherkin</h3>
+                    <p>Entender como Behavior-Driven Development transforma requisitos em especificações executáveis usando a linguagem Gherkin</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Aplicar Táticas de Robustez</h3>
+                    <p>Compreender as táticas RESISTIR, DETECTAR e RECUPERAR e como codificá-las como testes de aferição de qualidade</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Codificar RF e RNF</h3>
+                    <p>Transformar requisitos funcionais e não funcionais em código executável que afere a qualidade do sistema ASIS</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: AUTOESTUDO -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <span class="section-tag">AUTOESTUDO</span>
+                <h2 class="slide-title">O que Vocês Viram no Autoestudo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">menu_book</span></div>
+                        <h4>Requisitos Não Funcionais como Código</h4>
+                        <p>Como aspectos não funcionais (performance, segurança, disponibilidade) podem ser transformados em código que afere se o sistema atende aos atributos de qualidade.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">article</span></div>
+                        <h4>Artigo: Tactics and Patterns for Software Robustness</h4>
+                        <p>Táticas arquiteturais para construir software robusto: como sistemas resistem a falhas, detectam anomalias e se recuperam de problemas.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Conexão:</strong> O autoestudo preparou o terreno. Agora vamos consolidar: como unir BDD (especificação executável) com as táticas de robustez para criar o artefato de RF/RNF como código.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 1: BDD & GHERKIN (Slides 5-12)
+             ============================================= -->
+
+        <!-- SLIDE 5: DIVISOR -->
+        <section class="slide slide-section" data-slide="5">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">BDD &amp; Gherkin</h2>
+                <p class="section-description">Behavior-Driven Development — Do requisito à especificação executável</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: O QUE É BDD -->
+        <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">BDD</span>
+                <h2 class="slide-title">O que é BDD?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <div style="background: #f8f6f2; padding: 20px; border-radius: 12px; border-left: 3px solid var(--inteli-lilac); margin-bottom: 15px;">
+                            <h3 style="color: var(--inteli-lilac); margin-bottom: 10px; font-size: clamp(16px, 1.6vw, 22px);">Behavior-Driven Development</h3>
+                            <p style="font-size: clamp(14px, 1.4vw, 18px); line-height: 1.8;">
+                                BDD é uma prática que conecta <strong>requisitos de negócio</strong> a <strong>código executável</strong> usando uma linguagem que todos entendem — negócio, QA e devs.
+                            </p>
+                        </div>
+                        <div class="driver-item" style="margin-bottom: 10px;">
+                            <span class="material-icons-outlined">groups</span>
+                            <div>
+                                <h4>Colaboração</h4>
+                                <p>PO, dev e QA escrevem cenários juntos</p>
+                            </div>
+                        </div>
+                        <div class="driver-item" style="margin-bottom: 10px;">
+                            <span class="material-icons-outlined">description</span>
+                            <div>
+                                <h4>Documentação Viva</h4>
+                                <p>Os cenários são a documentação E o teste</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 15px; font-size: clamp(16px, 1.6vw, 22px);">TDD vs BDD</h3>
+                        <div class="concept-card" style="border-left: 3px solid var(--inteli-green); margin-bottom: 15px;">
+                            <h4>TDD (Test-Driven Development)</h4>
+                            <p>Foco no <strong>como</strong> implementar. Escrito por devs, para devs. Testa unidades de código.</p>
+                        </div>
+                        <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                            <h4>BDD (Behavior-Driven Development)</h4>
+                            <p>Foco no <strong>comportamento</strong> esperado. Escrito em linguagem natural. Testa requisitos de negócio.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: GHERKIN -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">GHERKIN</span>
+                <h2 class="slide-title">Gherkin — A Linguagem do Negócio</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-lilac); color: var(--inteli-white);">
+                    <p style="font-size: clamp(14px, 1.4vw, 18px);"><strong>Gherkin</strong> é uma linguagem estruturada para descrever comportamentos de software em linguagem natural. Usa palavras-chave: <code style="background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px;">Given</code>, <code style="background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px;">When</code>, <code style="background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px;">Then</code></p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(18px, 1.8vw, 24px);">Given</h4>
+                        <p style="margin-top: 8px; font-size: clamp(14px, 1.4vw, 18px); font-style: italic;">"Dado que..."</p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px);">Pré-condição. O estado inicial do sistema antes da ação.</p>
+                        <p style="margin-top: 6px; font-size: clamp(11px, 1.1vw, 13px); color: #666;">Ex: "Dado uma nota fiscal válida com NCM 84713012"</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(18px, 1.8vw, 24px);">When</h4>
+                        <p style="margin-top: 8px; font-size: clamp(14px, 1.4vw, 18px); font-style: italic;">"Quando..."</p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px);">Ação. O evento que dispara o comportamento sendo testado.</p>
+                        <p style="margin-top: 6px; font-size: clamp(11px, 1.1vw, 13px); color: #666;">Ex: "Quando o sistema envia a nota para a SEFAZ"</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(18px, 1.8vw, 24px);">Then</h4>
+                        <p style="margin-top: 8px; font-size: clamp(14px, 1.4vw, 18px); font-style: italic;">"Então..."</p>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px);">Resultado esperado. O que o sistema deve produzir como resposta.</p>
+                        <p style="margin-top: 6px; font-size: clamp(11px, 1.1vw, 13px); color: #666;">Ex: "Então recebe protocolo de autorização"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: ANATOMIA DE UM .feature -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">GHERKIN</span>
+                <h2 class="slide-title">Anatomia de um Arquivo .feature</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin</span>
+                        <span class="code-file">features/rf01_enviar_nota.feature</span>
+                    </div>
+                    <pre class="code-block"><code><span class="keyword">Feature:</span> <span class="class-name">Envio de Nota Fiscal para SEFAZ</span>
+  <span class="comment">Como</span> operador fiscal do sistema ASIS
+  <span class="comment">Quero</span> enviar notas fiscais eletronicamente
+  <span class="comment">Para</span> cumprir obrigações fiscais de forma automatizada
+
+  <span class="keyword">Background:</span>
+    <span class="keyword">Given</span> o sistema ASIS está autenticado na SEFAZ
+    <span class="keyword">And</span> existe um certificado digital válido
+
+  <span class="decorator">@rf01</span> <span class="decorator">@sucesso</span>
+  <span class="keyword">Scenario:</span> Envio bem-sucedido de nota fiscal
+    <span class="keyword">Given</span> uma nota fiscal válida com valor de R$ 1.500,00
+    <span class="keyword">And</span> todos os campos obrigatórios estão preenchidos
+    <span class="keyword">When</span> o sistema envia a nota para a SEFAZ
+    <span class="keyword">Then</span> deve receber protocolo de autorização
+    <span class="keyword">And</span> o status da nota deve ser <span class="string">"autorizada"</span>
+
+  <span class="decorator">@rf01</span> <span class="decorator">@excecao</span>
+  <span class="keyword">Scenario:</span> Rejeição por dados incompletos
+    <span class="keyword">Given</span> uma nota fiscal sem o campo CNPJ do destinatário
+    <span class="keyword">When</span> o sistema tenta enviar a nota
+    <span class="keyword">Then</span> deve retornar erro de validação
+    <span class="keyword">And</span> a mensagem deve indicar <span class="string">"CNPJ obrigatório"</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Feature</strong> = requisito. <strong>Scenario</strong> = caso de teste. <strong>Background</strong> = pré-condição comum a todos os cenários. <strong>Tags</strong> (@rf01) = rastreabilidade com o requisito.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: DE GHERKIN PARA CÓDIGO -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="section-tag">BDD</span>
+                <h2 class="slide-title">De Gherkin para Código — pytest-bdd</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin (.feature)</span>
+                            <span class="code-file">O que o negócio lê</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">Scenario:</span> Envio bem-sucedido
+  <span class="keyword">Given</span> uma nota fiscal válida
+  <span class="keyword">When</span> o sistema envia a nota
+  <span class="keyword">Then</span> recebe protocolo</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Python (pytest-bdd)</span>
+                            <span class="code-file">O que a máquina executa</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">from</span> pytest_bdd <span class="keyword">import</span> scenarios, given, when, then
+
+scenarios(<span class="string">"rf01_enviar_nota.feature"</span>)
+
+<span class="decorator">@given</span>(<span class="string">"uma nota fiscal válida"</span>)
+<span class="keyword">def</span> <span class="function">nota_valida</span>():
+    <span class="keyword">return</span> {<span class="string">"cnpj"</span>: <span class="string">"12345678000199"</span>,
+            <span class="string">"valor"</span>: <span class="number">1500.00</span>}
+
+<span class="decorator">@when</span>(<span class="string">"o sistema envia a nota"</span>)
+<span class="keyword">def</span> <span class="function">enviar</span>(nota_valida, mock_sefaz):
+    mock_sefaz.return_value = {
+        <span class="string">"protocolo"</span>: <span class="string">"135240001234567"</span>}
+    <span class="keyword">return</span> processar(nota_valida)
+
+<span class="decorator">@then</span>(<span class="string">"recebe protocolo"</span>)
+<span class="keyword">def</span> <span class="function">verificar</span>(resultado):
+    <span class="keyword">assert</span> resultado.protocolo</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>A mágica:</strong> O arquivo <code>.feature</code> é legível pelo PO. O arquivo <code>.py</code> é executável pelo CI/CD. Juntos, são o artefato de "Requisitos como Código". Instale com: <code>pip install pytest-bdd</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: SCENARIO OUTLINE -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <span class="section-tag">GHERKIN</span>
+                <h2 class="slide-title">Scenario Outline — Múltiplos Cenários, Uma Estrutura</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin</span>
+                        <span class="code-file">features/rf02_calcular_imposto.feature</span>
+                    </div>
+                    <pre class="code-block"><code><span class="keyword">Feature:</span> <span class="class-name">Cálculo de Impostos</span>
+
+  <span class="decorator">@rf02</span>
+  <span class="keyword">Scenario Outline:</span> Cálculo de ICMS por estado
+    <span class="keyword">Given</span> um produto com NCM <span class="string">&lt;ncm&gt;</span> e valor <span class="string">&lt;valor&gt;</span>
+    <span class="keyword">And</span> o estado de destino é <span class="string">&lt;estado&gt;</span>
+    <span class="keyword">When</span> o sistema calcula o ICMS
+    <span class="keyword">Then</span> a alíquota aplicada deve ser <span class="string">&lt;aliquota&gt;</span>
+    <span class="keyword">And</span> o valor do imposto deve ser <span class="string">&lt;imposto&gt;</span>
+
+    <span class="keyword">Examples:</span>
+      | ncm      | valor    | estado | aliquota | imposto  |
+      | 84713012 | 1000.00  | SP     | 18%      | 180.00   |
+      | 84713012 | 1000.00  | RJ     | 20%      | 200.00   |
+      | 84713012 | 1000.00  | MG     | 18%      | 180.00   |
+      | 61091000 | 500.00   | SP     | 12%      | 60.00    |</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">info</span>
+                    <p><strong>Scenario Outline</strong> + <strong>Examples</strong> = um cenário parametrizado. Cada linha da tabela gera um teste independente. Ideal para testar regras fiscais com múltiplas combinações.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: TAGS E ORGANIZAÇÃO -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="section-tag">BDD</span>
+                <h2 class="slide-title">Tags e Organização — Rastreabilidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4>Tags para Rastreabilidade</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p><code>@rf01</code> — Requisito Funcional 01</p>
+                            <p><code>@rnf02</code> — Requisito Não Funcional 02</p>
+                            <p><code>@seguranca</code> — Atributo de qualidade</p>
+                            <p><code>@sucesso</code> — Caminho feliz</p>
+                            <p><code>@excecao</code> — Cenário de erro</p>
+                            <p><code>@resistir</code> — Tática de robustez</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4>Executando por Tag</h4>
+                        <div class="code-example" style="margin-top: 10px;">
+                            <pre class="code-block code-compact"><code><span class="comment"># Rodar só testes de RF01</span>
+pytest --tags=rf01
+
+<span class="comment"># Rodar só testes de segurança</span>
+pytest --tags=seguranca
+
+<span class="comment"># Rodar cenários de exceção</span>
+pytest --tags=excecao
+
+<span class="comment"># Rodar só a tática RESISTIR</span>
+pytest --tags=resistir</code></pre>
+                        </div>
+                        <p style="margin-top: 8px; font-size: clamp(11px, 1.1vw, 14px); color: #666;">Filtrar testes por tag permite executar subconjuntos específicos no CI/CD.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Estrutura sugerida:</strong> <code>features/</code> (arquivos .feature) + <code>tests/step_defs/</code> (implementações pytest-bdd). Cada feature = um requisito. Cada scenario = um caso de teste.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: POR QUE BDD PARA AFERIÇÃO -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <span class="section-tag">BDD</span>
+                <h2 class="slide-title">Por que BDD para Aferição de Qualidade?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">translate</span></div>
+                        <h4>Legibilidade</h4>
+                        <p>O arquivo .feature é compreensível por qualquer stakeholder, não apenas devs. É a documentação do requisito.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">play_circle</span></div>
+                        <h4>Executabilidade</h4>
+                        <p>Cada cenário Gherkin é executado automaticamente pelo pytest-bdd. Requisito documentado = requisito testado.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><span class="material-icons-outlined">link</span></div>
+                        <h4>Rastreabilidade</h4>
+                        <p>Tags (@rf01, @rnf02) conectam cada teste ao requisito original. Sabe-se exatamente o que está coberto.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Aferição:</strong> O código BDD não implementa a funcionalidade — ele <em>afere</em> se a funcionalidade atende ao requisito. É a mesma ideia do artefato: inspecionar, não construir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: ISO 25010 + TÁTICAS DE ROBUSTEZ (Slides 13-21)
+             ============================================= -->
+
+        <!-- SLIDE 13: DIVISOR -->
+        <section class="slide slide-section" data-slide="13">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">ISO 25010 &amp; Táticas de Robustez</h2>
+                <p class="section-description">Resistir, Detectar, Recuperar — Codificando atributos de qualidade</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: ISO 25010 -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="section-tag">ISO 25010</span>
+                <h2 class="slide-title">ISO/IEC 25010 — Qualidade de Produto de Software</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Adequação Funcional</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">O sistema faz o que deveria? (RF)</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Eficiência de Desempenho</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Tempo de resposta, throughput, uso de recursos</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Confiabilidade</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Maturidade, disponibilidade, tolerância a falhas, recuperabilidade</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Segurança</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Confidencialidade, integridade, não repúdio, autenticidade</p>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 15px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-gray-dark);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Compatibilidade</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Coexistência e interoperabilidade</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-gray-dark);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Usabilidade</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Operabilidade, proteção contra erros do usuário</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-gray-dark);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Manutenibilidade</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Modularidade, reusabilidade, testabilidade</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-gray-dark);">
+                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Portabilidade</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Adaptabilidade, instalabilidade</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Para o projeto ASIS:</strong> Foco em <strong style="color: var(--inteli-coral);">Confiabilidade</strong>, <strong style="color: var(--inteli-purple);">Segurança</strong> e <strong style="color: var(--inteli-coral);">Eficiência de Desempenho</strong> — os atributos mais críticos para um sistema fiscal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: TÁTICAS ARQUITETURAIS -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="section-tag">TÁTICAS</span>
+                <h2 class="slide-title">Táticas de Robustez — Resistir, Detectar, Recuperar</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-purple);">
+                    <p style="font-size: clamp(14px, 1.4vw, 18px);">Baseado no artigo <strong>"Tactics and Patterns for Software Robustness"</strong> — cada atributo de qualidade pode ser aferido através de três categorias de táticas:</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green); min-height: 200px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">shield</span></div>
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(16px, 1.6vw, 22px);">RESISTIR</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 16px); line-height: 1.7;">
+                            <strong>Prevenir</strong> que o problema aconteça. Barreiras de defesa, validações, controles de acesso.
+                        </p>
+                        <p style="margin-top: 6px; font-size: clamp(11px, 1.1vw, 13px); color: #666;">Ex: Input validation, autenticação, rate limiting, sanitização</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral); min-height: 200px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(16px, 1.6vw, 22px);">DETECTAR</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 16px); line-height: 1.7;">
+                            <strong>Identificar</strong> quando algo está errado. Monitoramento, alertas, health checks.
+                        </p>
+                        <p style="margin-top: 6px; font-size: clamp(11px, 1.1vw, 13px); color: #666;">Ex: Logs estruturados, anomaly detection, heartbeat, métricas</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac); min-height: 200px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">restart_alt</span></div>
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(16px, 1.6vw, 22px);">RECUPERAR</h4>
+                        <p style="margin-top: 8px; font-size: clamp(13px, 1.3vw, 16px); line-height: 1.7;">
+                            <strong>Restaurar</strong> o sistema ao estado funcional. Fallback, retry, checkpoint.
+                        </p>
+                        <p style="margin-top: 6px; font-size: clamp(11px, 1.1vw, 13px); color: #666;">Ex: Circuit breaker, retry com backoff, failover, rollback</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: RESISTIR - EXEMPLOS COM CÓDIGO -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="section-tag">RESISTIR</span>
+                <h2 class="slide-title">Tática RESISTIR — Prevenção como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">Segurança — Confidencialidade</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@rnf_seguranca</span> <span class="decorator">@resistir</span>
+<span class="keyword">Scenario:</span> Bloquear acesso sem token
+  <span class="keyword">Given</span> um usuário não autenticado
+  <span class="keyword">When</span> tenta acessar <span class="string">"/api/notas"</span>
+  <span class="keyword">Then</span> recebe status <span class="number">401</span> Unauthorized
+  <span class="keyword">And</span> nenhum dado é exposto
+
+<span class="decorator">@rnf_seguranca</span> <span class="decorator">@resistir</span>
+<span class="keyword">Scenario:</span> Bloquear SQL injection
+  <span class="keyword">Given</span> um payload com <span class="string">"'; DROP TABLE--"</span>
+  <span class="keyword">When</span> envia para <span class="string">"/api/notas"</span>
+  <span class="keyword">Then</span> recebe status <span class="number">422</span>
+  <span class="keyword">And</span> o banco permanece íntegro</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">pytest-bdd</span>
+                            <span class="code-file">tests/step_defs/test_resistir.py</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@given</span>(<span class="string">"um usuário não autenticado"</span>)
+<span class="keyword">def</span> <span class="function">usuario_sem_token</span>(client):
+    client.headers = {}  <span class="comment"># Sem JWT</span>
+
+<span class="decorator">@when</span>(<span class="string">'tenta acessar "/api/notas"'</span>)
+<span class="keyword">def</span> <span class="function">acessar_endpoint</span>(client):
+    <span class="keyword">return</span> client.get(<span class="string">"/api/notas"</span>)
+
+<span class="decorator">@then</span>(<span class="string">"recebe status 401 Unauthorized"</span>)
+<span class="keyword">def</span> <span class="function">verificar_bloqueio</span>(response):
+    <span class="keyword">assert</span> response.status_code == <span class="number">401</span>
+
+<span class="decorator">@then</span>(<span class="string">"nenhum dado é exposto"</span>)
+<span class="keyword">def</span> <span class="function">verificar_dados</span>(response):
+    <span class="keyword">assert</span> <span class="string">"notas"</span> <span class="keyword">not in</span> response.json()</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>RESISTIR:</strong> O código afere que o sistema <em>impede</em> ações não autorizadas. A tática de prevenção é testada verificando que a barreira funciona.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: DETECTAR - EXEMPLOS COM CÓDIGO -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="section-tag">DETECTAR</span>
+                <h2 class="slide-title">Tática DETECTAR — Monitoramento como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">Confiabilidade — Detecção de Anomalias</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@rnf_confiabilidade</span> <span class="decorator">@detectar</span>
+<span class="keyword">Scenario:</span> Detectar anomalia de valor
+  <span class="keyword">Given</span> o histórico de notas tem média R$ 5.000
+  <span class="keyword">When</span> uma nota de R$ 999.999 é processada
+  <span class="keyword">Then</span> um alerta de anomalia é gerado
+  <span class="keyword">And</span> o log registra o evento com severity <span class="string">"WARNING"</span>
+
+<span class="decorator">@rnf_confiabilidade</span> <span class="decorator">@detectar</span>
+<span class="keyword">Scenario:</span> Health check do serviço
+  <span class="keyword">Given</span> o sistema está em operação
+  <span class="keyword">When</span> o health check é executado
+  <span class="keyword">Then</span> retorna status <span class="string">"healthy"</span>
+  <span class="keyword">And</span> inclui tempo de resposta do banco</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">pytest-bdd</span>
+                            <span class="code-file">tests/step_defs/test_detectar.py</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@given</span>(<span class="string">"o histórico de notas tem média R$ 5.000"</span>)
+<span class="keyword">def</span> <span class="function">setup_historico</span>(db):
+    seed_notas(db, media=<span class="number">5000</span>, qtd=<span class="number">100</span>)
+
+<span class="decorator">@when</span>(<span class="string">"uma nota de R$ 999.999 é processada"</span>)
+<span class="keyword">def</span> <span class="function">processar_anomalia</span>(client, mock_alertas):
+    nota = criar_nota(valor=<span class="number">999999</span>)
+    <span class="keyword">return</span> client.post(<span class="string">"/api/notas"</span>, json=nota)
+
+<span class="decorator">@then</span>(<span class="string">"um alerta de anomalia é gerado"</span>)
+<span class="keyword">def</span> <span class="function">verificar_alerta</span>(mock_alertas):
+    mock_alertas.assert_called_once()
+
+<span class="decorator">@then</span>(parsers.parse(<span class="string">'o log registra o evento com severity "{sev}"'</span>))
+<span class="keyword">def</span> <span class="function">verificar_log</span>(caplog, sev):
+    <span class="keyword">assert</span> sev <span class="keyword">in</span> caplog.text</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>DETECTAR:</strong> O código afere que o sistema <em>identifica</em> condições anormais. Mocks simulam o cenário de anomalia; assertions verificam que mecanismos de detecção foram ativados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: RECUPERAR - EXEMPLOS COM CÓDIGO -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">RECUPERAR</span>
+                <h2 class="slide-title">Tática RECUPERAR — Resiliência como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">Disponibilidade — Recuperação</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@rnf_disponibilidade</span> <span class="decorator">@recuperar</span>
+<span class="keyword">Scenario:</span> Failover quando SEFAZ cai
+  <span class="keyword">Given</span> a SEFAZ está indisponível
+  <span class="keyword">When</span> o sistema tenta enviar uma nota
+  <span class="keyword">Then</span> a nota é salva na fila de contingência
+  <span class="keyword">And</span> o status muda para <span class="string">"aguardando_reenvio"</span>
+
+<span class="decorator">@rnf_disponibilidade</span> <span class="decorator">@recuperar</span>
+<span class="keyword">Scenario:</span> Retry com backoff exponencial
+  <span class="keyword">Given</span> a SEFAZ falha nas 2 primeiras tentativas
+  <span class="keyword">And</span> volta ao normal na 3ª tentativa
+  <span class="keyword">When</span> o sistema processa a nota com retry
+  <span class="keyword">Then</span> a nota é autorizada na 3ª tentativa
+  <span class="keyword">And</span> o intervalo entre tentativas aumentou</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">pytest-bdd</span>
+                            <span class="code-file">tests/step_defs/test_recuperar.py</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="decorator">@given</span>(<span class="string">"a SEFAZ está indisponível"</span>)
+<span class="keyword">def</span> <span class="function">sefaz_offline</span>(mock_sefaz):
+    mock_sefaz.side_effect = ConnectionError(
+        <span class="string">"SEFAZ fora do ar"</span>)
+
+<span class="decorator">@when</span>(<span class="string">"o sistema tenta enviar uma nota"</span>)
+<span class="keyword">def</span> <span class="function">enviar_nota</span>(nota_valida):
+    <span class="keyword">return</span> processar_nota(nota_valida)
+
+<span class="decorator">@then</span>(<span class="string">"a nota é salva na fila de contingência"</span>)
+<span class="keyword">def</span> <span class="function">verificar_fila</span>(resultado, mock_fila):
+    mock_fila.assert_called_once()
+
+<span class="decorator">@then</span>(parsers.parse(<span class="string">'o status muda para "{status}"'</span>))
+<span class="keyword">def</span> <span class="function">verificar_status</span>(resultado, status):
+    <span class="keyword">assert</span> resultado.status == status</code></pre>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>RECUPERAR:</strong> O código afere que o sistema <em>se recupera</em> de falhas. Mock simula a falha; assertion verifica que o mecanismo de recuperação (fallback, retry, fila) foi acionado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: MAPEANDO TÁTICAS PARA RNF -->
+        <section class="slide slide-content" data-slide="19">
+            <div class="slide-header">
+                <span class="section-tag">MAPEAMENTO</span>
+                <h2 class="slide-title">Mapeando Táticas para Atributos de Qualidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(11px, 1.1vw, 14px);">
+                        <thead>
+                            <tr style="background: var(--inteli-purple); color: white;">
+                                <th style="padding: 12px 15px; text-align: left; border-radius: 8px 0 0 0;">Atributo (ISO 25010)</th>
+                                <th style="padding: 12px 15px; text-align: left; background: var(--inteli-dark-green); color: white;">RESISTIR</th>
+                                <th style="padding: 12px 15px; text-align: left; background: var(--inteli-coral); color: white;">DETECTAR</th>
+                                <th style="padding: 12px 15px; text-align: left; background: var(--inteli-lilac); color: white; border-radius: 0 8px 0 0;">RECUPERAR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;"><strong>Segurança</strong><br>Confidencialidade</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Autenticação JWT<br>Validação de input<br>Rate limiting</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Log de tentativas<br>Detecção de brute force<br>Alertas de acesso</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Bloqueio de conta<br>Revogação de token<br>Notificação admin</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;"><strong>Confiabilidade</strong><br>Disponibilidade</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Redundância<br>Circuit Breaker<br>Timeout configurável</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Health checks<br>Heartbeat<br>Monitoramento de SLA</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Retry + backoff<br>Failover / contingência<br>Auto-scaling</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;"><strong>Performance</strong><br>Eficiência</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Cache strategy<br>Paginação<br>Connection pooling</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Métricas p95/p99<br>APM (Application PM)<br>Slow query log</td>
+                                <td style="padding: 10px 15px; border-bottom: 1px solid #eee;">Degradação graciosa<br>Cache fallback<br>Queue de requisições</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 15px;"><strong>Segurança</strong><br>Não Repúdio</td>
+                                <td style="padding: 10px 15px;">Assinatura digital<br>Certificado A1/A3<br>Timestamp trusted</td>
+                                <td style="padding: 10px 15px;">Audit trail<br>Correlation ID<br>Log imutável</td>
+                                <td style="padding: 10px 15px;">Reprocessamento<br>Compensação<br>Backup de evidências</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Cada célula = um cenário BDD.</strong> Para cada combinação de atributo + tática, escreva um Scenario Gherkin que afere se o mecanismo funciona.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: EXEMPLO COMPLETO - SEGURANÇA -->
+        <section class="slide slide-content" data-slide="20">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO COMPLETO</span>
+                <h2 class="slide-title">Segurança — As 3 Táticas em Gherkin</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="flex: 1; overflow-y: auto; padding-right: 5px; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">features/rnf_seguranca_confidencialidade.feature</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">Feature:</span> <span class="class-name">Segurança — Confidencialidade (ASIS)</span>
+  <span class="comment">Como</span> sistema fiscal que manipula dados sensíveis
+  <span class="comment">Quero</span> garantir confidencialidade das informações
+  <span class="comment">Para</span> atender à LGPD e requisitos de segurança
+
+  <span class="comment"># ── TÁTICA: RESISTIR ──</span>
+  <span class="decorator">@rnf_seguranca</span> <span class="decorator">@resistir</span>
+  <span class="keyword">Scenario:</span> Bloquear acesso sem autenticação
+    <span class="keyword">Given</span> uma requisição sem token JWT
+    <span class="keyword">When</span> acessa qualquer endpoint protegido
+    <span class="keyword">Then</span> recebe <span class="number">401</span> e nenhum dado é retornado
+
+  <span class="decorator">@rnf_seguranca</span> <span class="decorator">@resistir</span>
+  <span class="keyword">Scenario:</span> Impedir SQL injection
+    <span class="keyword">Given</span> um payload contendo <span class="string">"' OR 1=1 --"</span>
+    <span class="keyword">When</span> envia para a API
+    <span class="keyword">Then</span> recebe <span class="number">422</span> e o banco permanece íntegro
+
+  <span class="comment"># ── TÁTICA: DETECTAR ──</span>
+  <span class="decorator">@rnf_seguranca</span> <span class="decorator">@detectar</span>
+  <span class="keyword">Scenario:</span> Registrar tentativa de acesso inválido
+    <span class="keyword">Given</span> 5 tentativas de login com senha errada
+    <span class="keyword">When</span> o sistema processa as tentativas
+    <span class="keyword">Then</span> gera alerta de possível brute force
+    <span class="keyword">And</span> registra IP e timestamp no log de segurança
+
+  <span class="comment"># ── TÁTICA: RECUPERAR ──</span>
+  <span class="decorator">@rnf_seguranca</span> <span class="decorator">@recuperar</span>
+  <span class="keyword">Scenario:</span> Bloquear e notificar após ataque detectado
+    <span class="keyword">Given</span> um alerta de brute force foi gerado
+    <span class="keyword">When</span> o sistema executa a resposta ao incidente
+    <span class="keyword">Then</span> a conta é bloqueada temporariamente
+    <span class="keyword">And</span> o administrador é notificado por email</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: COMO CADA TÁTICA GERA TESTE -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <span class="section-tag">FRAMEWORK</span>
+                <h2 class="slide-title">O Framework: Atributo + Tática = Teste</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
+                        <h4>1. Escolher RNF</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Qual atributo ISO 25010? Ex: Segurança — Confidencialidade</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">category</span></div>
+                        <h4>2. Aplicar Tática</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Resistir? Detectar? Recuperar? Qual mecanismo testar?</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">edit_note</span></div>
+                        <h4>3. Escrever Gherkin</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Given/When/Then descrevendo o cenário da tática</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">terminal</span></div>
+                        <h4>4. Implementar</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">pytest-bdd com mocks. Executar. Código afere o RNF.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Resultado:</strong> Para cada RNF, vocês terão pelo menos 3 cenários BDD (um por tática). Isso cria uma cobertura completa do atributo de qualidade — e é exatamente o que o artefato pede.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 3: REQUISITOS COMO CÓDIGO EXECUTÁVEL (Slides 22-27)
+             ============================================= -->
+
+        <!-- SLIDE 22: DIVISOR -->
+        <section class="slide slide-section" data-slide="22">
+            <div class="section-content">
+                <span class="section-number">PARTE 3</span>
+                <h2 class="section-title">Requisitos como Código Executável</h2>
+                <p class="section-description">Exemplos completos para o Projeto ASIS — RF e RNF com BDD</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 23: RF COMPLETO COM BDD -->
+        <section class="slide slide-content" data-slide="23">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">RF Completo — Cancelamento de Nota Fiscal</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="flex: 1; overflow-y: auto; padding-right: 5px; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin + pytest-bdd</span>
+                            <span class="code-file">RF completo com cenários de sucesso e exceção</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="comment"># ── features/rf03_cancelar_nota.feature ──</span>
+<span class="keyword">Feature:</span> <span class="class-name">Cancelamento de Nota Fiscal</span>
+
+  <span class="decorator">@rf03</span> <span class="decorator">@sucesso</span>
+  <span class="keyword">Scenario:</span> Cancelar nota dentro do prazo legal (24h)
+    <span class="keyword">Given</span> uma nota autorizada há menos de 24 horas
+    <span class="keyword">And</span> a SEFAZ está disponível
+    <span class="keyword">When</span> o operador solicita o cancelamento
+    <span class="keyword">Then</span> a nota é cancelada com sucesso
+    <span class="keyword">And</span> o protocolo de cancelamento é registrado
+
+  <span class="decorator">@rf03</span> <span class="decorator">@excecao</span>
+  <span class="keyword">Scenario:</span> Rejeitar cancelamento fora do prazo
+    <span class="keyword">Given</span> uma nota autorizada há mais de 24 horas
+    <span class="keyword">When</span> o operador solicita o cancelamento
+    <span class="keyword">Then</span> o sistema rejeita com mensagem <span class="string">"Prazo de cancelamento expirado"</span>
+    <span class="keyword">And</span> sugere emissão de nota de correção
+
+<span class="comment"># ── tests/step_defs/test_rf03.py ──</span>
+<span class="keyword">from</span> pytest_bdd <span class="keyword">import</span> scenarios, given, when, then
+<span class="keyword">from</span> unittest.mock <span class="keyword">import</span> patch
+<span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta
+
+scenarios(<span class="string">"../features/rf03_cancelar_nota.feature"</span>)
+
+<span class="decorator">@given</span>(<span class="string">"uma nota autorizada há menos de 24 horas"</span>)
+<span class="keyword">def</span> <span class="function">nota_recente</span>():
+    <span class="keyword">return</span> criar_nota(autorizada_em=datetime.now() - timedelta(hours=<span class="number">2</span>))
+
+<span class="decorator">@given</span>(<span class="string">"uma nota autorizada há mais de 24 horas"</span>)
+<span class="keyword">def</span> <span class="function">nota_antiga</span>():
+    <span class="keyword">return</span> criar_nota(autorizada_em=datetime.now() - timedelta(hours=<span class="number">48</span>))</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: RNF DISPONIBILIDADE - 3 TÁTICAS -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">RNF Completo — Disponibilidade (3 Táticas)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="flex: 1; overflow-y: auto; padding-right: 5px; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">pytest + Mock</span>
+                            <span class="code-file">tests/test_rnf_disponibilidade.py</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">class</span> <span class="class-name">TestRNFDisponibilidade</span>:
+    <span class="string">"""RNF: Disponibilidade — SLA 99.9% para o sistema ASIS."""</span>
+
+    <span class="comment"># ── RESISTIR: Circuit Breaker ──</span>
+    <span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar"</span>)
+    <span class="keyword">def</span> <span class="function">test_resistir_circuit_breaker_abre_apos_3_falhas</span>(self, mock_sefaz):
+        <span class="string">"""Após 3 falhas consecutivas, circuit breaker abre e evita novas chamadas."""</span>
+        mock_sefaz.side_effect = ConnectionError(<span class="string">"timeout"</span>)
+        cb = CircuitBreaker(threshold=<span class="number">3</span>)
+
+        <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):
+            cb.call(mock_sefaz)
+
+        <span class="keyword">assert</span> cb.state == <span class="string">"OPEN"</span>
+        <span class="keyword">assert</span> mock_sefaz.call_count == <span class="number">3</span>  <span class="comment"># Não tentou mais</span>
+
+    <span class="comment"># ── DETECTAR: Health Check ──</span>
+    <span class="keyword">def</span> <span class="function">test_detectar_health_check_retorna_status</span>(self, client):
+        <span class="string">"""Endpoint /health retorna status do sistema e dependências."""</span>
+        response = client.get(<span class="string">"/health"</span>)
+        <span class="keyword">assert</span> response.status_code == <span class="number">200</span>
+        data = response.json()
+        <span class="keyword">assert</span> <span class="string">"database"</span> <span class="keyword">in</span> data
+        <span class="keyword">assert</span> <span class="string">"response_time_ms"</span> <span class="keyword">in</span> data
+
+    <span class="comment"># ── RECUPERAR: Retry com Backoff ──</span>
+    <span class="decorator">@patch</span>(<span class="string">"app.services.sefaz_client.enviar"</span>)
+    <span class="keyword">def</span> <span class="function">test_recuperar_retry_com_backoff</span>(self, mock_sefaz):
+        <span class="string">"""Sistema faz retry com backoff exponencial e recupera na 3ª tentativa."""</span>
+        mock_sefaz.side_effect = [
+            ConnectionError(), ConnectionError(),
+            {<span class="string">"status"</span>: <span class="string">"autorizada"</span>, <span class="string">"protocolo"</span>: <span class="string">"ABC123"</span>}
+        ]
+        resultado = enviar_com_retry(nota_valida, max_retries=<span class="number">3</span>)
+        <span class="keyword">assert</span> resultado[<span class="string">"status"</span>] == <span class="string">"autorizada"</span>
+        <span class="keyword">assert</span> mock_sefaz.call_count == <span class="number">3</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: RNF PERFORMANCE - 3 TÁTICAS -->
+        <section class="slide slide-content" data-slide="25">
+            <div class="slide-header">
+                <span class="section-tag">ASIS</span>
+                <h2 class="slide-title">RNF Completo — Performance (3 Táticas)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">features/rnf_performance.feature</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">Feature:</span> <span class="class-name">Performance da API ASIS</span>
+
+  <span class="decorator">@rnf_performance</span> <span class="decorator">@resistir</span>
+  <span class="keyword">Scenario:</span> Cache evita consultas repetidas
+    <span class="keyword">Given</span> uma nota foi consultada recentemente
+    <span class="keyword">When</span> a mesma nota é consultada novamente
+    <span class="keyword">Then</span> o resultado vem do cache
+    <span class="keyword">And</span> o tempo de resposta é menor que <span class="number">50</span>ms
+
+  <span class="decorator">@rnf_performance</span> <span class="decorator">@detectar</span>
+  <span class="keyword">Scenario:</span> Alertar quando resposta excede SLA
+    <span class="keyword">Given</span> o SLA define tempo máximo de <span class="number">200</span>ms
+    <span class="keyword">When</span> uma requisição leva <span class="number">500</span>ms
+    <span class="keyword">Then</span> um alerta de SLA é registrado no log
+    <span class="keyword">And</span> a métrica de violação é incrementada
+
+  <span class="decorator">@rnf_performance</span> <span class="decorator">@recuperar</span>
+  <span class="keyword">Scenario:</span> Degradação graciosa sob carga
+    <span class="keyword">Given</span> o sistema está sob pico de carga
+    <span class="keyword">When</span> a taxa de requisições excede o limite
+    <span class="keyword">Then</span> requisições extras recebem <span class="number">429</span>
+    <span class="keyword">And</span> as requisições existentes continuam</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">pytest</span>
+                            <span class="code-file">tests/test_rnf_performance.py</span>
+                        </div>
+                        <pre class="code-block code-compact"><code><span class="keyword">import</span> time
+
+<span class="keyword">def</span> <span class="function">test_resistir_cache_funciona</span>(client):
+    <span class="comment"># Primeira chamada: popula cache</span>
+    client.get(<span class="string">"/api/notas/1"</span>)
+
+    <span class="comment"># Segunda chamada: deve ser mais rápida</span>
+    start = time.time()
+    r = client.get(<span class="string">"/api/notas/1"</span>)
+    elapsed = (time.time() - start) * <span class="number">1000</span>
+
+    <span class="keyword">assert</span> r.status_code == <span class="number">200</span>
+    <span class="keyword">assert</span> elapsed < <span class="number">50</span>  <span class="comment"># < 50ms</span>
+
+<span class="keyword">def</span> <span class="function">test_recuperar_rate_limiting</span>(client):
+    <span class="comment"># Enviar muitas requisições rápidas</span>
+    respostas = [client.get(<span class="string">"/api/notas"</span>)
+                 <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">100</span>)]
+
+    status_codes = [r.status_code <span class="keyword">for</span> r <span class="keyword">in</span> respostas]
+    <span class="keyword">assert</span> <span class="number">429</span> <span class="keyword">in</span> status_codes
+    <span class="comment"># Mas as primeiras devem ter passado</span>
+    <span class="keyword">assert</span> status_codes[<span class="number">0</span>] == <span class="number">200</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: ARTIGO - TACTICS AND PATTERNS -->
+        <section class="slide slide-content" data-slide="26">
+            <div class="slide-header">
+                <span class="section-tag">REFERÊNCIA</span>
+                <h2 class="slide-title">Artigo: Tactics and Patterns for Software Robustness</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">auto_stories</span></div>
+                        <h4>Conceitos-Chave do Artigo</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p><strong>Robustez</strong> = capacidade do sistema de funcionar corretamente mesmo sob condições adversas</p>
+                            <p style="margin-top: 8px;"><strong>Táticas</strong> = decisões de design que influenciam um atributo de qualidade específico</p>
+                            <p style="margin-top: 8px;"><strong>Patterns</strong> = soluções recorrentes que implementam uma ou mais táticas</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">architecture</span></div>
+                        <h4>Conexão com o Artefato</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p><strong>1.</strong> Identificar o atributo de qualidade (ISO 25010)</p>
+                            <p><strong>2.</strong> Escolher a tática (Resistir, Detectar, Recuperar)</p>
+                            <p><strong>3.</strong> Selecionar o pattern (Retry, Circuit Breaker, etc.)</p>
+                            <p><strong>4.</strong> Escrever o cenário BDD que afere o pattern</p>
+                            <p><strong>5.</strong> Implementar com pytest-bdd + mocks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Leitura obrigatória:</strong> O artigo é a base teórica para justificar as escolhas de táticas e patterns no artefato. Cada RNF deve referenciar a tática e o pattern aplicado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 27: ESTRUTURA DE DIRETÓRIOS -->
+        <section class="slide slide-content" data-slide="27">
+            <div class="slide-header">
+                <span class="section-tag">ORGANIZAÇÃO</span>
+                <h2 class="slide-title">Estrutura Sugerida para o Artefato</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Estrutura de Diretórios</span>
+                        <span class="code-file">Projeto de Aferição de Qualidade</span>
+                    </div>
+                    <pre class="code-block"><code>projeto-asis-qualidade/
+├── features/                          <span class="comment"># Cenários Gherkin</span>
+│   ├── rf01_enviar_nota.feature       <span class="comment"># RF01: Envio de NF</span>
+│   ├── rf02_calcular_imposto.feature  <span class="comment"># RF02: Cálculo tributário</span>
+│   ├── rnf_seguranca.feature          <span class="comment"># RNF: Segurança (3 táticas)</span>
+│   ├── rnf_disponibilidade.feature    <span class="comment"># RNF: Disponibilidade (3 táticas)</span>
+│   └── rnf_performance.feature        <span class="comment"># RNF: Performance (3 táticas)</span>
+│
+├── tests/
+│   ├── step_defs/                     <span class="comment"># Implementação dos steps BDD</span>
+│   │   ├── test_rf01.py
+│   │   ├── test_rf02.py
+│   │   ├── test_rnf_seguranca.py
+│   │   ├── test_rnf_disponibilidade.py
+│   │   └── test_rnf_performance.py
+│   ├── conftest.py                    <span class="comment"># Fixtures compartilhadas + Mocks</span>
+│   └── massa_dados.py                 <span class="comment"># Dados de teste (notas, CNPJs...)</span>
+│
+├── docs/
+│   └── mapa_requisitos.md             <span class="comment"># Mapa: RF + RNF + tática + pattern</span>
+│
+├── pytest.ini                         <span class="comment"># Configuração pytest-bdd</span>
+└── requirements.txt                   <span class="comment"># pytest, pytest-bdd, pytest-mock</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Dica:</strong> Cada <code>.feature</code> é um requisito. Cada <code>Scenario</code> é um caso de teste. Tags (<code>@resistir</code>, <code>@detectar</code>, <code>@recuperar</code>) conectam à tática. O <code>conftest.py</code> centraliza mocks e fixtures.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 4: EXERCÍCIOS PRÁTICOS (Slides 28-35)
+             ============================================= -->
+
+        <!-- SLIDE 28: DIVISOR -->
+        <section class="slide slide-section" data-slide="28">
+            <div class="section-content">
+                <span class="section-number">PARTE 4</span>
+                <h2 class="section-title">Exercícios Práticos</h2>
+                <p class="section-description">Aplicando BDD e Táticas de Robustez ao Projeto ASIS</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 29: EXERCÍCIO 1 -->
+        <section class="slide slide-content" data-slide="29">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 1</span>
+                <h2 class="slide-title">Escrever Feature BDD para um RF do Projeto</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-lilac); color: var(--inteli-white);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Tarefa:</strong> Escolha um requisito funcional do projeto ASIS e escreva o arquivo <code>.feature</code> completo com cenário de sucesso E exceção.</p>
+                </div>
+                <div class="code-example" style="margin-top: 20px;">
+                    <div class="code-header">
+                        <span class="code-lang">Template — Feature BDD para RF</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">Feature:</span> <span class="string">[Descrição do RF — o que o sistema deve fazer]</span>
+  <span class="comment">Como</span> <span class="string">[papel do usuário]</span>
+  <span class="comment">Quero</span> <span class="string">[ação desejada]</span>
+  <span class="comment">Para</span> <span class="string">[benefício de negócio]</span>
+
+  <span class="decorator">@rf[XX]</span> <span class="decorator">@sucesso</span>
+  <span class="keyword">Scenario:</span> <span class="string">[Caminho feliz — tudo funciona]</span>
+    <span class="keyword">Given</span>  <span class="string">[pré-condição com dados válidos]</span>
+    <span class="keyword">When</span>   <span class="string">[ação principal do RF]</span>
+    <span class="keyword">Then</span>   <span class="string">[resultado esperado de sucesso]</span>
+    <span class="keyword">And</span>    <span class="string">[verificação adicional]</span>
+
+  <span class="decorator">@rf[XX]</span> <span class="decorator">@excecao</span>
+  <span class="keyword">Scenario:</span> <span class="string">[Cenário de erro — dados inválidos ou falha]</span>
+    <span class="keyword">Given</span>  <span class="string">[pré-condição com dados inválidos]</span>
+    <span class="keyword">When</span>   <span class="string">[mesma ação principal]</span>
+    <span class="keyword">Then</span>   <span class="string">[tratamento de erro adequado]</span>
+    <span class="keyword">And</span>    <span class="string">[verificação de que sistema não quebrou]</span></code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Dica:</strong> Pensem nos endpoints reais do ASIS. O que a API precisa fazer? Enviar nota? Calcular imposto? Consultar status? Cada endpoint pode ser um RF com seu .feature.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 30: EXERCÍCIO 2 -->
+        <section class="slide slide-content" data-slide="30">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 2</span>
+                <h2 class="slide-title">Mapear as 3 Táticas para um RNF</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Tarefa:</strong> Escolha um RNF do projeto ASIS e preencha o template abaixo com as 3 táticas de robustez.</p>
+                </div>
+                <div class="code-example" style="margin-top: 20px;">
+                    <div class="code-header">
+                        <span class="code-lang">Template — RNF com 3 Táticas</span>
+                    </div>
+                    <pre class="code-block code-compact"><code><span class="keyword">RNF:</span> <span class="string">[Atributo de qualidade — Ex: Segurança / Confidencialidade]</span>
+<span class="keyword">ISO 25010:</span> <span class="string">[Categoria]</span>
+
+<span class="comment">── RESISTIR ──</span>
+<span class="keyword">Mecanismo:</span>  <span class="string">[O que impede o problema? Ex: JWT obrigatório]</span>
+<span class="keyword">Cenário:</span>    <span class="string">[Given/When/Then de prevenção]</span>
+<span class="keyword">Mock:</span>       <span class="string">[O que simular?]</span>
+
+<span class="comment">── DETECTAR ──</span>
+<span class="keyword">Mecanismo:</span>  <span class="string">[O que identifica o problema? Ex: Log de acessos]</span>
+<span class="keyword">Cenário:</span>    <span class="string">[Given/When/Then de detecção]</span>
+<span class="keyword">Mock:</span>       <span class="string">[O que simular?]</span>
+
+<span class="comment">── RECUPERAR ──</span>
+<span class="keyword">Mecanismo:</span>  <span class="string">[O que restaura? Ex: Bloqueio + notificação]</span>
+<span class="keyword">Cenário:</span>    <span class="string">[Given/When/Then de recuperação]</span>
+<span class="keyword">Mock:</span>       <span class="string">[O que simular?]</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 31: EXERCÍCIO 3 -->
+        <section class="slide slide-content" data-slide="31">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 3</span>
+                <h2 class="slide-title">Implementar Teste BDD com pytest-bdd</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-dark-green);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Tarefa:</strong> Transforme o Gherkin do Exercício 1 ou 2 em código executável usando pytest-bdd + mocks.</p>
+                </div>
+                <div class="activity-steps" style="margin-top: 20px;">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h4>Instalar dependências</h4>
+                            <p><code>pip install pytest pytest-bdd pytest-mock</code></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h4>Criar o arquivo .feature</h4>
+                            <p>Salvar o Gherkin do exercício anterior em <code>features/</code></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h4>Implementar os step definitions</h4>
+                            <p>Cada <code>Given/When/Then</code> vira uma função Python com <code>@given</code>, <code>@when</code>, <code>@then</code></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div>
+                            <h4>Executar e verificar</h4>
+                            <p><code>pytest --tags=rf01 -v</code> — todos os testes devem passar (verde)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Lembrem:</strong> Usem <code>@patch</code> para mockar a SEFAZ e outras dependências externas. O foco é aferir a <em>lógica</em>, não a infraestrutura.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 32: TIMER DE TRABALHO -->
+        <section class="slide slide-content" data-slide="32">
+            <div class="slide-header">
+                <span class="activity-tag">WORKSHOP</span>
+                <h2 class="slide-title">Tempo de Trabalho em Grupo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-instructions">
+                    <div class="timer-container">
+                        <div class="timer" id="timer-workshop">
+                            <span class="timer-value">35:00</span>
+                            <span class="timer-label">Tempo restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-workshop', 2100)">
+                            <span class="material-icons-outlined">play_arrow</span>
+                            Iniciar Timer
+                        </button>
+                    </div>
+                    <div class="activity-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h4>Exercício 1 — Feature BDD para RF (10 min)</h4>
+                                <p>Escrever o .feature com cenário de sucesso e exceção</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h4>Exercício 2 — Mapear Táticas para RNF (10 min)</h4>
+                                <p>Preencher o template com RESISTIR, DETECTAR, RECUPERAR</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h4>Exercício 3 — Implementar pytest-bdd (15 min)</h4>
+                                <p>Código executável com mocks para pelo menos 1 cenário</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 33: COMPARTILHAMENTO -->
+        <section class="slide slide-content" data-slide="33">
+            <div class="slide-header">
+                <span class="activity-tag">COMPARTILHAMENTO</span>
+                <h2 class="slide-title">Apresentação dos Grupos — 15 min</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Cada grupo apresenta (3 min):</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>1. Qual RF escolheram e como ficou o Gherkin?</p>
+                            <p>2. Qual RNF e quais as 3 táticas mapeadas?</p>
+                            <p>3. Conseguiram rodar o pytest-bdd?</p>
+                            <p>4. Qual foi a maior dificuldade?</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Critérios de Feedback:</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>O Gherkin é legível para um não-técnico?</p>
+                            <p>As 3 táticas estão coerentes com o atributo?</p>
+                            <p>O mock está no lugar certo?</p>
+                            <p>Os cenários de exceção são realistas?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ENCERRAMENTO (Slides 34-38)
+             ============================================= -->
+
+        <!-- SLIDE 34: CHECKLIST -->
+        <section class="slide slide-content" data-slide="34">
+            <div class="slide-header">
+                <span class="section-tag">CHECKLIST</span>
+                <h2 class="slide-title">Checklist — O que Vocês Devem Saber Fazer</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Escrever um arquivo .feature em Gherkin</h4>
+                            <p>Feature, Scenario, Given/When/Then, Background, Tags, Scenario Outline com Examples</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Implementar step definitions com pytest-bdd</h4>
+                            <p>Conectar cada step do Gherkin a uma função Python com @given, @when, @then</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Aplicar as 3 táticas de robustez a um RNF</h4>
+                            <p>RESISTIR (prevenir), DETECTAR (monitorar), RECUPERAR (restaurar) — cada uma com cenário BDD</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Usar mocks para simular dependências</h4>
+                            <p>@patch, side_effect, return_value, assert_called — para testar lógica sem infraestrutura real</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Mapear atributos ISO 25010 para cenários de teste</h4>
+                            <p>Cada atributo de qualidade tem táticas que podem ser aferidas por cenários BDD executáveis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 35: SÍNTESE -->
+        <section class="slide slide-content" data-slide="35">
+            <div class="slide-header">
+                <span class="section-tag">SÍNTESE</span>
+                <h2 class="slide-title">Resumo da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px;">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(13px, 1.3vw, 16px);">BDD + Gherkin</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Requisitos em linguagem natural<br>Given/When/Then<br>Documentação viva</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px; border-color: var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(13px, 1.3vw, 16px);">Táticas de Robustez</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Resistir (prevenir)<br>Detectar (monitorar)<br>Recuperar (restaurar)</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px; border-color: var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(13px, 1.3vw, 16px);">ISO 25010</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Segurança<br>Confiabilidade<br>Performance</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px;">
+                        <h4 style="color: var(--inteli-purple); font-size: clamp(13px, 1.3vw, 16px);">Código Executável</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">pytest-bdd + mocks<br>.feature + step_defs<br>Aferição automatizada</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>A equação:</strong> <em>Atributo ISO 25010</em> + <em>Tática (R/D/R)</em> + <em>Cenário BDD</em> + <em>pytest-bdd com Mocks</em> = <strong>Requisito aferido como código</strong>. É isso que vocês entregarão no artefato.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 36: RECURSOS -->
+        <section class="slide slide-content" data-slide="36">
+            <div class="slide-header">
+                <span class="section-tag">RECURSOS</span>
+                <h2 class="slide-title">Para Aprofundar</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">article</span>
+                        <div>
+                            <h4>Tactics and Patterns for Software Robustness</h4>
+                            <p>Artigo base sobre táticas de robustez — Resistir, Detectar, Recuperar. Disponível no repositório do curso.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <div>
+                            <h4>pytest-bdd — Documentação Oficial</h4>
+                            <p>Guia completo do framework BDD para Python. <a href="https://pytest-bdd.readthedocs.io/" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Acessar Documentação</a></p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">science</span>
+                        <div>
+                            <h4>BDD com Gherkin — Especificação Executável</h4>
+                            <p>Introdução ao BDD e sintaxe Gherkin. <a href="https://blog.onedaytesting.com.br/gherkin/" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Ler no Blog OneDayTesting</a></p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">laptop_chromebook</span>
+                        <div>
+                            <h4>ISO/IEC 25010 — Modelo de Qualidade</h4>
+                            <p>Referência oficial dos atributos de qualidade de produto de software. <a href="https://iso25000.com/index.php/en/iso-25000-standards/iso-25010" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Consultar ISO 25010</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 37: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="37">
+            <div class="slide-header">
+                <span class="section-tag">PRÓXIMOS PASSOS</span>
+                <h2 class="slide-title">O que Vem Depois</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">assignment_turned_in</span></div>
+                        <h4>Aula 06: Prática BDD + Integração</h4>
+                        <p>Exercitar solução técnica com BDD e engenharia de integração aplicada ao projeto ASIS.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 07: RF e RNF como Código no Projeto</h4>
+                        <p>Aplicar diretamente no projeto: implementar os testes de aferição de qualidade.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">edit_note</span></div>
+                        <h4>Preparar Artefato</h4>
+                        <p>Começar a escrever os .feature e step_defs do projeto. Cada grupo deve ter pelo menos 2 RF e 3 RNF mapeados.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">menu_book</span></div>
+                        <h4>Leitura</h4>
+                        <p>Revisar o artigo "Tactics and Patterns for Software Robustness" e identificar táticas aplicáveis ao projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 38: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="38">
+            <div class="closing-content">
+                <div class="closing-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>Um requisito não funcional sem teste<br>é apenas uma <strong>esperança arquitetural.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>BDD transforma requisitos em especificações executáveis</li>
+                            <li>Cada RNF tem 3 táticas: Resistir, Detectar, Recuperar</li>
+                            <li>Gherkin é a ponte entre negócio e código</li>
+                            <li>O artefato pede aferição, não implementação</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
