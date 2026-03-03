@@ -1174,15 +1174,15 @@ scenarios(<span class="string">"../features/rf03_cancelar_nota.feature"</span>)
                 <h2 class="slide-title">Escrever Feature BDD para um RF do Projeto</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
                 <div class="flow-definition" style="background: var(--inteli-lilac); color: var(--inteli-white);">
-                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Tarefa:</strong> Escolha um requisito funcional do projeto ASIS e escreva o arquivo <code>.feature</code> completo com cenário de sucesso E exceção.</p>
+                    <p style="font-size: clamp(13px, 1.3vw, 18px);"><strong>Tarefa:</strong> Escolha um RF do projeto ASIS e escreva o <code>.feature</code> completo com cenário de sucesso E exceção.</p>
                 </div>
-                <div class="code-example" style="margin-top: 20px;">
+                <div class="code-example" style="margin-top: 15px;">
                     <div class="code-header">
                         <span class="code-lang">Template — Feature BDD para RF</span>
                     </div>
-                    <pre class="code-block code-compact"><code><span class="keyword">Feature:</span> <span class="string">[Descrição do RF — o que o sistema deve fazer]</span>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="keyword">Feature:</span> <span class="string">[Descrição do RF — o que o sistema deve fazer]</span>
   <span class="comment">Como</span> <span class="string">[papel do usuário]</span>
   <span class="comment">Quero</span> <span class="string">[ação desejada]</span>
   <span class="comment">Para</span> <span class="string">[benefício de negócio]</span>
@@ -1192,17 +1192,15 @@ scenarios(<span class="string">"../features/rf03_cancelar_nota.feature"</span>)
     <span class="keyword">Given</span>  <span class="string">[pré-condição com dados válidos]</span>
     <span class="keyword">When</span>   <span class="string">[ação principal do RF]</span>
     <span class="keyword">Then</span>   <span class="string">[resultado esperado de sucesso]</span>
-    <span class="keyword">And</span>    <span class="string">[verificação adicional]</span>
 
   <span class="decorator">@rf[XX]</span> <span class="decorator">@excecao</span>
   <span class="keyword">Scenario:</span> <span class="string">[Cenário de erro — dados inválidos ou falha]</span>
     <span class="keyword">Given</span>  <span class="string">[pré-condição com dados inválidos]</span>
     <span class="keyword">When</span>   <span class="string">[mesma ação principal]</span>
-    <span class="keyword">Then</span>   <span class="string">[tratamento de erro adequado]</span>
-    <span class="keyword">And</span>    <span class="string">[verificação de que sistema não quebrou]</span></code></pre>
+    <span class="keyword">Then</span>   <span class="string">[tratamento de erro adequado]</span></code></pre>
                 </div>
                 <div class="key-message" style="margin-top: 12px;">
-                    <p><strong>Dica:</strong> Pensem nos endpoints reais do ASIS. O que a API precisa fazer? Enviar nota? Calcular imposto? Consultar status? Cada endpoint pode ser um RF com seu .feature.</p>
+                    <p><strong>Dica:</strong> Pensem nos endpoints reais do ASIS. Enviar nota? Calcular imposto? Consultar status? Cada endpoint pode ser um RF com seu .feature.</p>
                 </div>
             </div>
         </section>
@@ -1536,8 +1534,8 @@ scenarios(<span class="string">"../features/rf03_cancelar_nota.feature"</span>)
 
         <!-- SLIDE 38: ENCERRAMENTO -->
         <section class="slide slide-closing" data-slide="38">
-            <div class="closing-content">
-                <div class="closing-quote">
+            <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
+                <div class="closing-quote" style="margin-bottom: 0;">
                     <span class="quote-mark">&ldquo;</span>
                     <p>Um requisito não funcional sem teste<br>é apenas uma <strong>esperança arquitetural.</strong></p>
                 </div>
