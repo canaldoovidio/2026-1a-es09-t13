@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercitar Solução Técnica — BDD e Engenharia de Integração | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 38</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             ABERTURA (Slides 1-4)
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 06</span>
+                </div>
+                <h1 class="cover-title">Exercitar Solução Técnica<br>BDD e Engenharia de Integração</h1>
+                <h2 class="cover-subtitle">Como aferir integrações internas e externas<br>com BDD, mocks e testes de carga</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Março de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: RECAP -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Onde Estamos na Jornada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4>Aula 01</h4>
+                        <p>Visões RM-ODP</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 02</h4>
+                        <p>BD como Código</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">build</span></div>
+                        <h4>Aula 03</h4>
+                        <p>Ponderada 1: Lab</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">support_agent</span></div>
+                        <h4>Aula 04</h4>
+                        <p>Mocks + Suporte</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Aula 05</h4>
+                        <p>BDD + Robustez</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon"><span class="material-icons-outlined">hub</span></div>
+                        <h4>Aula 06 (Hoje)</h4>
+                        <p>BDD + Integração</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Foco de hoje:</strong> Sair da teoria para a prática. Usar o repo de referência para exercitar BDD aplicado a integrações internas e externas, com Behave, pytest, mocks e Locust.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Integração Interna vs Externa</h3>
+                    <p>Entender como módulos se conectam internamente e como o sistema se comunica com serviços externos (APIs, SEFAZ, BACEN)</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Táticas de Integrabilidade</h3>
+                    <p>Aplicar táticas do SEI/CMU: Encapsulate, Use Intermediary, Restrict Communication Paths, Orchestrate</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Codificar Testes de Integração</h3>
+                    <p>Escrever BDD com Behave, testes unitários com pytest e testes de carga com Locust no repo de referência</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: CONEXÃO COM AULA 05 -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <span class="section-tag">PONTE</span>
+                <h2 class="slide-title">Conexão com a Aula 05</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">school</span></div>
+                        <h4>Aula 05 — Teoria</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p>BDD + Gherkin como linguagem de especificação</p>
+                            <p>Táticas de Robustez: Resistir, Detectar, Recuperar</p>
+                            <p>ISO 25010 + pytest-bdd + Mocks</p>
+                            <p>Exemplos conceituais no contexto ASIS</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">terminal</span></div>
+                        <h4>Aula 06 — Prática</h4>
+                        <div style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.8; margin-top: 10px;">
+                            <p>Engenharia de Integração: como módulos se conectam</p>
+                            <p>Táticas de Integrabilidade (SEI/CMU)</p>
+                            <p>Repo real: Behave + pytest + Locust + Flask</p>
+                            <p>Exercícios hands-on com código executável</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Resumo:</strong> Na Aula 05 aprendemos a escrever BDD e aplicar táticas de robustez. Hoje vamos aplicar isso para <strong>aferir integrações</strong> — como módulos internos e serviços externos se conectam e funcionam juntos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 1: Engenharia de Integração — Conceitos (Slides 5-11)
+             ============================================= -->
+
+        <!-- SLIDE 5: DIVISOR -->
+        <section class="slide slide-section" data-slide="5">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Engenharia de Integração</h2>
+                <p class="section-description">Conceitos de integrabilidade — SEI/CMU (Kazman et al., 2020)</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: O QUE É INTEGRAÇÃO -->
+        <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">CONCEITO</span>
+                <h2 class="slide-title">O que é Integração de Software?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-purple);">
+                    <p style="font-size: clamp(14px, 1.4vw, 18px);"><strong>Integrabilidade</strong> é a capacidade de uma arquitetura de antecipar e facilitar a integração de componentes separados em um sistema funcional. &mdash; <em>SEI/CMU, Kazman et al., 2020</em></p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">Size (Tamanho)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Quantidade de dependências potenciais entre componentes {C<sub>i</sub>} e o sistema S. Quanto mais dependências, maior o custo de integração.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac);">Distance (Distância)</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Dificuldade de resolver diferenças em cada dependência. Inclui dimensões: sintática, semântica de dados, semântica comportamental, temporal e de recursos.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Complexidade = &sum; f(size &times; distance)</strong> &mdash; O objetivo das táticas de integrabilidade é reduzir size e distance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: INTEGRAÇÃO INTERNA VS EXTERNA -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">INTEGRAÇÃO</span>
+                <h2 class="slide-title">Integração Interna vs Externa</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green); min-height: 220px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">account_tree</span></div>
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(16px, 1.6vw, 20px);">Integração Interna</h4>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7;">Módulos do próprio sistema que se conectam entre si: services, repositories, controllers.</p>
+                        <p style="margin-top: 8px; font-size: clamp(11px, 1.1vw, 13px); color: #666;"><strong>Exemplo repo:</strong> DeviationAnalyzer &rarr; RouteOptimizer &rarr; DistanceCalculator</p>
+                        <p style="margin-top: 4px; font-size: clamp(11px, 1.1vw, 13px); color: #666;"><strong>Exemplo ASIS:</strong> NotaFiscalService &rarr; CalculoImpostoService &rarr; ValidadorCNPJ</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral); min-height: 220px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">cloud</span></div>
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(16px, 1.6vw, 20px);">Integração Externa</h4>
+                        <p style="margin-top: 8px; font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7;">Comunicação com serviços de terceiros: APIs, bancos de dados, provedores governamentais.</p>
+                        <p style="margin-top: 8px; font-size: clamp(11px, 1.1vw, 13px); color: #666;"><strong>Exemplo repo:</strong> Flask app &rarr; serviço externo (simulado com retry/circuit breaker)</p>
+                        <p style="margin-top: 4px; font-size: clamp(11px, 1.1vw, 13px); color: #666;"><strong>Exemplo ASIS:</strong> App &rarr; SEFAZ, App &rarr; BACEN, App &rarr; Gateway de Pagamento</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Fluxo PIX (exemplo):</strong> Smartphone &rarr; App &rarr; API interna &rarr; Conta Corrente &rarr; BACEN. Cada seta = um ponto de integração que precisa ser aferido.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: DIMENSÕES DE DISTÂNCIA -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">SEI/CMU</span>
+                <h2 class="slide-title">Dimensões de Distância na Integração</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">code</span>
+                        <div>
+                            <h4>Sintática</h4>
+                            <p>Diferenças em tipos de dados, formatos, protocolos. Ex: JSON vs XML, REST vs SOAP, int vs float.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">data_object</span>
+                        <div>
+                            <h4>Semântica de Dados</h4>
+                            <p>Mesmos dados interpretados de forma diferente. Ex: distância em metros vs quilômetros, datas em formatos diferentes.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">psychology</span>
+                        <div>
+                            <h4>Semântica Comportamental</h4>
+                            <p>Comportamentos diferentes conforme estado do sistema. Ex: componente A espera push, componente B faz pull.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">schedule</span>
+                        <div>
+                            <h4>Temporal</h4>
+                            <p>Diferenças em taxas de operação e expectativas de timing. Ex: timeout de 50ms vs resposta em 200ms.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">memory</span>
+                        <div>
+                            <h4>Recursos</h4>
+                            <p>Suposições sobre recursos compartilhados: memória, CPU, bandwidth, conexões de banco.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: TÁTICAS DE INTEGRABILIDADE -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="section-tag">TÁTICAS</span>
+                <h2 class="slide-title">Táticas de Integrabilidade (SEI/CMU)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(11px, 1.1vw, 14px);">
+                        <thead>
+                            <tr style="background: var(--inteli-purple); color: white;">
+                                <th style="padding: 10px 12px; text-align: left; border-radius: 8px 0 0 0;">Categoria</th>
+                                <th style="padding: 10px 12px; text-align: left;">Tática</th>
+                                <th style="padding: 10px 12px; text-align: left; border-radius: 0 8px 0 0;">O que faz</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;" rowspan="5"><strong>Limitar Dependências</strong></td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-dark-green); font-weight: 600;">Encapsulate</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Interface explícita que esconde detalhes internos do módulo</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-dark-green); font-weight: 600;">Use Intermediary</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Quebra dependência direta entre módulos (bus, proxy, adapter)</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-dark-green); font-weight: 600;">Restrict Comm. Paths</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Restringe quais módulos podem se comunicar entre si</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-dark-green); font-weight: 600;">Abstract Common Services</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Esconde módulos similares atrás de uma abstração comum</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-dark-green); font-weight: 600;">Adhere to Standards</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Usa padrões reconhecidos (REST, JSON Schema, OAuth)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;" rowspan="2"><strong>Adaptar</strong></td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-coral); font-weight: 600;">Tailor Interface</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Adiciona/remove capacidades de uma interface sem mudar implementação</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-coral); font-weight: 600;">Configure Behavior</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Componente configurável para interagir com diferentes parceiros</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px;" rowspan="2"><strong>Coordenar</strong></td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; color: var(--inteli-lilac); font-weight: 600;">Orchestrate</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;">Coordena invocação de serviços para que não se conheçam</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; color: var(--inteli-lilac); font-weight: 600;">Manage Resources</td>
+                                <td style="padding: 8px 12px;">Governa acesso a recursos computacionais compartilhados</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: PATTERNS DE INTEGRAÇÃO -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <span class="section-tag">PATTERNS</span>
+                <h2 class="slide-title">Patterns de Integração</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac);">SOA (Service-Oriented Architecture)</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Serviços loosely coupled com interfaces padronizadas. Usa: Encapsulate, Adhere to Standards, Orchestrate, Manage Resources.</p>
+                        <p style="font-size: clamp(10px, 1vw, 12px); color: #666; margin-top: 4px;"><strong>Tradeoff:</strong> Complexidade e latência adicionais.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral);">Broker</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Componente intermediário que coordena comunicação entre serviços distribuídos. Usa: Encapsulate, Use Intermediary, Restrict Comm. Paths.</p>
+                        <p style="font-size: clamp(10px, 1vw, 12px); color: #666; margin-top: 4px;"><strong>Tradeoff:</strong> Latência por indireção.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green);">Publish-Subscribe</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Comunicação assíncrona via eventos. Publishers e subscribers não se conhecem. Usa: Encapsulate, Use Intermediary, Abstract Common Services.</p>
+                        <p style="font-size: clamp(10px, 1vw, 12px); color: #666; margin-top: 4px;"><strong>Tradeoff:</strong> Testabilidade mais difícil, segurança.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <h4 style="color: var(--inteli-purple);">Adapter</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Intermediário que traduz interface de um componente para outra. Resolve diferenças sintáticas e semânticas. Usa: Encapsulate, Use Intermediary, Tailor Interface.</p>
+                        <p style="font-size: clamp(10px, 1vw, 12px); color: #666; margin-top: 4px;"><strong>Tradeoff:</strong> Latência pela transformação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: CONEXÃO TÁTICAS + ISO 25010 -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="section-tag">MAPEAMENTO</span>
+                <h2 class="slide-title">Táticas de Integração + ISO 25010</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(11px, 1.1vw, 14px);">
+                        <thead>
+                            <tr style="background: var(--inteli-purple); color: white;">
+                                <th style="padding: 10px 12px; text-align: left; border-radius: 8px 0 0 0;">Tática de Integração</th>
+                                <th style="padding: 10px 12px; text-align: center;">Performance</th>
+                                <th style="padding: 10px 12px; text-align: center;">Segurança</th>
+                                <th style="padding: 10px 12px; text-align: center;">Confiabilidade</th>
+                                <th style="padding: 10px 12px; text-align: center; border-radius: 0 8px 0 0;">Rastreabilidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><strong>Encapsulate</strong></td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Cache interno</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Oculta detalhes</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Isolamento de falhas</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Log na fronteira</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><strong>Use Intermediary</strong></td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center; color: var(--inteli-coral);">+ latência</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Filtros de segurança</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Circuit breaker</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Correlation ID</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee;"><strong>Restrict Comm. Paths</strong></td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Menos overhead</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Superfície reduzida</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Menos falhas em cascata</td>
+                                <td style="padding: 8px 12px; border-bottom: 1px solid #eee; text-align: center;">Caminhos conhecidos</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 12px;"><strong>Orchestrate</strong></td>
+                                <td style="padding: 8px 12px; text-align: center; color: var(--inteli-coral);">Ponto central</td>
+                                <td style="padding: 8px 12px; text-align: center;">Controle centralizado</td>
+                                <td style="padding: 8px 12px; text-align: center;">Retry/compensação</td>
+                                <td style="padding: 8px 12px; text-align: center;">Fluxo auditável</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Cada célula = um cenário de teste.</strong> As táticas de integração impactam múltiplos atributos de qualidade. Precisamos aferir cada impacto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: O Repo de Referência — Anatomia (Slides 12-18)
+             ============================================= -->
+
+        <!-- SLIDE 12: DIVISOR -->
+        <section class="slide slide-section" data-slide="12">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">Projeto de Referência</h2>
+                <p class="section-description">canaldoovidio/rf-rnf-gherkin-bdd-tdd — Anatomia do código</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: VISÃO GERAL DO PROJETO -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="section-tag">REPO</span>
+                <h2 class="slide-title">Visão Geral do Projeto</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Estrutura de Diretórios</span>
+                        <span class="code-file">canaldoovidio/rf-rnf-gherkin-bdd-tdd</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code>rf-rnf-gherkin-bdd-tdd/
+├── app.py                          <span class="comment"># Flask — endpoints /retry-example, /circuit-breaker-example</span>
+├── requirements.txt                <span class="comment"># Flask, Behave, pytest, Locust...</span>
+├── features/                       <span class="comment"># BDD com Behave (Gherkin em PT-BR)</span>
+│   ├── detect_deviation.feature    <span class="comment"># Feature: Detecção de Desvio de Rota</span>
+│   └── steps/
+│       └── detect_deviation_steps.py <span class="comment"># Step definitions com Behave</span>
+├── src/services/                   <span class="comment"># Lógica de negócio (integração interna)</span>
+│   ├── deviation_analyzer.py       <span class="comment"># Análise de desvio (consome RouteOptimizer)</span>
+│   ├── route_optimizer.py          <span class="comment"># Calcula rotas alternativas</span>
+│   ├── distance_calculator.py      <span class="comment"># Haversine — distância entre coordenadas</span>
+│   └── retry_circuit_breaker.py    <span class="comment"># Circuit Breaker + estados CLOSED/OPEN/HALF-OPEN</span>
+└── tests/
+    ├── unit/                       <span class="comment"># Testes unitários com pytest + MagicMock</span>
+    │   ├── test_deviation_analyzer.py
+    │   └── test_distance_calculator.py
+    └── carga/
+        └── locustfile.py           <span class="comment"># Teste de carga com Locust</span></code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Stack:</strong> Python 3 + Flask + Behave (BDD) + pytest + Locust (carga). O projeto simula detecção de desvio de rota com integração entre services e resiliência via circuit breaker.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: INTEGRAÇÃO INTERNA: SERVICES -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="section-tag">INTEGRAÇÃO INTERNA</span>
+                <h2 class="slide-title">Services — Módulos que se Conectam</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python</span>
+                        <span class="code-file">src/services/deviation_analyzer.py (código real do repo)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">class</span> <span class="class-name">DeviationAnalyzer</span>:
+    <span class="string">"""Analisa se há desvio de rota > 6 km por 3 atualizações consecutivas."""</span>
+
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, route_optimizer=<span class="keyword">None</span>):
+        self.consecutive_deviations = <span class="number">0</span>
+        self.deviation_detected = <span class="keyword">False</span>
+        self.notification_sent = <span class="keyword">False</span>
+        self.route_optimizer = route_optimizer  <span class="comment"># Injeção de dependência!</span>
+
+    <span class="keyword">def</span> <span class="function">process_location_update</span>(self, truck_id, distance_from_route):
+        <span class="keyword">if</span> distance_from_route > <span class="number">6.0</span>:
+            self.consecutive_deviations += <span class="number">1</span>
+        <span class="keyword">else</span>:
+            self.consecutive_deviations = <span class="number">0</span>
+
+        <span class="keyword">if</span> self.consecutive_deviations >= <span class="number">3</span> <span class="keyword">and not</span> self.deviation_detected:
+            self.deviation_detected = <span class="keyword">True</span>
+            self._send_notification(truck_id)
+            self._request_alternative_route(truck_id)  <span class="comment"># Integração interna!</span>
+
+    <span class="keyword">def</span> <span class="function">_request_alternative_route</span>(self, truck_id):
+        <span class="keyword">if</span> self.route_optimizer:
+            self.route_optimizer.request_alternative(truck_id)  <span class="comment"># Chama RouteOptimizer</span></code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Tática Encapsulate:</strong> Cada service tem responsabilidade única. <strong>Injeção de dependência</strong> permite substituir route_optimizer por um mock nos testes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: BDD COM BEHAVE -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="section-tag">BDD</span>
+                <h2 class="slide-title">BDD com Behave — Feature em PT-BR</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin (PT-BR)</span>
+                            <span class="code-file">features/detect_deviation.feature</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># language: pt</span>
+
+<span class="keyword">Funcionalidade:</span> <span class="class-name">Detecção de Desvio de Rota</span>
+  <span class="comment">Como</span> um sistema de monitoramento
+  <span class="comment">Quero</span> analisar coordenadas recebidas
+  <span class="comment">Para</span> detectar desvios > 6 km em 3 updates
+
+  <span class="keyword">Contexto:</span>
+    <span class="keyword">Dado</span> que tenho rotas planejadas no sistema
+    <span class="keyword">E</span> cada rota possui coordenadas pré-definidas
+
+  <span class="keyword">Cenário:</span> Caminhão desvia > 6 km por 3 updates
+    <span class="keyword">Dado</span> que o caminhão "CX123" está em rota
+    <span class="keyword">Quando</span> recebo 3 updates com desvio de 7 km
+    <span class="keyword">Então</span> devo registrar o desvio
+    <span class="keyword">E</span> devo enviar uma notificação de alerta
+    <span class="keyword">E</span> devo solicitar rota alternativa</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Python (Behave)</span>
+                            <span class="code-file">features/steps/detect_deviation_steps.py</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">from</span> behave <span class="keyword">import</span> given, when, then
+<span class="keyword">from</span> src.services.deviation_analyzer \
+    <span class="keyword">import</span> DeviationAnalyzer
+<span class="keyword">from</span> src.services.route_optimizer \
+    <span class="keyword">import</span> RouteOptimizer
+
+<span class="decorator">@given</span>(<span class="string">'que o caminhão "{truck_id}" está em rota'</span>)
+<span class="keyword">def</span> <span class="function">step_truck_in_route</span>(context, truck_id):
+    context.truck_id = truck_id
+    context.route_optimizer = RouteOptimizer()
+    context.deviation_analyzer = \
+        DeviationAnalyzer(
+            route_optimizer=context.route_optimizer)
+
+<span class="decorator">@when</span>(<span class="string">'recebo 3 updates com desvio de 7 km'</span>)
+<span class="keyword">def</span> <span class="function">step_receive_deviations</span>(context):
+    <span class="keyword">for</span> d <span class="keyword">in</span> [<span class="number">7.0</span>, <span class="number">7.0</span>, <span class="number">7.0</span>]:
+        context.deviation_analyzer \
+            .process_location_update(
+                context.truck_id, d)
+
+<span class="decorator">@then</span>(<span class="string">'devo registrar o desvio'</span>)
+<span class="keyword">def</span> <span class="function">step_assert_detected</span>(context):
+    <span class="keyword">assert</span> context.deviation_analyzer \
+        .deviation_detected <span class="keyword">is True</span></code></pre>
+                    </div>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">info</span>
+                    <p><strong>Behave</strong> usa <code># language: pt</code> para Gherkin em português. Diferente do pytest-bdd (Aula 05), mas o conceito é o mesmo: Given/When/Then &rarr; funções Python.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: TESTES UNITÁRIOS -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="section-tag">TESTES</span>
+                <h2 class="slide-title">Testes Unitários — pytest + MagicMock</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python</span>
+                        <span class="code-file">tests/unit/test_deviation_analyzer.py (código real do repo)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="keyword">import</span> pytest
+<span class="keyword">from</span> unittest.mock <span class="keyword">import</span> MagicMock
+<span class="keyword">from</span> src.services.deviation_analyzer <span class="keyword">import</span> DeviationAnalyzer
+
+<span class="decorator">@pytest.fixture</span>
+<span class="keyword">def</span> <span class="function">deviation_analyzer</span>():
+    <span class="keyword">return</span> DeviationAnalyzer()
+
+<span class="keyword">def</span> <span class="function">test_no_deviation_detected</span>(deviation_analyzer):
+    <span class="comment"># Com distâncias abaixo de 6 km, não deve disparar alerta</span>
+    <span class="keyword">for</span> d <span class="keyword">in</span> [<span class="number">3.0</span>, <span class="number">4.5</span>, <span class="number">5.9</span>]:
+        deviation_analyzer.process_location_update(<span class="string">"CX123"</span>, d)
+    <span class="keyword">assert</span> deviation_analyzer.deviation_detected <span class="keyword">is False</span>
+
+<span class="keyword">def</span> <span class="function">test_deviation_detected_after_three_updates</span>(deviation_analyzer):
+    <span class="comment"># Mock de notificação e rota — tática Encapsulate + Use Intermediary</span>
+    deviation_analyzer._send_notification = MagicMock()
+    deviation_analyzer._request_alternative_route = MagicMock()
+
+    <span class="keyword">for</span> d <span class="keyword">in</span> [<span class="number">7.0</span>, <span class="number">7.1</span>, <span class="number">7.0</span>]:
+        deviation_analyzer.process_location_update(<span class="string">"CX123"</span>, d)
+
+    <span class="keyword">assert</span> deviation_analyzer.deviation_detected <span class="keyword">is True</span>
+    deviation_analyzer._send_notification.assert_called_once()
+    deviation_analyzer._request_alternative_route.assert_called_once()</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>MagicMock</strong> isola a dependência: testamos se o DeviationAnalyzer <em>chama</em> os métodos corretos, sem executar código real de notificação ou otimização de rota.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: RETRY + CIRCUIT BREAKER -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="section-tag">INTEGRAÇÃO EXTERNA</span>
+                <h2 class="slide-title">Retry + Circuit Breaker — Resiliência</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python</span>
+                        <span class="code-file">src/services/retry_circuit_breaker.py (código real do repo)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># Estados possíveis do Circuit Breaker</span>
+CLOSED = <span class="string">"closed"</span>      <span class="comment"># Normal — chamadas passam</span>
+OPEN = <span class="string">"open"</span>          <span class="comment"># Aberto — rejeita chamadas (protege serviço)</span>
+HALF_OPEN = <span class="string">"half-open"</span> <span class="comment"># Teste — permite 1 chamada para verificar recuperação</span>
+
+circuit_state = CLOSED
+open_duration = <span class="number">3</span>  <span class="comment"># segundos antes de tentar HALF_OPEN</span>
+
+<span class="keyword">async def</span> <span class="function">circuit_breaker_function</span>():
+    <span class="keyword">global</span> circuit_state, time_opened, test_in_half_open
+    current_time = time.time()
+
+    <span class="keyword">if</span> circuit_state == OPEN:
+        <span class="keyword">if</span> (current_time - time_opened) >= open_duration:
+            circuit_state = HALF_OPEN      <span class="comment"># Tenta recuperar</span>
+        <span class="keyword">else</span>:
+            <span class="keyword">raise</span> Exception(<span class="string">"Circuit is OPEN"</span>)
+
+    <span class="keyword">try</span>:
+        result = <span class="keyword">await</span> delayed_function()    <span class="comment"># Chama serviço externo</span>
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        circuit_state = OPEN               <span class="comment"># Falhou → abre circuito</span>
+        time_opened = time.time()
+        <span class="keyword">raise</span> e
+
+    <span class="keyword">if</span> circuit_state == HALF_OPEN:
+        circuit_state = CLOSED             <span class="comment"># Recuperou → fecha circuito</span>
+    <span class="keyword">return</span> {<span class="string">"message"</span>: result, <span class="string">"circuit_state"</span>: circuit_state}</code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 10px;">
+                    <p><strong>Tática Use Intermediary:</strong> O circuit breaker é um intermediário entre a aplicação e o serviço externo. Protege contra sobrecarga quando o serviço está com problemas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: TESTE DE CARGA: LOCUST -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">CARGA</span>
+                <h2 class="slide-title">Teste de Carga — Locust</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python</span>
+                        <span class="code-file">tests/carga/locustfile.py (código real do repo)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser, task, between
+
+<span class="keyword">class</span> <span class="class-name">MyUser</span>(HttpUser):
+    wait_time = between(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># Espera 1-2s entre tasks</span>
+
+    <span class="decorator">@task</span>(<span class="number">2</span>)  <span class="comment"># Peso 2 — executado 2x mais que o outro</span>
+    <span class="keyword">def</span> <span class="function">test_retry_example</span>(self):
+        <span class="keyword">with</span> self.client.get(<span class="string">"/retry-example"</span>, catch_response=<span class="keyword">True</span>) <span class="keyword">as</span> response:
+            <span class="keyword">if</span> response.status_code != <span class="number">200</span>:
+                response.failure(f<span class="string">"Unexpected: {response.status_code}"</span>)
+            <span class="keyword">else</span>:
+                response.success()
+
+    <span class="decorator">@task</span>(<span class="number">1</span>)
+    <span class="keyword">def</span> <span class="function">test_circuit_breaker_example</span>(self):
+        <span class="keyword">with</span> self.client.get(<span class="string">"/circuit-breaker-example"</span>, catch_response=<span class="keyword">True</span>) <span class="keyword">as</span> response:
+            <span class="keyword">if</span> response.status_code != <span class="number">200</span>:
+                response.failure(f<span class="string">"Unexpected: {response.status_code}"</span>)
+            <span class="keyword">else</span>:
+                response.success()</code></pre>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">speed</span>
+                    <p><strong>Locust</strong> simula múltiplos usuários simultâneos. Permite aferir: tempo de resposta p50/p95/p99, taxa de erros, throughput. Conecta com RNF de <strong>Performance</strong> (ISO 25010).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 3: Aferindo Integrações com BDD (Slides 19-26)
+             ============================================= -->
+
+        <!-- SLIDE 19: DIVISOR -->
+        <section class="slide slide-section" data-slide="19">
+            <div class="section-content">
+                <span class="section-number">PARTE 3</span>
+                <h2 class="section-title">Aferindo Integrações como Código</h2>
+                <p class="section-description">Framework: Integração + Tática + BDD + Código executável</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: FRAMEWORK -->
+        <section class="slide slide-content" data-slide="20">
+            <div class="slide-header">
+                <span class="section-tag">FRAMEWORK</span>
+                <h2 class="slide-title">Integração + Tática + Cenário BDD</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 190px; border-color: var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">search</span></div>
+                        <h4>1. Identificar</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Qual integração? Interna (entre modules) ou externa (API, SEFAZ)?</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 190px; border-color: var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">category</span></div>
+                        <h4>2. Tática</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Encapsulate? Intermediary? Restrict Paths? Qual pattern aplica?</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 190px; border-color: var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">edit_note</span></div>
+                        <h4>3. Gherkin</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Given/When/Then descrevendo o cenário da integração sendo testada</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 190px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">terminal</span></div>
+                        <h4>4. Código + Mock</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Step definitions + MagicMock/@patch para simular a integração</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Resultado:</strong> Para cada ponto de integração, temos um cenário BDD executável que afere se a conexão entre componentes funciona corretamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: EXEMPLO 1 — INTEGRAÇÃO INTERNA -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO 1</span>
+                <h2 class="slide-title">Aferindo Integração Interna (Modules)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin + Python</span>
+                        <span class="code-file">DeviationAnalyzer &rarr; RouteOptimizer (integração entre services)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># ── Feature: Integração DeviationAnalyzer → RouteOptimizer ──</span>
+<span class="decorator">@integracao_interna</span>
+<span class="keyword">Cenário:</span> Solicita rota alternativa após desvio detectado
+  <span class="keyword">Dado</span> que o DeviationAnalyzer está conectado ao RouteOptimizer
+  <span class="keyword">Quando</span> o caminhão desvia mais de 6 km por 3 updates consecutivos
+  <span class="keyword">Então</span> o RouteOptimizer.request_alternative deve ser chamado
+
+<span class="decorator">@integracao_interna</span> <span class="decorator">@falha</span>
+<span class="keyword">Cenário:</span> Funciona sem RouteOptimizer (degradação graciosa)
+  <span class="keyword">Dado</span> que o DeviationAnalyzer NÃO tem RouteOptimizer injetado
+  <span class="keyword">Quando</span> o caminhão desvia mais de 6 km por 3 updates consecutivos
+  <span class="keyword">Então</span> o desvio é detectado normalmente
+  <span class="keyword">E</span> a notificação é enviada
+
+<span class="comment"># ── Step Definition ──</span>
+<span class="keyword">from</span> unittest.mock <span class="keyword">import</span> MagicMock
+
+<span class="decorator">@given</span>(<span class="string">'que o DeviationAnalyzer está conectado ao RouteOptimizer'</span>)
+<span class="keyword">def</span> <span class="function">step_connected</span>(context):
+    context.mock_optimizer = MagicMock()
+    context.analyzer = DeviationAnalyzer(route_optimizer=context.mock_optimizer)
+
+<span class="decorator">@then</span>(<span class="string">'o RouteOptimizer.request_alternative deve ser chamado'</span>)
+<span class="keyword">def</span> <span class="function">step_assert_integration</span>(context):
+    context.mock_optimizer.request_alternative.assert_called_once_with(<span class="string">"CX123"</span>)</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 22: EXEMPLO 2 — RETRY -->
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO 2</span>
+                <h2 class="slide-title">Aferindo Integração Externa (Retry)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin + Python</span>
+                        <span class="code-file">Retry — serviço externo com falhas temporárias</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="decorator">@integracao_externa</span> <span class="decorator">@retry</span>
+<span class="keyword">Cenário:</span> Serviço responde após falhas temporárias
+  <span class="keyword">Dado</span> que o serviço externo falha nas 2 primeiras chamadas
+  <span class="keyword">E</span> responde com sucesso na 3ª chamada
+  <span class="keyword">Quando</span> o sistema chama o endpoint /retry-example 3 vezes
+  <span class="keyword">Então</span> as 2 primeiras respostas têm status 500
+  <span class="keyword">E</span> a 3ª resposta tem status 200
+
+<span class="decorator">@integracao_externa</span> <span class="decorator">@retry</span>
+<span class="keyword">Cenário:</span> Delay dobra a cada chamada (exponential backoff)
+  <span class="keyword">Dado</span> que o delay inicial do serviço é 20ms
+  <span class="keyword">Quando</span> faço 3 chamadas consecutivas ao /retry-example
+  <span class="keyword">Então</span> o tempo de cada resposta é aproximadamente o dobro do anterior
+
+<span class="comment"># ── Step Definition ──</span>
+<span class="decorator">@given</span>(<span class="string">'que o serviço externo falha nas 2 primeiras chamadas'</span>)
+<span class="keyword">def</span> <span class="function">step_setup_failures</span>(context):
+    context.mock_service = MagicMock()
+    context.mock_service.side_effect = [
+        Exception(<span class="string">"Service failing"</span>),
+        Exception(<span class="string">"Service failing"</span>),
+        <span class="string">"Service is responding in 20 ms"</span>
+    ]
+
+<span class="decorator">@then</span>(<span class="string">'a 3ª resposta tem status 200'</span>)
+<span class="keyword">def</span> <span class="function">step_assert_recovery</span>(context):
+    <span class="keyword">assert</span> context.responses[<span class="number">2</span>].status_code == <span class="number">200</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 23: EXEMPLO 3 — CIRCUIT BREAKER -->
+        <section class="slide slide-content" data-slide="23">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO 3</span>
+                <h2 class="slide-title">Aferindo Integração Externa (Circuit Breaker)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin + Python</span>
+                        <span class="code-file">Circuit Breaker — transição CLOSED &rarr; OPEN &rarr; HALF-OPEN</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="decorator">@integracao_externa</span> <span class="decorator">@circuit_breaker</span>
+<span class="keyword">Cenário:</span> Circuito abre após falha do serviço
+  <span class="keyword">Dado</span> que o circuit breaker está no estado CLOSED
+  <span class="keyword">E</span> o serviço externo está falhando (delay > 1000ms)
+  <span class="keyword">Quando</span> uma chamada é feita ao /circuit-breaker-example
+  <span class="keyword">Então</span> a resposta indica estado "open"
+  <span class="keyword">E</span> chamadas subsequentes são rejeitadas imediatamente
+
+<span class="decorator">@integracao_externa</span> <span class="decorator">@circuit_breaker</span>
+<span class="keyword">Cenário:</span> Circuito tenta recuperar após timeout
+  <span class="keyword">Dado</span> que o circuit breaker está no estado OPEN
+  <span class="keyword">E</span> já se passaram 3 segundos (open_duration)
+  <span class="keyword">Quando</span> uma nova chamada é feita
+  <span class="keyword">Então</span> o estado muda para HALF-OPEN
+  <span class="keyword">E</span> se a chamada tiver sucesso, volta para CLOSED
+
+<span class="comment"># ── Step Definition ──</span>
+<span class="keyword">import</span> src.services.retry_circuit_breaker <span class="keyword">as</span> cb
+
+<span class="decorator">@given</span>(<span class="string">'que o circuit breaker está no estado CLOSED'</span>)
+<span class="keyword">def</span> <span class="function">step_reset_cb</span>(context):
+    cb.circuit_state = cb.CLOSED
+    cb.delay = cb.baseline  <span class="comment"># Reset delay to 20ms</span>
+
+<span class="decorator">@then</span>(<span class="string">'a resposta indica estado "open"'</span>)
+<span class="keyword">def</span> <span class="function">step_assert_open</span>(context):
+    <span class="keyword">assert</span> cb.circuit_state == cb.OPEN</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: AFERINDO DESEMPENHO -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="section-tag">PERFORMANCE</span>
+                <h2 class="slide-title">Aferindo Desempenho de Integração</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">Performance sob carga</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="decorator">@rnf_performance</span> <span class="decorator">@integracao</span>
+<span class="keyword">Cenário:</span> Tempo de resposta sob carga
+  <span class="keyword">Dado</span> que o servidor Flask está rodando
+  <span class="keyword">E</span> o Locust está configurado com 50 users
+  <span class="keyword">Quando</span> 50 usuários consultam /retry-example
+    simultaneamente por 30 segundos
+  <span class="keyword">Então</span> o tempo de resposta p95 < 200ms
+  <span class="keyword">E</span> a taxa de erro < 5%
+
+<span class="decorator">@rnf_performance</span> <span class="decorator">@integracao</span>
+<span class="keyword">Cenário:</span> Circuit breaker protege sob carga
+  <span class="keyword">Dado</span> que o serviço externo está lento
+  <span class="keyword">Quando</span> 100 requisições chegam em 10 segundos
+  <span class="keyword">Então</span> o circuit breaker abre
+  <span class="keyword">E</span> chamadas subsequentes falham em < 10ms
+  <span class="keyword">E</span> o serviço externo não recebe carga</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Terminal</span>
+                            <span class="code-file">Como executar o Locust</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># 1. Iniciar o Flask</span>
+$ python app.py
+
+<span class="comment"># 2. Em outro terminal, rodar Locust</span>
+$ locust -f tests/carga/locustfile.py \
+    --host=http://localhost:5000
+
+<span class="comment"># 3. Abrir http://localhost:8089</span>
+<span class="comment"># Configurar: 50 users, spawn rate 10</span>
+<span class="comment"># Observar: response times, failures</span>
+
+<span class="comment"># 4. Modo headless (CI/CD)</span>
+$ locust -f tests/carga/locustfile.py \
+    --host=http://localhost:5000 \
+    --headless -u 50 -r 10 \
+    --run-time 30s \
+    --csv=results</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: AFERINDO SEGURANÇA -->
+        <section class="slide slide-content" data-slide="25">
+            <div class="slide-header">
+                <span class="section-tag">SEGURANÇA</span>
+                <h2 class="slide-title">Aferindo Segurança de Integração</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin</span>
+                        <span class="code-file">Cenários de segurança na fronteira de integração</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="keyword">Funcionalidade:</span> <span class="class-name">Segurança na Fronteira de Integração</span>
+
+  <span class="decorator">@seguranca</span> <span class="decorator">@integracao</span> <span class="decorator">@resistir</span>
+  <span class="keyword">Cenário:</span> Validar payload na entrada da API
+    <span class="keyword">Dado</span> que o endpoint /retry-example aceita requisições GET
+    <span class="keyword">Quando</span> envio um POST com payload malicioso contendo SQL injection
+    <span class="keyword">Então</span> recebo status 405 (Method Not Allowed)
+    <span class="keyword">E</span> nenhuma query é executada no banco
+
+  <span class="decorator">@seguranca</span> <span class="decorator">@integracao</span> <span class="decorator">@detectar</span>
+  <span class="keyword">Cenário:</span> Registrar tentativas de acesso inválido
+    <span class="keyword">Dado</span> que 10 requisições com headers inválidos chegam em 1 minuto
+    <span class="keyword">Quando</span> o sistema processa as requisições
+    <span class="keyword">Então</span> cada tentativa inválida é registrada no log
+    <span class="keyword">E</span> um alerta é gerado após 5 tentativas consecutivas
+
+  <span class="decorator">@seguranca</span> <span class="decorator">@integracao</span> <span class="decorator">@recuperar</span>
+  <span class="keyword">Cenário:</span> Bloquear IP após múltiplas tentativas suspeitas
+    <span class="keyword">Dado</span> que um IP fez mais de 100 requisições inválidas em 5 minutos
+    <span class="keyword">Quando</span> o sistema de rate limiting avalia o IP
+    <span class="keyword">Então</span> o IP é bloqueado temporariamente
+    <span class="keyword">E</span> requisições daquele IP recebem status 429</code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 10px;">
+                    <p><strong>Tática Restrict Comm. Paths:</strong> Cada fronteira de integração é um ponto de validação. As 3 táticas de robustez (Resistir, Detectar, Recuperar) se aplicam aqui.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 26: AFERINDO RASTREABILIDADE -->
+        <section class="slide slide-content" data-slide="26">
+            <div class="slide-header">
+                <span class="section-tag">RASTREABILIDADE</span>
+                <h2 class="slide-title">Aferindo Rastreabilidade de Integração</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Gherkin + Python</span>
+                        <span class="code-file">Correlation ID e logs estruturados entre serviços</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="decorator">@rastreabilidade</span> <span class="decorator">@integracao</span>
+<span class="keyword">Cenário:</span> Correlation ID propagado entre serviços
+  <span class="keyword">Dado</span> que uma requisição chega com header X-Correlation-ID "abc-123"
+  <span class="keyword">Quando</span> o DeviationAnalyzer processa a requisição
+  <span class="keyword">E</span> chama o RouteOptimizer
+  <span class="keyword">Então</span> o RouteOptimizer recebe o mesmo X-Correlation-ID "abc-123"
+  <span class="keyword">E</span> todos os logs contêm "abc-123"
+
+<span class="decorator">@rastreabilidade</span> <span class="decorator">@integracao</span>
+<span class="keyword">Cenário:</span> Logs estruturados em cada ponto de integração
+  <span class="keyword">Dado</span> que o sistema processa uma detecção de desvio
+  <span class="keyword">Quando</span> a integração DeviationAnalyzer → RouteOptimizer é executada
+  <span class="keyword">Então</span> o log contém: timestamp, service_name, action, truck_id
+  <span class="keyword">E</span> o log contém: duration_ms, status (success/failure)
+
+<span class="comment"># ── Step Definition ──</span>
+<span class="decorator">@then</span>(<span class="string">'todos os logs contêm "abc-123"'</span>)
+<span class="keyword">def</span> <span class="function">step_assert_correlation</span>(context, caplog):
+    <span class="keyword">for</span> record <span class="keyword">in</span> caplog.records:
+        <span class="keyword">assert</span> <span class="string">"abc-123"</span> <span class="keyword">in</span> record.message</code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 10px;">
+                    <p><strong>Por que rastreabilidade importa:</strong> Em integrações distribuídas, quando algo falha, o Correlation ID permite rastrear a cadeia completa de chamadas entre serviços.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 4: Exercícios Práticos (Slides 27-34)
+             ============================================= -->
+
+        <!-- SLIDE 27: DIVISOR -->
+        <section class="slide slide-section" data-slide="27">
+            <div class="section-content">
+                <span class="section-number">PARTE 4</span>
+                <h2 class="section-title">Mãos na Massa</h2>
+                <p class="section-description">Exercícios práticos no repo canaldoovidio/rf-rnf-gherkin-bdd-tdd</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 28: SETUP DO AMBIENTE -->
+        <section class="slide slide-content" data-slide="28">
+            <div class="slide-header">
+                <span class="activity-tag">SETUP</span>
+                <h2 class="slide-title">Configuração do Ambiente</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Terminal</span>
+                        <span class="code-file">Passo a passo</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># 1. Clonar o repositório</span>
+$ git clone https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd.git
+$ cd rf-rnf-gherkin-bdd-tdd
+
+<span class="comment"># 2. Criar ambiente virtual</span>
+$ python -m venv venv
+$ source venv/bin/activate  <span class="comment"># Linux/Mac</span>
+$ venv\Scripts\activate     <span class="comment"># Windows</span>
+
+<span class="comment"># 3. Instalar dependências</span>
+$ pip install flask behave pytest locust
+
+<span class="comment"># 4. Verificar que tudo funciona</span>
+$ behave                    <span class="comment"># Roda os testes BDD (Gherkin)</span>
+$ pytest tests/unit/        <span class="comment"># Roda os testes unitários</span>
+$ python app.py             <span class="comment"># Inicia o Flask na porta 5000</span>
+
+<span class="comment"># 5. Testar os endpoints no browser</span>
+<span class="comment"># http://localhost:5000/test-page          → Retry</span>
+<span class="comment"># http://localhost:5000/test-circuit-breaker → Circuit Breaker</span></code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Dica:</strong> Se o <code>pip install</code> demorar, pode instalar só o essencial: <code>pip install flask behave pytest</code>. O Locust é opcional para os exercícios iniciais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 29: EXERCÍCIO 1 -->
+        <section class="slide slide-content" data-slide="29">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 1</span>
+                <h2 class="slide-title">Rodar o Projeto e Explorar</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h4>Rodar <code>behave</code></h4>
+                            <p>Execute e observe: o cenário de detecção de desvio deve passar. Leia a feature e os steps.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h4>Rodar <code>pytest tests/unit/</code></h4>
+                            <p>Execute e observe: os 2 testes unitários devem passar. Note o uso de MagicMock.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h4>Rodar <code>python app.py</code> e testar endpoints</h4>
+                            <p>Acesse <code>/test-page</code> e <code>/test-circuit-breaker</code>. Observe o comportamento do retry e circuit breaker no browser.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div>
+                            <h4>Identificar integrações</h4>
+                            <p>Liste: quais integrações internas existem? Quais integrações externas são simuladas? Qual tática cada uma usa?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 30: EXERCÍCIO 2 -->
+        <section class="slide slide-content" data-slide="30">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 2</span>
+                <h2 class="slide-title">Criar Feature BDD para Nova Integração</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div class="flow-definition" style="background: var(--inteli-lilac); color: var(--inteli-white);">
+                    <p style="font-size: clamp(13px, 1.3vw, 18px);"><strong>Tarefa:</strong> Escreva um arquivo <code>.feature</code> para um cenário de integração do projeto ASIS, usando o repo como modelo.</p>
+                </div>
+                <div class="code-example" style="margin-top: 15px;">
+                    <div class="code-header">
+                        <span class="code-lang">Template</span>
+                        <span class="code-file">features/nova_integracao.feature</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># language: pt</span>
+
+<span class="keyword">Funcionalidade:</span> <span class="string">[Descrever a integração sendo testada]</span>
+  <span class="comment">Como</span> <span class="string">[papel/sistema]</span>
+  <span class="comment">Quero</span> <span class="string">[testar a integração entre X e Y]</span>
+  <span class="comment">Para</span> <span class="string">[garantir que os módulos funcionam juntos]</span>
+
+  <span class="decorator">@integracao</span> <span class="decorator">@sucesso</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Integração funciona no caminho feliz]</span>
+    <span class="keyword">Dado</span> <span class="string">[pré-condição com serviço disponível]</span>
+    <span class="keyword">Quando</span> <span class="string">[ação que envolve a integração]</span>
+    <span class="keyword">Então</span> <span class="string">[resultado esperado da integração]</span>
+
+  <span class="decorator">@integracao</span> <span class="decorator">@falha</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Integração com serviço falhando]</span>
+    <span class="keyword">Dado</span> <span class="string">[pré-condição com serviço indisponível]</span>
+    <span class="keyword">Quando</span> <span class="string">[mesma ação]</span>
+    <span class="keyword">Então</span> <span class="string">[mecanismo de resiliência é ativado]</span></code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 10px;">
+                    <p><strong>Sugestões de integração ASIS:</strong> App &rarr; SEFAZ (envio de nota), App &rarr; BACEN (PIX), Service &rarr; CalculoImposto, App &rarr; Gateway de Pagamento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 31: EXERCÍCIO 3 -->
+        <section class="slide slide-content" data-slide="31">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 3</span>
+                <h2 class="slide-title">Implementar Steps com Mocks</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-coral);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Tarefa:</strong> Implementar os step definitions da feature do Exercício 2, usando MagicMock para simular a integração.</p>
+                </div>
+                <div class="activity-steps" style="margin-top: 15px;">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h4>Criar o arquivo de steps</h4>
+                            <p>Em <code>features/steps/</code>, criar o arquivo <code>.py</code> com as funções <code>@given</code>, <code>@when</code>, <code>@then</code></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h4>Usar MagicMock para simular dependências</h4>
+                            <p><code>from unittest.mock import MagicMock, patch</code> — mockar o serviço externo ou módulo interno</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h4>Executar e verificar</h4>
+                            <p><code>behave features/nova_integracao.feature</code> — o cenário deve passar (verde)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Lembrem:</strong> O mock simula a integração. Vocês testam se o módulo <em>chama</em> o outro corretamente, sem precisar que o outro esteja rodando.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 32: EXERCÍCIO 4 -->
+        <section class="slide slide-content" data-slide="32">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 4</span>
+                <h2 class="slide-title">Executar Teste de Carga</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="flow-definition" style="background: var(--inteli-dark-green);">
+                    <p style="font-size: clamp(14px, 1.5vw, 20px);"><strong>Tarefa:</strong> Usar Locust para aferir performance da integração via <code>/retry-example</code> e <code>/circuit-breaker-example</code>.</p>
+                </div>
+                <div class="activity-steps" style="margin-top: 15px;">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h4>Iniciar Flask + Locust</h4>
+                            <p>Terminal 1: <code>python app.py</code>. Terminal 2: <code>locust -f tests/carga/locustfile.py --host=http://localhost:5000</code></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h4>Configurar e executar</h4>
+                            <p>Abrir <code>http://localhost:8089</code>. Configurar 10 users, spawn rate 5. Rodar por 30 segundos.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h4>Analisar métricas</h4>
+                            <p>Anotar: p50, p95, p99, taxa de erro, requests/s. Quais endpoints falharam? O circuit breaker ativou?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 33: TIMER DE TRABALHO -->
+        <section class="slide slide-content" data-slide="33">
+            <div class="slide-header">
+                <span class="activity-tag">WORKSHOP</span>
+                <h2 class="slide-title">Tempo de Trabalho em Grupo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-instructions">
+                    <div class="timer-container">
+                        <div class="timer" id="timer-workshop">
+                            <span class="timer-value">40:00</span>
+                            <span class="timer-label">Tempo restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-workshop', 2400)">
+                            <span class="material-icons-outlined">play_arrow</span>
+                            Iniciar Timer
+                        </button>
+                    </div>
+                    <div class="activity-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h4>Setup do Ambiente (10 min)</h4>
+                                <p>Clonar repo, instalar deps, rodar behave e pytest</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h4>Exercícios 2 e 3 — Feature + Steps (15 min)</h4>
+                                <p>Criar .feature para integração ASIS, implementar steps com mocks</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h4>Exercício 4 — Teste de Carga (10 min)</h4>
+                                <p>Rodar Locust, anotar métricas de performance</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div>
+                                <h4>Validação (5 min)</h4>
+                                <p>Verificar se todos os testes passam, preparar apresentação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 34: COMPARTILHAMENTO -->
+        <section class="slide slide-content" data-slide="34">
+            <div class="slide-header">
+                <span class="activity-tag">COMPARTILHAMENTO</span>
+                <h2 class="slide-title">Apresentação dos Grupos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Cada grupo apresenta (3 min):</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>1. Qual integração mapearam? (interna/externa)</p>
+                            <p>2. Qual tática de integrabilidade aplicaram?</p>
+                            <p>3. Como ficou o Gherkin?</p>
+                            <p>4. O teste rodou? (behave/pytest)</p>
+                            <p>5. O que as métricas do Locust mostraram?</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Critérios de Feedback:</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>A integração está bem identificada?</p>
+                            <p>A tática faz sentido para o cenário?</p>
+                            <p>O mock está no lugar certo?</p>
+                            <p>Os cenários cobrem sucesso E falha?</p>
+                            <p>As métricas de carga são realistas?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ENCERRAMENTO (Slides 35-38)
+             ============================================= -->
+
+        <!-- SLIDE 35: CHECKLIST -->
+        <section class="slide slide-content" data-slide="35">
+            <div class="slide-header">
+                <span class="section-tag">CHECKLIST</span>
+                <h2 class="slide-title">Checklist — O que Vocês Devem Saber Fazer</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Mapear integrações internas e externas</h4>
+                            <p>Identificar como modules se conectam e onde o sistema se comunica com serviços de terceiros</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Aplicar táticas de integrabilidade</h4>
+                            <p>Encapsulate, Use Intermediary, Restrict Communication Paths, Orchestrate — do PDF SEI/CMU</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Escrever BDD com Behave (Gherkin PT-BR)</h4>
+                            <p>Funcionalidade, Cenário, Dado/Quando/Então com <code># language: pt</code></p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Usar MagicMock para isolar integrações</h4>
+                            <p>Testar que módulo A chama módulo B corretamente, sem executar B de verdade</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Executar testes de carga com Locust</h4>
+                            <p>Aferir performance, taxa de erro e comportamento do circuit breaker sob carga</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 36: SÍNTESE -->
+        <section class="slide slide-content" data-slide="36">
+            <div class="slide-header">
+                <span class="section-tag">SÍNTESE</span>
+                <h2 class="slide-title">Resumo da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px;">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(13px, 1.3vw, 16px);">Integração</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Interna (modules)<br>Externa (APIs, SEFAZ)<br>Size + Distance</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px; border-color: var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(13px, 1.3vw, 16px);">Tática</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Encapsulate<br>Use Intermediary<br>Restrict Paths</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px; border-color: var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(13px, 1.3vw, 16px);">BDD</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Behave + Gherkin PT-BR<br>Dado/Quando/Então<br>Cenários de integração</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 170px; max-width: 190px;">
+                        <h4 style="color: var(--inteli-purple); font-size: clamp(13px, 1.3vw, 16px);">Código</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">MagicMock + pytest<br>Locust (carga)<br>Circuit Breaker + Retry</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>A equação:</strong> <em>Integração (interna/externa)</em> + <em>Tática (Encapsulate, Intermediary...)</em> + <em>BDD (Gherkin)</em> + <em>Código (mock + carga)</em> = <strong>Integração aferida como código</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 37: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="37">
+            <div class="slide-header">
+                <span class="section-tag">PRÓXIMOS PASSOS</span>
+                <h2 class="slide-title">O que Vem Depois</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 07: RF/RNF como Código no Projeto</h4>
+                        <p>Aplicar diretamente no projeto ASIS: implementar testes de aferição de qualidade para integrações reais do sistema.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">edit_note</span></div>
+                        <h4>Preparar Artefato</h4>
+                        <p>Cada grupo deve ter: mapa de integrações, táticas aplicadas, features BDD, testes executáveis.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">menu_book</span></div>
+                        <h4>Leitura: PDF Integrability (SEI/CMU)</h4>
+                        <p>Revisar seções 5 (Tactics) e 5.2 (Patterns). Identificar táticas aplicáveis ao projeto ASIS.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">laptop_chromebook</span></div>
+                        <h4>Explorar o Repo</h4>
+                        <p>Continuar experimentando com o repo de referência. Adicionar novas features e testes de integração.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 38: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="38">
+            <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
+                <div class="closing-quote" style="margin-bottom: 0;">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>Uma integração sem teste<br>é apenas uma <strong>promessa de compatibilidade.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>Integração = Size (dependências) &times; Distance (diferenças)</li>
+                            <li>Táticas reduzem custo e risco de integração</li>
+                            <li>BDD afere integrações com cenários executáveis</li>
+                            <li>Circuit Breaker e Retry protegem integrações externas</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
