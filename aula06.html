@@ -1099,35 +1099,48 @@ $ locust -f tests/carga/locustfile.py \
                 <h2 class="slide-title">Configuração do Ambiente</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <h3 style="color: var(--inteli-purple); margin-bottom: 8px;">
+                    <span class="material-icons-outlined" style="vertical-align: middle;">cloud</span>
+                    Opção 1: GitHub Codespaces (Recomendado)
+                </h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Codespaces</span>
+                        <span class="code-file">Setup automático via devcontainer</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># 1. Acessar o repositório no GitHub</span>
+<span class="comment">#    https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd</span>
+
+<span class="comment"># 2. Clicar no botão verde "Code" → aba "Codespaces" → "Create codespace on main"</span>
+<span class="comment">#    O devcontainer já instala Python 3.12 + todas as dependências automaticamente!</span>
+
+<span class="comment"># 3. Quando o terminal abrir, tudo já está pronto:</span>
+$ behave                    <span class="comment"># Roda os testes BDD (Gherkin)</span>
+$ pytest tests/             <span class="comment"># Roda os testes unitários + integração</span>
+$ python app.py             <span class="comment"># Inicia o Flask (porta 5000 — auto-forwarded)</span>
+
+<span class="comment"># 4. Para Locust (porta 8089 — auto-forwarded):</span>
+$ locust -f tests/carga/locustfile.py --host=http://localhost:5000</code></pre>
+                </div>
+
+                <h3 style="color: var(--inteli-coral); margin-top: 12px; margin-bottom: 8px;">
+                    <span class="material-icons-outlined" style="vertical-align: middle;">computer</span>
+                    Opção 2: Local
+                </h3>
                 <div class="code-example">
                     <div class="code-header">
                         <span class="code-lang">Terminal</span>
-                        <span class="code-file">Passo a passo</span>
+                        <span class="code-file">Setup manual</span>
                     </div>
-                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># 1. Clonar o repositório</span>
-$ git clone https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd.git
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code>$ git clone https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd.git
 $ cd rf-rnf-gherkin-bdd-tdd
-
-<span class="comment"># 2. Criar ambiente virtual</span>
-$ python -m venv venv
-$ source venv/bin/activate  <span class="comment"># Linux/Mac</span>
-$ venv\Scripts\activate     <span class="comment"># Windows</span>
-
-<span class="comment"># 3. Instalar dependências</span>
-$ pip install flask behave pytest locust
-
-<span class="comment"># 4. Verificar que tudo funciona</span>
-$ behave                    <span class="comment"># Roda os testes BDD (Gherkin)</span>
-$ pytest tests/unit/        <span class="comment"># Roda os testes unitários</span>
-$ python app.py             <span class="comment"># Inicia o Flask na porta 5000</span>
-
-<span class="comment"># 5. Testar os endpoints no browser</span>
-<span class="comment"># http://localhost:5000/test-page          → Retry</span>
-<span class="comment"># http://localhost:5000/test-circuit-breaker → Circuit Breaker</span></code></pre>
+$ python -m venv venv && source venv/bin/activate
+$ pip install -r requirements.txt
+$ behave && pytest tests/</code></pre>
                 </div>
-                <div class="key-message" style="margin-top: 12px;">
-                    <p><strong>Dica:</strong> Se o <code>pip install</code> demorar, pode instalar só o essencial: <code>pip install flask behave pytest</code>. O Locust é opcional para os exercícios iniciais.</p>
+                <div class="key-message" style="margin-top: 8px;">
+                    <p><strong>Recomendação:</strong> Use <strong>Codespaces</strong> para evitar problemas de ambiente. O devcontainer já configura tudo: Python, dependências, extensões do VS Code e port forwarding (5000 e 8089).</p>
                 </div>
             </div>
         </section>
@@ -1159,7 +1172,7 @@ $ python app.py             <span class="comment"># Inicia o Flask na porta 5000
                         <span class="step-number">3</span>
                         <div>
                             <h4>Rodar <code>python app.py</code> e testar endpoints</h4>
-                            <p>Acesse <code>/test-page</code> e <code>/test-circuit-breaker</code>. Observe o comportamento do retry e circuit breaker no browser.</p>
+                            <p>Acesse <code>/test-page</code> e <code>/test-circuit-breaker</code>. No Codespaces, as portas são expostas automaticamente — clique no link que aparece no terminal.</p>
                         </div>
                     </div>
                     <div class="step">
@@ -1270,14 +1283,14 @@ $ python app.py             <span class="comment"># Inicia o Flask na porta 5000
                         <span class="step-number">1</span>
                         <div>
                             <h4>Iniciar Flask + Locust</h4>
-                            <p>Terminal 1: <code>python app.py</code>. Terminal 2: <code>locust -f tests/carga/locustfile.py --host=http://localhost:5000</code></p>
+                            <p>Terminal 1: <code>python app.py</code>. Terminal 2: <code>locust -f tests/carga/locustfile.py --host=http://localhost:5000</code>. No Codespaces, ambas as portas (5000 e 8089) são expostas automaticamente.</p>
                         </div>
                     </div>
                     <div class="step">
                         <span class="step-number">2</span>
                         <div>
                             <h4>Configurar e executar</h4>
-                            <p>Abrir <code>http://localhost:8089</code>. Configurar 10 users, spawn rate 5. Rodar por 30 segundos.</p>
+                            <p>Abrir a UI do Locust (porta 8089 — no Codespaces, clique no link forwarded). Configurar 10 users, spawn rate 5. Rodar por 30 segundos.</p>
                         </div>
                     </div>
                     <div class="step">
@@ -1315,7 +1328,7 @@ $ python app.py             <span class="comment"># Inicia o Flask na porta 5000
                             <span class="step-number">1</span>
                             <div>
                                 <h4>Setup do Ambiente (10 min)</h4>
-                                <p>Clonar repo, instalar deps, rodar behave e pytest</p>
+                                <p>Abrir Codespace no repo (ou clonar local), rodar behave e pytest</p>
                             </div>
                         </div>
                         <div class="step">
