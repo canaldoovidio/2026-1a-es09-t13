@@ -1099,48 +1099,57 @@ $ locust -f tests/carga/locustfile.py \
                 <h2 class="slide-title">Configuração do Ambiente</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
-                <h3 style="color: var(--inteli-purple); margin-bottom: 8px;">
-                    <span class="material-icons-outlined" style="vertical-align: middle;">cloud</span>
-                    Opção 1: GitHub Codespaces (Recomendado)
-                </h3>
-                <div class="code-example">
-                    <div class="code-header">
-                        <span class="code-lang">Codespaces</span>
-                        <span class="code-file">Setup automático via devcontainer</span>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <h3 style="color: var(--inteli-purple); margin-bottom: 6px; font-size: clamp(13px, 1.3vw, 18px);">
+                            <span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">cloud</span>
+                            Codespaces (Recomendado)
+                        </h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-lang">GitHub</span>
+                                <span class="code-file">Setup automático</span>
+                            </div>
+                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code><span class="comment"># 1. Acessar github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd</span>
+<span class="comment"># 2. Botão "Code" → "Codespaces" → "Create codespace on main"</span>
+<span class="comment"># 3. Aguardar build (Python 3.12 + deps automáticas)</span>
+<span class="comment"># 4. No terminal, tudo pronto:</span>
+$ behave                <span class="comment"># Testes BDD</span>
+$ pytest tests/         <span class="comment"># Unitários + integração</span>
+$ python app.py         <span class="comment"># Flask (porta 5000)</span>
+$ locust -f tests/carga/locustfile.py \
+    --host=http://localhost:5000  <span class="comment"># porta 8089</span></code></pre>
+                        </div>
+                        <p style="font-size: clamp(10px, 1vw, 13px); margin-top: 6px; color: var(--inteli-purple);">
+                            <strong>Portas 5000 e 8089 são expostas automaticamente</strong> — clique nos links que aparecem no terminal.
+                        </p>
                     </div>
-                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># 1. Acessar o repositório no GitHub</span>
-<span class="comment">#    https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd</span>
-
-<span class="comment"># 2. Clicar no botão verde "Code" → aba "Codespaces" → "Create codespace on main"</span>
-<span class="comment">#    O devcontainer já instala Python 3.12 + todas as dependências automaticamente!</span>
-
-<span class="comment"># 3. Quando o terminal abrir, tudo já está pronto:</span>
-$ behave                    <span class="comment"># Roda os testes BDD (Gherkin)</span>
-$ pytest tests/             <span class="comment"># Roda os testes unitários + integração</span>
-$ python app.py             <span class="comment"># Inicia o Flask (porta 5000 — auto-forwarded)</span>
-
-<span class="comment"># 4. Para Locust (porta 8089 — auto-forwarded):</span>
-$ locust -f tests/carga/locustfile.py --host=http://localhost:5000</code></pre>
-                </div>
-
-                <h3 style="color: var(--inteli-coral); margin-top: 12px; margin-bottom: 8px;">
-                    <span class="material-icons-outlined" style="vertical-align: middle;">computer</span>
-                    Opção 2: Local
-                </h3>
-                <div class="code-example">
-                    <div class="code-header">
-                        <span class="code-lang">Terminal</span>
-                        <span class="code-file">Setup manual</span>
-                    </div>
-                    <pre class="code-block code-compact" style="font-size: 11px;"><code>$ git clone https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd.git
+                    <div>
+                        <h3 style="color: var(--inteli-coral); margin-bottom: 6px; font-size: clamp(13px, 1.3vw, 18px);">
+                            <span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">computer</span>
+                            Local (Alternativa)
+                        </h3>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-lang">Terminal</span>
+                                <span class="code-file">Setup manual</span>
+                            </div>
+                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code>$ git clone https://github.com/canaldoovidio/\
+    rf-rnf-gherkin-bdd-tdd.git
 $ cd rf-rnf-gherkin-bdd-tdd
-$ python -m venv venv && source venv/bin/activate
+$ python -m venv venv
+$ source venv/bin/activate
 $ pip install -r requirements.txt
 $ behave && pytest tests/</code></pre>
+                        </div>
+                        <p style="font-size: clamp(10px, 1vw, 13px); margin-top: 6px; color: var(--inteli-coral);">
+                            Requer Python 3.10+ instalado localmente.
+                        </p>
+                    </div>
                 </div>
-                <div class="key-message" style="margin-top: 8px;">
-                    <p><strong>Recomendação:</strong> Use <strong>Codespaces</strong> para evitar problemas de ambiente. O devcontainer já configura tudo: Python, dependências, extensões do VS Code e port forwarding (5000 e 8089).</p>
+                <div class="key-message" style="margin-top: 10px;">
+                    <p style="font-size: clamp(12px, 1.1vw, 16px);"><strong>Use Codespaces</strong> para evitar problemas de ambiente. O devcontainer configura tudo: Python, dependências, extensões VS Code e port forwarding.</p>
                 </div>
             </div>
         </section>
