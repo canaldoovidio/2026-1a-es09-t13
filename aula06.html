@@ -1100,56 +1100,64 @@ $ locust -f tests/carga/locustfile.py \
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div>
-                        <h3 style="color: var(--inteli-purple); margin-bottom: 6px; font-size: clamp(13px, 1.3vw, 18px);">
-                            <span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">cloud</span>
-                            Codespaces (Recomendado)
-                        </h3>
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span class="code-lang">GitHub</span>
-                                <span class="code-file">Setup automático</span>
-                            </div>
-                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code><span class="comment"># 1. Acessar github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd</span>
-<span class="comment"># 2. Botão "Code" → "Codespaces" → "Create codespace on main"</span>
-<span class="comment"># 3. Aguardar build (Python 3.12 + deps automáticas)</span>
-<span class="comment"># 4. No terminal, tudo pronto:</span>
-$ behave                <span class="comment"># Testes BDD</span>
-$ pytest tests/         <span class="comment"># Unitários + integração</span>
-$ python app.py         <span class="comment"># Flask (porta 5000)</span>
-$ locust -f tests/carga/locustfile.py \
-    --host=http://localhost:5000  <span class="comment"># porta 8089</span></code></pre>
+                <!-- Tabs -->
+                <div style="display: flex; gap: 0; margin-bottom: 15px;">
+                    <button onclick="document.getElementById('tab-codespaces').style.display='block'; document.getElementById('tab-local').style.display='none'; this.style.background='var(--inteli-purple)'; this.style.color='white'; this.nextElementSibling.style.background='#e8e4ef'; this.nextElementSibling.style.color='var(--inteli-purple)';" style="flex: 1; padding: 10px 20px; border: none; cursor: pointer; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: clamp(12px, 1.2vw, 16px); border-radius: 8px 0 0 8px; background: var(--inteli-purple); color: white; transition: all 0.2s;">
+                        <span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">cloud</span>
+                        Codespaces (Recomendado)
+                    </button>
+                    <button onclick="document.getElementById('tab-local').style.display='block'; document.getElementById('tab-codespaces').style.display='none'; this.style.background='var(--inteli-coral)'; this.style.color='white'; this.previousElementSibling.style.background='#e8e4ef'; this.previousElementSibling.style.color='var(--inteli-purple)';" style="flex: 1; padding: 10px 20px; border: none; cursor: pointer; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: clamp(12px, 1.2vw, 16px); border-radius: 0 8px 8px 0; background: #e8e4ef; color: var(--inteli-purple); transition: all 0.2s;">
+                        <span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">computer</span>
+                        Local (Alternativa)
+                    </button>
+                </div>
+
+                <!-- Tab 1: Codespaces -->
+                <div id="tab-codespaces" style="display: block;">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">GitHub Codespaces</span>
+                            <span class="code-file">Setup automático via devcontainer</span>
                         </div>
-                        <p style="font-size: clamp(10px, 1vw, 13px); margin-top: 6px; color: var(--inteli-purple);">
-                            <strong>Portas 5000 e 8089 são expostas automaticamente</strong> — clique nos links que aparecem no terminal.
-                        </p>
+                        <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># 1. Acessar github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd</span>
+<span class="comment"># 2. Botão verde "Code" → aba "Codespaces" → "Create codespace on main"</span>
+<span class="comment"># 3. Aguardar build — Python 3.12 + dependências instaladas automaticamente</span>
+
+<span class="comment"># 4. No terminal, tudo já está pronto:</span>
+$ behave                    <span class="comment"># Roda os testes BDD (Gherkin)</span>
+$ pytest tests/             <span class="comment"># Roda testes unitários + integração</span>
+$ python app.py             <span class="comment"># Inicia o Flask (porta 5000)</span>
+$ locust -f tests/carga/locustfile.py --host=http://localhost:5000  <span class="comment"># Locust (porta 8089)</span></code></pre>
                     </div>
-                    <div>
-                        <h3 style="color: var(--inteli-coral); margin-bottom: 6px; font-size: clamp(13px, 1.3vw, 18px);">
-                            <span class="material-icons-outlined" style="vertical-align: middle; font-size: 18px;">computer</span>
-                            Local (Alternativa)
-                        </h3>
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span class="code-lang">Terminal</span>
-                                <span class="code-file">Setup manual</span>
-                            </div>
-                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code>$ git clone https://github.com/canaldoovidio/\
-    rf-rnf-gherkin-bdd-tdd.git
-$ cd rf-rnf-gherkin-bdd-tdd
-$ python -m venv venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt
-$ behave && pytest tests/</code></pre>
-                        </div>
-                        <p style="font-size: clamp(10px, 1vw, 13px); margin-top: 6px; color: var(--inteli-coral);">
-                            Requer Python 3.10+ instalado localmente.
-                        </p>
+                    <div class="key-message" style="margin-top: 12px;">
+                        <p><strong>Portas 5000 (Flask) e 8089 (Locust) são expostas automaticamente</strong> — clique nos links que aparecem no terminal do Codespace.</p>
                     </div>
                 </div>
-                <div class="key-message" style="margin-top: 10px;">
-                    <p style="font-size: clamp(12px, 1.1vw, 16px);"><strong>Use Codespaces</strong> para evitar problemas de ambiente. O devcontainer configura tudo: Python, dependências, extensões VS Code e port forwarding.</p>
+
+                <!-- Tab 2: Local -->
+                <div id="tab-local" style="display: none;">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Terminal</span>
+                            <span class="code-file">Setup manual — requer Python 3.10+</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># 1. Clonar o repositório</span>
+$ git clone https://github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd.git
+$ cd rf-rnf-gherkin-bdd-tdd
+
+<span class="comment"># 2. Criar ambiente virtual e instalar dependências</span>
+$ python -m venv venv
+$ source venv/bin/activate       <span class="comment"># Linux/Mac</span>
+$ pip install -r requirements.txt
+
+<span class="comment"># 3. Verificar que tudo funciona</span>
+$ behave                         <span class="comment"># Testes BDD</span>
+$ pytest tests/                  <span class="comment"># Unitários + integração</span>
+$ python app.py                  <span class="comment"># Flask na porta 5000</span></code></pre>
+                    </div>
+                    <div class="key-message" style="margin-top: 12px;">
+                        <p><strong>Dica:</strong> Se tiver problemas com dependências, use o <strong>Codespaces</strong> — é mais rápido e já vem tudo configurado.</p>
+                    </div>
                 </div>
             </div>
         </section>
