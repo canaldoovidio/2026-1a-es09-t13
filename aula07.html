@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicar no Projeto: RF e RNF como Código de Aferição de Qualidade | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 25</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             ABERTURA (Slides 1-4)
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | Módulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 07</span>
+                </div>
+                <h1 class="cover-title">Aplicar no Projeto<br>RF e RNF como Código de Aferição de Qualidade</h1>
+                <h2 class="cover-subtitle">Táticas, Mecanismos, Massa de Testes,<br>Simulação e Integração</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Março de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: RECAP -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Onde Estamos na Jornada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4>Aula 01</h4>
+                        <p>Visões RM-ODP</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 02</h4>
+                        <p>BD como Código</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">build</span></div>
+                        <h4>Aula 03</h4>
+                        <p>Ponderada 1: Lab</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">support_agent</span></div>
+                        <h4>Aula 04</h4>
+                        <p>Mocks + Suporte</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Aula 05</h4>
+                        <p>BDD + Robustez</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">hub</span></div>
+                        <h4>Aula 06</h4>
+                        <p>BDD + Integração</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon"><span class="material-icons-outlined">rocket_launch</span></div>
+                        <h4>Aula 07 (Hoje)</h4>
+                        <p>Aplicar no Projeto</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Hoje cada grupo sai com artefatos concretos:</strong> features BDD, testes e mapeamento RF/RNF do ASIS. É hora de transferir o que praticamos no repo de referência para o projeto real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Mapear RF e RNF do ASIS</h3>
+                    <p>Identificar requisitos funcionais e não funcionais do projeto ASIS e classificá-los por tipo, tática e mecanismo</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Aplicar Táticas e Mecanismos</h3>
+                    <p>Conectar táticas arquiteturais (Resistir, Detectar, Recuperar) com mecanismos concretos (Circuit Breaker, Retry, Timeout)</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Projetar Massa de Testes e Simulação</h3>
+                    <p>Criar cenários de happy path, edge cases e failure com MagicMock, stubs e Locust</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">04</div>
+                    <h3>Codificar Testes de Integração</h3>
+                    <p>Escrever features BDD e steps para integrações internas (módulo-módulo) e externas (SEFAZ, BACEN, Gateway)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: CONEXÃO COM AUTOESTUDO -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <span class="section-tag">PONTE</span>
+                <h2 class="slide-title">Conexão com o Autoestudo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">monitor_heart</span></div>
+                        <h4>SRE Prep Guide</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Disponibilidade, latência, error budgets. Como SREs pensam em confiabilidade &mdash; aplicamos isso como RNFs verificáveis.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">menu_book</span></div>
+                        <h4>Pressman pp. 357-363</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Formalizar RNFs verificáveis: métricas, limites, condições de aceitação. Cada RNF precisa de um número e um teste.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">account_tree</span></div>
+                        <h4>Lenn Bass &mdash; Integrabilidade</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Limit Dependencies / Adapt / Coordinate. As 3 categorias de táticas que reduzem custo de integração.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">analytics</span></div>
+                        <h4>SRE Project Examples</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">SLIs/SLOs como testes automatizados. Indicadores de nível de serviço viram assertivas no código.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Esses materiais fundamentam o que faremos hoje:</strong> transformar conceitos de qualidade (SRE, Pressman, Bass) em código executável no projeto ASIS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 1: Framework de Aplicação (Slides 5-10)
+             ============================================= -->
+
+        <!-- SLIDE 5: DIVISOR -->
+        <section class="slide slide-section" data-slide="5">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Do Repo de Referência ao Projeto ASIS</h2>
+                <p class="section-description">Framework para transferir padrões de qualidade ao projeto real</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: FRAMEWORK RF → CÓDIGO -->
+        <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">FRAMEWORK</span>
+                <h2 class="slide-title">RF &rarr; Código: 4 Passos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 15px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
+                        <h4>1. RF</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Regra de negócio do ASIS: cálculo de frete, emissão NF-e, rastreamento</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">edit_note</span></div>
+                        <h4>2. Cenário Gherkin</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Dado/Quando/Então descrevendo o comportamento esperado</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">terminal</span></div>
+                        <h4>3. Step Definition</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Função Python @given/@when/@then que implementa o cenário</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 200px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">verified</span></div>
+                        <h4>4. Assertiva</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">assert que verifica o resultado &mdash; a regra de negócio vira teste executável</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Referência:</strong> No repo, <code>detect_deviation.feature</code> segue exatamente esse fluxo. RF = "detectar desvio > 6 km" &rarr; Cenário Gherkin &rarr; Steps &rarr; <code>assert deviation_detected is True</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: FRAMEWORK RNF → CÓDIGO -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">FRAMEWORK</span>
+                <h2 class="slide-title">RNF &rarr; Código: 5 Dimensões</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 10px; flex-wrap: wrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">security</span></div>
+                        <h4>1. RNF</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Atributo de qualidade: disponibilidade 99.9%, latência &lt; 200ms</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">shield</span></div>
+                        <h4>2. Tática</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Resistir, Detectar, Recuperar (Bass/Pressman)</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">settings</span></div>
+                        <h4>3. Mecanismo</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Circuit Breaker, Retry, Timeout, Bulkhead</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>4. Simulação</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">MagicMock, Stubs, Locust + Massa de Testes</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">check_circle</span></div>
+                        <h4>5. Teste</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">BDD + pytest que afere o atributo de qualidade</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px;">
+                    <p><strong>Referência:</strong> No repo, <code>circuit_breaker.feature</code> e <code>retry_resilience.feature</code> seguem esse fluxo. RNF = "resiliência a falhas" &rarr; Tática Recuperar &rarr; Mecanismo Circuit Breaker &rarr; Mock + cenários &rarr; Teste BDD.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: EXEMPLO DO REPO AO ASIS -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO</span>
+                <h2 class="slide-title">Do Repo ao ASIS &mdash; Adaptando Circuit Breaker</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin (Repo)</span>
+                            <span class="code-file">features/circuit_breaker.feature</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># language: pt</span>
+
+<span class="keyword">Funcionalidade:</span> <span class="class-name">Circuit Breaker para
+  Integração Externa</span>
+
+  <span class="keyword">Cenário:</span> Circuito abre quando serviço falha
+    <span class="keyword">Dado</span> que o circuit breaker está no
+      estado "closed"
+    <span class="keyword">E</span> o serviço externo está falhando
+      com delay acima de 1000ms
+    <span class="keyword">Quando</span> uma chamada é feita ao
+      serviço externo
+    <span class="keyword">Então</span> a chamada falha com exceção
+    <span class="keyword">E</span> o circuit breaker muda para
+      o estado "open"</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin (ASIS)</span>
+                            <span class="code-file">Adaptação para integração SEFAZ</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="comment"># language: pt</span>
+
+<span class="keyword">Funcionalidade:</span> <span class="class-name">Circuit Breaker para
+  Integração com SEFAZ</span>
+
+  <span class="decorator">@rnf</span> <span class="decorator">@resiliência</span>
+  <span class="keyword">Cenário:</span> Circuito abre quando SEFAZ
+    está indisponível
+    <span class="keyword">Dado</span> que o circuit breaker da SEFAZ
+      está no estado "closed"
+    <span class="keyword">E</span> a SEFAZ está retornando
+      timeout acima de 1000ms
+    <span class="keyword">Quando</span> o sistema tenta emitir
+      uma NF-e
+    <span class="keyword">Então</span> a emissão falha com exceção
+    <span class="keyword">E</span> o circuit breaker muda para
+      o estado "open"</code></pre>
+                    </div>
+                </div>
+                <div class="code-connection">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Padrão de adaptação:</strong> Mantenha a estrutura (Given/When/Then + estados do CB). Troque o "serviço externo genérico" pelo serviço real do ASIS (SEFAZ, BACEN, Gateway). Adicione tags <code>@rnf @resiliência</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: MASSA DE TESTES -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="section-tag">MASSA DE TESTES</span>
+                <h2 class="slide-title">3 Categorias de Massa de Testes</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">sentiment_satisfied</span></div>
+                        <h4 style="color: var(--inteli-dark-green);">Happy Path</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 8px;">Caminho feliz &mdash; tudo funciona como esperado.</p>
+                        <div style="background: #f0f7f0; padding: 8px; border-radius: 6px; margin-top: 10px;">
+                            <code style="font-size: 11px; color: var(--inteli-dark-green);">test_no_deviation_detected</code>
+                            <p style="font-size: 10px; margin-top: 4px; color: #666;">Distâncias abaixo de 6 km &rarr; sem alerta</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">warning</span></div>
+                        <h4 style="color: var(--inteli-lilac);">Edge Cases</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 8px;">Casos de borda &mdash; limites do comportamento.</p>
+                        <div style="background: #f3f0f7; padding: 8px; border-radius: 6px; margin-top: 10px;">
+                            <code style="font-size: 11px; color: var(--inteli-lilac);">test_analyzer_detects_only_once</code>
+                            <p style="font-size: 10px; margin-top: 4px; color: #666;">6 updates com desvio &rarr; alerta disparado só 1x</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">error</span></div>
+                        <h4 style="color: var(--inteli-coral);">Failure</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 8px;">Cenários de falha &mdash; como o sistema reage.</p>
+                        <div style="background: #fdf0ee; padding: 8px; border-radius: 6px; margin-top: 10px;">
+                            <code style="font-size: 11px; color: var(--inteli-coral);">circuit_breaker cenários 2-3</code>
+                            <p style="font-size: 10px; margin-top: 4px; color: #666;">Serviço falha &rarr; CB abre &rarr; rejeita chamadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Cada integração do ASIS precisa das 3 categorias.</strong> Não basta testar o happy path &mdash; edge cases e failure scenarios revelam fragilidades que só aparecem em produção.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: SIMULAÇÃO -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <span class="section-tag">SIMULAÇÃO</span>
+                <h2 class="slide-title">Mocks, Stubs e Carga</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(13px, 1.3vw, 16px);">MagicMock (Unitário)</h4>
+                        <div class="code-example" style="margin-top: 8px;">
+                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code>mock_optimizer = MagicMock()
+analyzer = DeviationAnalyzer(
+    route_optimizer=mock_optimizer)
+
+<span class="comment"># Verifica integração</span>
+mock_optimizer.request_alternative \
+    .assert_called_once()</code></pre>
+                        </div>
+                        <p style="font-size: 10px; color: #666; margin-top: 6px;"><strong>ASIS:</strong> Mockar SEFAZ com <code>side_effect = TimeoutError</code></p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(13px, 1.3vw, 16px);">Stub/Fake (Integração)</h4>
+                        <div class="code-example" style="margin-top: 8px;">
+                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code><span class="comment"># Sem dependência real</span>
+analyzer = DeviationAnalyzer(
+    route_optimizer=None)
+
+<span class="comment"># Degradação graciosa</span>
+assert analyzer.deviation_detected
+assert analyzer.notification_sent</code></pre>
+                        </div>
+                        <p style="font-size: 10px; color: #666; margin-top: 6px;"><strong>ASIS:</strong> Stub BACEN retornando resposta fixa</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(13px, 1.3vw, 16px);">Locust (Carga)</h4>
+                        <div class="code-example" style="margin-top: 8px;">
+                            <pre class="code-block code-compact" style="font-size: 10px; padding: 8px;"><code>@task(2)
+def test_retry_example(self):
+    self.client.get(
+        "/retry-example",
+        catch_response=True)
+
+<span class="comment"># 50 users, 30 segundos</span></code></pre>
+                        </div>
+                        <p style="font-size: 10px; color: #666; margin-top: 6px;"><strong>ASIS:</strong> Locust em endpoints de rastreamento e NF-e</p>
+                    </div>
+                </div>
+                <div class="code-connection" style="margin-top: 10px;">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Espectro de simulação:</strong> Mock (isola unitário) &rarr; Stub (simula integração) &rarr; Locust (simula carga real). Use os 3 no ASIS para cobrir todas as dimensões.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: Exercícios Guiados (Slides 11-18)
+             ============================================= -->
+
+        <!-- SLIDE 11: DIVISOR -->
+        <section class="slide slide-section" data-slide="11">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">Mãos na Massa &mdash; Aplicar no Projeto ASIS</h2>
+                <p class="section-description">5 exercícios guiados + 60 minutos de workshop</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: EXERCÍCIO 1 — MAPEAMENTO RF/RNF -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 1</span>
+                <h2 class="slide-title">Mapeamento RF/RNF do ASIS</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(10px, 1vw, 13px);">
+                        <thead>
+                            <tr style="background: var(--inteli-purple); color: white;">
+                                <th style="padding: 8px 10px; text-align: left; border-radius: 8px 0 0 0;">Requisito</th>
+                                <th style="padding: 8px 10px; text-align: center;">Tipo</th>
+                                <th style="padding: 8px 10px; text-align: left;">Tática</th>
+                                <th style="padding: 8px 10px; text-align: left;">Mecanismo</th>
+                                <th style="padding: 8px 10px; text-align: center;">Tipo de Teste</th>
+                                <th style="padding: 8px 10px; text-align: left; border-radius: 0 8px 0 0;">Massa de Testes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Emitir NF-e via SEFAZ</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: var(--inteli-coral); font-weight: 600;">RF</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Encapsulate + Use Intermediary</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Circuit Breaker + Timeout</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center;">BDD + Integração</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">NF-e válida, XML inválido, SEFAZ offline</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Disponibilidade 99.9%</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: var(--inteli-lilac); font-weight: 600;">RNF</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Recuperar + Detectar</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Retry + Healthcheck</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center;">Carga + Monitor</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">100 req/s por 5 min, falha em cascata</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">Preencher...</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: #999;">?</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">?</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">?</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: #999;">?</td>
+                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">?</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 10px; color: #999; font-style: italic;">Preencher...</td>
+                                <td style="padding: 8px 10px; text-align: center; color: #999;">?</td>
+                                <td style="padding: 8px 10px; color: #999; font-style: italic;">?</td>
+                                <td style="padding: 8px 10px; color: #999; font-style: italic;">?</td>
+                                <td style="padding: 8px 10px; text-align: center; color: #999;">?</td>
+                                <td style="padding: 8px 10px; color: #999; font-style: italic;">?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Tarefa:</strong> Complete a tabela com pelo menos 2 requisitos adicionais do projeto ASIS. Pense em integrações internas (módulo-módulo) e externas (SEFAZ, BACEN, Gateway).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: EXERCÍCIO 2 — FEATURE BDD PARA RF -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 2</span>
+                <h2 class="slide-title">Feature BDD para RF do ASIS</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Template Gherkin</span>
+                        <span class="code-file">features/rf_asis.feature</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># language: pt</span>
+
+<span class="keyword">Funcionalidade:</span> <span class="string">[RF do ASIS — ex: Cálculo de Frete]</span>
+  <span class="comment">Como</span> <span class="string">um sistema de logística</span>
+  <span class="comment">Quero</span> <span class="string">[calcular frete / rastrear entrega / emitir NF-e]</span>
+  <span class="comment">Para</span> <span class="string">[garantir que a regra de negócio funciona corretamente]</span>
+
+  <span class="decorator">@rf</span> <span class="decorator">@sucesso</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Caminho feliz]</span>
+    <span class="keyword">Dado</span> <span class="string">[pré-condição com dados válidos]</span>
+    <span class="keyword">Quando</span> <span class="string">[ação principal do RF]</span>
+    <span class="keyword">Então</span> <span class="string">[resultado esperado]</span>
+
+  <span class="decorator">@rf</span> <span class="decorator">@borda</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Caso de borda — limites]</span>
+    <span class="keyword">Dado</span> <span class="string">[pré-condição com dados no limite]</span>
+    <span class="keyword">Quando</span> <span class="string">[mesma ação]</span>
+    <span class="keyword">Então</span> <span class="string">[comportamento esperado na borda]</span>
+
+  <span class="decorator">@rf</span> <span class="decorator">@falha</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Dados inválidos]</span>
+    <span class="keyword">Dado</span> <span class="string">[pré-condição com dados inválidos]</span>
+    <span class="keyword">Quando</span> <span class="string">[mesma ação]</span>
+    <span class="keyword">Então</span> <span class="string">[erro tratado corretamente]</span></code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 10px;">
+                    <p><strong>Sugestões de RF:</strong> Cálculo de frete por distância/peso, rastreamento de entrega em tempo real, emissão de NF-e, registro de ocorrência de entrega.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: EXERCÍCIO 3 — FEATURE BDD PARA RNF -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 3</span>
+                <h2 class="slide-title">Feature BDD para RNF do ASIS</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Template Gherkin</span>
+                        <span class="code-file">features/rnf_asis.feature</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># language: pt</span>
+
+<span class="keyword">Funcionalidade:</span> <span class="string">[RNF do ASIS — ex: Resiliência na Integração SEFAZ]</span>
+  <span class="comment">Como</span> <span class="string">um sistema que depende de serviços externos</span>
+  <span class="comment">Quero</span> <span class="string">[garantir resiliência / performance / disponibilidade]</span>
+  <span class="comment">Para</span> <span class="string">[manter qualidade de serviço sob condições adversas]</span>
+
+  <span class="decorator">@rnf</span> <span class="decorator">@resiliência</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Mecanismo ativa sob falha]</span>
+    <span class="keyword">Dado</span> <span class="string">[serviço externo com comportamento normal]</span>
+    <span class="keyword">Quando</span> <span class="string">[serviço começa a falhar]</span>
+    <span class="keyword">Então</span> <span class="string">[mecanismo de resiliência é ativado]</span>
+
+  <span class="decorator">@rnf</span> <span class="decorator">@falha</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Sistema degrada graciosamente]</span>
+    <span class="keyword">Dado</span> <span class="string">[serviço completamente indisponível]</span>
+    <span class="keyword">Quando</span> <span class="string">[requisição chega ao sistema]</span>
+    <span class="keyword">Então</span> <span class="string">[resposta de fallback é retornada]</span>
+
+  <span class="decorator">@rnf</span> <span class="decorator">@recuperação</span>
+  <span class="keyword">Cenário:</span> <span class="string">[Sistema recupera após falha]</span>
+    <span class="keyword">Dado</span> <span class="string">[serviço voltou a responder]</span>
+    <span class="keyword">Quando</span> <span class="string">[nova requisição é feita]</span>
+    <span class="keyword">Então</span> <span class="string">[sistema volta ao estado normal]</span></code></pre>
+                </div>
+                <div class="code-connection" style="margin-top: 10px;">
+                    <span class="material-icons-outlined">info</span>
+                    <p><strong>RF testa REGRA DE NEGÓCIO.</strong> RNF testa <strong>ATRIBUTO DE QUALIDADE sob condições adversas.</strong> O RF pergunta "funciona?", o RNF pergunta "funciona bem, rápido e sem quebrar?"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: EXERCÍCIO 4 — STEPS COM MAGICMOCK -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 4</span>
+                <h2 class="slide-title">Steps com MagicMock</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+                <div class="activity-steps" style="margin-bottom: 15px;">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <h4>Criar arquivo de steps</h4>
+                            <p>Em <code>features/steps/</code>, criar <code>rnf_asis_steps.py</code> com <code>@given</code>, <code>@when</code>, <code>@then</code></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <h4>Mockar dependências externas</h4>
+                            <p>Usar <code>MagicMock(side_effect=TimeoutError)</code> para simular SEFAZ indisponível</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <h4>Rodar <code>behave</code></h4>
+                            <p>Executar e verificar que todos os cenários passam (verde)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python</span>
+                        <span class="code-file">features/steps/rnf_asis_steps.py (exemplo)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">from</span> behave <span class="keyword">import</span> given, when, then
+<span class="keyword">from</span> unittest.mock <span class="keyword">import</span> MagicMock
+
+<span class="decorator">@given</span>(<span class="string">'que o serviço SEFAZ está indisponível'</span>)
+<span class="keyword">def</span> <span class="function">step_sefaz_down</span>(context):
+    context.mock_sefaz = MagicMock()
+    context.mock_sefaz.emitir_nfe.side_effect = TimeoutError(<span class="string">"SEFAZ timeout"</span>)
+    context.nfe_service = NFEService(sefaz_client=context.mock_sefaz)
+
+<span class="decorator">@when</span>(<span class="string">'o sistema tenta emitir uma NF-e'</span>)
+<span class="keyword">def</span> <span class="function">step_try_emit</span>(context):
+    context.result = context.nfe_service.emitir(nota_data={<span class="string">"cnpj"</span>: <span class="string">"123"</span>})
+
+<span class="decorator">@then</span>(<span class="string">'o circuit breaker muda para o estado "open"'</span>)
+<span class="keyword">def</span> <span class="function">step_assert_cb_open</span>(context):
+    <span class="keyword">assert</span> context.nfe_service.circuit_state == <span class="string">"open"</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: EXERCÍCIO 5 — TESTE DE CARGA -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="activity-tag">EXERCÍCIO 5</span>
+                <h2 class="slide-title">Teste de Carga para o ASIS</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-lang">Python</span>
+                        <span class="code-file">tests/carga/locustfile_asis.py (adaptação)</span>
+                    </div>
+                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser, task, between
+
+<span class="keyword">class</span> <span class="class-name">ASISUser</span>(HttpUser):
+    wait_time = between(<span class="number">1</span>, <span class="number">3</span>)  <span class="comment"># Simula intervalo entre ações do usuário</span>
+
+    <span class="decorator">@task</span>(<span class="number">3</span>)  <span class="comment"># Peso 3 — rastreamento é a operação mais frequente</span>
+    <span class="keyword">def</span> <span class="function">rastrear_entrega</span>(self):
+        <span class="keyword">with</span> self.client.get(<span class="string">"/api/entregas/CX123/rastreio"</span>,
+                             catch_response=<span class="keyword">True</span>) <span class="keyword">as</span> response:
+            <span class="keyword">if</span> response.status_code != <span class="number">200</span>:
+                response.failure(f<span class="string">"Status: {response.status_code}"</span>)
+            <span class="keyword">else</span>:
+                response.success()
+
+    <span class="decorator">@task</span>(<span class="number">1</span>)  <span class="comment"># Peso 1 — emissão de NF-e é menos frequente</span>
+    <span class="keyword">def</span> <span class="function">emitir_nfe</span>(self):
+        <span class="keyword">with</span> self.client.post(<span class="string">"/api/nfe/emitir"</span>,
+                              json={<span class="string">"cnpj"</span>: <span class="string">"12345678000199"</span>},
+                              catch_response=<span class="keyword">True</span>) <span class="keyword">as</span> response:
+            <span class="keyword">if</span> response.status_code != <span class="number">201</span>:
+                response.failure(f<span class="string">"Status: {response.status_code}"</span>)
+            <span class="keyword">else</span>:
+                response.success()</code></pre>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Defina os pesos pela frequência real de uso.</strong> No ASIS, rastreamento acontece ~3x mais que emissão de NF-e. Os pesos do Locust devem refletir isso para simular carga realista.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: TIMER DE WORKSHOP -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="activity-tag">WORKSHOP</span>
+                <h2 class="slide-title">Tempo de Trabalho em Grupo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="activity-instructions">
+                    <div class="timer-container">
+                        <div class="timer" id="timer-workshop">
+                            <span class="timer-value">60:00</span>
+                            <span class="timer-label">Tempo restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-workshop', 3600)">
+                            <span class="material-icons-outlined">play_arrow</span>
+                            Iniciar Timer
+                        </button>
+                    </div>
+                    <div class="activity-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h4>Exercício 1 &mdash; Mapeamento RF/RNF (10 min)</h4>
+                                <p>Preencher tabela com requisitos do ASIS, táticas e mecanismos</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h4>Exercício 2 &mdash; Feature BDD para RF (10 min)</h4>
+                                <p>Criar .feature com cenários @sucesso, @borda e @falha</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h4>Exercício 3 &mdash; Feature BDD para RNF (10 min)</h4>
+                                <p>Criar .feature com cenários @resiliência, @falha e @recuperação</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div>
+                                <h4>Exercício 4 &mdash; Steps com MagicMock (15 min)</h4>
+                                <p>Implementar steps mockando SEFAZ/BACEN e rodar behave</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <div>
+                                <h4>Exercício 5 &mdash; Teste de Carga (10 min) + Validação (5 min)</h4>
+                                <p>Adaptar locustfile para ASIS e preparar apresentação</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: DICAS DO INSTRUTOR -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">DICAS</span>
+                <h2 class="slide-title">Dicas do Instrutor</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">map</span></div>
+                        <h4>Comece pelo Mapeamento</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Antes de escrever código, mapeie os requisitos na tabela do Exercício 1. Isso dá clareza sobre o que testar.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">content_copy</span></div>
+                        <h4>Use o Repo como Modelo</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Copie a estrutura das features e testes do repo de referência. Adapte nomes e contexto para o ASIS.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Mock Primeiro, Integre Depois</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Comece mockando tudo. Depois substitua mocks por integrações reais gradualmente. Isso mantém os testes rápidos.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">architecture</span></div>
+                        <h4>Tática Antes de Mecanismo</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Primeiro decida a tática (Resistir? Detectar? Recuperar?). Depois escolha o mecanismo (CB, Retry, Timeout). A tática guia a escolha.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ENCERRAMENTO (Slides 19-25)
+             ============================================= -->
+
+        <!-- SLIDE 19: DIVISOR -->
+        <section class="slide slide-section" data-slide="19">
+            <div class="section-content">
+                <span class="section-number">ENCERRAMENTO</span>
+                <h2 class="section-title">Compartilhamento e Validação</h2>
+                <p class="section-description">Apresentação dos artefatos produzidos pelos grupos</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: APRESENTAÇÃO DOS GRUPOS -->
+        <section class="slide slide-content" data-slide="20">
+            <div class="slide-header">
+                <span class="activity-tag">COMPARTILHAMENTO</span>
+                <h2 class="slide-title">Apresentação dos Grupos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Cada grupo apresenta (5 min):</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>1. Mapeamento RF/RNF (tabela preenchida)</p>
+                            <p>2. Feature BDD para RF (cenários @sucesso/@borda/@falha)</p>
+                            <p>3. Feature BDD para RNF (cenários @resiliência/@recuperação)</p>
+                            <p>4. Steps com MagicMock (código e resultado)</p>
+                            <p>5. Design do teste de carga (pesos e endpoints)</p>
+                        </div>
+                    </div>
+                    <div class="concept-card" style="min-height: 200px;">
+                        <h4 style="color: var(--inteli-coral);">Critérios de Feedback:</h4>
+                        <div style="font-size: clamp(13px, 1.3vw, 17px); line-height: 1.8; margin-top: 10px;">
+                            <p>O mapeamento cobre RF e RNF?</p>
+                            <p>As táticas fazem sentido para o cenário?</p>
+                            <p>A massa cobre happy path, borda e falha?</p>
+                            <p>O mock simula o serviço correto?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 21: CHECKLIST -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <span class="section-tag">CHECKLIST</span>
+                <h2 class="slide-title">Checklist &mdash; O que Vocês Devem Saber Fazer</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Mapear RF em Cenário BDD</h4>
+                            <p>Regra de negócio &rarr; Feature Gherkin com cenários @sucesso, @borda, @falha executáveis</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Mapear RNF em Teste com Mecanismo</h4>
+                            <p>Atributo de qualidade &rarr; Tática &rarr; Mecanismo (Circuit Breaker, Retry) &rarr; Teste BDD</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Projetar Massa de Testes (3 Categorias)</h4>
+                            <p>Happy path + Edge cases + Failure scenarios para cada integração do projeto</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Simular Integrações com Mocks</h4>
+                            <p>MagicMock para isolar dependências, stubs para degradação graciosa, Locust para carga</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Conectar com Táticas de Bass/Pressman</h4>
+                            <p>Resistir, Detectar, Recuperar + Limit Dependencies, Adapt, Coordinate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 22: SÍNTESE VISUAL -->
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <span class="section-tag">SÍNTESE</span>
+                <h2 class="slide-title">As 5 Dimensões da Aferição de Qualidade</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 12px; flex-wrap: wrap;">
+                    <div class="jmeter-step" style="flex: 1; min-width: 155px; max-width: 175px; border-color: var(--inteli-lilac);">
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(13px, 1.3vw, 16px);">Táticas</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Resistir, Detectar<br>Recuperar<br>Limit Dependencies</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 155px; max-width: 175px; border-color: var(--inteli-coral);">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(13px, 1.3vw, 16px);">Mecanismos</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Circuit Breaker<br>Retry, Timeout<br>Bulkhead</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 155px; max-width: 175px; border-color: var(--inteli-green);">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(13px, 1.3vw, 16px);">Massa de Testes</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Happy Path<br>Edge Cases<br>Failure Scenarios</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 155px; max-width: 175px; border-color: var(--inteli-purple);">
+                        <h4 style="color: var(--inteli-purple); font-size: clamp(13px, 1.3vw, 16px);">Simulação</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">MagicMock<br>Stubs/Fakes<br>Locust (carga)</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; min-width: 155px; max-width: 175px;">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(13px, 1.3vw, 16px);">Integração</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px);">Interna (módulo)<br>Externa (SEFAZ)<br>End-to-end</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>RF/RNF + Tática + Mecanismo + Massa + Simulação = Qualidade aferida como código.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 23: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="23">
+            <div class="slide-header">
+                <span class="section-tag">PRÓXIMOS PASSOS</span>
+                <h2 class="slide-title">O que Vem Depois</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">school</span></div>
+                        <h4>Aula 08: Estudo de Caso de RNF e RF como Código</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Exercitar em casos práticos &mdash; aprofundar os padrões que aplicamos hoje com cenários mais complexos.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">assignment</span></div>
+                        <h4>O que Entregar</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Mapeamento completo RF/RNF, features BDD com steps, testes de integração executáveis, design do teste de carga.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">menu_book</span></div>
+                        <h4>Leituras de Apoio</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Revisar SRE Prep Guide (SLIs/SLOs), Pressman pp. 357-363 (RNFs verificáveis), Lenn Bass (Integrabilidade).</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">laptop_chromebook</span></div>
+                        <h4>Continuar no Repo</h4>
+                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Experimentar com o repo de referência. Adicionar novas features, explorar circuit_breaker.feature e retry_resilience.feature.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 24: REFERÊNCIAS -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="section-tag">REFERÊNCIAS</span>
+                <h2 class="slide-title">Materiais de Referência</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">terminal</span>
+                        <div>
+                            <h4>SRE Interview Prep Guide</h4>
+                            <p>github.com/mxssl/sre-interview-prep-guide &mdash; Disponibilidade, latência, error budgets, SLIs/SLOs</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <div>
+                            <h4>Pressman &mdash; Engenharia de Software</h4>
+                            <p>Capítulo sobre Requisitos Não Funcionais, pp. 357-363. Formalização de RNFs verificáveis.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">account_tree</span>
+                        <div>
+                            <h4>Lenn Bass &mdash; Integrabilidade</h4>
+                            <p>Limit Dependencies / Adapt / Coordinate. Táticas para reduzir custo de integração.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">code</span>
+                        <div>
+                            <h4>Repo de Referência</h4>
+                            <p>github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd &mdash; Behave, pytest, Locust, Circuit Breaker, Retry</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">verified</span>
+                        <div>
+                            <h4>ISO/IEC 25010</h4>
+                            <p>Modelo de qualidade de produto de software: funcionalidade, performance, segurança, confiabilidade, manutenibilidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 25: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="25">
+            <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
+                <div class="closing-quote" style="margin-bottom: 0;">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>Requisito não testado é requisito não verificado.<br>Requisito não verificado é <strong>risco.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>RF &rarr; Gherkin &rarr; Step &rarr; Assert</li>
+                            <li>RNF &rarr; Tática &rarr; Mecanismo &rarr; Teste</li>
+                            <li>Massa: Feliz + Borda + Falha</li>
+                            <li>Simulação: Mock &rarr; Stub &rarr; Carga</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
