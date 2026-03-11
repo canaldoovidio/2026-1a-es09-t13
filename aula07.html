@@ -25,7 +25,7 @@
         <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
             <span class="material-icons-outlined">arrow_back</span>
         </button>
-        <span class="slide-counter" id="slideCounter">1 / 25</span>
+        <span class="slide-counter" id="slideCounter">1 / 103</span>
         <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
             <span class="material-icons-outlined">arrow_forward</span>
         </button>
@@ -190,12 +190,127 @@
             </div>
         </section>
 
-        <!-- =============================================
+        
+        
+        <!-- SLIDE 4: VÍDEO CONCEITUAL -->
+        <section class="slide slide-content" data-slide="5">
+            <div class="slide-header">
+                <span class="section-tag">FUNDAMENTAÇÃO</span>
+                <h2 class="slide-title">Elicitação: O que o cliente quer vs. O que ele precisa</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <iframe width="850" height="420" src="https://www.youtube.com/embed/BKorP55Aqvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; box-shadow: 0 10px 30px rgba(46,38,64,0.2);"></iframe>
+                <div class="key-message" style="width: 850px; margin-top: 15px;">
+                    <p style="font-size: 15px;"><strong>Assista e reflita:</strong> O vídeo "The Expert" ilustra como requisitos mal definidos geram soluções impossíveis. Na engenharia de software, se você não distingue o que o sistema <b>faz</b> (RF) de como ele <b>se comporta</b> (RNF), o projeto falha.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: RF vs RNF - DEFINIÇÕES TANGÍVEIS -->
+        <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">CONCEITO</span>
+                <h2 class="slide-title">RF vs. RNF: Como diferenciar?</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="evolution-comparison" style="margin-bottom: 20px;">
+                    <div class="evolution-new" style="border: 2px solid var(--inteli-coral); background: #fff;">
+                        <h3 style="color: var(--inteli-coral);"><span class="material-icons-outlined">settings</span> Requisito Funcional (RF)</h3>
+                        <p style="font-size: 14px; color: #666; font-weight: 600;">O "O QUÊ": Funcionalidades e comportamentos do negócio.</p>
+                        <ul style="margin-top: 10px;">
+                            <li>"O sistema deve calcular o ICMS automaticamente."</li>
+                            <li>"O usuário deve emitir a NF-e via SEFAZ."</li>
+                            <li>"Deve ser possível rastrear a entrega pelo ID."</li>
+                        </ul>
+                    </div>
+                    <div class="evolution-arrow"><span class="material-icons-outlined">compare_arrows</span></div>
+                    <div class="evolution-new" style="border: 2px solid var(--inteli-lilac); background: #fff;">
+                        <h3 style="color: var(--inteli-lilac);"><span class="material-icons-outlined">speed</span> Requisito Não Funcional (RNF)</h3>
+                        <p style="font-size: 14px; color: #666; font-weight: 600;">O "COMO": Atributos de qualidade e restrições técnicas.</p>
+                        <ul style="margin-top: 10px;">
+                            <li>"O cálculo do imposto deve levar menos de 100ms."</li>
+                            <li>"O sistema deve ser resiliente a quedas da SEFAZ."</li>
+                            <li>"Toda ação deve ser auditável (rastreabilidade)."</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="key-message" style="background: var(--inteli-purple);">
+                    <p style="font-size: 16px;"><strong>Regra de Ouro:</strong> RF entrega valor direto ao usuário. RNF garante que o valor seja entregue com qualidade, segurança e performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: TANGIBILIZANDO EM CÓDIGO -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">MAPEAMENTO</span>
+                <h2 class="slide-title">Do Requisito ao Código: A Jornada de Mapeamento</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="gap: 12px; align-items: stretch; margin-top: 5px; flex-wrap: nowrap !important;">
+                    
+                    <!-- ETAPA 1: VOZ DO CLIENTE (ALTO CONTRASTE) -->
+                    <div class="jmeter-step" style="background: var(--inteli-purple); border: 2px solid var(--inteli-purple); padding: 15px; flex: 1; border-radius: 12px;">
+                        <div class="concept-icon" style="background: #fff; width: 45px; height: 40px; border-radius: 8px; margin-bottom: 10px;">
+                            <span class="material-icons-outlined" style="color: var(--inteli-purple); font-size: 24px;">record_voice_over</span>
+                        </div>
+                        <h4 style="font-size: 16px; margin-bottom: 10px; color: #fff; font-weight: 800;">1. Voz do Cliente</h4>
+                        <p style="font-size: 13px; color: #fff; font-style: italic; line-height: 1.5; font-weight: 400;">"Preciso que o sistema calcule o imposto de 18% para produtos com NCM começando com 123."</p>
+                        <div style="margin-top: auto; padding-top: 15px; width: 100%;">
+                            <span class="activity-tag" style="font-size: 10px; background: #fff; color: var(--inteli-purple); font-weight: 800; border-radius: 4px; padding: 4px 10px;">TEXTO BRUTO</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;"><span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 32px;">arrow_forward</span></div>
+
+                    <!-- ETAPA 2: GHERKIN -->
+                    <div class="jmeter-step" style="background: var(--inteli-purple); border: 2px solid var(--inteli-coral); padding: 15px; flex: 1.2; border-radius: 12px;">
+                        <div class="concept-icon" style="background: var(--inteli-coral); width: 45px; height: 40px; border-radius: 8px; margin-bottom: 10px;">
+                            <span class="material-icons-outlined" style="color: #fff; font-size: 24px;">edit_note</span>
+                        </div>
+                        <h4 style="font-size: 16px; margin-bottom: 10px; color: #fff !important; font-weight: 800;">2. Documentação</h4>
+                        <p style="font-size: 13px; text-align: left; width: 100%; color: #fff; font-weight: 400; margin-bottom: 8px;"><b>Gherkin (BDD):</b> Lógica estruturada.</p>
+                        <div class="code-example" style="width: 100%; border: 1px solid #444;">
+                            <pre class="code-block" style="font-size: 11px; padding: 10px; background: #1a1625; white-space: pre-wrap; color: #fff !important;"><code><span style="color: var(--inteli-coral); font-weight: bold;">Cenário:</span> <span style="color: #fff;">Calcular ICMS 123</span>
+<span style="color: var(--inteli-coral); font-weight: bold;">Dado</span> <span style="color: #fff;">NCM</span> <span style="color: #50c878;">'12345'</span>
+<span style="color: var(--inteli-coral); font-weight: bold;">Quando</span> <span style="color: #fff;">calcular</span>
+<span style="color: var(--inteli-coral); font-weight: bold;">Então</span> <span style="color: #fff;">valor é</span> <span style="color: #50c878; font-weight: bold;">0.18</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;"><span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 32px;">arrow_forward</span></div>
+
+                    <!-- ETAPA 3: CÓDIGO -->
+                    <div class="jmeter-step" style="background: var(--inteli-purple); border: 2px solid var(--inteli-dark-green); padding: 15px; flex: 1.2; border-radius: 12px;">
+                        <div class="concept-icon" style="background: var(--inteli-dark-green); width: 45px; height: 40px; border-radius: 8px; margin-bottom: 10px;">
+                            <span class="material-icons-outlined" style="color: #fff; font-size: 24px;">code</span>
+                        </div>
+                        <h4 style="font-size: 16px; margin-bottom: 10px; color: #fff !important; font-weight: 800;">3. Aferição</h4>
+                        <p style="font-size: 13px; text-align: left; width: 100%; color: #fff; font-weight: 400; margin-bottom: 8px;"><b>Code:</b> Ativo de qualidade.</p>
+                        <div class="code-example" style="width: 100%; border: 1px solid #444;">
+                            <pre class="code-block" style="font-size: 11px; padding: 10px; background: #1a1625; white-space: pre-wrap; color: #fff !important;"><code><span style="color: var(--inteli-coral); font-weight: bold;">@then</span>(<span style="color: #50c878;">'valor é 0.18'</span>)
+<span style="color: var(--inteli-coral); font-weight: bold;">def</span> <span style="color: #fff; font-weight: bold;">step_impl</span><span style="color: #fff;">(context):</span>
+    <span style="color: var(--inteli-coral); font-weight: bold;">assert</span> <span style="color: #fff;">context.tax ==</span> <span style="color: #50c878; font-weight: bold;">0.18</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-connection" style="margin-top: 25px; background: var(--inteli-purple); color: #fff; border-radius: 8px; padding: 15px;">
+                    <span class="material-icons-outlined" style="color: var(--inteli-coral);">insights</span>
+                    <p style="font-size: 15px;"><strong>Conclusão:</strong> O mapeamento transforma a <b>necessidade</b> do cliente em um <b>ativo de software</b> verificável.</p>
+                </div>
+            </div>
+        </section>
+        </section>
+<!-- =============================================
              PARTE 1: Framework de Aplicação (Slides 5-10)
              ============================================= -->
 
         <!-- SLIDE 5: DIVISOR -->
-        <section class="slide slide-section" data-slide="5">
+        <section class="slide slide-section" data-slide="8">
             <div class="section-content">
                 <span class="section-number">PARTE 1</span>
                 <h2 class="section-title">Do Repo de Referência ao Projeto ASIS</h2>
@@ -204,7 +319,7 @@
         </section>
 
         <!-- SLIDE 6: FRAMEWORK RF → CÓDIGO -->
-        <section class="slide slide-content" data-slide="6">
+        <section class="slide slide-content" data-slide="9">
             <div class="slide-header">
                 <span class="section-tag">FRAMEWORK</span>
                 <h2 class="slide-title">RF &rarr; Código: 4 Passos</h2>
@@ -215,7 +330,7 @@
                     <div class="jmeter-step" style="flex: 1; max-width: 200px; border-color: var(--inteli-lilac);">
                         <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
                         <h4>1. RF</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Regra de negócio do ASIS: cálculo de frete, emissão NF-e, rastreamento</p>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);"><b>Ex:</b> Cálculo automático de impostos (ICMS/IPI) via NCM na emissão da NF-e.</p>
                     </div>
                     <div style="display: flex; align-items: center;">
                         <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
@@ -249,60 +364,60 @@
         </section>
 
         <!-- SLIDE 7: FRAMEWORK RNF → CÓDIGO -->
-        <section class="slide slide-content" data-slide="7">
+        <section class="slide slide-content" data-slide="10">
             <div class="slide-header">
                 <span class="section-tag">FRAMEWORK</span>
                 <h2 class="slide-title">RNF &rarr; Código: 5 Dimensões</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="jmeter-flow" style="justify-content: center; gap: 10px; flex-wrap: wrap;">
-                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-lilac);">
+                <div class="jmeter-flow">
+                    <div class="jmeter-step" style="border-top: 4px solid var(--inteli-lilac);">
                         <div class="concept-icon"><span class="material-icons-outlined">security</span></div>
                         <h4>1. RNF</h4>
-                        <p style="font-size: clamp(10px, 1vw, 13px);">Atributo de qualidade: disponibilidade 99.9%, latência &lt; 200ms</p>
+                        <p style="font-size: 11px;">Ex: Disponibilidade 99.9%, latência &lt; 200ms</p>
                     </div>
                     <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">arrow_forward</span>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-coral);">
+                    <div class="jmeter-step" style="border-top: 4px solid var(--inteli-coral);">
                         <div class="concept-icon"><span class="material-icons-outlined">shield</span></div>
                         <h4>2. Tática</h4>
-                        <p style="font-size: clamp(10px, 1vw, 13px);">Resistir, Detectar, Recuperar (Bass/Pressman)</p>
+                        <p style="font-size: 11px;">Resistir, Detectar, Recuperar (Bass/Pressman)</p>
                     </div>
                     <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">arrow_forward</span>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-green);">
+                    <div class="jmeter-step" style="border-top: 4px solid var(--inteli-green);">
                         <div class="concept-icon"><span class="material-icons-outlined">settings</span></div>
                         <h4>3. Mecanismo</h4>
-                        <p style="font-size: clamp(10px, 1vw, 13px);">Circuit Breaker, Retry, Timeout, Bulkhead</p>
+                        <p style="font-size: 11px;">Circuit Breaker, Retry, Timeout, Bulkhead</p>
                     </div>
                     <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">arrow_forward</span>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px; border-color: var(--inteli-purple);">
+                    <div class="jmeter-step" style="border-top: 4px solid var(--inteli-purple);">
                         <div class="concept-icon"><span class="material-icons-outlined">science</span></div>
                         <h4>4. Simulação</h4>
-                        <p style="font-size: clamp(10px, 1vw, 13px);">MagicMock, Stubs, Locust + Massa de Testes</p>
+                        <p style="font-size: 11px;">MagicMock, Stubs, Locust + Massa de Testes</p>
                     </div>
                     <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">arrow_forward</span>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; min-width: 150px; max-width: 170px;">
+                    <div class="jmeter-step" style="border-top: 4px solid var(--inteli-dark-green);">
                         <div class="concept-icon"><span class="material-icons-outlined">check_circle</span></div>
                         <h4>5. Teste</h4>
-                        <p style="font-size: clamp(10px, 1vw, 13px);">BDD + pytest que afere o atributo de qualidade</p>
+                        <p style="font-size: 11px;">BDD + pytest que afere o atributo de qualidade</p>
                     </div>
                 </div>
-                <div class="key-message" style="margin-top: 20px;">
-                    <p><strong>Referência:</strong> No repo, <code>circuit_breaker.feature</code> e <code>retry_resilience.feature</code> seguem esse fluxo. RNF = "resiliência a falhas" &rarr; Tática Recuperar &rarr; Mecanismo Circuit Breaker &rarr; Mock + cenários &rarr; Teste BDD.</p>
+                <div class="key-message" style="margin-top: 30px;">
+                    <p><strong>Referência:</strong> No repo, <code>circuit_breaker.feature</code> e <code>retry_resilience.feature</code> seguem este fluxo linear de aferição de qualidade.</p>
                 </div>
             </div>
         </section>
 
         <!-- SLIDE 8: EXEMPLO DO REPO AO ASIS -->
-        <section class="slide slide-content" data-slide="8">
+        <section class="slide slide-content" data-slide="11">
             <div class="slide-header">
                 <span class="section-tag">EXEMPLO</span>
                 <h2 class="slide-title">Do Repo ao ASIS &mdash; Adaptando Circuit Breaker</h2>
@@ -363,7 +478,7 @@
         </section>
 
         <!-- SLIDE 9: MASSA DE TESTES -->
-        <section class="slide slide-content" data-slide="9">
+        <section class="slide slide-content" data-slide="12">
             <div class="slide-header">
                 <span class="section-tag">MASSA DE TESTES</span>
                 <h2 class="slide-title">3 Categorias de Massa de Testes</h2>
@@ -405,14 +520,50 @@
             </div>
         </section>
 
-        <!-- SLIDE 10: SIMULAÇÃO -->
-        <section class="slide slide-content" data-slide="10">
+        <!-- SLIDE 13: GLOSSÁRIO DE SIMULAÇÃO -->
+        <section class="slide slide-content" data-slide="13">
             <div class="slide-header">
-                <span class="section-tag">SIMULAÇÃO</span>
-                <h2 class="slide-title">Mocks, Stubs e Carga</h2>
+                <span class="section-tag">GLOSSÁRIO</span>
+                <h2 class="slide-title">Simulação: Stub vs. Mock vs. Fake</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+            <div class="slide-body">
+                <div class="exercise-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="objective-card" style="border-top: 5px solid var(--inteli-coral); background: #fff; padding: 15px;">
+                        <h4 style="color: var(--inteli-coral); margin-bottom: 8px;">• Stub</h4>
+                        <p style="font-size: 14px; line-height: 1.5;"><b>O que é:</b> Resposta fixa e "enlatada" para chamadas feitas durante o teste.</p>
+                        <p style="font-size: 13px; color: #666; margin-top: 5px;"><b>Quando usar:</b> Quando você só precisa que a dependência não quebre o teste (Ex: API de CEP retornando sempre o mesmo endereço).</p>
+                    </div>
+                    <div class="objective-card" style="border-top: 5px solid var(--inteli-lilac); background: #fff; padding: 15px;">
+                        <h4 style="color: var(--inteli-lilac); margin-bottom: 8px;">• Mock</h4>
+                        <p style="font-size: 14px; line-height: 1.5;"><b>O que é:</b> Objeto pré-programado com expectativas. Ele verifica <b>comportamento</b>.</p>
+                        <p style="font-size: 13px; color: #666; margin-top: 5px;"><b>Quando usar:</b> Quando você precisa saber SE uma função foi chamada e COM QUAIS parâmetros (Ex: "O log de erro foi disparado?").</p>
+                    </div>
+                    <div class="objective-card" style="border-top: 5px solid var(--inteli-green); background: #fff; padding: 15px;">
+                        <h4 style="color: var(--inteli-green); margin-bottom: 8px;">• Fake</h4>
+                        <p style="font-size: 14px; line-height: 1.5;"><b>O que é:</b> Implementação funcional, mas simplificada (não para produção).</p>
+                        <p style="font-size: 13px; color: #666; margin-top: 5px;"><b>Quando usar:</b> Banco de dados em memória (SQLite) em vez de um banco real (PostgreSQL).</p>
+                    </div>
+                    <div class="objective-card" style="border-top: 5px solid var(--inteli-purple); background: #fff; padding: 15px;">
+                        <h4 style="color: var(--inteli-purple); margin-bottom: 8px;">• Carga (Locust)</h4>
+                        <p style="font-size: 14px; line-height: 1.5;"><b>O que é:</b> Simulação de múltiplos usuários reais simultâneos.</p>
+                        <p style="font-size: 13px; color: #666; margin-top: 5px;"><b>Quando usar:</b> Para validar o RNF de Performance e Escalabilidade (Ex: "O sistema aguenta 500 emissões de NF-e por minuto?").</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 20px; background: var(--inteli-purple); color: #fff;">
+                    <p><strong>Dica:</strong> Stubs e Fakes são para o <b>Estado</b>. Mocks são para o <b>Comportamento</b>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: SIMULAÇÃO PRÁTICA -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="section-tag">SIMULAÇÃO</span>
+                <h2 class="slide-title">Mocks, Stubs e Carga no Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
                 <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
                     <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
                         <h4 style="color: var(--inteli-lilac); font-size: clamp(13px, 1.3vw, 16px);">MagicMock (Unitário)</h4>
@@ -466,7 +617,7 @@ def test_retry_example(self):
              ============================================= -->
 
         <!-- SLIDE 11: DIVISOR -->
-        <section class="slide slide-section" data-slide="11">
+        <section class="slide slide-section" data-slide="14">
             <div class="section-content">
                 <span class="section-number">PARTE 2</span>
                 <h2 class="section-title">Mãos na Massa &mdash; Aplicar no Projeto ASIS</h2>
@@ -474,82 +625,129 @@ def test_retry_example(self):
             </div>
         </section>
 
-        <!-- SLIDE 12: EXERCÍCIO 1 — MAPEAMENTO RF/RNF -->
-        <section class="slide slide-content" data-slide="12">
+        
+        <!-- SLIDE 12: EXERCÍCIO 1 — MAPA DE INTEGRAÇÕES (ARTEFATO) -->
+        <section class="slide slide-content" data-slide="15">
             <div class="slide-header">
-                <span class="activity-tag">EXERCÍCIO 1</span>
-                <h2 class="slide-title">Mapeamento RF/RNF do ASIS</h2>
+                <span class="activity-tag">ARTEFATO</span>
+                <h2 class="slide-title">Mapa de 5 Integrações c/ Assinatura de Versões</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="key-message" style="margin-bottom: 15px; text-align: left; padding: 15px;">
+                    <p style="font-size: 14px;"><strong>O Desafio:</strong> Como garantir o sincronismo com atualizações tecnológicas do parceiro? Através de "Assinaturas de Versões" (Ex: Hashes MD5 do payload esperado, versão da API header, etc).</p>
+                </div>
                 <div style="overflow-x: auto;">
-                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(10px, 1vw, 13px);">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(11px, 1.1vw, 14px); background: #fff; border-radius: 8px; overflow: hidden;">
                         <thead>
                             <tr style="background: var(--inteli-purple); color: white;">
-                                <th style="padding: 8px 10px; text-align: left; border-radius: 8px 0 0 0;">Requisito</th>
-                                <th style="padding: 8px 10px; text-align: center;">Tipo</th>
-                                <th style="padding: 8px 10px; text-align: left;">Tática</th>
-                                <th style="padding: 8px 10px; text-align: left;">Mecanismo</th>
-                                <th style="padding: 8px 10px; text-align: center;">Tipo de Teste</th>
-                                <th style="padding: 8px 10px; text-align: left; border-radius: 0 8px 0 0;">Massa de Testes</th>
+                                <th style="padding: 12px; text-align: left;">ID</th>
+                                <th style="padding: 12px; text-align: left;">Integração</th>
+                                <th style="padding: 12px; text-align: left;">Protocolo / Serviço</th>
+                                <th style="padding: 12px; text-align: left;">Assinatura de Versão (Verificação)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="background: #f8f6f2;">
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Emitir NF-e via SEFAZ</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: var(--inteli-coral); font-weight: 600;">RF</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Encapsulate + Use Intermediary</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Circuit Breaker + Timeout</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center;">BDD + Integração</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">NF-e válida, XML inválido, SEFAZ offline</td>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px; font-weight: bold; color: var(--inteli-coral);">INT1</td>
+                                <td style="padding: 12px;">Externa - SEFAZ Nacional</td>
+                                <td style="padding: 12px;">Emissão de NF-e (XML/SOAP)</td>
+                                <td style="padding: 12px;">Hash MD5 do WSDL da SEFAZ comparado diariamente.</td>
+                            </tr>
+                            <tr style="background: #f8f6f2; border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px; font-weight: bold; color: var(--inteli-coral);">INT2</td>
+                                <td style="padding: 12px;">Externa - BACEN</td>
+                                <td style="padding: 12px;">Serviço de PIX (REST/JSON)</td>
+                                <td style="padding: 12px;">Header `API-Version: v2.1` validado no pre-flight request.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px; font-weight: bold; color: var(--inteli-coral);">INT3</td>
+                                <td style="padding: 12px;">Interna - Auth Module</td>
+                                <td style="padding: 12px;">Autenticação de Sessões (JWT)</td>
+                                <td style="padding: 12px;">Algoritmo e Payload da key estruturados (HS256 vs RS256).</td>
+                            </tr>
+                            <tr style="background: #f8f6f2; border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px; font-weight: bold; color: var(--inteli-coral);">INT4</td>
+                                <td style="padding: 12px;">Interna - Rastreabilidade</td>
+                                <td style="padding: 12px;">Log Centralizado (Correlation-ID)</td>
+                                <td style="padding: 12px;">Validação do Schema JSON dos Logs no ELK/Datadog.</td>
                             </tr>
                             <tr>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Disponibilidade 99.9%</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: var(--inteli-lilac); font-weight: 600;">RNF</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Recuperar + Detectar</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">Retry + Healthcheck</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center;">Carga + Monitor</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee;">100 req/s por 5 min, falha em cascata</td>
-                            </tr>
-                            <tr style="background: #f8f6f2;">
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">Preencher...</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: #999;">?</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">?</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">?</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; text-align: center; color: #999;">?</td>
-                                <td style="padding: 8px 10px; border-bottom: 1px solid #eee; color: #999; font-style: italic;">?</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 8px 10px; color: #999; font-style: italic;">Preencher...</td>
-                                <td style="padding: 8px 10px; text-align: center; color: #999;">?</td>
-                                <td style="padding: 8px 10px; color: #999; font-style: italic;">?</td>
-                                <td style="padding: 8px 10px; color: #999; font-style: italic;">?</td>
-                                <td style="padding: 8px 10px; text-align: center; color: #999;">?</td>
-                                <td style="padding: 8px 10px; color: #999; font-style: italic;">?</td>
+                                <td style="padding: 12px; font-weight: bold; color: var(--inteli-coral);">INT5</td>
+                                <td style="padding: 12px;">Infraestrutura</td>
+                                <td style="padding: 12px;">Mensageria Kafka / RabbitMQ</td>
+                                <td style="padding: 12px;">`Cluster-Version` API do provedor em script Healthcheck.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="key-message" style="margin-top: 12px;">
-                    <p><strong>Tarefa:</strong> Complete a tabela com pelo menos 2 requisitos adicionais do projeto ASIS. Pense em integrações internas (módulo-módulo) e externas (SEFAZ, BACEN, Gateway).</p>
+            </div>
+        </section>
+
+        
+        <!-- SLIDE 12B: AFERIÇÃO COMO CÓDIGO -->
+        <section class="slide slide-content" data-slide="16">
+            <div class="slide-header">
+                <span class="activity-tag">ARTEFATO</span>
+                <h2 class="slide-title">Aferição de Integrações como Código</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: hidden;">
+                <p style="margin-bottom: 10px; font-size: 16px; color: var(--inteli-purple);">
+                    Como implementar a <b>verificação da última mudança do protocolo</b> descrita no artefato?
+                </p>
+                <div class="code-example" style="margin-bottom: 10px;">
+                    <div class="code-header">
+                        <span class="code-lang">Python (FastAPI Background Task)</span>
+                        <span class="code-file">app/integration_health.py</span>
+                    </div>
+                    <pre class="code-block" style="font-size: 13px; padding: 15px; max-height: 280px; overflow-y: auto; scrollbar-width: thin;"><code><span class="keyword">import</span> hashlib, requests, logging
+<span class="keyword">from</span> fastapi <span class="keyword">import</span> HTTPException
+
+logger = logging.getLogger(<span class="string">"asis_taxtech"</span>)
+EXPECTED_SEFAZ_WSDL_HASH = <span class="string">"a1b2c3d4e5f6g7h8i9j0"</span>
+
+<span class="keyword">def</span> <span class="function">verificar_assinatura_sefaz</span>():
+    <span class="keyword">try</span>:
+        <span class="comment"># 1. Baixa o contrato atual da integração (WSDL/JSON)</span>
+        response = requests.get(<span class="string">"https://sefaz.gov.br/ws/nfe?wsdl"</span>, timeout=<span class="number">5</span>)
+        current_hash = hashlib.md5(response.content).hexdigest()
+        
+        <span class="comment"># 2. Compara com a assinatura conhecida pelo nosso software</span>
+        <span class="keyword">if</span> current_hash != EXPECTED_SEFAZ_WSDL_HASH:
+            <span class="comment"># Alerta SRE: O protocolo mudou silenciosamente!</span>
+            logger.error(<span class="string">"DRIFT DE INTEGRAÇÃO: A SEFAZ alterou o protocolo."</span>)
+            disparar_alerta_slack()
+            <span class="keyword">return</span> <span class="keyword">False</span>
+        
+        logger.info(<span class="string">"Integração SEFAZ validada com sucesso."</span>)
+        <span class="keyword">return</span> <span class="keyword">True</span>
+        
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        logger.warning(f<span class="string">"Falha ao aferir integração: {e}"</span>)
+        <span class="keyword">return</span> <span class="keyword">False</span></code></pre>
+                </div>
+                <div class="code-connection" style="padding: 12px 20px;">
+                    <span class="material-icons-outlined" style="color: var(--inteli-coral);">gpp_good</span>
+                    <p style="font-size: 14px;"><strong>Por que isso importa?</strong> O <b>código como ativo</b> prevê a falha de contrato antes do cliente perceber. Sem essa função, o sistema falharia com erros genéricos em produção.</p>
                 </div>
             </div>
         </section>
 
         <!-- SLIDE 13: EXERCÍCIO 2 — FEATURE BDD PARA RF -->
-        <section class="slide slide-content" data-slide="13">
+        <section class="slide slide-content" data-slide="17">
             <div class="slide-header">
                 <span class="activity-tag">EXERCÍCIO 2</span>
                 <h2 class="slide-title">Feature BDD para RF do ASIS</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+            <div class="slide-body" style="overflow-y: hidden;">
                 <div class="code-example">
                     <div class="code-header">
                         <span class="code-lang">Template Gherkin</span>
                         <span class="code-file">features/rf_asis.feature</span>
                     </div>
-                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># language: pt</span>
+                    <pre class="code-block code-compact" style="font-size: 12px; max-height: 350px; overflow-y: auto; scrollbar-width: thin;"><code><span class="comment"># language: pt</span>
 
 <span class="keyword">Funcionalidade:</span> <span class="string">[RF do ASIS — ex: Cálculo de Frete]</span>
   <span class="comment">Como</span> <span class="string">um sistema de logística</span>
@@ -581,19 +779,19 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 14: EXERCÍCIO 3 — FEATURE BDD PARA RNF -->
-        <section class="slide slide-content" data-slide="14">
+        <section class="slide slide-content" data-slide="18">
             <div class="slide-header">
                 <span class="activity-tag">EXERCÍCIO 3</span>
                 <h2 class="slide-title">Feature BDD para RNF do ASIS</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
+            <div class="slide-body" style="overflow-y: hidden;">
                 <div class="code-example">
                     <div class="code-header">
                         <span class="code-lang">Template Gherkin</span>
                         <span class="code-file">features/rnf_asis.feature</span>
                     </div>
-                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="comment"># language: pt</span>
+                    <pre class="code-block code-compact" style="font-size: 12px; max-height: 350px; overflow-y: auto; scrollbar-width: thin;"><code><span class="comment"># language: pt</span>
 
 <span class="keyword">Funcionalidade:</span> <span class="string">[RNF do ASIS — ex: Resiliência na Integração SEFAZ]</span>
   <span class="comment">Como</span> <span class="string">um sistema que depende de serviços externos</span>
@@ -626,166 +824,199 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 15: EXERCÍCIO 4 — STEPS COM MAGICMOCK -->
-        <section class="slide slide-content" data-slide="15">
+        <section class="slide slide-content" data-slide="19">
             <div class="slide-header">
                 <span class="activity-tag">EXERCÍCIO 4</span>
                 <h2 class="slide-title">Steps com MagicMock</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--inteli-coral) transparent;">
-                <div class="activity-steps" style="margin-bottom: 15px;">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <div>
-                            <h4>Criar arquivo de steps</h4>
-                            <p>Em <code>features/steps/</code>, criar <code>rnf_asis_steps.py</code> com <code>@given</code>, <code>@when</code>, <code>@then</code></p>
+            <div class="slide-body" style="overflow-y: hidden;">
+                <div class="two-columns" style="gap: 30px; align-items: start;">
+                    <div class="column">
+                        <div class="objective-card" style="background: var(--inteli-purple); color: #fff; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
+                            <h4 style="color: var(--inteli-coral); font-size: 16px; margin-bottom: 8px;">Conhecendo o MagicMock</h4>
+                            <p style="font-size: 12px; line-height: 1.4;">Ferramenta nativa do Python (<code>unittest.mock</code>) para criar objetos que simulam qualquer comportamento.</p>
+                            <ul style="font-size: 11px; margin-top: 8px; padding-left: 15px;">
+                                <li><b>É "Mágico"</b> porque cria métodos e atributos dinamicamente ao serem acessados.</li>
+                                <li><b>side_effect:</b> Usado para simular <b>Erros</b> ou <b>Timeouts</b>.</li>
+                                <li><b>return_value:</b> Usado para simular <b>Respostas Sucesso</b>.</li>
+                            </ul>
+                        </div>
+                        <div class="activity-steps" style="background: #fdfdfd; border: 1px solid var(--inteli-gray-medium);">
+                            <div class="step" style="margin-bottom: 15px;">
+                                <span class="step-number">1</span>
+                                <div>
+                                    <h4 style="font-size: 15px;">Arquivo de Steps</h4>
+                                    <p style="font-size: 12px;">Crie <code>features/steps/rnf_asis_steps.py</code></p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div>
+                                    <h4 style="font-size: 15px;">Validar com Behave</h4>
+                                    <p style="font-size: 12px;">Rode <code>behave</code> e verifique o Circuit Breaker.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <div>
-                            <h4>Mockar dependências externas</h4>
-                            <p>Usar <code>MagicMock(side_effect=TimeoutError)</code> para simular SEFAZ indisponível</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <div>
-                            <h4>Rodar <code>behave</code></h4>
-                            <p>Executar e verificar que todos os cenários passam (verde)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <div class="code-header">
-                        <span class="code-lang">Python</span>
-                        <span class="code-file">features/steps/rnf_asis_steps.py (exemplo)</span>
-                    </div>
-                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">from</span> behave <span class="keyword">import</span> given, when, then
+                    <div class="column">
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <span class="code-file">rnf_asis_steps.py</span>
+                            </div>
+                            <pre class="code-block code-compact" style="font-size: 11px; max-height: 380px; overflow-y: auto; scrollbar-width: thin;"><code><span class="keyword">from</span> behave <span class="keyword">import</span> given, when, then
 <span class="keyword">from</span> unittest.mock <span class="keyword">import</span> MagicMock
 
 <span class="decorator">@given</span>(<span class="string">'que o serviço SEFAZ está indisponível'</span>)
 <span class="keyword">def</span> <span class="function">step_sefaz_down</span>(context):
     context.mock_sefaz = MagicMock()
-    context.mock_sefaz.emitir_nfe.side_effect = TimeoutError(<span class="string">"SEFAZ timeout"</span>)
-    context.nfe_service = NFEService(sefaz_client=context.mock_sefaz)
+    <span class="comment"># Simula falha de conexão</span>
+    context.mock_sefaz.emitir.side_effect = TimeoutError()
+    context.service = NFService(context.mock_sefaz)
 
 <span class="decorator">@when</span>(<span class="string">'o sistema tenta emitir uma NF-e'</span>)
 <span class="keyword">def</span> <span class="function">step_try_emit</span>(context):
-    context.result = context.nfe_service.emitir(nota_data={<span class="string">"cnpj"</span>: <span class="string">"123"</span>})
+    <span class="keyword">try</span>:
+        context.result = context.service.emitir()
+    <span class="keyword">except</span>:
+        context.result = <span class="keyword">None</span>
 
 <span class="decorator">@then</span>(<span class="string">'o circuit breaker muda para o estado "open"'</span>)
 <span class="keyword">def</span> <span class="function">step_assert_cb_open</span>(context):
-    <span class="keyword">assert</span> context.nfe_service.circuit_state == <span class="string">"open"</span></code></pre>
+    <span class="keyword">assert</span> context.service.cb.state == <span class="string">"open"</span></code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SLIDE 16: EXERCÍCIO 5 — TESTE DE CARGA -->
-        <section class="slide slide-content" data-slide="16">
+        <section class="slide slide-content" data-slide="20">
             <div class="slide-header">
                 <span class="activity-tag">EXERCÍCIO 5</span>
                 <h2 class="slide-title">Teste de Carga para o ASIS</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
+            <div class="slide-body" style="overflow-y: hidden;">
                 <div class="code-example">
                     <div class="code-header">
                         <span class="code-lang">Python</span>
-                        <span class="code-file">tests/carga/locustfile_asis.py (adaptação)</span>
+                        <span class="code-file">tests/carga/locustfile_asis.py</span>
                     </div>
-                    <pre class="code-block code-compact" style="font-size: 12px;"><code><span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser, task, between
+                    <pre class="code-block code-compact" style="font-size: 12px; max-height: 400px; overflow-y: auto; scrollbar-width: thin;"><code><span class="keyword">from</span> locust <span class="keyword">import</span> HttpUser, task, between
 
 <span class="keyword">class</span> <span class="class-name">ASISUser</span>(HttpUser):
-    wait_time = between(<span class="number">1</span>, <span class="number">3</span>)  <span class="comment"># Simula intervalo entre ações do usuário</span>
+    wait_time = between(<span class="number">1</span>, <span class="number">3</span>)
 
-    <span class="decorator">@task</span>(<span class="number">3</span>)  <span class="comment"># Peso 3 — rastreamento é a operação mais frequente</span>
+    <span class="decorator">@task</span>(<span class="number">3</span>)  <span class="comment"># Rastreamento: Alta frequência</span>
     <span class="keyword">def</span> <span class="function">rastrear_entrega</span>(self):
         <span class="keyword">with</span> self.client.get(<span class="string">"/api/entregas/CX123/rastreio"</span>,
                              catch_response=<span class="keyword">True</span>) <span class="keyword">as</span> response:
             <span class="keyword">if</span> response.status_code != <span class="number">200</span>:
-                response.failure(f<span class="string">"Status: {response.status_code}"</span>)
+                response.failure(f<span class="string">"Falha no rastreio: {response.status_code}"</span>)
             <span class="keyword">else</span>:
                 response.success()
 
-    <span class="decorator">@task</span>(<span class="number">1</span>)  <span class="comment"># Peso 1 — emissão de NF-e é menos frequente</span>
+    <span class="decorator">@task</span>(<span class="number">1</span>)  <span class="comment"># Emissão NF-e: Baixa frequência</span>
     <span class="keyword">def</span> <span class="function">emitir_nfe</span>(self):
+        payload = {<span class="string">"cnpj"</span>: <span class="string">"12345678000199"</span>, <span class="string">"valor"</span>: <span class="number">150.0</span>}
         <span class="keyword">with</span> self.client.post(<span class="string">"/api/nfe/emitir"</span>,
-                              json={<span class="string">"cnpj"</span>: <span class="string">"12345678000199"</span>},
+                              json=payload,
                               catch_response=<span class="keyword">True</span>) <span class="keyword">as</span> response:
             <span class="keyword">if</span> response.status_code != <span class="number">201</span>:
-                response.failure(f<span class="string">"Status: {response.status_code}"</span>)
+                response.failure(f<span class="string">"Falha na NF-e: {response.status_code}"</span>)
             <span class="keyword">else</span>:
                 response.success()</code></pre>
                 </div>
                 <div class="key-message" style="margin-top: 15px;">
-                    <p><strong>Defina os pesos pela frequência real de uso.</strong> No ASIS, rastreamento acontece ~3x mais que emissão de NF-e. Os pesos do Locust devem refletir isso para simular carga realista.</p>
+                    <p><strong>Dica de SRE:</strong> Simule carga realista ajustando os pesos (<code>@task</code>). No ASIS, consultas são mais frequentes que emissões.</p>
                 </div>
             </div>
         </section>
 
         <!-- SLIDE 17: TIMER DE WORKSHOP -->
-        <section class="slide slide-content" data-slide="17">
+        <section class="slide slide-content" data-slide="21">
             <div class="slide-header">
-                <span class="activity-tag">WORKSHOP</span>
-                <h2 class="slide-title">Tempo de Trabalho em Grupo</h2>
+                <span class="activity-tag">MÃO NA MASSA</span>
+                <h2 class="slide-title">Workshop: Aplicando no Projeto ASIS</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
-                <div class="activity-instructions">
-                    <div class="timer-container">
+            <div class="slide-body" style="overflow-y: hidden;">
+                <div class="activity-instructions" style="display: grid; grid-template-columns: 320px 1fr; gap: 30px; height: 100%;">
+                    
+                    <!-- Lado Esquerdo: Painel de Controle -->
+                    <div class="timer-container" style="background: var(--inteli-purple); border-radius: 16px; display: flex; flex-direction: column; justify-content: center; border: 3px solid var(--inteli-coral); padding: 30px;">
                         <div class="timer" id="timer-workshop">
-                            <span class="timer-value">60:00</span>
-                            <span class="timer-label">Tempo restante</span>
+                            <span class="timer-value" style="font-size: 82px; letter-spacing: -3px; line-height: 1;">60:00</span>
+                            <span class="timer-label" style="text-transform: uppercase; letter-spacing: 3px; opacity: 0.8; font-size: 16px; margin-top: 10px; display: block;">Tempo de Sprint</span>
                         </div>
-                        <button class="timer-btn" onclick="startTimer('timer-workshop', 3600)">
-                            <span class="material-icons-outlined">play_arrow</span>
-                            Iniciar Timer
+                        <button class="timer-btn" onclick="startTimer('timer-workshop', 3600)" style="margin-top: 30px; width: 100%; font-weight: 800; text-transform: uppercase; font-size: 18px; padding: 15px;">
+                            <span class="material-icons-outlined" style="vertical-align: middle; font-size: 24px;">play_circle</span> Iniciar Missão
                         </button>
                     </div>
-                    <div class="activity-steps">
-                        <div class="step">
-                            <span class="step-number">1</span>
-                            <div>
-                                <h4>Exercício 1 &mdash; Mapeamento RF/RNF (10 min)</h4>
-                                <p>Preencher tabela com requisitos do ASIS, táticas e mecanismos</p>
+
+                    <!-- Lado Direito: Cards de Missão -->
+                    <div class="exercise-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div class="objective-card" style="padding: 20px; border-top: 6px solid var(--inteli-coral); background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 32px;">map</span>
+                                <span style="font-weight: 800; color: var(--inteli-gray-medium); font-size: 20px;">01</span>
                             </div>
+                            <h4 style="font-size: 20px; margin: 15px 0 8px; font-weight: 700;">Mapeamento</h4>
+                            <p style="font-size: 15px; line-height: 1.5; color: #444;">Preencher o Mapa de 5 Integrações (Slide 15) com assinaturas de versão.</p>
                         </div>
-                        <div class="step">
-                            <span class="step-number">2</span>
-                            <div>
-                                <h4>Exercício 2 &mdash; Feature BDD para RF (10 min)</h4>
-                                <p>Criar .feature com cenários @sucesso, @borda e @falha</p>
+
+                        <div class="objective-card" style="padding: 20px; border-top: 6px solid var(--inteli-lilac); background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 32px;">fact_check</span>
+                                <span style="font-weight: 800; color: var(--inteli-gray-medium); font-size: 20px;">02</span>
                             </div>
+                            <h4 style="font-size: 20px; margin: 15px 0 8px; font-weight: 700;">Feature RF</h4>
+                            <p style="font-size: 15px; line-height: 1.5; color: #444;">Criar .feature Gherkin para uma regra de negócio (Ex: Cálculo de Imposto).</p>
                         </div>
-                        <div class="step">
-                            <span class="step-number">3</span>
-                            <div>
-                                <h4>Exercício 3 &mdash; Feature BDD para RNF (10 min)</h4>
-                                <p>Criar .feature com cenários @resiliência, @falha e @recuperação</p>
+
+                        <div class="objective-card" style="padding: 20px; border-top: 6px solid var(--inteli-green); background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 32px;">shield</span>
+                                <span style="font-weight: 800; color: var(--inteli-gray-medium); font-size: 20px;">03</span>
                             </div>
+                            <h4 style="font-size: 20px; margin: 15px 0 8px; font-weight: 700;">Feature RNF</h4>
+                            <p style="font-size: 15px; line-height: 1.5; color: #444;">Criar .feature para um atributo de qualidade (Ex: Resiliência SEFAZ).</p>
                         </div>
-                        <div class="step">
-                            <span class="step-number">4</span>
-                            <div>
-                                <h4>Exercício 4 &mdash; Steps com MagicMock (15 min)</h4>
-                                <p>Implementar steps mockando SEFAZ/BACEN e rodar behave</p>
+
+                        <div class="objective-card" style="padding: 20px; border-top: 6px solid var(--inteli-purple); background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <span class="material-icons-outlined" style="color: var(--inteli-purple); font-size: 32px;">terminal</span>
+                                <span style="font-weight: 800; color: var(--inteli-gray-medium); font-size: 20px;">04</span>
                             </div>
+                            <h4 style="font-size: 20px; margin: 15px 0 8px; font-weight: 700;">Steps & Mocks</h4>
+                            <p style="font-size: 15px; line-height: 1.5; color: #444;">Implementar steps em Python mockando a integração externa.</p>
                         </div>
-                        <div class="step">
-                            <span class="step-number">5</span>
-                            <div>
-                                <h4>Exercício 5 &mdash; Teste de Carga (10 min) + Validação (5 min)</h4>
-                                <p>Adaptar locustfile para ASIS e preparar apresentação</p>
+
+                        <div class="objective-card" style="padding: 20px; border-top: 6px solid var(--inteli-dark-green); background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <span class="material-icons-outlined" style="color: var(--inteli-dark-green); font-size: 32px;">speed</span>
+                                <span style="font-weight: 800; color: var(--inteli-gray-medium); font-size: 20px;">05</span>
                             </div>
+                            <h4 style="font-size: 20px; margin: 15px 0 8px; font-weight: 700;">Carga (Locust)</h4>
+                            <p style="font-size: 15px; line-height: 1.5; color: #444;">Definir pesos e endpoints para o teste de carga realista no ASIS.</p>
                         </div>
+
+                        <div class="objective-card" style="padding: 20px; background: var(--inteli-gray-light); border: 3px dashed var(--inteli-gray-medium); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                            <span class="material-icons-outlined" style="color: var(--inteli-gray-dark); font-size: 48px;">groups</span>
+                            <h4 style="font-size: 20px; color: var(--inteli-gray-dark); margin-top: 10px; font-weight: 700;">Apresentação</h4>
+                            <p style="font-size: 14px; color: var(--inteli-gray-dark); font-weight: 600;">Preparem-se para o Pitch Técnico!</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SLIDE 18: DICAS DO INSTRUTOR -->
-        <section class="slide slide-content" data-slide="18">
+        <section class="slide slide-content" data-slide="22">
             <div class="slide-header">
                 <span class="section-tag">DICAS</span>
                 <h2 class="slide-title">Dicas do Instrutor</h2>
@@ -822,7 +1053,7 @@ def test_retry_example(self):
              ============================================= -->
 
         <!-- SLIDE 19: DIVISOR -->
-        <section class="slide slide-section" data-slide="19">
+        <section class="slide slide-section" data-slide="23">
             <div class="section-content">
                 <span class="section-number">ENCERRAMENTO</span>
                 <h2 class="section-title">Compartilhamento e Validação</h2>
@@ -831,7 +1062,7 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 20: APRESENTAÇÃO DOS GRUPOS -->
-        <section class="slide slide-content" data-slide="20">
+        <section class="slide slide-content" data-slide="24">
             <div class="slide-header">
                 <span class="activity-tag">COMPARTILHAMENTO</span>
                 <h2 class="slide-title">Apresentação dos Grupos</h2>
@@ -863,7 +1094,7 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 21: CHECKLIST -->
-        <section class="slide slide-content" data-slide="21">
+        <section class="slide slide-content" data-slide="25">
             <div class="slide-header">
                 <span class="section-tag">CHECKLIST</span>
                 <h2 class="slide-title">Checklist &mdash; O que Vocês Devem Saber Fazer</h2>
@@ -911,7 +1142,7 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 22: SÍNTESE VISUAL -->
-        <section class="slide slide-content" data-slide="22">
+        <section class="slide slide-content" data-slide="26">
             <div class="slide-header">
                 <span class="section-tag">SÍNTESE</span>
                 <h2 class="slide-title">As 5 Dimensões da Aferição de Qualidade</h2>
@@ -959,7 +1190,7 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 23: PRÓXIMOS PASSOS -->
-        <section class="slide slide-content" data-slide="23">
+        <section class="slide slide-content" data-slide="27">
             <div class="slide-header">
                 <span class="section-tag">PRÓXIMOS PASSOS</span>
                 <h2 class="slide-title">O que Vem Depois</h2>
@@ -992,7 +1223,7 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 24: REFERÊNCIAS -->
-        <section class="slide slide-content" data-slide="24">
+        <section class="slide slide-content" data-slide="28">
             <div class="slide-header">
                 <span class="section-tag">REFERÊNCIAS</span>
                 <h2 class="slide-title">Materiais de Referência</h2>
@@ -1040,7 +1271,7 @@ def test_retry_example(self):
         </section>
 
         <!-- SLIDE 25: ENCERRAMENTO -->
-        <section class="slide slide-closing" data-slide="25">
+        <section class="slide slide-closing" data-slide="29">
             <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
                 <div class="closing-quote" style="margin-bottom: 0;">
                     <span class="quote-mark">&ldquo;</span>

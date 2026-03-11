@@ -299,7 +299,9 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-}
+
+    overflow-y: auto;
+    padding-bottom: 20px;}
 
 /* Tags */
 .section-tag,
@@ -1009,17 +1011,28 @@ body {
     line-height: 1.6;
 }
 
-.flow-elements {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+.jmeter-flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+    flex-wrap: nowrap !important; /* Force single line */
 }
 
-.flow-element {
-    background: var(--inteli-gray-light);
+.jmeter-step {
+    flex: 1;
+    background: var(--inteli-white);
+    border: 1px solid var(--inteli-gray-medium);
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    min-width: 0; /* Allow shrinking */
 }
 
 .flow-icon {
@@ -1207,7 +1220,9 @@ body {
    ======================================== */
 .slide-code .slide-body {
     justify-content: center;
-}
+
+    overflow-y: auto;
+    padding-bottom: 20px;}
 
 /* ---- LIGHT CODE THEME ---- */
 .code-example {
@@ -1245,7 +1260,7 @@ body {
     padding: 22px 24px;
     overflow-x: auto;
     font-family: var(--font-mono);
-    font-size: clamp(12px, 1.2vw, 17px);
+    font-size: clamp(14px, 1.4vw, 18px);
     line-height: 1.7;
     color: #2e2640;
     background: #f8f6f2;
@@ -2144,7 +2159,9 @@ body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--inteli-coral) transparent;
-}
+
+    overflow-y: auto;
+    padding-bottom: 20px;}
 
 .slide-body::-webkit-scrollbar {
     width: 6px;
@@ -2265,7 +2282,9 @@ body {
         flex: 1 !important;
         width: 100% !important;
         overflow: visible !important;
-    }
+    
+    overflow-y: auto;
+    padding-bottom: 20px;}
 
     /* Code blocks: avoid page breaks inside and center */
     .code-example {
@@ -2768,7 +2787,7 @@ body {
     gap: 4px;
 }
 .jmeter-step strong {
-    font-size: clamp(12px, 1.2vw, 17px);
+    font-size: clamp(14px, 1.4vw, 18px);
 }
 /* Helper para conteúdo visível apenas na impressão */
 .print-only {
