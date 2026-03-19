@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponderada 2: RF e RNF como Código | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 20</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             ABERTURA (Slides 1-4)
+             ============================================= -->
+
+        <!-- SLIDE 1: CAPA -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | M&oacute;dulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 08</span>
+                </div>
+                <h1 class="cover-title">Ponderada 2<br>RF e RNF como C&oacute;digo</h1>
+                <h2 class="cover-subtitle">Estudo de caso pr&aacute;tico &mdash; Exerc&iacute;cio avaliado</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Mar&ccedil;o de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: RECAP -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Onde Estamos na Jornada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4>Aula 01</h4>
+                        <p>Vis&otilde;es RM-ODP</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">code</span></div>
+                        <h4>Aula 02</h4>
+                        <p>BD como C&oacute;digo</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">build</span></div>
+                        <h4>Aula 03</h4>
+                        <p>Ponderada 1</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">support_agent</span></div>
+                        <h4>Aula 04</h4>
+                        <p>Mocks + Suporte</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Aula 05</h4>
+                        <p>BDD + Robustez</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">hub</span></div>
+                        <h4>Aula 06</h4>
+                        <p>BDD + Integra&ccedil;&atilde;o</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">rocket_launch</span></div>
+                        <h4>Aula 07</h4>
+                        <p>Aplicar Projeto</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon"><span class="material-icons-outlined">assignment</span></div>
+                        <h4>Aula 08 (Hoje)</h4>
+                        <p>Ponderada 2</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Hoje &eacute; avalia&ccedil;&atilde;o.</strong> Apliquem tudo que constru&iacute;ram nas aulas 05&ndash;07.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OBJETIVOS -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Ponderada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Demonstrar Mapeamento RF/RNF</h3>
+                    <p>Conectar requisitos com t&aacute;ticas e mecanismos concretos</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Codificar Features BDD</h3>
+                    <p>Features execut&aacute;veis com cen&aacute;rios de sucesso, borda e falha</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Projetar Simula&ccedil;&atilde;o e Massa</h3>
+                    <p>Mocks realistas com side_effect e massa de testes completa</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: CRITÉRIOS DE AVALIAÇÃO -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <span class="section-tag">AVALIA&Ccedil;&Atilde;O</span>
+                <h2 class="slide-title">Crit&eacute;rios de Avalia&ccedil;&atilde;o</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(10px, 1vw, 13px); background: #fff; border-radius: 8px; overflow: hidden;">
+                        <thead>
+                            <tr style="background: var(--inteli-purple); color: white;">
+                                <th style="padding: 10px; text-align: left;">Crit&eacute;rio</th>
+                                <th style="padding: 10px; text-align: center;">Peso</th>
+                                <th style="padding: 10px; text-align: left;">Excelente</th>
+                                <th style="padding: 10px; text-align: left;">Bom</th>
+                                <th style="padding: 10px; text-align: left;">Insuficiente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; font-weight: bold; color: var(--inteli-coral);">Mapeamento RF/RNF</td>
+                                <td style="padding: 10px; text-align: center; font-weight: 700;">25%</td>
+                                <td style="padding: 10px;">Todas as colunas preenchidas, t&aacute;ticas justificadas</td>
+                                <td style="padding: 10px;">Colunas preenchidas, sem justificativa</td>
+                                <td style="padding: 10px;">Incompleto ou gen&eacute;rico</td>
+                            </tr>
+                            <tr style="background: #f8f6f2; border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; font-weight: bold; color: var(--inteli-coral);">Features BDD</td>
+                                <td style="padding: 10px; text-align: center; font-weight: 700;">30%</td>
+                                <td style="padding: 10px;">3+ cen&aacute;rios por feature, tags corretas</td>
+                                <td style="padding: 10px;">2 cen&aacute;rios, tags parciais</td>
+                                <td style="padding: 10px;">1 cen&aacute;rio ou sem tags</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; font-weight: bold; color: var(--inteli-coral);">Steps com Mocks</td>
+                                <td style="padding: 10px; text-align: center; font-weight: 700;">25%</td>
+                                <td style="padding: 10px;">side_effect realista, assert espec&iacute;fico</td>
+                                <td style="padding: 10px;">Mock funcional, assert gen&eacute;rico</td>
+                                <td style="padding: 10px;">MagicMock() sem configura&ccedil;&atilde;o</td>
+                            </tr>
+                            <tr style="background: #f8f6f2;">
+                                <td style="padding: 10px; font-weight: bold; color: var(--inteli-coral);">Massa de Testes</td>
+                                <td style="padding: 10px; text-align: center; font-weight: 700;">20%</td>
+                                <td style="padding: 10px;">3 categorias (feliz/borda/falha)</td>
+                                <td style="padding: 10px;">2 categorias</td>
+                                <td style="padding: 10px;">Apenas happy path</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 1: Caso Prático (Slides 5-9)
+             ============================================= -->
+
+        <!-- SLIDE 5: DIVISOR -->
+        <section class="slide slide-section" data-slide="5">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Caso Pr&aacute;tico: Integra&ccedil;&atilde;o de Pagamentos ASIS</h2>
+                <p class="section-description">Contexto, requisitos e exemplos resolvidos</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: CONTEXTO DO CASO -->
+        <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">CASO PR&Aacute;TICO</span>
+                <h2 class="slide-title">Contexto: Integra&ccedil;&atilde;o de Pagamentos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">payments</span></div>
+                        <h4>Cen&aacute;rio</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Sistema ASIS precisa integrar com gateway de pagamento: <b>PIX</b>, <b>boleto</b> e <b>cart&atilde;o de cr&eacute;dito</b>. Cada meio de pagamento tem SLA e comportamento diferente.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">account_tree</span></div>
+                        <h4>Arquitetura</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">App ASIS &rarr; Gateway de Pagamento &rarr; BACEN (PIX) / Operadora (Cart&atilde;o) / Banco (Boleto). Cada seta = ponto de integra&ccedil;&atilde;o com t&aacute;tica.</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Requisitos impl&iacute;citos:</strong> disponibilidade, lat&ecirc;ncia, fallback entre meios de pagamento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: REQUISITOS DO CASO -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">REQUISITOS</span>
+                <h2 class="slide-title">Requisitos do Caso de Pagamentos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 28px;">payments</span>
+                        <div>
+                            <h4 style="color: var(--inteli-coral);">RF1: Processar pagamento via PIX</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">O sistema deve processar pagamento via PIX em at&eacute; 5 segundos</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 28px;">receipt</span>
+                        <div>
+                            <h4 style="color: var(--inteli-coral);">RF2: Gerar comprovante</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Gerar comprovante com n&uacute;mero de transa&ccedil;&atilde;o &uacute;nico ap&oacute;s confirma&ccedil;&atilde;o</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 28px;">verified</span>
+                        <div>
+                            <h4 style="color: var(--inteli-lilac);">RNF1: Disponibilidade 99.9%</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">O servi&ccedil;o de pagamentos deve manter disponibilidade de 99.9%</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 28px;">sync_alt</span>
+                        <div>
+                            <h4 style="color: var(--inteli-lilac);">RNF2: Fallback para boleto</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Quando PIX estiver indispon&iacute;vel, oferecer fallback autom&aacute;tico para boleto</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 28px;">speed</span>
+                        <div>
+                            <h4 style="color: var(--inteli-lilac);">RNF3: Lat&ecirc;ncia p95 &lt; 200ms</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Consulta de status de pagamento com lat&ecirc;ncia p95 inferior a 200ms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: EXEMPLO RF1 -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO RESOLVIDO</span>
+                <h2 class="slide-title">RF1 &mdash; Processar PIX</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">features/pagamento_pix.feature</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="decorator">@rf</span> <span class="decorator">@pagamento</span> <span class="decorator">@sucesso</span>
+<span class="keyword">Feature:</span> <span class="class-name">Processar pagamento via PIX</span>
+  <span class="comment">Como</span> sistema de pagamentos
+  <span class="comment">Quero</span> processar PIX em at&eacute; 5s
+  <span class="comment">Para</span> garantir experi&ecirc;ncia do usu&aacute;rio
+
+  <span class="keyword">Scenario:</span> PIX processado com sucesso
+    <span class="keyword">Given</span> um pedido de R$ 150.00
+    <span class="keyword">And</span> o gateway PIX est&aacute; dispon&iacute;vel
+    <span class="keyword">When</span> solicito pagamento via PIX
+    <span class="keyword">Then</span> o pagamento &eacute; confirmado
+      em menos de 5 segundos
+    <span class="keyword">And</span> um comprovante com n&uacute;mero
+      de transa&ccedil;&atilde;o &eacute; gerado</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Python</span>
+                            <span class="code-file">steps/pagamento_pix_steps.py</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="keyword">from</span> unittest.mock <span class="keyword">import</span> MagicMock
+<span class="keyword">import</span> time
+
+<span class="decorator">@given</span>(<span class="string">'o gateway PIX est&aacute; dispon&iacute;vel'</span>)
+<span class="keyword">def</span> <span class="function">step_gateway_disponivel</span>(context):
+    context.gateway = MagicMock()
+    context.gateway.processar_pix.return_value = {
+        <span class="string">'status'</span>: <span class="string">'aprovado'</span>,
+        <span class="string">'transacao_id'</span>: <span class="string">'TXN-001'</span>,
+        <span class="string">'tempo_ms'</span>: <span class="number">1200</span>
+    }
+
+<span class="decorator">@when</span>(<span class="string">'solicito pagamento via PIX'</span>)
+<span class="keyword">def</span> <span class="function">step_solicitar_pix</span>(context):
+    inicio = time.time()
+    context.resultado = context.gateway \
+        .processar_pix(valor=context.valor)
+    context.tempo = time.time() - inicio</code></pre>
+                    </div>
+                </div>
+                <div class="code-connection" style="margin-top: 10px;">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>Este &eacute; o n&iacute;vel de detalhe esperado na entrega.</strong> Mock configura resposta realista + assert verifica comportamento espec&iacute;fico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: EXEMPLO RNF1 -->
+        <section class="slide slide-content" data-slide="9">
+            <div class="slide-header">
+                <span class="section-tag">EXEMPLO RESOLVIDO</span>
+                <h2 class="slide-title">RNF1 &mdash; Circuit Breaker</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="code-two-col">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Gherkin</span>
+                            <span class="code-file">features/circuit_breaker.feature</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="decorator">@rnf</span> <span class="decorator">@resiliencia</span> <span class="decorator">@falha</span>
+<span class="keyword">Feature:</span> <span class="class-name">Circuit Breaker no Gateway
+  de Pagamento</span>
+  <span class="comment">Como</span> sistema resiliente
+  <span class="comment">Quero</span> proteger contra falhas do gateway
+  <span class="comment">Para</span> manter disponibilidade 99.9%
+
+  <span class="keyword">Scenario:</span> CB abre ap&oacute;s 3 falhas
+    consecutivas
+    <span class="keyword">Given</span> o gateway de pagamento est&aacute;
+      inst&aacute;vel
+    <span class="keyword">And</span> o circuit breaker est&aacute; CLOSED
+    <span class="keyword">When</span> ocorrem 3 timeouts consecutivos
+    <span class="keyword">Then</span> o circuit breaker muda para OPEN
+    <span class="keyword">And</span> requisi&ccedil;&otilde;es s&atilde;o respondidas
+      com fallback
+
+  <span class="keyword">Scenario:</span> CB tenta recuperar em
+    HALF-OPEN
+    <span class="keyword">Given</span> o circuit breaker est&aacute; OPEN
+      h&aacute; 30 segundos
+    <span class="keyword">When</span> o tempo de reset expira
+    <span class="keyword">Then</span> o circuit breaker muda para
+      HALF-OPEN
+    <span class="keyword">And</span> uma requisi&ccedil;&atilde;o de teste &eacute;
+      enviada ao gateway</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-lang">Python</span>
+                            <span class="code-file">steps/circuit_breaker_steps.py</span>
+                        </div>
+                        <pre class="code-block code-compact" style="font-size: 11px;"><code><span class="decorator">@given</span>(<span class="string">'o gateway de pagamento est&aacute;
+  inst&aacute;vel'</span>)
+<span class="keyword">def</span> <span class="function">step_gateway_instavel</span>(context):
+    context.gateway = MagicMock()
+    context.gateway.processar.side_effect = [
+        TimeoutError(<span class="string">"Gateway timeout"</span>),
+        TimeoutError(<span class="string">"Gateway timeout"</span>),
+        TimeoutError(<span class="string">"Gateway timeout"</span>),
+        {<span class="string">'status'</span>: <span class="string">'aprovado'</span>}
+    ]
+
+<span class="decorator">@when</span>(<span class="string">'ocorrem 3 timeouts consecutivos'</span>)
+<span class="keyword">def</span> <span class="function">step_timeouts</span>(context):
+    context.falhas = <span class="number">0</span>
+    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):
+        <span class="keyword">try</span>:
+            context.gateway.processar()
+        <span class="keyword">except</span> TimeoutError:
+            context.falhas += <span class="number">1</span>
+    context.cb_estado = <span class="string">'OPEN'</span></code></pre>
+                    </div>
+                </div>
+                <div class="code-connection" style="margin-top: 10px;">
+                    <span class="material-icons-outlined">lightbulb</span>
+                    <p><strong>RNF = t&aacute;tica + mecanismo + cen&aacute;rio de falha.</strong> O <code>side_effect</code> simula falhas reais do gateway.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PARTE 2: Exercício Avaliado (Slides 10-15)
+             ============================================= -->
+
+        <!-- SLIDE 10: DIVISOR -->
+        <section class="slide slide-section" data-slide="10">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">Exerc&iacute;cio Avaliado &mdash; M&atilde;os na Massa</h2>
+                <p class="section-description">60 minutos para completar as 3 entregas</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: ENTREGA 1 -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="activity-tag">ENTREGA 1</span>
+                <h2 class="slide-title">Mapeamento RF/RNF</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: clamp(10px, 1vw, 13px); background: #fff; border-radius: 8px; overflow: hidden;">
+                        <thead>
+                            <tr style="background: var(--inteli-purple); color: white;">
+                                <th style="padding: 10px; text-align: left;">Requisito</th>
+                                <th style="padding: 10px; text-align: left;">Tipo</th>
+                                <th style="padding: 10px; text-align: left;">T&aacute;tica</th>
+                                <th style="padding: 10px; text-align: left;">Mecanismo</th>
+                                <th style="padding: 10px; text-align: left;">Massa de Testes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee; background: #f0f7f0;">
+                                <td style="padding: 10px; font-weight: bold; color: var(--inteli-coral);">RF1: Processar PIX</td>
+                                <td style="padding: 10px;">RF</td>
+                                <td style="padding: 10px;">N/A</td>
+                                <td style="padding: 10px;">Gateway API</td>
+                                <td style="padding: 10px;">Feliz: PIX ok / Borda: timeout 4.9s / Falha: gateway offline</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #999; font-style: italic;">RF2: ...</td>
+                                <td style="padding: 10px; color: #ccc;">RF</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">Feliz / Borda / Falha</td>
+                            </tr>
+                            <tr style="background: #f8f6f2; border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #999; font-style: italic;">RNF1: ...</td>
+                                <td style="padding: 10px; color: #ccc;">RNF</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">Feliz / Borda / Falha</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px; color: #999; font-style: italic;">...</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                                <td style="padding: 10px; color: #ccc;">...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="key-message" style="margin-top: 15px;">
+                    <p><strong>Cada linha deve ter TODAS as colunas preenchidas.</strong> M&iacute;nimo: 3 RF + 3 RNF.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: ENTREGA 2 -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <span class="activity-tag">ENTREGA 2</span>
+                <h2 class="slide-title">Features BDD Execut&aacute;veis</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 28px;">description</span>
+                        <div>
+                            <h4>Escrever 2 Features</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">1 feature para RF e 1 feature para RNF do projeto ASIS</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 28px;">format_list_numbered</span>
+                        <div>
+                            <h4>3 Cen&aacute;rios por Feature</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Cada feature deve ter pelo menos 3 cen&aacute;rios: <code>@sucesso</code>, <code>@borda</code> e <code>@falha</code></p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">label</span>
+                        <div>
+                            <h4>Tags Obrigat&oacute;rias</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);"><code>@rf</code> ou <code>@rnf</code> + <code>@sucesso</code> / <code>@borda</code> / <code>@falha</code> em cada cen&aacute;rio</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-purple); font-size: 28px;">auto_stories</span>
+                        <div>
+                            <h4>Refer&ecirc;ncia</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Template da Aula 07 e exemplos resolvidos dos slides 8&ndash;9 desta aula</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: ENTREGA 3 -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="activity-tag">ENTREGA 3</span>
+                <h2 class="slide-title">Steps com Mocks Realistas</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 28px;">code</span>
+                        <div>
+                            <h4>Implementar Steps Completos</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Implementar steps para pelo menos 1 feature completa (todos os cen&aacute;rios)</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 28px;">science</span>
+                        <div>
+                            <h4>MagicMock com side_effect</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Usar <code>MagicMock</code> com <code>side_effect</code> para simular falhas reais (TimeoutError, ConnectionError, etc.)</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">check_circle</span>
+                        <div>
+                            <h4>Assert Espec&iacute;fico</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Assert que verifica valor, estado ou comportamento espec&iacute;fico &mdash; n&atilde;o gen&eacute;rico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>O mock deve simular o comportamento REAL do servi&ccedil;o externo.</strong> <code>MagicMock()</code> sem configura&ccedil;&atilde;o = nota insuficiente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: TIMER -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="activity-tag">PONDERADA</span>
+                <h2 class="slide-title">Tempo de Trabalho</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: start;">
+                    <!-- Timer -->
+                    <div class="timer-container" style="background: var(--inteli-purple); border-radius: 16px; display: flex; flex-direction: column; justify-content: center; border: 3px solid var(--inteli-coral); padding: 30px;">
+                        <div class="timer" id="timer-ponderada">
+                            <span class="timer-value" style="font-size: 82px; letter-spacing: -3px; line-height: 1;">60:00</span>
+                            <span class="timer-label" style="text-transform: uppercase; letter-spacing: 3px; opacity: 0.8; font-size: 16px; margin-top: 10px; display: block;">Tempo Restante</span>
+                        </div>
+                        <button class="timer-btn" onclick="startTimer('timer-ponderada', 3600)" style="margin-top: 30px; width: 100%; font-weight: 800; text-transform: uppercase; font-size: 18px; padding: 15px;">
+                            <span class="material-icons-outlined" style="vertical-align: middle; font-size: 24px;">play_circle</span> Iniciar
+                        </button>
+                    </div>
+
+                    <!-- Breakdown Cards -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="concept-card" style="border-left: 4px solid var(--inteli-coral); padding: 15px;">
+                            <div class="concept-icon"><span class="material-icons-outlined">map</span></div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Mapeamento</h4>
+                            <p style="font-size: clamp(18px, 2vw, 28px); font-weight: 800; color: var(--inteli-coral); margin-top: 5px;">15 min</p>
+                        </div>
+                        <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac); padding: 15px;">
+                            <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Features BDD</h4>
+                            <p style="font-size: clamp(18px, 2vw, 28px); font-weight: 800; color: var(--inteli-lilac); margin-top: 5px;">20 min</p>
+                        </div>
+                        <div class="concept-card" style="border-left: 4px solid var(--inteli-green); padding: 15px;">
+                            <div class="concept-icon"><span class="material-icons-outlined">code</span></div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Steps + Mocks</h4>
+                            <p style="font-size: clamp(18px, 2vw, 28px); font-weight: 800; color: var(--inteli-green); margin-top: 5px;">20 min</p>
+                        </div>
+                        <div class="concept-card" style="border-left: 4px solid var(--inteli-purple); padding: 15px;">
+                            <div class="concept-icon"><span class="material-icons-outlined">checklist</span></div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Revis&atilde;o</h4>
+                            <p style="font-size: clamp(18px, 2vw, 28px); font-weight: 800; color: var(--inteli-purple); margin-top: 5px;">5 min</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: CHECKLIST -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="section-tag">CHECKLIST</span>
+                <h2 class="slide-title">Checklist de Entrega</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">check_circle</span>
+                        <div>
+                            <h4>1. Tabela de mapeamento completa</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">M&iacute;nimo 3 RF + 3 RNF com todas as colunas preenchidas</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">check_circle</span>
+                        <div>
+                            <h4>2. Dois arquivos .feature</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Com 3 cen&aacute;rios cada (sucesso, borda, falha)</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">check_circle</span>
+                        <div>
+                            <h4>3. Um arquivo de steps com mocks funcionais</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">MagicMock configurado com <code>side_effect</code> e <code>return_value</code></p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">check_circle</span>
+                        <div>
+                            <h4>4. Testes passam com <code>behave</code></h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Executar <code>behave</code> e confirmar que todos os cen&aacute;rios est&atilde;o verdes</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">check_circle</span>
+                        <div>
+                            <h4>5. C&oacute;digo commitado no reposit&oacute;rio do grupo</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Push realizado antes do t&eacute;rmino do tempo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             ENCERRAMENTO (Slides 16-20)
+             ============================================= -->
+
+        <!-- SLIDE 16: DIVISOR -->
+        <section class="slide slide-section" data-slide="16">
+            <div class="section-content">
+                <span class="section-number">ENCERRAMENTO</span>
+                <h2 class="section-title">Revis&atilde;o e Entrega</h2>
+                <p class="section-description">Erros comuns e pr&oacute;ximos passos</p>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: ERROS COMUNS -->
+        <section class="slide slide-content" data-slide="17">
+            <div class="slide-header">
+                <span class="section-tag">ATEN&Ccedil;&Atilde;O</span>
+                <h2 class="slide-title">Erros Comuns &mdash; Evite Estes</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">warning</span></div>
+                        <h4>RNF sem N&uacute;mero</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">&ldquo;Ser r&aacute;pido&rdquo; n&atilde;o &eacute; RNF. Use: <b>&ldquo;lat&ecirc;ncia p95 &lt; 200ms&rdquo;</b></p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">bug_report</span></div>
+                        <h4>Mock Gen&eacute;rico</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;"><code>MagicMock()</code> sem <code>side_effect</code> n&atilde;o testa nada real</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">error</span></div>
+                        <h4>Feature sem Falha</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Sem cen&aacute;rio <code>@falha</code>, voc&ecirc; s&oacute; testa o happy path</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">shuffle</span></div>
+                        <h4>Confundir RF com RNF</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">&ldquo;Processar PIX&rdquo; = RF. &ldquo;Em at&eacute; 5s&rdquo; = RNF</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: PRÓXIMOS PASSOS -->
+        <section class="slide slide-content" data-slide="18">
+            <div class="slide-header">
+                <span class="section-tag">PR&Oacute;XIMOS PASSOS</span>
+                <h2 class="slide-title">Pr&oacute;ximos Passos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">integration_instructions</span></div>
+                        <h4>Aula 09: Estudo de Caso de Integra&ccedil;&atilde;o</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Padr&otilde;es reais de integra&ccedil;&atilde;o + suporte aos grupos</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">event</span></div>
+                        <h4>Prazo de Entrega</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Entrega da ponderada via reposit&oacute;rio. Confirmar prazo com instrutor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: REFERÊNCIAS -->
+        <section class="slide slide-content" data-slide="19">
+            <div class="slide-header">
+                <span class="section-tag">REFER&Ecirc;NCIAS</span>
+                <h2 class="slide-title">Materiais de Refer&ecirc;ncia</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 28px;">code</span>
+                        <div>
+                            <h4>Repo de Refer&ecirc;ncia</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 28px;">menu_book</span>
+                        <div>
+                            <h4>Behave Documentation</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">behave.readthedocs.io</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-green); font-size: 28px;">menu_book</span>
+                        <div>
+                            <h4>Pressman &mdash; Engenharia de Software</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">RNFs verific&aacute;veis: m&eacute;tricas, limites e condi&ccedil;&otilde;es de aceita&ccedil;&atilde;o</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-purple); font-size: 28px;">verified</span>
+                        <div>
+                            <h4>ISO/IEC 25010</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px);">Modelo de qualidade de produto de software</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: ENCERRAMENTO -->
+        <section class="slide slide-closing" data-slide="20">
+            <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
+                <div class="closing-quote" style="margin-bottom: 0;">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>C&oacute;digo que n&atilde;o &eacute; testado &eacute; c&oacute;digo que n&atilde;o existe.<br>Requisito que n&atilde;o &eacute; aferido &eacute; <strong>promessa.</strong></p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>Mapeamento &rarr; Feature &rarr; Step &rarr; Assert</li>
+                            <li>T&aacute;tica guia o mecanismo</li>
+                            <li>Massa: 3 categorias sempre (feliz, borda, falha)</li>
+                            <li>Mock = simula&ccedil;&atilde;o realista (side_effect!)</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

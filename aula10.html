@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte ao Projeto &mdash; Integra&ccedil;&atilde;o | Inteli ES09</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <span class="slide-counter" id="slideCounter">1 / 16</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            <span class="material-icons-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- =============================================
+             SLIDE 1: CAPA
+             ============================================= -->
+        <section class="slide slide-cover active" data-slide="1">
+            <div class="cover-decoration"></div>
+            <div class="cover-triangle"></div>
+            <div class="cover-content">
+                <div class="cover-header">
+                    <span class="module-tag">Engenharia de Software | M&oacute;dulo ES09</span>
+                    <span class="class-tag">Turma T13 &mdash; Aula 10</span>
+                </div>
+                <h1 class="cover-title">Suporte ao Projeto<br>Integra&ccedil;&atilde;o</h1>
+                <h2 class="cover-subtitle">Revis&atilde;o, troubleshooting e evolu&ccedil;&atilde;o dos artefatos</h2>
+                <div class="cover-footer">
+                    <div class="instructor-info">
+                        <span>Instrutor: Ovidio Netto</span>
+                        <span>Data: Mar&ccedil;o de 2026</span>
+                    </div>
+                    <div class="logos">
+                        <div class="inteli-logo">
+                            <img src="logo-inteli-color.png" alt="inteli" style="height:48px;width:auto;">
+                        </div>
+                        <div class="partner-logo">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 2: RECAP
+             ============================================= -->
+        <section class="slide slide-content" data-slide="2">
+            <div class="slide-header">
+                <span class="section-tag">RECAP</span>
+                <h2 class="slide-title">Onde Estamos na Jornada</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="recap-flow">
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">layers</span></div>
+                        <h4>Aulas 01&ndash;04</h4>
+                        <p>Vis&otilde;es + BD</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">science</span></div>
+                        <h4>Aula 05</h4>
+                        <p>BDD + Robustez</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">hub</span></div>
+                        <h4>Aula 06</h4>
+                        <p>BDD + Integra&ccedil;&atilde;o</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">rocket_launch</span></div>
+                        <h4>Aula 07</h4>
+                        <p>Aplicar</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">assignment</span></div>
+                        <h4>Aula 08</h4>
+                        <p>Ponderada 2</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card">
+                        <div class="recap-icon"><span class="material-icons-outlined">cases</span></div>
+                        <h4>Aula 09</h4>
+                        <p>Caso Integra&ccedil;&atilde;o</p>
+                    </div>
+                    <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
+                    <div class="recap-card active-recap">
+                        <div class="recap-icon"><span class="material-icons-outlined">build</span></div>
+                        <h4>Aula 10 (Hoje)</h4>
+                        <p>Suporte</p>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 25px;">
+                    <p><strong>Hoje &eacute; dia de resolver problemas.</strong> Tragam seus bloqueios e d&uacute;vidas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 3: OBJETIVOS
+             ============================================= -->
+        <section class="slide slide-content" data-slide="3">
+            <div class="slide-header">
+                <h2 class="slide-title">Objetivos da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">01</div>
+                    <h3>Resolver Bloqueios</h3>
+                    <p>Troubleshooting de erros comuns na implementa&ccedil;&atilde;o</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">02</div>
+                    <h3>Validar Artefatos</h3>
+                    <p>Revis&atilde;o direta com instrutor</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">03</div>
+                    <h3>Evoluir para Entrega</h3>
+                    <p>Refinar features e testes para entrega final</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 4: AGENDA
+             ============================================= -->
+        <section class="slide slide-content" data-slide="4">
+            <div class="slide-header">
+                <h2 class="slide-title">Agenda da Aula</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="jmeter-flow" style="justify-content: center; gap: 20px; margin-top: 20px;">
+                    <div class="jmeter-step" style="flex: 1; max-width: 260px; border-top: 5px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">checklist</span></div>
+                        <h4>Padr&otilde;es de Revis&atilde;o</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Slides 5&ndash;6</p>
+                        <span class="activity-tag" style="margin-top: 10px;">10 min</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 260px; border-top: 5px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">bug_report</span></div>
+                        <h4>Troubleshooting Guide</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Slides 7&ndash;8</p>
+                        <span class="activity-tag" style="margin-top: 10px;">10 min</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    </div>
+                    <div class="jmeter-step" style="flex: 1; max-width: 260px; border-top: 5px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">groups</span></div>
+                        <h4>Suporte Direto aos Grupos</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px);">Slides 9&ndash;13</p>
+                        <span class="activity-tag" style="margin-top: 10px;">75 min</span>
+                    </div>
+                </div>
+                <div class="key-message" style="margin-top: 30px;">
+                    <p><strong>Aula majoritariamente pr&aacute;tica.</strong> Poucos slides, muito suporte.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 5: DIVISOR &mdash; PARTE 1
+             ============================================= -->
+        <section class="slide slide-section" data-slide="5">
+            <div class="section-content">
+                <span class="section-number">PARTE 1</span>
+                <h2 class="section-title">Padr&otilde;es de Revis&atilde;o</h2>
+                <p class="section-description">O que esperamos ver nos artefatos</p>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 6: REVIEW CHECKLIST
+             ============================================= -->
+        <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">REVIS&Atilde;O</span>
+                <h2 class="slide-title">Checklist T&eacute;cnico de Revis&atilde;o</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">folder</span>
+                        <div>
+                            <h4>Estrutura de Diret&oacute;rios</h4>
+                            <p><code>features/</code>, <code>steps/</code>, <code>tests/</code> &mdash; organiza&ccedil;&atilde;o clara e convencional do projeto</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">text_format</span>
+                        <div>
+                            <h4>Naming Conventions</h4>
+                            <p><code>.feature</code> em <code>snake_case</code>, steps com prefixo <code>step_</code> &mdash; consist&ecirc;ncia facilita manuten&ccedil;&atilde;o</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">label</span>
+                        <div>
+                            <h4>Tags Organizadas</h4>
+                            <p><code>@rf</code>, <code>@rnf</code>, <code>@sucesso</code>, <code>@falha</code>, <code>@integracao</code> &mdash; permite execu&ccedil;&atilde;o seletiva</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">check_circle</span>
+                        <div>
+                            <h4>Testes Passando</h4>
+                            <p>Behave verde, pytest verde &mdash; nenhum teste quebrado no branch principal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 7: TROUBLESHOOTING
+             ============================================= -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">TROUBLESHOOTING</span>
+                <h2 class="slide-title">Top 5 Erros e Solu&ccedil;&otilde;es</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">error</span>
+                        <div>
+                            <h4><code>ModuleNotFoundError</code></h4>
+                            <p>Verificar <code>PYTHONPATH</code> e imports relativos. Usar <code>pip install -e .</code> ou ajustar <code>sys.path</code>.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">error</span>
+                        <div>
+                            <h4><code>StepNotImplemented</code></h4>
+                            <p>Verificar match exato entre frase do <code>.feature</code> e decorator do step. Espa&ccedil;os e acentos contam.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">error</span>
+                        <div>
+                            <h4><code>MagicMock assert_called</code> falhando</h4>
+                            <p>Verificar se mock foi injetado no objeto correto. Usar <code>patch</code> no m&oacute;dulo que <b>importa</b>, n&atilde;o no que <b>define</b>.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">error</span>
+                        <div>
+                            <h4>Circuit Breaker nunca abre</h4>
+                            <p>Verificar <code>failure_threshold</code> e <code>reset_timeout</code>. O n&uacute;mero de falhas consecutivas precisa atingir o limiar.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">error</span>
+                        <div>
+                            <h4>Locust <code>ConnectionError</code></h4>
+                            <p>Verificar se Flask/servidor est&aacute; rodando na porta correta. Testar com <code>curl localhost:5000</code> antes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 8: QUALIDADE ESPERADA
+             ============================================= -->
+        <section class="slide slide-content" data-slide="8">
+            <div class="slide-header">
+                <span class="section-tag">QUALIDADE</span>
+                <h2 class="slide-title">Padr&atilde;o de Qualidade Esperado</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 100%;">
+                    <!-- Coluna Esquerda: Evite -->
+                    <div style="border: 2px solid var(--inteli-coral); border-radius: 12px; padding: 18px; background: #fff8f8;">
+                        <h3 style="color: var(--inteli-coral); font-size: clamp(14px, 1.4vw, 18px); margin-bottom: 12px;">
+                            <span class="material-icons-outlined" style="vertical-align: middle;">cancel</span> Evite
+                        </h3>
+                        <div class="code-example" style="margin-bottom: 10px;">
+                            <pre class="code-block code-compact" style="font-size: 11px; padding: 10px;"><code><span style="color: #c678dd; font-weight: bold;">Feature:</span> Testar pagamento
+  <span style="color: #c678dd; font-weight: bold;">Scenario:</span> Teste
+    <span style="color: #e06c75; font-weight: bold;">Given</span> sistema funcionando
+    <span style="color: #e06c75; font-weight: bold;">When</span> fa&ccedil;o pagamento
+    <span style="color: #e06c75; font-weight: bold;">Then</span> funciona</code></pre>
+                        </div>
+                        <div class="code-example">
+                            <pre class="code-block code-compact" style="font-size: 11px; padding: 10px;"><code><span style="color: #608b4e;"># Step gen&eacute;rico</span>
+<span style="color: #c678dd; font-weight: bold;">@when</span>(<span style="color: #98c379;">'fa&ccedil;o pagamento'</span>)
+<span style="color: #c678dd; font-weight: bold;">def</span> <span style="color: #61afef;">step_pagar</span>(context):
+    result = <span style="color: #61afef;">MagicMock</span>()  <span style="color: #608b4e;"># Mock vazio</span>
+    <span style="color: #c678dd; font-weight: bold;">assert</span> result  <span style="color: #608b4e;"># Assert in&uacute;til</span></code></pre>
+                        </div>
+                    </div>
+                    <!-- Coluna Direita: Fa&ccedil;a -->
+                    <div style="border: 2px solid var(--inteli-green); border-radius: 12px; padding: 18px; background: #f8fff8;">
+                        <h3 style="color: var(--inteli-green); font-size: clamp(14px, 1.4vw, 18px); margin-bottom: 12px;">
+                            <span class="material-icons-outlined" style="vertical-align: middle;">check_circle</span> Fa&ccedil;a
+                        </h3>
+                        <div class="code-example" style="margin-bottom: 10px;">
+                            <pre class="code-block code-compact" style="font-size: 11px; padding: 10px;"><code><span style="color: #c678dd;">@rf</span> <span style="color: #c678dd;">@pagamento</span> <span style="color: #c678dd;">@sucesso</span>
+<span style="color: #c678dd; font-weight: bold;">Feature:</span> Processar pagamento PIX
+  <span style="color: #c678dd; font-weight: bold;">Scenario:</span> PIX confirmado em &lt; 5s
+    <span style="color: #e06c75; font-weight: bold;">Given</span> um pedido de R$ 150.00
+    <span style="color: #e06c75; font-weight: bold;">And</span> o gateway PIX est&aacute; dispon&iacute;vel
+    <span style="color: #e06c75; font-weight: bold;">When</span> solicito pagamento via PIX
+    <span style="color: #e06c75; font-weight: bold;">Then</span> pagamento confirmado em &lt; 5 segundos
+    <span style="color: #e06c75; font-weight: bold;">And</span> comprovante gerado com transa&ccedil;&atilde;o &uacute;nica</code></pre>
+                        </div>
+                        <div class="code-example">
+                            <pre class="code-block code-compact" style="font-size: 11px; padding: 10px;"><code><span style="color: #c678dd; font-weight: bold;">@when</span>(<span style="color: #98c379;">'solicito pagamento via PIX'</span>)
+<span style="color: #c678dd; font-weight: bold;">def</span> <span style="color: #61afef;">step_pix</span>(context):
+    context.gateway.processar_pix.<span style="color: #61afef;">return_value</span> = {
+        <span style="color: #98c379;">'status'</span>: <span style="color: #98c379;">'aprovado'</span>,
+        <span style="color: #98c379;">'transacao_id'</span>: <span style="color: #98c379;">'TXN-001'</span>,
+        <span style="color: #98c379;">'tempo_ms'</span>: <span style="color: #d19a66;">1200</span>
+    }
+    context.resultado = context.gateway.<span style="color: #61afef;">processar_pix</span>(
+        valor=context.valor
+    )</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 9: DIVISOR &mdash; PARTE 2
+             ============================================= -->
+        <section class="slide slide-section" data-slide="9">
+            <div class="section-content">
+                <span class="section-number">PARTE 2</span>
+                <h2 class="section-title">Suporte Direto aos Grupos</h2>
+                <p class="section-description">75 minutos de revis&atilde;o e implementa&ccedil;&atilde;o</p>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 10: ROTEIRO DE REVIS&Atilde;O
+             ============================================= -->
+        <section class="slide slide-content" data-slide="10">
+            <div class="slide-header">
+                <span class="activity-tag">SUPORTE</span>
+                <h2 class="slide-title">Roteiro de Revis&atilde;o por Grupo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="concept-card" style="border-top: 5px solid var(--inteli-lilac); text-align: center; padding: 25px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">map</span></div>
+                        <h4 style="font-size: clamp(14px, 1.4vw, 18px);">Passo 1: Mostrar Mapeamento</h4>
+                        <span class="activity-tag" style="margin: 10px 0;">5 min</span>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 8px;">Apresentar tabela RF/RNF com t&aacute;ticas e mecanismos mapeados</p>
+                    </div>
+                    <div class="concept-card" style="border-top: 5px solid var(--inteli-coral); text-align: center; padding: 25px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">terminal</span></div>
+                        <h4 style="font-size: clamp(14px, 1.4vw, 18px);">Passo 2: Rodar Behave ao Vivo</h4>
+                        <span class="activity-tag" style="margin: 10px 0;">5 min</span>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 8px;">Demonstrar testes passando no terminal &mdash; behave verde em tempo real</p>
+                    </div>
+                    <div class="concept-card" style="border-top: 5px solid var(--inteli-green); text-align: center; padding: 25px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">rate_review</span></div>
+                        <h4 style="font-size: clamp(14px, 1.4vw, 18px);">Passo 3: Discutir Melhorias</h4>
+                        <span class="activity-tag" style="margin: 10px 0;">5 min</span>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 8px;">Feedback do instrutor + pr&oacute;ximos passos para evolu&ccedil;&atilde;o</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 11: TIMER DE SUPORTE
+             ============================================= -->
+        <section class="slide slide-content" data-slide="11">
+            <div class="slide-header">
+                <span class="activity-tag">SUPORTE</span>
+                <h2 class="slide-title">Tempo de Suporte</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div class="timer-container" style="background: var(--inteli-purple); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 3px solid var(--inteli-coral); padding: 40px 60px;">
+                    <div class="timer" id="timer-suporte">
+                        <span class="timer-value" style="font-size: 82px; letter-spacing: -3px; line-height: 1;">75:00</span>
+                        <span class="timer-label" style="text-transform: uppercase; letter-spacing: 3px; opacity: 0.8; font-size: 16px; margin-top: 10px; display: block;">Tempo de Suporte</span>
+                    </div>
+                    <button class="timer-btn" onclick="startTimer('timer-suporte', 4500)" style="margin-top: 30px; width: 100%; font-weight: 800; text-transform: uppercase; font-size: 18px; padding: 15px;">
+                        <span class="material-icons-outlined" style="vertical-align: middle; font-size: 24px;">play_circle</span> Iniciar Suporte
+                    </button>
+                </div>
+                <div class="key-message" style="margin-top: 25px; max-width: 600px;">
+                    <p><strong>~15 min por grupo (5 grupos).</strong> Instrutor anota feedback para cada grupo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 12: DICAS AVAN&Ccedil;ADAS
+             ============================================= -->
+        <section class="slide slide-content" data-slide="12">
+            <div class="slide-header">
+                <span class="section-tag">DICAS</span>
+                <h2 class="slide-title">Dicas Avan&ccedil;adas</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">table_chart</span></div>
+                        <h4>Esquema do Cen&aacute;rio</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Parametrizar cen&aacute;rios Gherkin com <code>Esquema do Cen&aacute;rio</code> + <code>Exemplos</code> para cobrir m&uacute;ltiplos casos com um &uacute;nico template</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">settings</span></div>
+                        <h4>@fixture do Behave</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Setup/teardown reutiliz&aacute;vel entre cen&aacute;rios &mdash; centralizar configura&ccedil;&atilde;o em <code>environment.py</code></p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">folder_shared</span></div>
+                        <h4>conftest.py</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Separar mocks em <code>conftest.py</code> para reutiliza&ccedil;&atilde;o entre steps &mdash; evitar duplica&ccedil;&atilde;o de fixtures</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">tune</span></div>
+                        <h4>SLOs como Constantes</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Definir thresholds no c&oacute;digo (<code>MAX_LATENCY_MS = 200</code>), n&atilde;o hardcoded em testes individuais</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 13: AUTOAVALIA&Ccedil;&Atilde;O
+             ============================================= -->
+        <section class="slide slide-content" data-slide="13">
+            <div class="slide-header">
+                <span class="section-tag">REFLEX&Atilde;O</span>
+                <h2 class="slide-title">Perguntas para Autoavalia&ccedil;&atilde;o</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral); padding: 20px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">computer</span></div>
+                        <h4 style="font-size: clamp(13px, 1.3vw, 16px); line-height: 1.5;">Seus testes passam em m&aacute;quina limpa (n&atilde;o s&oacute; na sua)?</h4>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac); padding: 20px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">warning</span></div>
+                        <h4 style="font-size: clamp(13px, 1.3vw, 16px); line-height: 1.5;">Voc&ecirc; tem cen&aacute;rios de falha, n&atilde;o s&oacute; de sucesso?</h4>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green); padding: 20px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">precision_manufacturing</span></div>
+                        <h4 style="font-size: clamp(13px, 1.3vw, 16px); line-height: 1.5;">O mock simula o servi&ccedil;o real ou &eacute; um stub gen&eacute;rico?</h4>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple); padding: 20px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">visibility</span></div>
+                        <h4 style="font-size: clamp(13px, 1.3vw, 16px); line-height: 1.5;">Algu&eacute;m de outro grupo entenderia seus cen&aacute;rios Gherkin?</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 14: PR&Oacute;XIMOS PASSOS
+             ============================================= -->
+        <section class="slide slide-content" data-slide="14">
+            <div class="slide-header">
+                <span class="section-tag">PR&Oacute;XIMOS PASSOS</span>
+                <h2 class="slide-title">O Que Vem a Seguir</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac); padding: 25px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">school</span></div>
+                        <h4 style="font-size: clamp(14px, 1.4vw, 18px);">Aula 11: Requisitos como C&oacute;digo + Suporte Final</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 10px;">Estudo de caso avan&ccedil;ado + &uacute;ltima revis&atilde;o antes da entrega</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral); padding: 25px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">event</span></div>
+                        <h4 style="font-size: clamp(14px, 1.4vw, 18px);">Prazo Final</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 10px;">Entrega dos artefatos completos. Confirmar deadline com instrutor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 15: REFER&Ecirc;NCIAS
+             ============================================= -->
+        <section class="slide slide-content" data-slide="15">
+            <div class="slide-header">
+                <span class="section-tag">REFER&Ecirc;NCIAS</span>
+                <h2 class="slide-title">Refer&ecirc;ncias e Recursos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body">
+                <div class="drivers-examples">
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">terminal</span>
+                        <div>
+                            <h4>Behave Documentation</h4>
+                            <p>behave.readthedocs.io &mdash; Documenta&ccedil;&atilde;o oficial do framework BDD para Python</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">science</span>
+                        <div>
+                            <h4>pytest Documentation</h4>
+                            <p>docs.pytest.org &mdash; Framework de testes unit&aacute;rios e fixtures para Python</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">code</span>
+                        <div>
+                            <h4>Repo de Refer&ecirc;ncia</h4>
+                            <p>github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd &mdash; Exemplos completos de RF/RNF como c&oacute;digo</p>
+                        </div>
+                    </div>
+                    <div class="driver-item">
+                        <span class="material-icons-outlined">speed</span>
+                        <div>
+                            <h4>Locust Documentation</h4>
+                            <p>docs.locust.io &mdash; Ferramenta de testes de carga em Python</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 16: ENCERRAMENTO
+             ============================================= -->
+        <section class="slide slide-closing" data-slide="16">
+            <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
+                <div class="closing-quote" style="margin-bottom: 0;">
+                    <span class="quote-mark">&ldquo;</span>
+                    <p>O teste que voc&ecirc; n&atilde;o escreveu &eacute; o bug que vai aparecer em produ&ccedil;&atilde;o.</p>
+                </div>
+                <div class="closing-footer">
+                    <div class="next-steps">
+                        <h3>Para Lembrar</h3>
+                        <ul>
+                            <li>Behave verde = feature verificada</li>
+                            <li>Mock realista = <code>side_effect</code> + assert espec&iacute;fico</li>
+                            <li>3 categorias de massa: feliz, borda, falha</li>
+                            <li>T&aacute;tica antes de mecanismo</li>
+                        </ul>
+                    </div>
+                    <div class="closing-logos">
+                        <div class="inteli-logo-large">
+                            <img src="logo-inteli-white.png" alt="inteli" style="height:60px;width:auto;">
+                        </div>
+                        <div class="partner-logo-large">
+                            <span class="asis-logo">ASIS</span>
+                            <span class="asis-sub">by Sankhya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal" id="viewpointModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
