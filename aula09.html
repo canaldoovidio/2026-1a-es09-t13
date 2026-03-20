@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudo de Caso: Solu&ccedil;&atilde;o T&eacute;cnica de Integra&ccedil;&atilde;o | Inteli ES09</title>
+    <title>Integra&ccedil;&atilde;o Empresarial: Padr&otilde;es, IA e Pr&aacute;tica | Inteli ES09</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,7 +25,7 @@
         <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
             <span class="material-icons-outlined">arrow_back</span>
         </button>
-        <span class="slide-counter" id="slideCounter">1 / 22</span>
+        <span class="slide-counter" id="slideCounter">1 / 26</span>
         <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
             <span class="material-icons-outlined">arrow_forward</span>
         </button>
@@ -45,8 +45,8 @@
                     <span class="module-tag">Engenharia de Software | M&oacute;dulo ES09</span>
                     <span class="class-tag">Turma T13 &mdash; Aula 09</span>
                 </div>
-                <h1 class="cover-title">Estudo de Caso<br>Solu&ccedil;&atilde;o T&eacute;cnica de Integra&ccedil;&atilde;o</h1>
-                <h2 class="cover-subtitle">Padr&otilde;es reais e suporte aos grupos</h2>
+                <h1 class="cover-title">Integra&ccedil;&atilde;o Empresarial<br>Padr&otilde;es, IA e Pr&aacute;tica</h1>
+                <h2 class="cover-subtitle">Casos reais + artigo acad&ecirc;mico + atividade com Mermaid &amp; Copilot</h2>
                 <div class="cover-footer">
                     <div class="instructor-info">
                         <span>Instrutor: Ovidio Netto</span>
@@ -124,14 +124,11 @@
                         <p>Ponderada 2</p>
                     </div>
                     <div class="recap-arrow"><span class="material-icons-outlined">arrow_forward</span></div>
-                    <div class="recap-card active-recap">
+                    <div class="recap-card active-card" style="border: 2px solid var(--inteli-coral);">
                         <div class="recap-icon"><span class="material-icons-outlined">cases</span></div>
-                        <h4>Aula 09 (Hoje)</h4>
-                        <p>Caso Integra&ccedil;&atilde;o</p>
+                        <h4>Aula 09</h4>
+                        <p>Padr&otilde;es + IA</p>
                     </div>
-                </div>
-                <div class="key-message" style="margin-top: 25px;">
-                    <p><strong>Agora que voc&ecirc;s codificaram na ponderada, vamos ver como grandes sistemas fazem.</strong></p>
                 </div>
             </div>
         </section>
@@ -144,123 +141,227 @@
                 <h2 class="slide-title">Objetivos da Aula</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body objectives-grid">
-                <div class="objective-card">
-                    <div class="objective-number">01</div>
-                    <h3>Analisar Padr&otilde;es de Integra&ccedil;&atilde;o</h3>
-                    <p>Casos reais com t&aacute;ticas aplicadas a integra&ccedil;&otilde;es externas de alta criticidade</p>
-                </div>
-                <div class="objective-card">
-                    <div class="objective-number">02</div>
-                    <h3>Identificar Trade-offs</h3>
-                    <p>Cada t&aacute;tica tem custo e benef&iacute;cio &mdash; entender quando usar cada uma &eacute; essencial</p>
-                </div>
-                <div class="objective-card">
-                    <div class="objective-number">03</div>
-                    <h3>Aplicar ao Projeto ASIS</h3>
-                    <p>Transferir aprendizados dos casos reais para as integra&ccedil;&otilde;es do projeto do grupo</p>
+            <div class="slide-body">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 25px;">
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-coral); text-align: center;">
+                        <div class="concept-icon" style="font-size: 36px;"><span class="material-icons-outlined">hub</span></div>
+                        <h4 style="color: var(--inteli-coral);">01 &mdash; Padr&otilde;es + Casos</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Analisar padr&otilde;es de integra&ccedil;&atilde;o (EIP) em casos reais: SEFAZ, BACEN/PIX, Transportadora.</p>
+                    </div>
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-lilac); text-align: center;">
+                        <div class="concept-icon" style="font-size: 36px;"><span class="material-icons-outlined">psychology</span></div>
+                        <h4 style="color: var(--inteli-lilac);">02 &mdash; IA na Integra&ccedil;&atilde;o</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Dissecar artigo acad&ecirc;mico (WJAETS, 2025) e entender como IA entra na arquitetura de integra&ccedil;&atilde;o.</p>
+                    </div>
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-green); text-align: center;">
+                        <div class="concept-icon" style="font-size: 36px;"><span class="material-icons-outlined">architecture</span></div>
+                        <h4 style="color: var(--inteli-dark-green);">03 &mdash; Diagrama com IA</h4>
+                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Gerar diagramas Mermaid de integra&ccedil;&atilde;o com Copilot, aplicando padr&otilde;es EIP ao caso Sankhya/ASIS.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 4: CONTEXTO / PONTE
+             SLIDE 4: ARTIGO — APRESENTAÇÃO
              ============================================= -->
         <section class="slide slide-content" data-slide="4">
             <div class="slide-header">
-                <span class="section-tag">PONTE</span>
-                <h2 class="slide-title">Da Ponderada ao Caso Real</h2>
+                <span class="section-tag">ARTIGO</span>
+                <h2 class="slide-title">O Artigo que Vamos Dissecar Hoje</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
-                        <div class="concept-icon"><span class="material-icons-outlined">assignment</span></div>
-                        <h4>Aula 08 &mdash; Exerc&iacute;cio</h4>
-                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Voc&ecirc;s codificaram features BDD, steps com mocks, circuit breaker e retry no contexto da ponderada.</p>
-                    </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
-                        <div class="concept-icon"><span class="material-icons-outlined">cases</span></div>
-                        <h4>Aula 09 &mdash; Aprofundamento</h4>
-                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Agora vamos analisar como sistemas reais de log&iacute;stica e pagamentos implementam essas mesmas t&aacute;ticas em produ&ccedil;&atilde;o.</p>
-                    </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="concept-card" style="border-left: 4px solid var(--inteli-coral); margin-bottom: 15px;">
+                    <h4 style="color: var(--inteli-coral); font-size: clamp(13px, 1.3vw, 17px); line-height: 1.5;">Enterprise System Integration: Foundations, Technologies, and Strategic Impacts in Modern Business Environments</h4>
+                    <p style="font-size: clamp(11px, 1.1vw, 14px); margin-top: 6px; color: #6b7280;">Adusumilli, T. &mdash; <em>World Journal of Advanced Engineering Technology and Sciences</em>, 2025, 15(01), 346-356</p>
+                    <p style="font-size: clamp(10px, 1vw, 12px); margin-top: 4px; color: #9ca3af;">DOI: 10.30574/wjaets.2025.15.1.0205 &mdash; <a href="https://wjaets.com/sites/default/files/fulltext_pdf/WJAETS-2025-0205.pdf" target="_blank" style="color: var(--inteli-coral); text-decoration: underline;">Abrir PDF do artigo</a></p>
                 </div>
-                <div class="key-message" style="margin-top: 25px;">
-                    <p><strong>Agora que voc&ecirc;s codificaram, vamos ver como grandes sistemas fazem.</strong></p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-lilac); margin-bottom: 8px;"><span class="material-icons-outlined" style="font-size: 16px; vertical-align: middle;">summarize</span> Pontos-chave do Abstract</h4>
+                        <ul style="font-size: clamp(10px, 1vw, 13px); line-height: 1.8; padding-left: 16px;">
+                            <li>ESI como <strong>capacidade estrat&eacute;gica</strong>, n&atilde;o apenas infra t&eacute;cnica</li>
+                            <li>Impacto: efici&ecirc;ncia operacional, qualidade de decis&atilde;o, agilidade</li>
+                            <li>Tend&ecirc;ncias: cloud-native, APIs, <strong>IA em integra&ccedil;&atilde;o</strong></li>
+                            <li>Cases: manufatura, finan&ccedil;as, sa&uacute;de, varejo</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-dark-green); margin-bottom: 8px;"><span class="material-icons-outlined" style="font-size: 16px; vertical-align: middle;">help_outline</span> Perguntas para a Turma</h4>
+                        <div class="concept-card" style="background: #f0fdf4; border-left: 3px solid var(--inteli-green); padding: 12px;">
+                            <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; font-style: italic; margin-bottom: 8px;">&ldquo;Por que integra&ccedil;&atilde;o deixou de ser <em>plumbing</em> e virou capacidade estrat&eacute;gica?&rdquo;</p>
+                            <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 6px 10px; margin: 6px 0;">
+                                <p style="font-size: clamp(9px, 0.9vw, 11px); line-height: 1.5; font-style: normal;"><span class="material-icons-outlined" style="font-size: 12px; vertical-align: middle; color: var(--inteli-coral);">info</span> <strong>Plumbing</strong> (g&iacute;ria t&eacute;cnica): trabalho de &ldquo;encanamento&rdquo; &mdash; conex&otilde;es t&eacute;cnicas invis&iacute;veis que fazem sistemas se comunicarem. Usado para descrever trabalho necess&aacute;rio, mas visto como operacional e sem valor estrat&eacute;gico.</p>
+                            </div>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; font-style: italic;">&ldquo;Que sistemas voc&ecirc;s j&aacute; viram que dependem de integra&ccedil;&atilde;o? (banco, e-commerce, fintech, gov.br)&rdquo;</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 5: DIVISOR PARTE 1
+             SLIDE 5: DIVISOR BLOCO 1
              ============================================= -->
         <section class="slide slide-section" data-slide="5">
             <div class="section-content">
-                <span class="section-number">PARTE 1</span>
-                <h2 class="section-title">Caso: Sistema de Log&iacute;stica com M&uacute;ltiplas Integra&ccedil;&otilde;es</h2>
-                <p class="section-description">4 integra&ccedil;&otilde;es reais com t&aacute;ticas diferentes</p>
+                <span class="section-number">BLOCO 1</span>
+                <h2 class="section-title">Padr&otilde;es de Integra&ccedil;&atilde;o Empresarial</h2>
+                <p class="section-description">Enterprise Integration Patterns (EIP) + Tecnologias do artigo</p>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 6: ARQUITETURA DO CASO
+             SLIDE 6: EIP — 5 PADRÕES
              ============================================= -->
         <section class="slide slide-content" data-slide="6">
+            <div class="slide-header">
+                <span class="section-tag">EIP</span>
+                <h2 class="slide-title">5 Padr&otilde;es Essenciais de Integra&ccedil;&atilde;o</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="drivers-examples" style="gap: 10px;">
+                    <div class="driver-item" style="padding: 10px 15px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral);">swap_horiz</span>
+                        <div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Message Channel</h4>
+                            <p style="font-size: clamp(10px, 1vw, 13px);">Canal dedicado entre sistemas. Cada tipo de dado (pedido, NF-e, pagamento) tem seu pr&oacute;prio canal.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 10px 15px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac);">alt_route</span>
+                        <div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Message Router</h4>
+                            <p style="font-size: clamp(10px, 1vw, 13px);">Decide para onde enviar a mensagem com base em regras. Ex.: NF-e de SP vai para SEFAZ-SP, de RJ para SEFAZ-RJ.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 10px 15px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-dark-green);">transform</span>
+                        <div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Message Translator</h4>
+                            <p style="font-size: clamp(10px, 1vw, 13px);">Converte formatos entre sistemas. Ex.: JSON do app &rarr; XML da SEFAZ, ou vice-versa.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 10px 15px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-purple);">schema</span>
+                        <div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Canonical Data Model</h4>
+                            <p style="font-size: clamp(10px, 1vw, 13px);">Modelo de dados &uacute;nico e compartilhado. Cada sistema traduz para/de o modelo can&ocirc;nico em vez de N &times; N tradu&ccedil;&otilde;es.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 10px 15px;">
+                        <span class="material-icons-outlined" style="color: #b45309;">bolt</span>
+                        <div>
+                            <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Event-Driven Consumer</h4>
+                            <p style="font-size: clamp(10px, 1vw, 13px);">Sistemas reagem a eventos ass&iacute;ncronos. Ex.: &ldquo;pedido criado&rdquo; dispara atualiza&ccedil;&atilde;o de estoque, NF-e e notifica&ccedil;&atilde;o.</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: clamp(9px, 0.9vw, 11px); color: #9ca3af; margin-top: 8px; text-align: right;">Fonte: Hohpe &amp; Woolf, <em>Enterprise Integration Patterns</em> (2003) &mdash; enterpriseintegrationpatterns.com</p>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 7: TECNOLOGIAS DO ARTIGO
+             ============================================= -->
+        <section class="slide slide-content" data-slide="7">
+            <div class="slide-header">
+                <span class="section-tag">ARTIGO &mdash; Se&ccedil;&atilde;o 3</span>
+                <h2 class="slide-title">Tecnologias de Integra&ccedil;&atilde;o (ESI)</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
+                        <div class="concept-icon"><span class="material-icons-outlined">api</span></div>
+                        <h4 style="color: var(--inteli-coral);">APIs (REST, GraphQL)</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">Pedra angular da integra&ccedil;&atilde;o moderna. OpenAPI, lifecycle management, API-first design. &ldquo;APIs como produtos.&rdquo;</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
+                        <div class="concept-icon"><span class="material-icons-outlined">mediation</span></div>
+                        <h4 style="color: var(--inteli-lilac);">Middleware / iPaaS</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">De ESBs monol&iacute;ticos a plataformas cloud-native. Transforma&ccedil;&atilde;o, roteamento, convers&atilde;o de protocolos.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
+                        <div class="concept-icon"><span class="material-icons-outlined">bolt</span></div>
+                        <h4 style="color: var(--inteli-dark-green);">Event-Driven (EDA)</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">Pub/sub, event sourcing, Kafka. Acoplamento fraco, escalabilidade, processamento em tempo real.</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
+                        <div class="concept-icon"><span class="material-icons-outlined">cloud</span></div>
+                        <h4 style="color: var(--inteli-purple);">Cloud-Native</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">Containers, serverless, event mesh. Integra&ccedil;&atilde;o el&aacute;stica com resili&ecirc;ncia por redund&acirc;ncia.</p>
+                    </div>
+                </div>
+                <div style="background: rgba(46,38,64,0.06); border-radius: 8px; padding: 12px 16px; margin-top: 10px;">
+                    <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.6;"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle; color: var(--inteli-coral);">format_quote</span> <em>&ldquo;The API-first approach to system design has gained traction as it prioritizes interoperability from inception rather than treating integration as an afterthought.&rdquo;</em> <span style="color: #9ca3af;">&mdash; Adusumilli, 2025</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 8: DIVISOR BLOCO 2
+             ============================================= -->
+        <section class="slide slide-section" data-slide="8">
+            <div class="section-content">
+                <span class="section-number">BLOCO 2</span>
+                <h2 class="section-title">Caso: Sistema de Log&iacute;stica</h2>
+                <p class="section-description">4 integra&ccedil;&otilde;es reais com t&aacute;ticas diferentes &mdash; conectando EIP com c&oacute;digo</p>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 9: ARQUITETURA
+             ============================================= -->
+        <section class="slide slide-content" data-slide="9">
             <div class="slide-header">
                 <span class="section-tag">CASO</span>
                 <h2 class="slide-title">Arquitetura: Sistema de Log&iacute;stica</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
-                <div class="jmeter-flow" style="justify-content: center; gap: 12px; align-items: stretch; flex-wrap: nowrap !important;">
-                    <div class="jmeter-step" style="flex: 1; max-width: 160px; border-color: var(--inteli-purple); border-width: 3px;">
-                        <div class="concept-icon"><span class="material-icons-outlined">hub</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Sistema Central</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">Orquestra todas as integra&ccedil;&otilde;es</p>
+            <div class="slide-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="display: flex; flex-wrap: nowrap; align-items: center; gap: 10px; justify-content: center; width: 100%;">
+                    <div style="text-align: center; padding: 20px 15px; background: var(--inteli-purple); color: #fff; border-radius: 12px; min-width: 120px;">
+                        <span class="material-icons-outlined" style="font-size: 28px;">hub</span>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); margin-top: 6px;">Sistema Central</h4>
                     </div>
-                    <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    <div style="text-align: center; padding: 15px 12px; background: #fef2f2; border: 2px solid var(--inteli-coral); border-radius: 12px; min-width: 100px;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">receipt_long</span>
+                        <h4 style="font-size: clamp(10px, 1vw, 13px); margin-top: 4px; color: var(--inteli-coral);">SEFAZ</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px); color: #6b7280;">NF-e</p>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; max-width: 160px; border-color: var(--inteli-coral);">
-                        <div class="concept-icon"><span class="material-icons-outlined">description</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">SEFAZ (NF-e)</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">Emiss&atilde;o fiscal</p>
+                    <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    <div style="text-align: center; padding: 15px 12px; background: #f5f3ff; border: 2px solid var(--inteli-lilac); border-radius: 12px; min-width: 100px;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-lilac);">payments</span>
+                        <h4 style="font-size: clamp(10px, 1vw, 13px); margin-top: 4px; color: var(--inteli-lilac);">BACEN</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px); color: #6b7280;">PIX</p>
                     </div>
-                    <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
+                    <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    <div style="text-align: center; padding: 15px 12px; background: #f0fdf4; border: 2px solid var(--inteli-green); border-radius: 12px; min-width: 100px;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-dark-green);">local_shipping</span>
+                        <h4 style="font-size: clamp(10px, 1vw, 13px); margin-top: 4px; color: var(--inteli-dark-green);">Transportadora</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px); color: #6b7280;">Rastreio</p>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; max-width: 160px; border-color: var(--inteli-lilac);">
-                        <div class="concept-icon"><span class="material-icons-outlined">payments</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">BACEN (PIX)</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">Pagamento instant&acirc;neo</p>
-                    </div>
-                    <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
-                    </div>
-                    <div class="jmeter-step" style="flex: 1; max-width: 160px; border-color: var(--inteli-green);">
-                        <div class="concept-icon"><span class="material-icons-outlined">local_shipping</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Transportadora</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">Rastreio de entregas</p>
-                    </div>
-                    <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">arrow_forward</span>
-                    </div>
-                    <div class="jmeter-step" style="flex: 1; max-width: 160px; border-color: var(--inteli-purple);">
-                        <div class="concept-icon"><span class="material-icons-outlined">inventory</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">ERP (Estoque)</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">Controle de invent&aacute;rio</p>
+                    <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-coral);">arrow_forward</span>
+                    <div style="text-align: center; padding: 15px 12px; background: #faf5ff; border: 2px solid var(--inteli-purple); border-radius: 12px; min-width: 100px;">
+                        <span class="material-icons-outlined" style="font-size: 24px; color: var(--inteli-purple);">inventory</span>
+                        <h4 style="font-size: clamp(10px, 1vw, 13px); margin-top: 4px; color: var(--inteli-purple);">ERP</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px); color: #6b7280;">Estoque</p>
                     </div>
                 </div>
                 <div class="key-message" style="margin-top: 25px;">
-                    <p><strong>Cada integra&ccedil;&atilde;o = perfil diferente de falha e t&aacute;tica diferente.</strong></p>
+                    <p><strong>Cada integra&ccedil;&atilde;o tem perfil de falha diferente &rarr; t&aacute;tica diferente &rarr; padr&atilde;o EIP diferente.</strong></p>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 7: CASO 1 — SEFAZ
+             SLIDE 10: CASO 1 — SEFAZ
              ============================================= -->
-        <section class="slide slide-content" data-slide="7">
+        <section class="slide slide-content" data-slide="10">
             <div class="slide-header">
                 <span class="section-tag">CASO 1</span>
                 <h2 class="slide-title">SEFAZ &mdash; Retry + Circuit Breaker</h2>
@@ -278,25 +379,25 @@
                     </div>
                 </div>
                 <div class="code-example" style="width: 100%;">
-                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #ff79c6;">@circuit_breaker</span>(<span style="color: #8be9fd;">failure_threshold</span>=<span style="color: #bd93f9;">3</span>, <span style="color: #8be9fd;">reset_timeout</span>=<span style="color: #bd93f9;">30</span>)
-<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">emitir_nfe</span>(<span style="color: #f8f8f2;">dados</span>):
-    <span style="color: #ff79c6;">try</span>:
-        <span style="color: #f8f8f2;">response</span> = <span style="color: #f8f8f2;">sefaz_client</span>.<span style="color: #50fa7b;">post</span>(<span style="color: #f1fa8c;">"/nfe"</span>, <span style="color: #8be9fd;">json</span>=<span style="color: #f8f8f2;">dados</span>, <span style="color: #8be9fd;">timeout</span>=<span style="color: #bd93f9;">3</span>)
-        <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">response</span>.<span style="color: #50fa7b;">json</span>()
-    <span style="color: #ff79c6;">except</span> <span style="color: #8be9fd;">Timeout</span>:
-        <span style="color: #f8f8f2;">fila_contingencia</span>.<span style="color: #50fa7b;">enqueue</span>(<span style="color: #f8f8f2;">dados</span>)
-        <span style="color: #ff79c6;">return</span> {<span style="color: #f1fa8c;">"status"</span>: <span style="color: #f1fa8c;">"contingencia"</span>, <span style="color: #f1fa8c;">"msg"</span>: <span style="color: #f1fa8c;">"NF-e em fila"</span>}</code></pre>
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #7c3aed;">@circuit_breaker</span>(<span style="color: #0369a1;">failure_threshold</span>=<span style="color: #dc2626;">3</span>, <span style="color: #0369a1;">reset_timeout</span>=<span style="color: #dc2626;">30</span>)
+<span style="color: #7c3aed;">def</span> <span style="color: #047857;">emitir_nfe</span>(<span style="color: #2e2640;">dados</span>):
+    <span style="color: #7c3aed;">try</span>:
+        <span style="color: #2e2640;">response</span> = <span style="color: #2e2640;">sefaz_client</span>.<span style="color: #047857;">post</span>(<span style="color: #c2410c;">"/nfe"</span>, <span style="color: #0369a1;">json</span>=<span style="color: #2e2640;">dados</span>, <span style="color: #0369a1;">timeout</span>=<span style="color: #dc2626;">3</span>)
+        <span style="color: #7c3aed;">return</span> <span style="color: #2e2640;">response</span>.<span style="color: #047857;">json</span>()
+    <span style="color: #7c3aed;">except</span> <span style="color: #0369a1;">Timeout</span>:
+        <span style="color: #2e2640;">fila_contingencia</span>.<span style="color: #047857;">enqueue</span>(<span style="color: #2e2640;">dados</span>)
+        <span style="color: #7c3aed;">return</span> {<span style="color: #c2410c;">"status"</span>: <span style="color: #c2410c;">"contingencia"</span>, <span style="color: #c2410c;">"msg"</span>: <span style="color: #c2410c;">"NF-e em fila"</span>}</code></pre>
                 </div>
-                <div class="key-message" style="margin-top: 15px;">
-                    <p><strong>O CB protege O SISTEMA, n&atilde;o o servi&ccedil;o externo.</strong></p>
+                <div style="background: rgba(46,38,64,0.06); border-radius: 8px; padding: 10px 14px; margin-top: 10px;">
+                    <p style="font-size: clamp(10px, 1vw, 12px);"><strong>Padr&otilde;es EIP:</strong> Message Channel (fila de conting&ecirc;ncia) + Message Router (roteamento por estado UF)</p>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 8: TESTE SEFAZ
+             SLIDE 11: CASO 1 — TESTE SEFAZ BDD
              ============================================= -->
-        <section class="slide slide-content" data-slide="8">
+        <section class="slide slide-content" data-slide="11">
             <div class="slide-header">
                 <span class="section-tag">CASO 1</span>
                 <h2 class="slide-title">Testando SEFAZ com BDD</h2>
@@ -307,30 +408,30 @@
                     <div>
                         <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-coral); margin-bottom: 8px;">Feature (Gherkin)</h4>
                         <div class="code-example" style="width: 100%;">
-                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #ff79c6;">@rnf</span> <span style="color: #ff79c6;">@resiliencia</span> <span style="color: #ff79c6;">@falha</span>
-<span style="color: #ff79c6;">Feature:</span> <span style="color: #f8f8f2;">Resili&ecirc;ncia na emiss&atilde;o de NF-e</span>
+                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #7c3aed;">@rnf</span> <span style="color: #7c3aed;">@resiliencia</span> <span style="color: #7c3aed;">@falha</span>
+<span style="color: #7c3aed;">Feature:</span> <span style="color: #2e2640;">Resili&ecirc;ncia na emiss&atilde;o de NF-e</span>
 
-  <span style="color: #ff79c6;">Scenario:</span> <span style="color: #f8f8f2;">CB abre com SEFAZ em manuten&ccedil;&atilde;o</span>
-    <span style="color: #50fa7b;">Given</span> <span style="color: #f8f8f2;">a SEFAZ est&aacute; em manuten&ccedil;&atilde;o</span>
-    <span style="color: #50fa7b;">And</span> <span style="color: #f8f8f2;">o circuit breaker est&aacute; CLOSED</span>
-    <span style="color: #50fa7b;">When</span> <span style="color: #f8f8f2;">3 tentativas de emiss&atilde;o falham</span>
-    <span style="color: #50fa7b;">Then</span> <span style="color: #f8f8f2;">o CB muda para OPEN</span>
-    <span style="color: #50fa7b;">And</span> <span style="color: #f8f8f2;">NF-e &eacute; enviada para fila de conting&ecirc;ncia</span></code></pre>
+  <span style="color: #7c3aed;">Scenario:</span> <span style="color: #2e2640;">CB abre com SEFAZ em manuten&ccedil;&atilde;o</span>
+    <span style="color: #047857;">Given</span> <span style="color: #2e2640;">a SEFAZ est&aacute; em manuten&ccedil;&atilde;o</span>
+    <span style="color: #047857;">And</span> <span style="color: #2e2640;">o circuit breaker est&aacute; CLOSED</span>
+    <span style="color: #047857;">When</span> <span style="color: #2e2640;">3 tentativas de emiss&atilde;o falham</span>
+    <span style="color: #047857;">Then</span> <span style="color: #2e2640;">o CB muda para OPEN</span>
+    <span style="color: #047857;">And</span> <span style="color: #2e2640;">NF-e &eacute; enviada para fila de conting&ecirc;ncia</span></code></pre>
                         </div>
                     </div>
                     <div>
                         <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-lilac); margin-bottom: 8px;">Step Definitions</h4>
                         <div class="code-example" style="width: 100%;">
-                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #ff79c6;">@given</span>(<span style="color: #f1fa8c;">'a SEFAZ est&aacute; em manuten&ccedil;&atilde;o'</span>)
-<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">step_sefaz_manutencao</span>(<span style="color: #f8f8f2;">context</span>):
-    <span style="color: #f8f8f2;">context</span>.<span style="color: #f8f8f2;">sefaz</span> = <span style="color: #8be9fd;">MagicMock</span>()
-    <span style="color: #f8f8f2;">context</span>.<span style="color: #f8f8f2;">sefaz</span>.<span style="color: #f8f8f2;">post</span>.<span style="color: #f8f8f2;">side_effect</span> = <span style="color: #8be9fd;">TimeoutError</span>(
-        <span style="color: #f1fa8c;">"SEFAZ indispon&iacute;vel - janela de manuten&ccedil;&atilde;o"</span>
+                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #7c3aed;">@given</span>(<span style="color: #c2410c;">'a SEFAZ est&aacute; em manuten&ccedil;&atilde;o'</span>)
+<span style="color: #7c3aed;">def</span> <span style="color: #047857;">step_sefaz_manutencao</span>(<span style="color: #2e2640;">context</span>):
+    <span style="color: #2e2640;">context</span>.<span style="color: #2e2640;">sefaz</span> = <span style="color: #0369a1;">MagicMock</span>()
+    <span style="color: #2e2640;">context</span>.<span style="color: #2e2640;">sefaz</span>.<span style="color: #2e2640;">post</span>.<span style="color: #2e2640;">side_effect</span> = <span style="color: #0369a1;">TimeoutError</span>(
+        <span style="color: #c2410c;">"SEFAZ indispon&iacute;vel - janela de manuten&ccedil;&atilde;o"</span>
     )
 
-<span style="color: #ff79c6;">@then</span>(<span style="color: #f1fa8c;">'NF-e &eacute; enviada para fila de conting&ecirc;ncia'</span>)
-<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">step_fila_contingencia</span>(<span style="color: #f8f8f2;">context</span>):
-    <span style="color: #f8f8f2;">context</span>.<span style="color: #f8f8f2;">fila</span>.<span style="color: #f8f8f2;">enqueue</span>.<span style="color: #50fa7b;">assert_called_once</span>()</code></pre>
+<span style="color: #7c3aed;">@then</span>(<span style="color: #c2410c;">'NF-e &eacute; enviada para fila de conting&ecirc;ncia'</span>)
+<span style="color: #7c3aed;">def</span> <span style="color: #047857;">step_fila_contingencia</span>(<span style="color: #2e2640;">context</span>):
+    <span style="color: #2e2640;">context</span>.<span style="color: #2e2640;">fila</span>.<span style="color: #2e2640;">enqueue</span>.<span style="color: #047857;">assert_called_once</span>()</code></pre>
                         </div>
                     </div>
                 </div>
@@ -338,9 +439,9 @@
         </section>
 
         <!-- =============================================
-             SLIDE 9: CASO 2 — BACEN/PIX
+             SLIDE 12: CASO 2 — BACEN/PIX
              ============================================= -->
-        <section class="slide slide-content" data-slide="9">
+        <section class="slide slide-content" data-slide="12">
             <div class="slide-header">
                 <span class="section-tag">CASO 2</span>
                 <h2 class="slide-title">BACEN/PIX &mdash; Timeout + Bulkhead</h2>
@@ -358,109 +459,26 @@
                     </div>
                 </div>
                 <div class="code-example" style="width: 100%;">
-                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #6272a4;"># Bulkhead: pool isolado para PIX</span>
-<span style="color: #f8f8f2;">pix_executor</span> = <span style="color: #8be9fd;">ThreadPoolExecutor</span>(<span style="color: #8be9fd;">max_workers</span>=<span style="color: #bd93f9;">10</span>, <span style="color: #8be9fd;">thread_name_prefix</span>=<span style="color: #f1fa8c;">"pix"</span>)
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #6b7280;"># Bulkhead: pool isolado para PIX</span>
+<span style="color: #2e2640;">pix_executor</span> = <span style="color: #0369a1;">ThreadPoolExecutor</span>(<span style="color: #0369a1;">max_workers</span>=<span style="color: #dc2626;">10</span>, <span style="color: #0369a1;">thread_name_prefix</span>=<span style="color: #c2410c;">"pix"</span>)
 
-<span style="color: #ff79c6;">async def</span> <span style="color: #50fa7b;">confirmar_pix</span>(<span style="color: #f8f8f2;">transacao_id</span>):
-    <span style="color: #f8f8f2;">future</span> = <span style="color: #f8f8f2;">pix_executor</span>.<span style="color: #50fa7b;">submit</span>(<span style="color: #f8f8f2;">bacen_client</span>.<span style="color: #f8f8f2;">confirmar</span>, <span style="color: #f8f8f2;">transacao_id</span>)
-    <span style="color: #ff79c6;">try</span>:
-        <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">future</span>.<span style="color: #50fa7b;">result</span>(<span style="color: #8be9fd;">timeout</span>=<span style="color: #bd93f9;">8</span>)  <span style="color: #6272a4;"># Timeout regulat&oacute;rio</span>
-    <span style="color: #ff79c6;">except</span> <span style="color: #8be9fd;">TimeoutError</span>:
-        <span style="color: #ff79c6;">return</span> {<span style="color: #f1fa8c;">"status"</span>: <span style="color: #f1fa8c;">"timeout"</span>, <span style="color: #f1fa8c;">"acao"</span>: <span style="color: #f1fa8c;">"reverter"</span>}</code></pre>
+<span style="color: #7c3aed;">async def</span> <span style="color: #047857;">confirmar_pix</span>(<span style="color: #2e2640;">transacao_id</span>):
+    <span style="color: #2e2640;">future</span> = <span style="color: #2e2640;">pix_executor</span>.<span style="color: #047857;">submit</span>(<span style="color: #2e2640;">bacen_client</span>.<span style="color: #2e2640;">confirmar</span>, <span style="color: #2e2640;">transacao_id</span>)
+    <span style="color: #7c3aed;">try</span>:
+        <span style="color: #7c3aed;">return</span> <span style="color: #2e2640;">future</span>.<span style="color: #047857;">result</span>(<span style="color: #0369a1;">timeout</span>=<span style="color: #dc2626;">8</span>)  <span style="color: #6b7280;"># Timeout regulat&oacute;rio</span>
+    <span style="color: #7c3aed;">except</span> <span style="color: #0369a1;">TimeoutError</span>:
+        <span style="color: #7c3aed;">return</span> {<span style="color: #c2410c;">"status"</span>: <span style="color: #c2410c;">"timeout"</span>, <span style="color: #c2410c;">"acao"</span>: <span style="color: #c2410c;">"reverter"</span>}</code></pre>
                 </div>
-                <div class="key-message" style="margin-top: 15px;">
-                    <p><strong>RNFs regulat&oacute;rios n&atilde;o s&atilde;o negoci&aacute;veis.</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             SLIDE 10: TESTE BACEN
-             ============================================= -->
-        <section class="slide slide-content" data-slide="10">
-            <div class="slide-header">
-                <span class="section-tag">CASO 2</span>
-                <h2 class="slide-title">Testando Timeout do PIX</h2>
-                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
-            </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div>
-                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-coral); margin-bottom: 8px;">Feature (Gherkin)</h4>
-                        <div class="code-example" style="width: 100%;">
-                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #ff79c6;">@rnf</span> <span style="color: #ff79c6;">@performance</span> <span style="color: #ff79c6;">@falha</span>
-<span style="color: #ff79c6;">Feature:</span> <span style="color: #f8f8f2;">Timeout regulat&oacute;rio do PIX</span>
-
-  <span style="color: #ff79c6;">Scenario:</span> <span style="color: #f8f8f2;">PIX excede timeout de 8s</span>
-    <span style="color: #50fa7b;">Given</span> <span style="color: #f8f8f2;">o BACEN est&aacute; com lat&ecirc;ncia alta</span>
-    <span style="color: #50fa7b;">When</span> <span style="color: #f8f8f2;">solicito confirma&ccedil;&atilde;o de PIX</span>
-    <span style="color: #50fa7b;">And</span> <span style="color: #f8f8f2;">a resposta demora mais de 8 segundos</span>
-    <span style="color: #50fa7b;">Then</span> <span style="color: #f8f8f2;">a transa&ccedil;&atilde;o &eacute; marcada como timeout</span>
-    <span style="color: #50fa7b;">And</span> <span style="color: #f8f8f2;">uma revers&atilde;o autom&aacute;tica &eacute; iniciada</span></code></pre>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-lilac); margin-bottom: 8px;">Step Definitions</h4>
-                        <div class="code-example" style="width: 100%;">
-                            <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #ff79c6;">@given</span>(<span style="color: #f1fa8c;">'o BACEN est&aacute; com lat&ecirc;ncia alta'</span>)
-<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">step_bacen_lento</span>(<span style="color: #f8f8f2;">context</span>):
-    <span style="color: #f8f8f2;">context</span>.<span style="color: #f8f8f2;">bacen</span> = <span style="color: #8be9fd;">MagicMock</span>()
-    <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">resposta_lenta</span>(<span style="color: #f8f8f2;">*args</span>):
-        <span style="color: #f8f8f2;">time</span>.<span style="color: #50fa7b;">sleep</span>(<span style="color: #bd93f9;">10</span>)  <span style="color: #6272a4;"># Simula 10s &gt; timeout de 8s</span>
-        <span style="color: #ff79c6;">return</span> {<span style="color: #f1fa8c;">'status'</span>: <span style="color: #f1fa8c;">'aprovado'</span>}
-    <span style="color: #f8f8f2;">context</span>.<span style="color: #f8f8f2;">bacen</span>.<span style="color: #f8f8f2;">confirmar</span>.<span style="color: #f8f8f2;">side_effect</span> = <span style="color: #f8f8f2;">resposta_lenta</span>
-
-<span style="color: #ff79c6;">@then</span>(<span style="color: #f1fa8c;">'a transa&ccedil;&atilde;o &eacute; marcada como timeout'</span>)
-<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">step_timeout</span>(<span style="color: #f8f8f2;">context</span>):
-    <span style="color: #ff79c6;">assert</span> <span style="color: #f8f8f2;">context</span>.<span style="color: #f8f8f2;">resultado</span>[<span style="color: #f1fa8c;">'status'</span>] == <span style="color: #f1fa8c;">'timeout'</span></code></pre>
-                        </div>
-                    </div>
+                <div style="background: rgba(46,38,64,0.06); border-radius: 8px; padding: 10px 14px; margin-top: 10px;">
+                    <p style="font-size: clamp(10px, 1vw, 12px);"><strong>Padr&otilde;es EIP:</strong> Message Channel (pool isolado) + Event-Driven Consumer (revers&atilde;o autom&aacute;tica por evento)</p>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 11: CASO 3 — TRANSPORTADORA
+             SLIDE 13: ANÁLISE COMPARATIVA
              ============================================= -->
-        <section class="slide slide-content" data-slide="11">
-            <div class="slide-header">
-                <span class="section-tag">CASO 3</span>
-                <h2 class="slide-title">Transportadora &mdash; Polling + Cache</h2>
-                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
-            </div>
-            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px;">
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
-                        <h4 style="color: var(--inteli-coral);"><span class="material-icons-outlined" style="font-size: 18px; vertical-align: middle;">error_outline</span> Problema</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">API de rastreio com rate limit de 100 req/min. Consultas excessivas resultam em bloqueio.</p>
-                    </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
-                        <h4 style="color: var(--inteli-dark-green);"><span class="material-icons-outlined" style="font-size: 18px; vertical-align: middle;">check_circle</span> Solu&ccedil;&atilde;o</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Polling a cada 5 min + cache local com TTL de 5 min. Respeita o rate limit sem perder dados.</p>
-                    </div>
-                </div>
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div class="concept-card" style="border-top: 4px solid var(--inteli-coral); text-align: center;">
-                        <div class="concept-icon"><span class="material-icons-outlined">dangerous</span></div>
-                        <h4 style="color: var(--inteli-coral);">Sem Cache</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Cada requisi&ccedil;&atilde;o do usu&aacute;rio = chamada &agrave; API externa. 500 usu&aacute;rios = 500 req/min. <strong>Bloqueio em 12s.</strong></p>
-                    </div>
-                    <div class="concept-card" style="border-top: 4px solid var(--inteli-green); text-align: center;">
-                        <div class="concept-icon"><span class="material-icons-outlined">cached</span></div>
-                        <h4 style="color: var(--inteli-dark-green);">Com Cache</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">1 req/5 min por pacote. 500 usu&aacute;rios = mesma resposta do cache. <strong>~20 req/min.</strong></p>
-                    </div>
-                </div>
-                <div class="key-message" style="margin-top: 15px;">
-                    <p><strong>Nem toda integra&ccedil;&atilde;o &eacute; s&iacute;ncrona. Adapte a t&aacute;tica ao perfil.</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             SLIDE 12: AN&Aacute;LISE COMPARATIVA
-             ============================================= -->
-        <section class="slide slide-content" data-slide="12">
+        <section class="slide slide-content" data-slide="13">
             <div class="slide-header">
                 <span class="section-tag">AN&Aacute;LISE</span>
                 <h2 class="slide-title">An&aacute;lise Comparativa das Integra&ccedil;&otilde;es</h2>
@@ -473,7 +491,7 @@
                             <tr style="background: var(--inteli-purple); color: #fff;">
                                 <th style="padding: 10px 12px; text-align: left; white-space: nowrap;">Integra&ccedil;&atilde;o</th>
                                 <th style="padding: 10px 12px; text-align: left; white-space: nowrap;">T&aacute;tica</th>
-                                <th style="padding: 10px 12px; text-align: left; white-space: nowrap;">Mecanismo</th>
+                                <th style="padding: 10px 12px; text-align: left; white-space: nowrap;">Padr&atilde;o EIP</th>
                                 <th style="padding: 10px 12px; text-align: left; white-space: nowrap;">Trade-off</th>
                                 <th style="padding: 10px 12px; text-align: left; white-space: nowrap;">M&eacute;trica</th>
                             </tr>
@@ -482,338 +500,540 @@
                             <tr style="border-bottom: 1px solid #e0e0e0;">
                                 <td style="padding: 10px 12px; font-weight: 700; color: var(--inteli-coral);">SEFAZ</td>
                                 <td style="padding: 10px 12px;">Retry + CB</td>
-                                <td style="padding: 10px 12px;">Fila de conting&ecirc;ncia</td>
+                                <td style="padding: 10px 12px;">Channel + Router</td>
                                 <td style="padding: 10px 12px;">Complexidade vs disponibilidade</td>
                                 <td style="padding: 10px 12px;">NF-e emitidas/hora</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #e0e0e0; background: #f9f9fb;">
                                 <td style="padding: 10px 12px; font-weight: 700; color: var(--inteli-lilac);">BACEN</td>
                                 <td style="padding: 10px 12px;">Timeout + Bulkhead</td>
-                                <td style="padding: 10px 12px;">Thread pool isolado</td>
+                                <td style="padding: 10px 12px;">Channel + Event-Driven</td>
                                 <td style="padding: 10px 12px;">Recursos fixos vs isolamento</td>
                                 <td style="padding: 10px 12px;">p95 &lt; 8s</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #e0e0e0;">
                                 <td style="padding: 10px 12px; font-weight: 700; color: var(--inteli-dark-green);">Transportadora</td>
                                 <td style="padding: 10px 12px;">Polling + Cache</td>
-                                <td style="padding: 10px 12px;">TTL local</td>
+                                <td style="padding: 10px 12px;">Translator + Channel</td>
                                 <td style="padding: 10px 12px;">Dados stale vs rate limit</td>
                                 <td style="padding: 10px 12px;">Cache hit ratio</td>
                             </tr>
                             <tr>
                                 <td style="padding: 10px 12px; font-weight: 700; color: var(--inteli-purple);">ERP</td>
                                 <td style="padding: 10px 12px;">Sync + Retry</td>
-                                <td style="padding: 10px 12px;">HTTP com backoff</td>
+                                <td style="padding: 10px 12px;">Canonical Model</td>
                                 <td style="padding: 10px 12px;">Lat&ecirc;ncia vs consist&ecirc;ncia</td>
                                 <td style="padding: 10px 12px;">Sync success rate</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </section>
-
-        <!-- =============================================
-             SLIDE 13: LI&Ccedil;&Otilde;ES
-             ============================================= -->
-        <section class="slide slide-content" data-slide="13">
-            <div class="slide-header">
-                <span class="section-tag">S&Iacute;NTESE</span>
-                <h2 class="slide-title">Li&ccedil;&otilde;es do Caso</h2>
-                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
-            </div>
-            <div class="slide-body">
-                <div class="drivers-examples">
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">lightbulb</span>
-                        <div>
-                            <h4>Cada integra&ccedil;&atilde;o tem perfil diferente de falha</h4>
-                            <p>SEFAZ cai sem aviso, BACEN tem SLA regulat&oacute;rio, Transportadora tem rate limit, ERP precisa de consist&ecirc;ncia.</p>
-                        </div>
-                    </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">lightbulb</span>
-                        <div>
-                            <h4>A t&aacute;tica depende do SLA do servi&ccedil;o externo</h4>
-                            <p>N&atilde;o existe t&aacute;tica universal. O perfil de falha do servi&ccedil;o externo define qual mecanismo usar.</p>
-                        </div>
-                    </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">lightbulb</span>
-                        <div>
-                            <h4>Mocks devem simular comportamento REAL</h4>
-                            <p>Incluindo lat&ecirc;ncia, timeouts e side effects. Um <code>MagicMock()</code> gen&eacute;rico n&atilde;o testa resili&ecirc;ncia.</p>
-                        </div>
-                    </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">lightbulb</span>
-                        <div>
-                            <h4>Monitore ANTES de precisar debugar</h4>
-                            <p>M&eacute;tricas, logs e alertas devem existir antes do primeiro incidente, n&atilde;o depois.</p>
-                        </div>
-                    </div>
+                <div class="key-message" style="margin-top: 12px;">
+                    <p><strong>Cada integra&ccedil;&atilde;o tem perfil diferente de falha. A t&aacute;tica depende do SLA do servi&ccedil;o externo.</strong></p>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 14: DIVISOR PARTE 2
+             SLIDE 14: DIVISOR BLOCO 3
              ============================================= -->
         <section class="slide slide-section" data-slide="14">
             <div class="section-content">
-                <span class="section-number">PARTE 2</span>
-                <h2 class="section-title">Suporte ao Projeto &mdash; Integra&ccedil;&atilde;o ASIS</h2>
-                <p class="section-description">Revis&atilde;o, checklist e troubleshooting</p>
+                <span class="section-number">BLOCO 3</span>
+                <h2 class="section-title">IA na Integra&ccedil;&atilde;o Empresarial</h2>
+                <p class="section-description">AI-Enhanced Integration Fabric &mdash; Se&ccedil;&atilde;o 6.5 do artigo</p>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 15: CHECKLIST
+             SLIDE 15: IA — INTEGRATION FABRIC
              ============================================= -->
         <section class="slide slide-content" data-slide="15">
             <div class="slide-header">
-                <span class="section-tag">CHECKLIST</span>
-                <h2 class="slide-title">Checklist de Integra&ccedil;&atilde;o do Projeto</h2>
+                <span class="section-tag">ARTIGO &mdash; Se&ccedil;&atilde;o 6.5</span>
+                <h2 class="slide-title">AI-Enhanced Integration Fabric</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
-                <div class="drivers-examples">
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">check_circle</span>
-                        <div>
-                            <h4>Mapeou todas as integra&ccedil;&otilde;es externas do ASIS?</h4>
-                            <p>Liste cada ponto de contato externo: APIs, bancos, filas, servi&ccedil;os de terceiros.</p>
-                        </div>
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-coral); text-align: center;">
+                        <div class="concept-icon"><span class="material-icons-outlined">map</span></div>
+                        <h4 style="color: var(--inteli-coral);">Mapeamento Autom&aacute;tico</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">IA identifica correspond&ecirc;ncias entre campos de sistemas diferentes, acelerando o desenvolvimento.</p>
                     </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">check_circle</span>
-                        <div>
-                            <h4>Cada integra&ccedil;&atilde;o tem t&aacute;tica + mecanismo definidos?</h4>
-                            <p>N&atilde;o basta listar &mdash; precisa de Retry, CB, Timeout, Cache etc. para cada uma.</p>
-                        </div>
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-lilac); text-align: center;">
+                        <div class="concept-icon"><span class="material-icons-outlined">troubleshoot</span></div>
+                        <h4 style="color: var(--inteli-lilac);">Detec&ccedil;&atilde;o de Anomalias</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">ML detecta padr&otilde;es nos fluxos e identifica anomalias <strong>antes</strong> de impactar opera&ccedil;&otilde;es.</p>
                     </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">check_circle</span>
-                        <div>
-                            <h4>Features BDD cobrem sucesso, borda e falha?</h4>
-                            <p>Cada feature precisa de cen&aacute;rios @sucesso, @borda e @falha para ser completa.</p>
-                        </div>
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-green); text-align: center;">
+                        <div class="concept-icon"><span class="material-icons-outlined">trending_up</span></div>
+                        <h4 style="color: var(--inteli-dark-green);">Scaling Preditivo</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">Antecipa necessidades de capacidade com base em padr&otilde;es hist&oacute;ricos de tr&aacute;fego.</p>
                     </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">check_circle</span>
-                        <div>
-                            <h4>Mocks simulam cen&aacute;rios realistas?</h4>
-                            <p>side_effect com TimeoutError, lat&ecirc;ncia simulada, respostas parciais &mdash; n&atilde;o s&oacute; return_value.</p>
-                        </div>
+                    <div class="concept-card" style="border-top: 4px solid var(--inteli-purple); text-align: center;">
+                        <div class="concept-icon"><span class="material-icons-outlined">healing</span></div>
+                        <h4 style="color: var(--inteli-purple);">Self-Healing</h4>
+                        <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.7; margin-top: 6px;">Ambientes que se ajustam automaticamente a condi&ccedil;&otilde;es mutantes, sem interven&ccedil;&atilde;o humana.</p>
                     </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">check_circle</span>
-                        <div>
-                            <h4>Teste de carga com pesos proporcionais ao uso real?</h4>
-                            <p>Locust com weight distribu&iacute;do: 60% consulta, 25% cria&ccedil;&atilde;o, 15% atualiza&ccedil;&atilde;o (exemplo).</p>
-                        </div>
-                    </div>
+                </div>
+                <div style="background: rgba(46,38,64,0.06); border-radius: 8px; padding: 12px 16px; margin-top: 10px;">
+                    <p style="font-size: clamp(10px, 1vw, 13px); line-height: 1.6;"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle; color: var(--inteli-coral);">format_quote</span> <em>&ldquo;As these technologies mature, they enable self-healing integration environments that automatically adjust to changing conditions and predictive scaling that anticipates capacity needs before they arise.&rdquo;</em> <span style="color: #9ca3af;">&mdash; Adusumilli, 2025</span></p>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 16: PROBLEMAS FREQUENTES
+             SLIDE 16: DISCUSSÃO — ONDE ENTRA IA?
              ============================================= -->
         <section class="slide slide-content" data-slide="16">
             <div class="slide-header">
-                <span class="section-tag">TROUBLESHOOTING</span>
-                <h2 class="slide-title">Problemas Frequentes nos Projetos</h2>
+                <span class="activity-tag">DISCUSS&Atilde;O</span>
+                <h2 class="slide-title">Onde Entra a IA na Integra&ccedil;&atilde;o do ASIS?</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
             <div class="slide-body">
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
-                        <div class="concept-icon"><span class="material-icons-outlined">bug_report</span></div>
-                        <h4 style="color: var(--inteli-coral);">Mock sem side_effect</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;"><code>MagicMock()</code> gen&eacute;rico n&atilde;o testa resili&ecirc;ncia. Use <code>side_effect=TimeoutError</code> para simular falhas reais.</p>
+                <div class="key-message" style="max-width: 800px; padding: 25px; margin-bottom: 20px;">
+                    <p style="font-size: clamp(14px, 1.5vw, 18px); line-height: 1.8;"><strong>&ldquo;Se voc&ecirc;s pudessem colocar IA em UM ponto da arquitetura de integra&ccedil;&atilde;o do Sankhya/ASIS, onde seria e por qu&ecirc;?&rdquo;</strong></p>
+                </div>
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+                    <div class="concept-card" style="border-top: 3px solid var(--inteli-coral); text-align: center; padding: 15px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">priority_high</span></div>
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(11px, 1.1vw, 14px);">Prioriza&ccedil;&atilde;o de Filas</h4>
+                        <p style="font-size: clamp(10px, 1vw, 12px); margin-top: 4px;">IA que reordena mensagens por urg&ecirc;ncia ou valor de neg&oacute;cio</p>
                     </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
-                        <div class="concept-icon"><span class="material-icons-outlined">label_off</span></div>
-                        <h4 style="color: var(--inteli-lilac);">Feature sem tags</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Sem <code>@rf/@rnf/@sucesso/@falha</code> = imposs&iacute;vel filtrar e executar seletivamente. Tags s&atilde;o obrigat&oacute;rias.</p>
+                    <div class="concept-card" style="border-top: 3px solid var(--inteli-lilac); text-align: center; padding: 15px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">crisis_alert</span></div>
+                        <h4 style="color: var(--inteli-lilac); font-size: clamp(11px, 1.1vw, 14px);">Previs&atilde;o de Falhas</h4>
+                        <p style="font-size: clamp(10px, 1vw, 12px); margin-top: 4px;">Detectar degrada&ccedil;&atilde;o antes que vire indisponibilidade</p>
                     </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
-                        <div class="concept-icon"><span class="material-icons-outlined">sync_problem</span></div>
-                        <h4 style="color: var(--inteli-dark-green);">CB sem HALF-OPEN</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Circuit Breaker que nunca tenta recuperar. Sem HALF-OPEN, o sistema fica permanentemente degradado.</p>
-                    </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
-                        <div class="concept-icon"><span class="material-icons-outlined">speed</span></div>
-                        <h4 style="color: var(--inteli-purple);">Carga em 1 endpoint</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Locust testando s&oacute; <code>GET /health</code> n&atilde;o revela gargalos reais. Distribua a carga pelos endpoints cr&iacute;ticos.</p>
+                    <div class="concept-card" style="border-top: 3px solid var(--inteli-green); text-align: center; padding: 15px;">
+                        <div class="concept-icon"><span class="material-icons-outlined">recommend</span></div>
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(11px, 1.1vw, 14px);">Recomenda&ccedil;&atilde;o de Padr&otilde;es</h4>
+                        <p style="font-size: clamp(10px, 1vw, 12px); margin-top: 4px;">Sugerir padr&atilde;o ideal com base no perfil da integra&ccedil;&atilde;o</p>
                     </div>
                 </div>
+                <p style="font-size: clamp(10px, 1vw, 13px); color: #6b7280; margin-top: 15px; text-align: center;"><em>O diagrama n&atilde;o &eacute; s&oacute; cabos e caixinhas &mdash; tem espa&ccedil;o para componentes &ldquo;inteligentes&rdquo;.</em></p>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 17: TIMER SUPORTE
+             SLIDE 17: DIVISOR BLOCO 4
              ============================================= -->
-        <section class="slide slide-content" data-slide="17">
-            <div class="slide-header">
-                <span class="activity-tag">SUPORTE</span>
-                <h2 class="slide-title">Tempo de Suporte aos Grupos</h2>
-                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
-            </div>
-            <div class="slide-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <div class="timer-container" style="background: var(--inteli-purple); border-radius: 16px; display: flex; flex-direction: column; justify-content: center; border: 3px solid var(--inteli-coral); padding: 30px;">
-                    <div class="timer" id="timer-suporte">
-                        <span class="timer-value" style="font-size: 82px; letter-spacing: -3px; line-height: 1;">45:00</span>
-                        <span class="timer-label" style="text-transform: uppercase; letter-spacing: 3px; opacity: 0.8; font-size: 16px; margin-top: 10px; display: block;">Tempo de Suporte</span>
-                    </div>
-                    <button class="timer-btn" onclick="startTimer('timer-suporte', 2700)" style="margin-top: 30px; width: 100%; font-weight: 800; text-transform: uppercase; font-size: 18px; padding: 15px;">
-                        <span class="material-icons-outlined">play_arrow</span> Iniciar
-                    </button>
-                </div>
-                <div class="key-message" style="margin-top: 25px; max-width: 600px;">
-                    <p><strong>Instrutor circula entre os grupos.</strong> Foco: revisar mapeamento de integra&ccedil;&otilde;es + features BDD + mocks realistas.</p>
-                </div>
+        <section class="slide slide-section" data-slide="17">
+            <div class="section-content">
+                <span class="section-number">BLOCO 4</span>
+                <h2 class="section-title">Atividade Pr&aacute;tica</h2>
+                <p class="section-description">Diagrama de Integra&ccedil;&atilde;o com Mermaid + Copilot</p>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 18: PERGUNTAS PARA REFLEX&Atilde;O
+             SLIDE 18: SETUP — EXTENSÃO MERMAID
              ============================================= -->
         <section class="slide slide-content" data-slide="18">
             <div class="slide-header">
-                <span class="section-tag">REFLEX&Atilde;O</span>
-                <h2 class="slide-title">Perguntas para Reflex&atilde;o</h2>
+                <span class="activity-tag">SETUP</span>
+                <h2 class="slide-title">Instalando Mermaid Preview</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 12px;">
                     <div class="concept-card" style="border-left: 4px solid var(--inteli-coral);">
-                        <div class="concept-icon"><span class="material-icons-outlined">help_outline</span></div>
-                        <h4>O que acontece se a SEFAZ ficar offline por 1 hora?</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Qual &eacute; a estrat&eacute;gia de conting&ecirc;ncia? A fila aguenta o volume acumulado?</p>
-                    </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-lilac);">
-                        <div class="concept-icon"><span class="material-icons-outlined">help_outline</span></div>
-                        <h4>Como voc&ecirc;s sabem que o CB est&aacute; funcionando?</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Tem log de transi&ccedil;&atilde;o CLOSED &rarr; OPEN &rarr; HALF-OPEN? Tem m&eacute;trica?</p>
+                        <h4 style="color: var(--inteli-coral);"><span class="material-icons-outlined" style="font-size: 18px; vertical-align: middle;">extension</span> VS Code / Codespaces</h4>
+                        <ol style="font-size: clamp(10px, 1vw, 13px); line-height: 1.8; margin-top: 6px; padding-left: 18px;">
+                            <li>Abra a aba de Extens&otilde;es (<code>Ctrl+Shift+X</code>)</li>
+                            <li>Busque <strong>&ldquo;Mermaid Markdown Syntax Highlighting&rdquo;</strong> (bpruber)</li>
+                            <li>Instale tamb&eacute;m <strong>&ldquo;Markdown Preview Mermaid Support&rdquo;</strong> (bierner)</li>
+                            <li>Crie um arquivo <code>architecture.md</code> com bloco <code>```mermaid</code></li>
+                            <li>Abra o Preview: <code>Ctrl+Shift+V</code></li>
+                        </ol>
                     </div>
                     <div class="concept-card" style="border-left: 4px solid var(--inteli-green);">
-                        <div class="concept-icon"><span class="material-icons-outlined">help_outline</span></div>
-                        <h4>Qual integra&ccedil;&atilde;o do ASIS tem o maior risco?</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Risco = probabilidade de falha &times; impacto no neg&oacute;cio. Qual &eacute; a mais cr&iacute;tica?</p>
+                        <h4 style="color: var(--inteli-dark-green);"><span class="material-icons-outlined" style="font-size: 18px; vertical-align: middle;">cloud</span> Alternativas</h4>
+                        <ul style="font-size: clamp(10px, 1vw, 13px); line-height: 1.8; margin-top: 6px; padding-left: 18px;">
+                            <li><strong>GitHub</strong>: renderiza Mermaid nativamente em <code>.md</code> &mdash; basta fazer push/commit</li>
+                            <li><strong>Mermaid Live Editor</strong>: mermaid.live &mdash; cola o c&oacute;digo e visualiza em tempo real</li>
+                            <li><strong>Copilot Chat</strong>: j&aacute; renderiza Mermaid inline no painel de respostas</li>
+                        </ul>
                     </div>
-                    <div class="concept-card" style="border-left: 4px solid var(--inteli-purple);">
-                        <div class="concept-icon"><span class="material-icons-outlined">help_outline</span></div>
-                        <h4>O mock de voc&ecirc;s simula lat&ecirc;ncia ou s&oacute; erro?</h4>
-                        <p style="font-size: clamp(11px, 1.1vw, 14px); line-height: 1.7; margin-top: 6px;">Timeout &eacute; diferente de erro. Um mock que s&oacute; levanta exce&ccedil;&atilde;o n&atilde;o testa lat&ecirc;ncia.</p>
-                    </div>
+                </div>
+                <div class="code-example" style="width: 100%;">
+                    <pre class="code-block code-compact" style="font-size: 11px;"><code><span style="color: #6b7280;"># architecture.md</span>
+
+<span style="color: #7c3aed;">```mermaid</span>
+<span style="color: #047857;">graph LR</span>
+    <span style="color: #2e2640;">ERP</span>[<span style="color: #c2410c;">ERP Sankhya</span>] <span style="color: #0369a1;">-->|pedidos|</span> <span style="color: #2e2640;">Router</span>[<span style="color: #c2410c;">Message Router</span>]
+    <span style="color: #2e2640;">Router</span> <span style="color: #0369a1;">-->|NF-e|</span> <span style="color: #2e2640;">SEFAZ</span>
+    <span style="color: #2e2640;">Router</span> <span style="color: #0369a1;">-->|pagamento|</span> <span style="color: #2e2640;">BACEN</span>
+<span style="color: #7c3aed;">```</span></code></pre>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 19: S&Iacute;NTESE
+             SLIDE 19: EXEMPLOS — UML E C4 COM MERMAID
              ============================================= -->
         <section class="slide slide-content" data-slide="19">
             <div class="slide-header">
-                <span class="section-tag">S&Iacute;NTESE</span>
-                <h2 class="slide-title">S&iacute;ntese</h2>
+                <span class="activity-tag">EXEMPLOS</span>
+                <h2 class="slide-title">Tipos de Diagrama: UML e C4 com Mermaid</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <div class="key-message" style="max-width: 800px; padding: 40px;">
-                    <p style="font-size: clamp(16px, 1.8vw, 22px); line-height: 1.8;"><strong>Integra&ccedil;&atilde;o &eacute; o maior risco de sistemas distribu&iacute;dos.</strong></p>
-                    <p style="font-size: clamp(14px, 1.5vw, 18px); line-height: 1.8; margin-top: 15px;">Cada ponto de contato precisa de <strong>t&aacute;tica</strong> + <strong>teste</strong> + <strong>monitoramento</strong>.</p>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px;">
+                    <div>
+                        <h4 style="font-size: clamp(10px, 1vw, 12px); color: var(--inteli-coral); margin-bottom: 6px;"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle;">account_tree</span> Sequence Diagram (UML)</h4>
+                        <div class="code-example" style="width: 100%;">
+                            <pre class="code-block code-compact" style="font-size: 10px;"><code><span style="color: #7c3aed;">sequenceDiagram</span>
+    <span style="color: #047857;">participant</span> <span style="color: #2e2640;">App</span>
+    <span style="color: #047857;">participant</span> <span style="color: #2e2640;">Router</span> <span style="color: #0369a1;">as Message Router</span>
+    <span style="color: #047857;">participant</span> <span style="color: #2e2640;">SEFAZ</span>
+    <span style="color: #047857;">participant</span> <span style="color: #2e2640;">Fila</span> <span style="color: #0369a1;">as Fila Conting&ecirc;ncia</span>
+    <span style="color: #2e2640;">App</span><span style="color: #0369a1;">->>+</span><span style="color: #2e2640;">Router</span>: <span style="color: #c2410c;">emitir NF-e</span>
+    <span style="color: #2e2640;">Router</span><span style="color: #0369a1;">->>+</span><span style="color: #2e2640;">SEFAZ</span>: <span style="color: #c2410c;">POST /nfe</span>
+    <span style="color: #2e2640;">SEFAZ</span><span style="color: #0369a1;">--x</span><span style="color: #2e2640;">Router</span>: <span style="color: #dc2626;">timeout 3s</span>
+    <span style="color: #2e2640;">Router</span><span style="color: #0369a1;">->>+</span><span style="color: #2e2640;">Fila</span>: <span style="color: #c2410c;">enqueue (fallback)</span></code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: clamp(10px, 1vw, 12px); color: var(--inteli-lilac); margin-bottom: 6px;"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle;">layers</span> C4 Context Diagram</h4>
+                        <div class="code-example" style="width: 100%;">
+                            <pre class="code-block code-compact" style="font-size: 10px;"><code><span style="color: #7c3aed;">C4Context</span>
+    <span style="color: #047857;">title</span> <span style="color: #c2410c;">Contexto - Integra&ccedil;&atilde;o ASIS</span>
+
+    <span style="color: #047857;">Person</span>(<span style="color: #2e2640;">user</span>, <span style="color: #c2410c;">"Usu&aacute;rio ASIS"</span>)
+    <span style="color: #047857;">System</span>(<span style="color: #2e2640;">asis</span>, <span style="color: #c2410c;">"ASIS"</span>, <span style="color: #c2410c;">"Sistema principal"</span>)
+    <span style="color: #047857;">System_Ext</span>(<span style="color: #2e2640;">erp</span>, <span style="color: #c2410c;">"ERP Sankhya"</span>)
+    <span style="color: #047857;">System_Ext</span>(<span style="color: #2e2640;">sefaz</span>, <span style="color: #c2410c;">"SEFAZ"</span>)
+    <span style="color: #047857;">System_Ext</span>(<span style="color: #2e2640;">ai</span>, <span style="color: #c2410c;">"AI Monitor"</span>)
+
+    <span style="color: #047857;">Rel</span>(<span style="color: #2e2640;">user</span>, <span style="color: #2e2640;">asis</span>, <span style="color: #c2410c;">"Usa"</span>)
+    <span style="color: #047857;">Rel</span>(<span style="color: #2e2640;">asis</span>, <span style="color: #2e2640;">erp</span>, <span style="color: #c2410c;">"Sync dados"</span>)
+    <span style="color: #047857;">Rel</span>(<span style="color: #2e2640;">asis</span>, <span style="color: #2e2640;">sefaz</span>, <span style="color: #c2410c;">"NF-e"</span>)
+    <span style="color: #047857;">Rel</span>(<span style="color: #2e2640;">ai</span>, <span style="color: #2e2640;">asis</span>, <span style="color: #c2410c;">"Monitora"</span>)</code></pre>
+                        </div>
+                    </div>
                 </div>
-                <div class="jmeter-flow" style="justify-content: center; gap: 15px; margin-top: 30px;">
-                    <div class="jmeter-step" style="flex: 1; max-width: 180px; border-color: var(--inteli-coral);">
-                        <div class="concept-icon"><span class="material-icons-outlined">shield</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">T&aacute;tica</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">Retry, CB, Timeout, Cache, Bulkhead</p>
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                    <div class="concept-card" style="border-top: 3px solid var(--inteli-coral); text-align: center; padding: 10px;">
+                        <h4 style="font-size: clamp(10px, 1vw, 12px); color: var(--inteli-coral);">Component Diagram</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px);">Mostra sistemas, middleware, canais. Vis&atilde;o &ldquo;caixas e setas&rdquo;.</p>
                     </div>
-                    <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">add</span>
+                    <div class="concept-card" style="border-top: 3px solid var(--inteli-lilac); text-align: center; padding: 10px;">
+                        <h4 style="font-size: clamp(10px, 1vw, 12px); color: var(--inteli-lilac);">Sequence Diagram</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px);">Mostra fluxo temporal de uma opera&ccedil;&atilde;o. Ideal para cenarios de falha.</p>
                     </div>
-                    <div class="jmeter-step" style="flex: 1; max-width: 180px; border-color: var(--inteli-lilac);">
-                        <div class="concept-icon"><span class="material-icons-outlined">science</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Teste</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">BDD + Mocks + Carga</p>
-                    </div>
-                    <div style="display: flex; align-items: center;">
-                        <span class="material-icons-outlined" style="font-size: 28px; color: var(--inteli-coral);">add</span>
-                    </div>
-                    <div class="jmeter-step" style="flex: 1; max-width: 180px; border-color: var(--inteli-green);">
-                        <div class="concept-icon"><span class="material-icons-outlined">monitoring</span></div>
-                        <h4 style="font-size: clamp(12px, 1.2vw, 15px);">Monitoramento</h4>
-                        <p style="font-size: clamp(10px, 1vw, 12px);">M&eacute;tricas, Logs, Alertas</p>
+                    <div class="concept-card" style="border-top: 3px solid var(--inteli-green); text-align: center; padding: 10px;">
+                        <h4 style="font-size: clamp(10px, 1vw, 12px); color: var(--inteli-dark-green);">C4 Model</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px);">Context &rarr; Container &rarr; Component &rarr; Code. Zoom progressivo na arquitetura.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 20: PR&Oacute;XIMOS PASSOS
+             SLIDE 20: CONSTRUINDO PROMPTS CRÍTICOS
              ============================================= -->
         <section class="slide slide-content" data-slide="20">
             <div class="slide-header">
-                <span class="section-tag">PR&Oacute;XIMOS PASSOS</span>
-                <h2 class="slide-title">O que Vem Depois</h2>
+                <span class="activity-tag">PROMPTS</span>
+                <h2 class="slide-title">Construindo Prompts com Pensamento Cr&iacute;tico</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
-                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral);">
-                        <div class="concept-icon"><span class="material-icons-outlined">support</span></div>
-                        <h4>Aula 10: Suporte Dedicado</h4>
-                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">Troubleshooting, revis&atilde;o de c&oacute;digo e tempo dedicado de implementa&ccedil;&atilde;o com suporte do instrutor.</p>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <p style="font-size: clamp(11px, 1.1vw, 14px); margin-bottom: 10px;"><strong>O Copilot gera rascunhos, n&atilde;o arquitetura final.</strong> O valor est&aacute; no que voc&ecirc;s pedem e no que refinam depois.</p>
+                <div class="drivers-examples" style="gap: 6px; margin-bottom: 12px;">
+                    <div class="driver-item" style="padding: 8px 12px;">
+                        <span style="background: var(--inteli-coral); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">1</span>
+                        <div>
+                            <h4 style="font-size: clamp(10px, 1vw, 13px);">Contextualize o dom&iacute;nio</h4>
+                            <p style="font-size: clamp(9px, 0.9vw, 11px);">&ldquo;Somos um ERP que integra com SEFAZ, BACEN e transportadoras. O sistema precisa operar 24/7.&rdquo;</p>
+                        </div>
                     </div>
-                    <div class="concept-card" style="border-left: 3px solid var(--inteli-lilac);">
-                        <div class="concept-icon"><span class="material-icons-outlined">assignment</span></div>
-                        <h4>O que Trazer</h4>
-                        <p style="font-size: clamp(12px, 1.2vw, 15px); line-height: 1.7; margin-top: 8px;">C&oacute;digo com testes rodando + d&uacute;vidas espec&iacute;ficas sobre integra&ccedil;&otilde;es, mocks e configura&ccedil;&atilde;o de ambiente.</p>
+                    <div class="driver-item" style="padding: 8px 12px;">
+                        <span style="background: var(--inteli-lilac); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">2</span>
+                        <div>
+                            <h4 style="font-size: clamp(10px, 1vw, 13px);">Especifique restri&ccedil;&otilde;es e RNFs</h4>
+                            <p style="font-size: clamp(9px, 0.9vw, 11px);">&ldquo;PIX deve confirmar em &lt;10s. SEFAZ tem janelas de manuten&ccedil;&atilde;o. Rate limit de 100 req/min na transportadora.&rdquo;</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 8px 12px;">
+                        <span style="background: var(--inteli-dark-green); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">3</span>
+                        <div>
+                            <h4 style="font-size: clamp(10px, 1vw, 13px);">Nomeie os padr&otilde;es que quer ver</h4>
+                            <p style="font-size: clamp(9px, 0.9vw, 11px);">&ldquo;Use Message Router para rotear por UF, Message Translator para JSON&harr;XML, Event Bus para eventos de dom&iacute;nio.&rdquo;</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 8px 12px;">
+                        <span style="background: var(--inteli-purple); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">4</span>
+                        <div>
+                            <h4 style="font-size: clamp(10px, 1vw, 13px);">Defina o papel da IA explicitamente</h4>
+                            <p style="font-size: clamp(9px, 0.9vw, 11px);">&ldquo;Inclua componente de IA que analisa logs do Event Bus e alerta sobre anomalias de lat&ecirc;ncia.&rdquo;</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 8px 12px;">
+                        <span style="background: #b45309; color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">5</span>
+                        <div>
+                            <h4 style="font-size: clamp(10px, 1vw, 13px);">Pe&ccedil;a o tipo de diagrama certo</h4>
+                            <p style="font-size: clamp(9px, 0.9vw, 11px);">&ldquo;Gere como C4 Context para vis&atilde;o geral, OU Sequence para fluxo de cria&ccedil;&atilde;o de pedido com fallback.&rdquo;</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: rgba(46,38,64,0.06); border-radius: 8px; padding: 10px 14px;">
+                    <p style="font-size: clamp(10px, 1vw, 12px);"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle; color: var(--inteli-coral);">warning</span> <strong>Armadilha:</strong> aceitar o diagrama do Copilot sem questionar. Sempre pergunte: &ldquo;Este diagrama reflete o <em>meu</em> projeto ou &eacute; gen&eacute;rico?&rdquo; Refine at&eacute; que ele represente as integra&ccedil;&otilde;es <strong>reais</strong> do ASIS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 21: PROMPT COMPLETO — EXEMPLO
+             ============================================= -->
+        <section class="slide slide-content" data-slide="21">
+            <div class="slide-header">
+                <span class="activity-tag">EXEMPLO</span>
+                <h2 class="slide-title">Prompt Completo para o Projeto</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="code-example" style="width: 100%; margin-bottom: 12px;">
+                    <pre class="code-block code-compact" style="font-size: 10.5px; white-space: pre-wrap; word-wrap: break-word;"><code><span style="color: #2e2640;">Voc&ecirc; &eacute; um arquiteto de software. Nosso projeto ASIS integra
+o ERP Sankhya com sistemas externos: SEFAZ (NF-e), BACEN (PIX),
+transportadoras (rastreio) e um CRM.
+
+Restri&ccedil;&otilde;es:
+- PIX: confirma&ccedil;&atilde;o em &lt;10s (regulat&oacute;rio BACEN)
+- SEFAZ: janelas de manuten&ccedil;&atilde;o n&atilde;o anunciadas
+- Transportadora: rate limit de 100 req/min
+- Disponibilidade geral: 99.5%
+
+Gere um diagrama Mermaid do tipo [C4Context | sequenceDiagram |
+graph LR] que mostre:
+1. Os sistemas e seus canais de comunica&ccedil;&atilde;o
+2. Pelo menos 3 padr&otilde;es EIP expl&iacute;citos (Message Router,
+   Message Translator, Event-Driven Consumer)
+3. Um componente de IA respons&aacute;vel por [monitorar anomalias |
+   priorizar filas | prever falhas]
+4. Os mecanismos de resili&ecirc;ncia (CB, Retry, Timeout, Cache)
+
+Depois do diagrama, liste quais padr&otilde;es EIP voc&ecirc; usou e
+por qu&ecirc;.</span></code></pre>
+                </div>
+                <div class="concepts-grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-green); padding: 10px;">
+                        <h4 style="color: var(--inteli-dark-green); font-size: clamp(10px, 1vw, 12px);"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle;">check_circle</span> Bom prompt</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px);">Contextualiza, tem restri&ccedil;&otilde;es, nomeia padr&otilde;es, pede justificativa</p>
+                    </div>
+                    <div class="concept-card" style="border-left: 3px solid var(--inteli-coral); padding: 10px;">
+                        <h4 style="color: var(--inteli-coral); font-size: clamp(10px, 1vw, 12px);"><span class="material-icons-outlined" style="font-size: 14px; vertical-align: middle;">cancel</span> Mau prompt</h4>
+                        <p style="font-size: clamp(9px, 0.9vw, 11px);">&ldquo;Crie um diagrama de integra&ccedil;&atilde;o&rdquo; &mdash; gen&eacute;rico, sem contexto, aceita qualquer resultado</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- =============================================
-             SLIDE 21: REFER&Ecirc;NCIAS
+             SLIDE 22: TAREFA + TIMER
              ============================================= -->
-        <section class="slide slide-content" data-slide="21">
+        <section class="slide slide-content" data-slide="22">
+            <div class="slide-header">
+                <span class="activity-tag">ATIVIDADE</span>
+                <h2 class="slide-title">Tarefa dos Grupos</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-coral); margin-bottom: 8px;"><span class="material-icons-outlined" style="font-size: 16px; vertical-align: middle;">casino</span> Cen&aacute;rios (sortear)</h4>
+                        <div class="drivers-examples" style="gap: 6px;">
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px;">storefront</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">Sankhya &harr; CRM</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px;">shopping_cart</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">Sankhya &harr; E-commerce</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px;">analytics</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">Sankhya &harr; BI/Analytics</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px;">phone_android</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">Sankhya &harr; App Mobile</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-lilac); margin-bottom: 8px;"><span class="material-icons-outlined" style="font-size: 16px; vertical-align: middle;">checklist</span> Requisitos</h4>
+                        <div class="drivers-examples" style="gap: 6px;">
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-coral);">check</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);"><strong>3+ padr&otilde;es EIP</strong> expl&iacute;citos</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-lilac);">check</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);"><strong>1+ componente de IA</strong></p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-dark-green);">check</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">Component ou Sequence diagram</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-purple);">check</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">Renderizar no GitHub/VS Code</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timer-container" style="background: var(--inteli-purple); border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 20px; border: 2px solid var(--inteli-coral); padding: 15px 25px;">
+                    <div class="timer" id="timer-atividade">
+                        <span class="timer-value" style="font-size: 48px; letter-spacing: -2px; line-height: 1;">35:00</span>
+                    </div>
+                    <button class="timer-btn" onclick="startTimer('timer-atividade', 2100)" style="font-weight: 800; text-transform: uppercase; font-size: 14px; padding: 10px 20px;">
+                        <span class="material-icons-outlined">play_arrow</span> Iniciar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 23: DEBATE + DISSECAÇÃO
+             ============================================= -->
+        <section class="slide slide-content" data-slide="23">
+            <div class="slide-header">
+                <span class="activity-tag">DEBATE</span>
+                <h2 class="slide-title">Apresenta&ccedil;&atilde;o + Disseca&ccedil;&atilde;o do Artigo</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-coral); margin-bottom: 8px;">Para cada diagrama, perguntar:</h4>
+                        <div class="drivers-examples" style="gap: 6px;">
+                            <div class="driver-item" style="padding: 8px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-coral);">help_outline</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">&ldquo;Quais padr&otilde;es cl&aacute;ssicos de EIP est&atilde;o <strong>explicitamente</strong> representados?&rdquo;</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 8px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-lilac);">help_outline</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">&ldquo;Onde a IA entra e qual benef&iacute;cio ela traz, <strong>segundo o artigo</strong>?&rdquo;</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 8px 12px;">
+                                <span class="material-icons-outlined" style="font-size: 18px; color: var(--inteli-dark-green);">help_outline</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 13px);">&ldquo;Que riscos de acoplamento a IA traz?&rdquo;</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: clamp(11px, 1.1vw, 14px); color: var(--inteli-lilac); margin-bottom: 8px;">Mini-guia de disseca&ccedil;&atilde;o:</h4>
+                        <div class="drivers-examples" style="gap: 5px;">
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span style="background: var(--inteli-coral); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">1</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 12px);">T&iacute;tulo, autores, ano &mdash; &ldquo;Por que importa?&rdquo;</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span style="background: var(--inteli-lilac); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">2</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 12px);">Introdu&ccedil;&atilde;o em voz alta: problema, motiva&ccedil;&atilde;o</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span style="background: var(--inteli-dark-green); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">3</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 12px);">1 figura/tabela &mdash; &ldquo;Onde aparece no diagrama de vcs?&rdquo;</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span style="background: var(--inteli-purple); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">4</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 12px);">Par&aacute;grafo sobre IA &rarr; transformar em perguntas</p></div>
+                            </div>
+                            <div class="driver-item" style="padding: 6px 12px;">
+                                <span style="background: #b45309; color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0;">5</span>
+                                <div><p style="font-size: clamp(10px, 1vw, 12px);">Open challenges &mdash; &ldquo;O que pesquisar mais?&rdquo;</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 24: SÍNTESE
+             ============================================= -->
+        <section class="slide slide-content" data-slide="24">
+            <div class="slide-header">
+                <span class="section-tag">S&Iacute;NTESE</span>
+                <h2 class="slide-title">3 Ideias do Artigo para Levar</h2>
+                <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
+            </div>
+            <div class="slide-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div class="drivers-examples" style="max-width: 800px; gap: 15px;">
+                    <div class="driver-item" style="padding: 15px 20px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-coral); font-size: 32px;">business</span>
+                        <div>
+                            <h4 style="font-size: clamp(13px, 1.3vw, 16px);">Integra&ccedil;&atilde;o &eacute; capacidade estrat&eacute;gica</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px); margin-top: 4px;">N&atilde;o &eacute; plumbing &mdash; &eacute; o que diferencia l&iacute;deres de seguidores. Efici&ecirc;ncia, agilidade e inova&ccedil;&atilde;o dependem dela.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 15px 20px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-lilac); font-size: 32px;">architecture</span>
+                        <div>
+                            <h4 style="font-size: clamp(13px, 1.3vw, 16px);">Projetar para escalabilidade e observabilidade</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px); margin-top: 4px;">Padr&otilde;es EIP d&atilde;o estrutura. Cloud-native d&aacute; elasticidade. Monitoramento d&aacute; visibilidade.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 15px 20px;">
+                        <span class="material-icons-outlined" style="color: var(--inteli-dark-green); font-size: 32px;">psychology</span>
+                        <div>
+                            <h4 style="font-size: clamp(13px, 1.3vw, 16px);">IA como camada transversal</h4>
+                            <p style="font-size: clamp(11px, 1.1vw, 14px); margin-top: 4px;">Monitoramento inteligente, otimiza&ccedil;&atilde;o de fluxos, automa&ccedil;&atilde;o. A IA n&atilde;o substitui a arquitetura &mdash; ela a potencializa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SLIDE 25: REFERÊNCIAS
+             ============================================= -->
+        <section class="slide slide-content" data-slide="25">
             <div class="slide-header">
                 <span class="section-tag">REFER&Ecirc;NCIAS</span>
                 <h2 class="slide-title">Materiais de Refer&ecirc;ncia</h2>
                 <div class="inteli-mini-logo"><img src="logo-inteli-color.png" alt="inteli"></div>
             </div>
-            <div class="slide-body">
-                <div class="drivers-examples">
-                    <div class="driver-item">
+            <div class="slide-body" style="overflow-y: auto; scrollbar-width: thin;">
+                <div class="drivers-examples" style="gap: 8px;">
+                    <div class="driver-item" style="padding: 8px 15px;">
+                        <span class="material-icons-outlined">article</span>
+                        <div>
+                            <h4 style="font-size: clamp(11px, 1.1vw, 14px);">Adusumilli (2025) &mdash; Enterprise System Integration</h4>
+                            <p style="font-size: clamp(10px, 1vw, 12px);">WJAETS, 15(01), 346-356. <a href="https://wjaets.com/sites/default/files/fulltext_pdf/WJAETS-2025-0205.pdf" target="_blank" style="color: var(--inteli-coral);">PDF</a></p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 8px 15px;">
                         <span class="material-icons-outlined">menu_book</span>
                         <div>
-                            <h4>Release It! &mdash; Michael Nygard</h4>
-                            <p>Circuit Breaker, Bulkhead patterns. Refer&ecirc;ncia cl&aacute;ssica para resili&ecirc;ncia em sistemas distribu&iacute;dos.</p>
+                            <h4 style="font-size: clamp(11px, 1.1vw, 14px);">Hohpe &amp; Woolf &mdash; Enterprise Integration Patterns</h4>
+                            <p style="font-size: clamp(10px, 1vw, 12px);">enterpriseintegrationpatterns.com &mdash; Cat&aacute;logo completo de EIP (2003).</p>
                         </div>
                     </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">terminal</span>
+                    <div class="driver-item" style="padding: 8px 15px;">
+                        <span class="material-icons-outlined">science</span>
                         <div>
-                            <h4>SRE Interview Prep Guide</h4>
-                            <p>Disponibilidade, lat&ecirc;ncia, error budgets. Como SREs pensam em confiabilidade de integra&ccedil;&otilde;es.</p>
+                            <h4 style="font-size: clamp(11px, 1.1vw, 14px);">Ritter et al. (2017) &mdash; Patterns for Emerging Integration Scenarios</h4>
+                            <p style="font-size: clamp(10px, 1vw, 12px);">Information Systems, 67. Cloud, mobile, IoT, streaming.</p>
                         </div>
                     </div>
-                    <div class="driver-item">
+                    <div class="driver-item" style="padding: 8px 15px;">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <div>
+                            <h4 style="font-size: clamp(11px, 1.1vw, 14px);">Release It! &mdash; Michael Nygard</h4>
+                            <p style="font-size: clamp(10px, 1vw, 12px);">Circuit Breaker, Bulkhead, Timeout patterns para resili&ecirc;ncia.</p>
+                        </div>
+                    </div>
+                    <div class="driver-item" style="padding: 8px 15px;">
                         <span class="material-icons-outlined">code</span>
                         <div>
-                            <h4>Repo de Refer&ecirc;ncia</h4>
-                            <p>github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd &mdash; Behave, pytest, Locust, Circuit Breaker, Retry</p>
-                        </div>
-                    </div>
-                    <div class="driver-item">
-                        <span class="material-icons-outlined">verified</span>
-                        <div>
-                            <h4>Behave Documentation</h4>
-                            <p>behave.readthedocs.io &mdash; Documenta&ccedil;&atilde;o oficial do framework BDD para Python.</p>
+                            <h4 style="font-size: clamp(11px, 1.1vw, 14px);">Repo de Refer&ecirc;ncia</h4>
+                            <p style="font-size: clamp(10px, 1vw, 12px);">github.com/canaldoovidio/rf-rnf-gherkin-bdd-tdd &mdash; Behave, pytest, Locust, CB, Retry</p>
                         </div>
                     </div>
                 </div>
@@ -821,22 +1041,23 @@
         </section>
 
         <!-- =============================================
-             SLIDE 22: ENCERRAMENTO
+             SLIDE 26: ENCERRAMENTO
              ============================================= -->
-        <section class="slide slide-closing" data-slide="22">
+        <section class="slide slide-closing" data-slide="26">
             <div class="closing-content" style="height: auto; max-height: 100%; justify-content: center; gap: 20px;">
                 <div class="closing-quote" style="margin-bottom: 0;">
                     <span class="quote-mark">&ldquo;</span>
-                    <p>A integra&ccedil;&atilde;o mais perigosa &eacute; aquela que voc&ecirc; n&atilde;o testou sob falha.</p>
+                    <p>Developing robust integration capabilities is not merely an IT concern but a fundamental requirement for business success.</p>
+                    <span style="font-size: clamp(10px, 1vw, 13px); opacity: 0.7; display: block; margin-top: 8px;">&mdash; Adusumilli, 2025</span>
                 </div>
                 <div class="closing-footer">
                     <div class="next-steps">
                         <h3>Para Lembrar</h3>
                         <ul>
-                            <li>Cada integra&ccedil;&atilde;o tem um perfil de falha</li>
-                            <li>T&aacute;tica depende do SLA externo</li>
-                            <li>Mock realista = side_effect + lat&ecirc;ncia</li>
-                            <li>Monitore antes de precisar debugar</li>
+                            <li>Padr&otilde;es EIP d&atilde;o vocabul&aacute;rio comum &agrave;s decis&otilde;es</li>
+                            <li>Cada integra&ccedil;&atilde;o tem perfil de falha &rarr; t&aacute;tica espec&iacute;fica</li>
+                            <li>IA entra como camada transversal (monitoring, anomalias, scaling)</li>
+                            <li>Diagrama com IA = padr&otilde;es EIP + componentes inteligentes</li>
                         </ul>
                     </div>
                     <div class="closing-logos">
